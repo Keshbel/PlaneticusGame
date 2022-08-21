@@ -5,13 +5,16 @@ using Random = UnityEngine.Random;
 
 public class PlanetGeneration : MonoBehaviour
 {
+    //planets
     private const float PlanetOffset = 0.8f;
-    
     public GameObject planetPrefab;
+    public List<Sprite> listSpritePlanet;
+    public List<GameObject> listPlanet;
+    //Bounds of Camera Movement
     public Vector2 xBounds;
     public Vector2 yBounds;
 
-    public List<GameObject> listPlanet;
+    
 
     private void Start()
     {
@@ -30,34 +33,49 @@ public class PlanetGeneration : MonoBehaviour
 
             RandomXY(ref x, ref y);
 
-            /*for (var index = 0; index < listPlanet.Count; index++) //сверка на одинаковость координат
-            {
-                var planetAnother = listPlanet[index];
-                if (x - PlanetOffset <= planetAnother.transform.position.x &&
-                    x + PlanetOffset >= planetAnother.transform.position.x)
-                {
-                    if (y - PlanetOffset <= planetAnother.transform.position.y &&
-                        y + PlanetOffset >= planetAnother.transform.position.y)
-                    {
-                    }
-                    else
-                    {
-                        index = -1;
-                        RandomXY(ref x, ref y);
-                    }
-                }
-                else
-                {
-                    index = -1;
-                    RandomXY(ref x, ref y);
-                }
-            }*/
-
             planet.transform.position = new Vector3(x, y, 0);
+            var randomScale = Random.Range(0.1f, 0.2f);
+            planet.transform.localScale = new Vector3(randomScale,randomScale,randomScale);
+            planet.GetComponent<SpriteRenderer>().sprite = listSpritePlanet[Random.Range(0, listSpritePlanet.Count)];
             listPlanet.Add(planet);
             yield return null;
         }
 
+        //расселение в другие координаты пересекающихся планет
+        foreach (var planeT in listPlanet)
+        {
+            Bounds _bounds = planeT.GetComponent<CircleCollider2D>().bounds;
+            foreach (var planet in listPlanet)
+            {
+                if (_bounds.Intersects(planet.GetComponent<CircleCollider2D>().bounds))
+                {
+                    float x = 0, y = 0;
+                    RandomXY(ref x, ref y);
+                    planet.transform.position = new Vector3(x, y, 0);
+                    print("Intersect");
+                }
+            }
+        }
+        
+        yield return new WaitForSeconds(0.1f);
+        
+        foreach (var planeT in listPlanet)
+        {
+            Bounds _bounds = planeT.GetComponent<CircleCollider2D>().bounds;
+            foreach (var planet in listPlanet)
+            {
+                if (_bounds.Intersects(planet.GetComponent<CircleCollider2D>().bounds))
+                {
+                    float x = 0, y = 0;
+                    RandomXY(ref x, ref y);
+                    planet.transform.position = new Vector3(x, y, 0);
+                    print("Intersect");
+                }
+            }
+        }
+        
+        yield return new WaitForSeconds(0.1f);
+        
         foreach (var planeT in listPlanet)
         {
             Bounds _bounds = planeT.GetComponent<CircleCollider2D>().bounds;

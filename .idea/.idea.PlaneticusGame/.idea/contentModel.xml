@@ -11,8 +11,11 @@
             <e p="PlanetGeneration.cs" t="Include" />
           </e>
           <e p="Input" t="Include">
-            <e p="Selectable.cs" t="Include" />
+            <e p="CameraMove.cs" t="Include" />
+            <e p="SelectablePlanet.cs" t="Include" />
+            <e p="SelectablePlanetManager.cs" t="Include" />
           </e>
+          <e p="Parallax.cs" t="Include" />
         </e>
         <e p="Resources" t="Include">
           <e p="BillingMode.json" t="Include" />
