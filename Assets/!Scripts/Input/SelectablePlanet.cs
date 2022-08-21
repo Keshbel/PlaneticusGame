@@ -46,4 +46,13 @@ public class SelectablePlanet : MonoBehaviour, IPointerDownHandler
     {
         SelectingProcess();
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (!other.collider.CompareTag("Planet")) return;
+        
+        FindObjectOfType<PlanetGeneration>().listPlanet.Remove(other.gameObject);
+        Destroy(other.gameObject);
+        print("Sorting Planet");
+    }
 }

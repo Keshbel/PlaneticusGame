@@ -15,7 +15,9 @@
             <e p="SelectablePlanet.cs" t="Include" />
             <e p="SelectablePlanetManager.cs" t="Include" />
           </e>
-          <e p="Parallax.cs" t="Include" />
+          <e p="VisualImprovements" t="Include">
+            <e p="Parallax.cs" t="Include" />
+          </e>
         </e>
         <e p="Resources" t="Include">
           <e p="BillingMode.json" t="Include" />
