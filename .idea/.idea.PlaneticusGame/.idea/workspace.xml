@@ -20,13 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetGeneration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,10 +45,10 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/Selectable.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanetManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Parallax.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetGeneration.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetGeneration.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" />
       </list>
     </option>
   </component>
@@ -95,7 +93,8 @@
       <option name="presentableId" value="Default" />
       <updated>1660997263517</updated>
       <workItem from="1660997280396" duration="8352000" />
-      <workItem from="1661051963910" duration="10137000" />
+      <workItem from="1661051963910" duration="11082000" />
+      <workItem from="1661435046695" duration="3498000" />
     </task>
     <servers />
   </component>

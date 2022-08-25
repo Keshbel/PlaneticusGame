@@ -45,35 +45,6 @@ public class PlanetGeneration : MonoBehaviour
             yield return null;
         }
 
-        /*List<GameObject> destroyPlanetList = new List<GameObject>();
-        //расселение в другие координаты пересекающихся планет
-        foreach (var planeT in listPlanet)
-        {
-            Bounds _bounds = planeT.GetComponent<CircleCollider2D>().;
-            foreach (var planet in listPlanet)
-            {
-                if (_bounds.Intersects(planet.GetComponent<CircleCollider2D>().bounds))
-                {
-                    //listPlanet.Remove(planet);
-                    destroyPlanetList.Add(planet);
-                    /*float x = 0, y = 0;
-                    RandomXY(ref x, ref y);
-                    planet.transform.position = new Vector3(x, y, 0);
-                    print("Intersect");#1#
-                }
-            }
-        }
-        
-        yield return new WaitForSeconds(0.5f);
-
-        var countDestroy = destroyPlanetList.Count;
-        
-        for (var index = 0; index < countDestroy; index++)
-        {
-            listPlanet.Remove(destroyPlanetList[index]);
-            Destroy(destroyPlanetList[index]);
-        }*/
-
         yield return null;
     }
 
