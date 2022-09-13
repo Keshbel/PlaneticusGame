@@ -3,6 +3,8 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     private Camera _mainCam;
+
+    public bool isEnable = true;
     public float sensivity = 4;
     //движение камеры
     private Vector2 _startPos;
@@ -32,6 +34,8 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isEnable) return;
+        
         //передвижение камеры
         if (Input.GetMouseButtonDown(0)) _startPos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
         else if (Input.GetMouseButton(0))
@@ -48,8 +52,7 @@ public class CameraMove : MonoBehaviour
             Mathf.Lerp(transform.position.y, _targetPosY, sensivity * Time.deltaTime),
             transform.position.z);
 
-        #if !UNITY_STANDALONE
-        
+        #if !UNITY_STANDALONE //масштабирование(зум) для мобилок
         //масштабирование(зум)
         if (Input.touchCount == 2)
         {
@@ -67,7 +70,7 @@ public class CameraMove : MonoBehaviour
             var currentZoom = _mainCam.orthographicSize - _zoom * sensivity;
             _mainCam.orthographicSize = Mathf.Clamp(currentZoom, zoomMin, zoomMax);
         }
-        #else
+        #else //масштабирование(зум) для пк платформ 
         _zoom = _mainCam.orthographicSize - Input.GetAxis("Mouse ScrollWheel") * sensivity;
         _mainCam.orthographicSize = Mathf.Clamp(_zoom, zoomMin, zoomMax);;
         #endif

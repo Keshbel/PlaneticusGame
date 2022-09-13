@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4207079687863851771
 Transform:
   m_ObjectHideFlags: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020750751907892692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1, y: 2.1, z: 2.1}
+  m_LocalPosition: {x: -0.24, y: 0.19, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1346727934054524141}
@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7dd809f03c6fcf543bce88be397e72cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 415d234dfb8ccb14e9481b28a927baad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7, y: 7}
+  m_Size: {x: 12, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1324706128143720089}
   - component: {fileID: 4848203264384095059}
   - component: {fileID: 2409134338580868546}
+  - component: {fileID: 6680024571693645976}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14448992746c874383aa28cba54721f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetGeneration: {fileID: 0}
+  planetController: {fileID: 6680024571693645976}
   selectingObject: {fileID: 2020750751907892692}
   isSelecting: 0
   defaultScale: {x: 0, y: 0, z: 0}
@@ -225,3 +226,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6680024571693645976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namePlanet: 
+  indexCurrentResource: 0
+  planetResources: []
+  isSuperPlanet: 0
