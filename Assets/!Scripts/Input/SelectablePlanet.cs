@@ -49,6 +49,8 @@ public class SelectablePlanet : MonoBehaviour, IPointerDownHandler
     
     public void OnPointerDown(PointerEventData eventData) //нажатие на планету
     {
+        if (!FindObjectOfType<CurrentPlayer>().playerPlanets.Contains(planetController)) return;
+        
         SelectingProcess();
         planetController.OpenPlanet();
         AllSingleton.instance.planetPanelController.OpenPanel();

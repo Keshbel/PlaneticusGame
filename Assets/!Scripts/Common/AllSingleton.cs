@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class AllSingleton : MonoBehaviour
 {
+    public CurrentPlayer currentPlayer;
     public CameraMove cameraMove;
+    public PlanetGeneration planetGeneration;
     
     [Header("PlanetPanel")]
     public PanelController planetPanelController;

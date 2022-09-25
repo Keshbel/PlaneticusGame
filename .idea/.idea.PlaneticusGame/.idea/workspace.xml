@@ -19,279 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetGeneration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetGeneration.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/10.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/11.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/12.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/13.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/14.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/15.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/16.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/17.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/18.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/19.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/20.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/21.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/22.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/23.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/24.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/25.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/26.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/27.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/28.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/29.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/30.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/31.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/32.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/33.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/34.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/35.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/36.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/37.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/38.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/39.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/4.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/40.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/41.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/41.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/42.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/43-light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/43-light.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/43.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/43.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/5.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/6.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/7.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/8.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/Original size/9.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/1- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/1- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/10- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/10- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/11- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/11- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/12- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/12- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/13- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/13- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/14- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/14- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/15- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/15- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/16- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/16- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/17- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/17- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/18- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/18- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/19- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/19- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/2- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/2- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/20- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/20- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/21- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/21- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/22- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/22- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/23- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/23- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/24- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/24- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/25- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/25- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/26- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/26- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/27- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/27- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/28- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/28- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/29- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/29- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/3- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/3- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/30- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/30- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/31- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/31- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/32- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/32- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/33- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/33- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/34- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/34- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/35- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/35- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/36- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/36- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/37- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/37- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/38- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/38- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/39- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/39- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/4- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/4- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/40- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/40- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/41- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/41- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/42- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/42- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/43- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/43- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/43-light- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/43-light- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/5- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/5- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/6- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/6- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/7- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/7- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/8- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/8- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/9- 2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Planets/size 2x/9- 2x.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Starship.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/Starship.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/bg pattern.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/bg pattern.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-generic litems list-unlockables.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-generic litems list-unlockables.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-launch-start.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-launch-start.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-leaderboard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-leaderboard.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-musc off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-musc off.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-music on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-music on.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-pause.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-pause.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-settings (2).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-settings (2).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-settings.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-sfx off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-sfx off.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-sfx on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-sfx on.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-stylized settings bt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button-stylized settings bt.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-back.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-generic items list-unlockables.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-generic items list-unlockables.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-generic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-generic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-launch-start.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-launch-start.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-launch-start2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-launch-start2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-leaderboard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-leaderboard.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-music off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-music off.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-music on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-music on.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-navigation menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-navigation menu.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-pause.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-pause.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-play.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-sfx off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-sfx off.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-sfx on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-sfx on.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-vibration off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-vibration off.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-vibration on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/button2-vibration on.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/generic button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/generic button.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/generic button_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/generic button_1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/hazard level icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/hazard level icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits4.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits5.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits6.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/in game currency-credits7.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/location point.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/location point.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/minerals icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/minerals icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/planet selection.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FREE Space Asset Pack/UI/planet selection.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-    </list>
+    <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -301,14 +29,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanetManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceSingleton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Enums.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanetManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/NetMan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -337,25 +67,48 @@
       </list>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2DcTEJKAiRYXFIyB8CQRV1zsUbI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/PlaneticusGame\PlaneticusGame.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\atari\Documents\GitHub\Builds\PlaneticusGame" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.8f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\atari\Documents\GitHub\PlaneticusGame -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\atari\Documents\GitHub\PlaneticusGame" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -363,8 +116,9 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -384,12 +138,16 @@
       <workItem from="1662476199555" duration="2039000" />
       <workItem from="1662540322608" duration="12278000" />
       <workItem from="1662714079327" duration="7636000" />
+      <workItem from="1663999928494" duration="3531000" />
+      <workItem from="1664012646264" duration="234000" />
+      <workItem from="1664013028677" duration="12026000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="Vcs.Log.Tabs.Properties">
@@ -402,15 +160,8 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="384" y="295" key="SettingsEditor" timestamp="1661057325393">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="384" y="295" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1661057325393" />
   </component>
 </project>

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,16 +6,31 @@ public class PlanetController : MonoBehaviour
 {
     public string namePlanet;
 
+    //resources
     public int indexCurrentResource;
     public List<ResourceForPlanet> planetResources; //ресурсы на планете
-    public bool isSuperPlanet; //является ли супер планетой? (все 5 ресурсов на ней)
+    public List<GameObject> resourcesIcon;
+    
+    //super planet
+    public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
+    
+    //home
+    public bool isHomePlanet = false; //является ли стартовой планетой?
+    public bool isColonized;
+    public GameObject homeIcon;
 
-    public void AddResource(ResourceForPlanet resource) //добавление ресурса для планеты, с ограничение добавления
+    private void Start()
+    {
+        HomingPlanetShow();
+    }
+
+    public void AddResource(ResourceForPlanet resource) //добавление ресурса для планеты, с ограничением добавления
     {
         if (planetResources.Count < 5)
         {
             planetResources.Add(resource);
             resource.UpdateInfo();
+            ResourceIconShow();
         }
         else
         {
@@ -30,6 +44,23 @@ public class PlanetController : MonoBehaviour
         var res2 = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 4), resourceMining = 1};
         AddResource(res1);
         AddResource(res2);
+    }
+
+    public void SetHomePlanet()
+    {
+        planetResources.Clear();
+        
+        var res1 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Wind, resourceMining = 1};
+        var res2 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Water, resourceMining = 1};
+        var res3 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Earth, resourceMining = 1};
+        var res4 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Fire, resourceMining = 1};
+        var res5 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Aether, resourceMining = 1};
+        
+        AddResource(res1);
+        AddResource(res2);
+        AddResource(res3);
+        AddResource(res4);
+        AddResource(res5);
     }
 
     public void OpenPlanet()
@@ -64,7 +95,48 @@ public class PlanetController : MonoBehaviour
         UpdateInfo();
     }
 
+    public void ResourceIconShow()
+    {
+        if (!isColonized) return;
+        
+        foreach (var icon in resourcesIcon) //вырубаем все иконки
+        {
+            icon.SetActive(false);
+        }
 
+        foreach (var resource in planetResources) //включаем нужные
+        {
+            switch (resource.resourcePlanet)
+            {
+                case Enums.ResourcePlanet.Wind:
+                    resourcesIcon[0].SetActive(true);
+                    break;
+                case Enums.ResourcePlanet.Water:
+                    resourcesIcon[1].SetActive(true);
+                    break;
+                case Enums.ResourcePlanet.Earth:
+                    resourcesIcon[2].SetActive(true);
+                    break;
+                case Enums.ResourcePlanet.Fire:
+                    resourcesIcon[3].SetActive(true);
+                    break;
+                case Enums.ResourcePlanet.Aether:
+                    resourcesIcon[4].SetActive(true);
+                    break;
+            }
+        }
+    }
+    
+    public void HomingPlanetShow() //отображение иконки для родной планеты
+    {
+        if (!AllSingleton.instance.currentPlayer) return;
+        if (AllSingleton.instance.currentPlayer.playerPlanets.Contains(this) && isHomePlanet)
+        {
+            if (homeIcon)
+                homeIcon.SetActive(true);
+        }
+    }
+    
     public void UpdateInfo()
     {
         SubscribeResourceToggle();

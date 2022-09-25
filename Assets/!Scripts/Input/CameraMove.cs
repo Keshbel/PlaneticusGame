@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class CameraMove : MonoBehaviour
@@ -74,7 +75,15 @@ public class CameraMove : MonoBehaviour
         _zoom = _mainCam.orthographicSize - Input.GetAxis("Mouse ScrollWheel") * sensivity;
         _mainCam.orthographicSize = Mathf.Clamp(_zoom, zoomMin, zoomMax);;
         #endif
+        
+    }
 
-
+    public void DoMove(float x, float y, float duration)
+    {
+        isEnable = false;
+        _targetPosX = x;
+        _targetPosY = y;
+        transform.DOLocalMoveX(x, duration);
+        transform.DOLocalMoveY(y, duration).OnComplete(()=> isEnable = true);
     }
 }
