@@ -290,7 +290,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 8948984042186105390, guid: fa8b0997dd42ce14a96a956a0046ad1a, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 3003615264639470420, guid: 35bf5fe1fc71e2541aeb56ba41f6858e, type: 3}
 --- !u!1 &9085946367146449407
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +304,7 @@ GameObject:
   - component: {fileID: 9085946367146449403}
   - component: {fileID: 9085946367146449402}
   - component: {fileID: 9085946367146449401}
+  - component: {fileID: 9085946367146449409}
   m_Layer: 0
   m_Name: NetMan
   m_TagString: Untagged
@@ -310,3 +312,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9085946367146449409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085946367146449407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 1883887211
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0

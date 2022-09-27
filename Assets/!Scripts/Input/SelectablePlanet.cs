@@ -60,7 +60,7 @@ public class SelectablePlanet : MonoBehaviour, IPointerDownHandler
     {
         if (!other.collider.CompareTag("Planet") || defaultScale.x > 0) return;
         
-        FindObjectOfType<PlanetGeneration>().listPlanet.Remove(other.gameObject);
+        FindObjectOfType<PlanetGeneration>().syncListPlanet.Remove(other.gameObject);
         Destroy(other.gameObject);
         print("Sorting Planet");
     }

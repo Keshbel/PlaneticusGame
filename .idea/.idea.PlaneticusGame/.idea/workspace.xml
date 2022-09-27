@@ -19,7 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="" />
+    <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetGeneration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,15 +40,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Enums.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceSingleton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanetManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/NetMan.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Enums.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -55,15 +63,15 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetGeneration.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Enums.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceForPlanet.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetGeneration.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetGeneration.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" />
       </list>
     </option>
   </component>
@@ -75,16 +83,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/PlaneticusGame\PlaneticusGame.exe" />
@@ -106,9 +109,8 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -116,9 +118,8 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -141,6 +142,7 @@
       <workItem from="1663999928494" duration="3531000" />
       <workItem from="1664012646264" duration="234000" />
       <workItem from="1664013028677" duration="12026000" />
+      <workItem from="1664280219061" duration="9368000" />
     </task>
     <servers />
   </component>
@@ -160,8 +162,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1664288736987">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1664288736987" />
   </component>
 </project>

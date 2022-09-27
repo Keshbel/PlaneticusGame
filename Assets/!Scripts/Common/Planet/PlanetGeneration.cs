@@ -2,26 +2,97 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using RandomNameGen;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlanetGeneration : MonoBehaviour
+public class PlanetGeneration : NetworkBehaviour
 {
     //Планеты
     public Transform parentTransform;
     public GameObject planetPrefab;
     public List<Sprite> listSpritePlanet;
+    public SyncList<GameObject> syncListPlanet = new SyncList<GameObject>();
     public List<GameObject> listPlanet;
     
     //Границы видимости камеры
     public Vector2 xBounds;
     public Vector2 yBounds;
 
+    public TMP_Text tmpDebug;
+
     private void Start()
     {
-        StartCoroutine(Generation());
+        if (syncListPlanet.Count==0)
+            StartCoroutine(Generation());
     }
 
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+
+        syncListPlanet.Callback += SyncListPlanet; //вместо hook, для SyncList используем подписку на Callback
+
+        listPlanet = new List<GameObject>(syncListPlanet.Count); //так как Callback действует только на изменение массива,  
+        
+        for (int i = 0; i < syncListPlanet.Count; i++) //а у нас на момент подключения уже могут быть какие-то данные в массиве, нам нужно эти данные внести в локальный массив
+        {
+            //SyncListPlanet(SyncList<GameObject>.Operation.OP_ADD, i, new GameObject(), syncListPlanet[i]);
+            listPlanet.Add(syncListPlanet[i]);
+            tmpDebug.text = listPlanet.Count + " планета в локальном списке";
+        }
+
+        foreach (var planet in listPlanet)
+        {
+            Instantiate(planet);
+        }
+        //Debug.Log(AllSingleton.instance.currentPlayer.playerName + "добавление планет");
+    }
+
+    [Server]
+    private void ChangeListPlanet(GameObject newGO) //метод добавление в лист
+    {
+        syncListPlanet.Add(newGO);
+    }
+    
+    [Command]
+    private void CmdChangeListPlanet(GameObject newGO) //метод добавление в лист
+    {
+        ChangeListPlanet(newGO);
+    }
+    
+    private void SyncListPlanet(SyncList<GameObject>.Operation op, int index, GameObject oldItem, GameObject newItem) //обработчик ля синхронизации планет
+    {
+        switch (op)
+        {
+            case SyncList<GameObject>.Operation.OP_ADD:
+            {
+                listPlanet.Add(newItem);
+                break;
+            }
+            case SyncList<GameObject>.Operation.OP_CLEAR:
+            {
+
+                break;
+            }
+            case SyncList<GameObject>.Operation.OP_INSERT:
+            {
+
+                break;
+            }
+            case SyncList<GameObject>.Operation.OP_REMOVEAT:
+            {
+
+                break;
+            }
+            case SyncList<GameObject>.Operation.OP_SET:
+            {
+
+                break;
+            }
+        }
+    }
+    
     [Server]
     public IEnumerator Generation() //Генерация планет, если они не были сгенерированы
     {
@@ -33,14 +104,14 @@ public class PlanetGeneration : MonoBehaviour
         RandomName nameGen = new RandomName(); // create a new instance of the RandomName class
         List<string> allRandomNames = nameGen.RandomNames(countPlanet, 0); // generate 100 random names with up to two middle names
 
-        while (listPlanet.Count < countPlanet)
+        while (syncListPlanet.Count < countPlanet)
         {
             //создание планеты
             var planet = Instantiate(planetPrefab, parentTransform);
 
             var planetController = planet.GetComponent<PlanetController>();
 
-            planetController.namePlanet = allRandomNames[listPlanet.Count];
+            planetController.namePlanet = allRandomNames[syncListPlanet.Count];
             planetController.AddResourcesForPlanet();
 
             //рандомные параметры для неё
@@ -53,7 +124,13 @@ public class PlanetGeneration : MonoBehaviour
             planet.GetComponent<SpriteRenderer>().sprite = listSpritePlanet[Random.Range(0, listSpritePlanet.Count)];
 
             //добавление планеты в список
-            listPlanet.Add(planet);
+            if (isServer)
+                ChangeListPlanet(planet);
+            else
+            {
+                CmdChangeListPlanet(planet);
+            }
+            
             yield return null;
         }
 
@@ -63,7 +140,7 @@ public class PlanetGeneration : MonoBehaviour
     public void HomePlanetAddingToPlayer()
     {
         //домашняя планета
-        var homePlanet = listPlanet[Random.Range(0, listPlanet.Count)].GetComponent<PlanetController>();
+        var homePlanet = syncListPlanet[Random.Range(0, syncListPlanet.Count)].GetComponent<PlanetController>();
         homePlanet.SetHomePlanet();
         AllSingleton.instance.currentPlayer.playerPlanets.Add(homePlanet);
         homePlanet.isHomePlanet = true;

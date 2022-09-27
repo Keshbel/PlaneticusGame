@@ -1,6 +1,7 @@
+using Mirror;
 using UnityEngine;
 
-public class AllSingleton : MonoBehaviour
+public class AllSingleton : NetworkBehaviour
 {
     public CurrentPlayer currentPlayer;
     public CameraMove cameraMove;
