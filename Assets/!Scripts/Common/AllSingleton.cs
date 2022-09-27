@@ -5,7 +5,7 @@ public class AllSingleton : NetworkBehaviour
 {
     public CurrentPlayer currentPlayer;
     public CameraMove cameraMove;
-    public PlanetGeneration planetGeneration;
+    public MainPlanetController planetGeneration;
     
     [Header("PlanetPanel")]
     public PanelController planetPanelController;

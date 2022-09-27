@@ -3,12 +3,20 @@ using Mirror;
 
 public class CurrentPlayer : NetworkBehaviour
 {
+    [SyncVar]
     public string playerName;
     public List<PlanetController> playerPlanets;
 
     private void Start()
     {
-        AllSingleton.instance.planetGeneration.Invoke(nameof(PlanetGeneration.HomePlanetAddingToPlayer), 1f);
+        AllSingleton.instance.planetGeneration.Invoke(nameof(MainPlanetController.HomePlanetAddingToPlayer), 1f);
+    }
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        
+        ChangeCurrentUser();
     }
 
     void Update()
@@ -17,6 +25,12 @@ public class CurrentPlayer : NetworkBehaviour
         {
             
         }
+    }
+
+    [Client]
+    public void ChangeCurrentUser()
+    {
+        AllSingleton.instance.currentPlayer = this;
     }
     
     public void ChangeListWithPlanet(PlanetController planet, bool isAdding)

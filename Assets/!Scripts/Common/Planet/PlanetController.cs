@@ -1,21 +1,29 @@
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using Mirror;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlanetController : MonoBehaviour
+public class PlanetController : NetworkBehaviour
 {
+    [SyncVar]
     public string namePlanet;
 
     //resources
+    [SyncVar]
     public int indexCurrentResource;
-    public List<ResourceForPlanet> planetResources; //ресурсы на планете
+    public SyncList<ResourceForPlanet> planetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
     public List<GameObject> resourcesIcon;
     
     //super planet
+    [SyncVar]
     public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
     
     //home
+    [SyncVar]
     public bool isHomePlanet = false; //является ли стартовой планетой?
+    [SyncVar]
     public bool isColonized;
     public GameObject homeIcon;
 

@@ -14,6 +14,7 @@ public class ResourceForPlanet
     public int resourceAll;
     public bool isMined;
     //ссылки
+    [NonSerialized]
     public Sprite spriteIcon;
 
     public void UpdateInfo()
