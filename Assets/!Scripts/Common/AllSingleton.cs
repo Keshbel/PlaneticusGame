@@ -17,6 +17,8 @@ public class AllSingleton : NetworkBehaviour
 
     private void Awake()
     {
+        if (!planetGeneration)
+            planetGeneration = FindObjectOfType<MainPlanetController>();
         if (instance != null)
         {
             Destroy(gameObject);

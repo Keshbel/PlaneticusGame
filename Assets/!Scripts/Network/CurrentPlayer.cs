@@ -1,36 +1,30 @@
-using System.Collections.Generic;
+using System;
 using Mirror;
 
+[Serializable]
 public class CurrentPlayer : NetworkBehaviour
 {
     [SyncVar]
     public string playerName;
-    public List<PlanetController> playerPlanets;
 
-    private void Start()
-    {
-        AllSingleton.instance.planetGeneration.Invoke(nameof(MainPlanetController.HomePlanetAddingToPlayer), 1f);
-    }
+    public SyncList<PlanetController> playerPlanets = new SyncList<PlanetController>();
 
     public override void OnStartClient()
     {
         base.OnStartClient();
         
         ChangeCurrentUser();
+        
+        if (hasAuthority)
+            AllSingleton.instance.planetGeneration.Invoke(nameof(MainPlanetController.HomePlanetAddingToPlayer), 1f);
     }
-
-    void Update()
-    {
-        if (hasAuthority) //проверяем, есть ли у нас права изменять этот объект
-        {
-            
-        }
-    }
+    
 
     [Client]
     public void ChangeCurrentUser()
     {
-        AllSingleton.instance.currentPlayer = this;
+        if (hasAuthority)
+            AllSingleton.instance.currentPlayer = this;
     }
     
     public void ChangeListWithPlanet(PlanetController planet, bool isAdding)

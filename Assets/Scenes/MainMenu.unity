@@ -262,5 +262,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetMan
       objectReference: {fileID: 0}
+    - target: {fileID: 4436036795675073198, guid: 256557c3f18bb4f459310fc9a24fd316, type: 3}
+      propertyPath: sceneId
+      value: 2703048031
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 256557c3f18bb4f459310fc9a24fd316, type: 3}

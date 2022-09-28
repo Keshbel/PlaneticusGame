@@ -1,7 +1,8 @@
+using Mirror;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SelectablePlanet : MonoBehaviour, IPointerDownHandler
+public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
 {
     public PlanetController planetController;
     
@@ -58,10 +59,10 @@ public class SelectablePlanet : MonoBehaviour, IPointerDownHandler
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.collider.CompareTag("Planet") || defaultScale.x > 0) return;
+        /*if (!other.collider.CompareTag("Planet") || defaultScale.x > 0) return;
         
         FindObjectOfType<MainPlanetController>().listPlanet.Remove(other.gameObject);
         Destroy(other.gameObject);
-        print("Sorting Planet");
+        print("Sorting Planet");*/
     }
 }

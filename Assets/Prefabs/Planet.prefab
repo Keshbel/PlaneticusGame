@@ -403,6 +403,118 @@ GameObject:
   - component: {fileID: 1324706128143720089}
   - component: {fileID: 6680024571693645976}
   - component: {fileID: 5925937986370657739}
+  - component: {fileID: 6066848098175772647}
+  - component: {fileID: -5457535142152164326}
+  - component: {fileID: -4880992661258193530}
+  - component: {fileID: 770119056000728094}
+  - component: {fileID: -1738067551321983080}
+  - component: {fileID: -6508869143229893656}
+  - component: {fileID: 3797501163700110337}
+  - component: {fileID: 8535566001866090055}
+  - component: {fileID: -6422840690375842398}
+  - component: {fileID: 4755426826443333253}
+  - component: {fileID: -2676732687616527147}
+  - component: {fileID: -1601411288933189044}
+  - component: {fileID: -3381100159795955901}
+  - component: {fileID: 1514687372448088884}
+  - component: {fileID: 6295450647032098753}
+  - component: {fileID: 3386568288158511345}
+  - component: {fileID: -2226290794886205002}
+  - component: {fileID: -8101656698568403747}
+  - component: {fileID: 8900341187395712328}
+  - component: {fileID: 3076494731348975977}
+  - component: {fileID: -6640919561596692055}
+  - component: {fileID: -6880978288226319279}
+  - component: {fileID: 1607312737207592058}
+  - component: {fileID: -3915111700224404879}
+  - component: {fileID: 4566962132685769583}
+  - component: {fileID: 1316836272510738582}
+  - component: {fileID: 3359797200264517512}
+  - component: {fileID: 6379033077641937820}
+  - component: {fileID: -6798743824227481119}
+  - component: {fileID: -3719700431968072793}
+  - component: {fileID: -7011218607584351019}
+  - component: {fileID: 5116909875384509030}
+  - component: {fileID: -1300778447245715518}
+  - component: {fileID: -1060973843492169901}
+  - component: {fileID: -1092438115217757721}
+  - component: {fileID: 5942232736309036663}
+  - component: {fileID: -9210591163795957260}
+  - component: {fileID: -3049717233653380600}
+  - component: {fileID: 6991070512100734544}
+  - component: {fileID: 1913692023584666666}
+  - component: {fileID: -8385297252984500617}
+  - component: {fileID: -7056648214140386992}
+  - component: {fileID: 6655188626500614680}
+  - component: {fileID: -7872315444090578379}
+  - component: {fileID: -9215088423083338817}
+  - component: {fileID: -1370476419966242425}
+  - component: {fileID: -7824208828094822827}
+  - component: {fileID: 2592907247396754053}
+  - component: {fileID: 3685990389428209896}
+  - component: {fileID: -5900456890135860290}
+  - component: {fileID: -3420157046414858482}
+  - component: {fileID: -6759985338903693357}
+  - component: {fileID: 8991395873550260551}
+  - component: {fileID: 2429560794329675780}
+  - component: {fileID: 862177382416683462}
+  - component: {fileID: 649865543835846471}
+  - component: {fileID: 766716828338400996}
+  - component: {fileID: 4587706121848169011}
+  - component: {fileID: 2600927075270044275}
+  - component: {fileID: 6190974736185464618}
+  - component: {fileID: 5484304014473722035}
+  - component: {fileID: -436022266263836102}
+  - component: {fileID: 8301625261511417900}
+  - component: {fileID: -8798348803006272954}
+  - component: {fileID: -8986641395046010392}
+  - component: {fileID: -816306672304522673}
+  - component: {fileID: -9099340704860824402}
+  - component: {fileID: 3042656527043019834}
+  - component: {fileID: -9117709395883526431}
+  - component: {fileID: -5558479334593096588}
+  - component: {fileID: 8567463973820449272}
+  - component: {fileID: 7564947833381727220}
+  - component: {fileID: -335431745664915152}
+  - component: {fileID: 5825652143623507375}
+  - component: {fileID: 2219943779556591804}
+  - component: {fileID: -8367188485413217431}
+  - component: {fileID: -2758633909834202867}
+  - component: {fileID: 3798855149402301132}
+  - component: {fileID: 8764663108383416888}
+  - component: {fileID: -2588444366407842809}
+  - component: {fileID: 6267162935903630945}
+  - component: {fileID: -6565932980836392113}
+  - component: {fileID: -9012374547813793689}
+  - component: {fileID: -1406685757147975201}
+  - component: {fileID: 6603898680436781302}
+  - component: {fileID: 3888191944518330228}
+  - component: {fileID: 2423022116640257945}
+  - component: {fileID: 8087133456415883794}
+  - component: {fileID: -5731572314227269907}
+  - component: {fileID: 6425982978043476281}
+  - component: {fileID: 2631671775480392924}
+  - component: {fileID: -2743191975646316316}
+  - component: {fileID: -1282864736811194366}
+  - component: {fileID: -3738451183471044871}
+  - component: {fileID: 4677857351339834604}
+  - component: {fileID: -7611652953654374380}
+  - component: {fileID: 201981191167438617}
+  - component: {fileID: -5087000189613653034}
+  - component: {fileID: 2477148098804016808}
+  - component: {fileID: 2457461531241815641}
+  - component: {fileID: -809704264476447456}
+  - component: {fileID: -3735978739846681329}
+  - component: {fileID: -7947266696289655937}
+  - component: {fileID: 115133150965459666}
+  - component: {fileID: -8741494643608946432}
+  - component: {fileID: -8119934505038933470}
+  - component: {fileID: -3414346440595685692}
+  - component: {fileID: 2326008622687538801}
+  - component: {fileID: -171481875119991306}
+  - component: {fileID: 2403012855097297055}
+  - component: {fileID: -5760335633217946245}
+  - component: {fileID: -2445796215159846247}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -529,6 +641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14448992746c874383aa28cba54721f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   planetController: {fileID: 6680024571693645976}
   selectingObject: {fileID: 2020750751907892692}
   isSelecting: 0
@@ -548,8 +662,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   namePlanet: 
+  indSpritePlanet: 0
   indexCurrentResource: 0
-  planetResources: []
   resourcesIcon:
   - {fileID: 4347907613269764467}
   - {fileID: 1935273660223612463}
@@ -577,6 +691,2470 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 35bf5fe1fc71e2541aeb56ba41f6858e
   hasSpawned: 0
+--- !u!114 &6066848098175772647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-5457535142152164326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-4880992661258193530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &770119056000728094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-1738067551321983080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-6508869143229893656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &3797501163700110337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &8535566001866090055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-6422840690375842398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &4755426826443333253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-2676732687616527147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-1601411288933189044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-3381100159795955901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &1514687372448088884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &6295450647032098753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &3386568288158511345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-2226290794886205002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-8101656698568403747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &8900341187395712328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &3076494731348975977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-6640919561596692055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-6880978288226319279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &1607312737207592058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-3915111700224404879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &4566962132685769583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &1316836272510738582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &3359797200264517512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &6379033077641937820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-6798743824227481119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-3719700431968072793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-7011218607584351019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &5116909875384509030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-1300778447245715518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-1060973843492169901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-1092438115217757721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &5942232736309036663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-9210591163795957260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-3049717233653380600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &6991070512100734544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &1913692023584666666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-8385297252984500617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-7056648214140386992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &6655188626500614680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-7872315444090578379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-9215088423083338817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-1370476419966242425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-7824208828094822827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2592907247396754053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &3685990389428209896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-5900456890135860290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-3420157046414858482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-6759985338903693357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &8991395873550260551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2429560794329675780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &862177382416683462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &649865543835846471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &766716828338400996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &4587706121848169011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2600927075270044275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &6190974736185464618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &5484304014473722035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-436022266263836102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &8301625261511417900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-8798348803006272954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-8986641395046010392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-816306672304522673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-9099340704860824402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &3042656527043019834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-9117709395883526431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-5558479334593096588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &8567463973820449272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &7564947833381727220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-335431745664915152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &5825652143623507375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2219943779556591804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-8367188485413217431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-2758633909834202867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &3798855149402301132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &8764663108383416888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-2588444366407842809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &6267162935903630945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-6565932980836392113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-9012374547813793689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-1406685757147975201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &6603898680436781302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &3888191944518330228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2423022116640257945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &8087133456415883794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-5731572314227269907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &6425982978043476281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2631671775480392924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-2743191975646316316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-1282864736811194366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-3738451183471044871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &4677857351339834604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-7611652953654374380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &201981191167438617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-5087000189613653034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2477148098804016808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2457461531241815641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-809704264476447456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-3735978739846681329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-7947266696289655937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &115133150965459666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-8741494643608946432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-8119934505038933470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-3414346440595685692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2326008622687538801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-171481875119991306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &2403012855097297055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-5760335633217946245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
+--- !u!114 &-2445796215159846247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003615264639470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  namePlanet: 
+  indSpritePlanet: 0
+  indexCurrentResource: 0
+  resourcesIcon: []
+  isSuperPlanet: 0
+  isHomePlanet: 0
+  isColonized: 0
+  homeIcon: {fileID: 0}
 --- !u!1 &4347907613269764467
 GameObject:
   m_ObjectHideFlags: 0

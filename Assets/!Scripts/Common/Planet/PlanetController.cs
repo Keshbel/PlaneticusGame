@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using Mirror;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[Serializable]
 public class PlanetController : NetworkBehaviour
 {
     [SyncVar]
     public string namePlanet;
+    [SyncVar]
+    public int indSpritePlanet;
 
     //resources
     [SyncVar]
@@ -30,6 +32,8 @@ public class PlanetController : NetworkBehaviour
     private void Start()
     {
         HomingPlanetShow();
+        SetSpritePlanet();
+        Invoke(nameof(SetSpritePlanet), 0.2f);
     }
 
     public void AddResource(ResourceForPlanet resource) //добавление ресурса для планеты, с ограничением добавления
@@ -69,6 +73,12 @@ public class PlanetController : NetworkBehaviour
         AddResource(res3);
         AddResource(res4);
         AddResource(res5);
+    }
+
+    public void SetSpritePlanet()
+    {
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = AllSingleton.instance.planetGeneration.listSpritePlanet[indSpritePlanet];
     }
 
     public void OpenPlanet()

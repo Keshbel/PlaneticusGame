@@ -1,7 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Mirror;
 using RandomNameGen;
-using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,91 +12,77 @@ public class MainPlanetController : NetworkBehaviour
     public GameObject planetPrefab;
     public List<Sprite> listSpritePlanet;
     
-    [SerializeField]
-    public SyncList<GameObject> syncListPlanet = new SyncList<GameObject>();
+    public SyncList<PlanetController> syncListPlanet = new SyncList<PlanetController>();
+    [SyncVar]
     public List<GameObject> listPlanet;
     
     //Границы видимости камеры
     public Vector2 xBounds;
     public Vector2 yBounds;
 
-    public TMP_Text tmpDebug;
-
-    public override void OnStartServer()
+    private void Start()
     {
-        base.OnStartServer();
-        
         Generation();
     }
-    /*private void Start()
+
+    /*public override void OnStartServer()
     {
-        if (syncListPlanet.Count == 0)
-            Generation();
-        /*else
-        {
-            foreach (var planet in syncListPlanet)
-            {
-                Instantiate(planet);
-            }
-        }#1#
+        base.OnStartServer();
+        Generation();
     }*/
 
-    /*public override void OnStartClient()
+    public override void OnStartClient()
     {
         base.OnStartClient();
 
         syncListPlanet.Callback += SyncListPlanet; //вместо hook, для SyncList используем подписку на Callback
 
         listPlanet = new List<GameObject>(syncListPlanet.Count); //так как Callback действует только на изменение массива,  
-        
         for (int i = 0; i < syncListPlanet.Count; i++) //а у нас на момент подключения уже могут быть какие-то данные в массиве, нам нужно эти данные внести в локальный массив
         {
-            SyncListPlanet(SyncList<GameObject>.Operation.OP_ADD, i, new GameObject(), syncListPlanet[i]);
-            listPlanet.Add(syncListPlanet[i]);
-            Instantiate(syncListPlanet[i], parentTransform);
-            tmpDebug.text = listPlanet.Count + " планета в локальном списке";
+            SyncListPlanet(SyncList<PlanetController>.Operation.OP_ADD, i, planetPrefab.AddComponent<PlanetController>(), syncListPlanet[i]);
+            listPlanet.Add(syncListPlanet[i].gameObject);
         }
-        
-        //Debug.Log(AllSingleton.instance.currentPlayer.playerName + "добавление планет");
-    }*/
+    }
 
     [Server]
-    private void ChangeListPlanet(GameObject newGO) //метод добавление в лист на сервере
+    void ChangeListPlanet(PlanetController newGO) //метод добавление в лист на сервере
     {
         syncListPlanet.Add(newGO);
+        NetworkServer.Spawn(newGO.gameObject);
     }
     
     [Command]
-    private void CmdChangeListPlanet(GameObject newGO) //метод добавление в лист запрос на сервер
+    void CmdChangeListPlanet(PlanetController newGO) //метод добавление в лист запрос на сервер
     {
         ChangeListPlanet(newGO);
     }
     
-    private void SyncListPlanet(SyncList<GameObject>.Operation op, int index, GameObject oldItem, GameObject newItem) //обработчик ля синхронизации планет
+    private void SyncListPlanet(SyncList<PlanetController>.Operation op, int index, PlanetController oldItem, PlanetController newItem) //обработчик ля синхронизации планет
     {
         switch (op)
         {
-            case SyncList<GameObject>.Operation.OP_ADD:
+            case SyncList<PlanetController>.Operation.OP_ADD:
             {
-                listPlanet.Add(newItem);
+                listPlanet.Add(newItem.gameObject);
                 break;
             }
-            case SyncList<GameObject>.Operation.OP_CLEAR:
-            {
-
-                break;
-            }
-            case SyncList<GameObject>.Operation.OP_INSERT:
+            case SyncList<PlanetController>.Operation.OP_CLEAR:
             {
 
                 break;
             }
-            case SyncList<GameObject>.Operation.OP_REMOVEAT:
+            case SyncList<PlanetController>.Operation.OP_INSERT:
             {
 
                 break;
             }
-            case SyncList<GameObject>.Operation.OP_SET:
+            case SyncList<PlanetController>.Operation.OP_REMOVEAT:
+            {
+
+                break;
+            }
+            case SyncList<PlanetController>.Operation.OP_SET:
             {
 
                 break;
@@ -104,7 +90,7 @@ public class MainPlanetController : NetworkBehaviour
         }
     }
     
-    [Server]
+    /*[Server]*/
     public void Generation() //Генерация планет, если они не были сгенерированы
     {
         var countPlanet = Random.Range(50, 70);
@@ -116,40 +102,33 @@ public class MainPlanetController : NetworkBehaviour
         {
             //создание планеты
             var planet = Instantiate(planetPrefab, parentTransform);
-            var planetController = planet.GetComponent<PlanetController>();
 
-            planetController.namePlanet = allRandomNames[syncListPlanet.Count];
-            planetController.AddResourcesForPlanet();
+            var planetController = planet.GetComponent<PlanetController>();
+            //var networkIdentity = planet.GetComponent<NetworkIdentity>();
 
             //рандомные параметры для неё
             float x = 0, y = 0;
             RandomXY(ref x, ref y);
 
-            planet.transform.position = new Vector3(x, y, 0);
-            var randomScale = Random.Range(0.1f, 0.2f);
-            planet.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
-            planet.GetComponent<SpriteRenderer>().sprite = listSpritePlanet[Random.Range(0, listSpritePlanet.Count)];
+            planetController.indSpritePlanet = Random.Range(0, listSpritePlanet.Count); //присвоение номера вида планеты
+            planetController.namePlanet = allRandomNames[syncListPlanet.Count]; //имя
+            planetController.AddResourcesForPlanet(); //ресурсы
+            planet.transform.position = new Vector3(x, y, 0); //позиция
+            var randomScale = Random.Range(0.1f, 0.2f); // случайный размер
+            planet.transform.localScale = new Vector3(randomScale, randomScale, randomScale); //присвоение размера
 
             //добавление планеты в список
             if (isServer)
             {
-                ChangeListPlanet(planet);
-                
-                NetworkServer.Spawn(planet);
-                
+                ChangeListPlanet(planetController);
             }
             else
             {
-                CmdChangeListPlanet(planet);
-                
+                CmdChangeListPlanet(planetController);
             }
-            
-            print(planet.GetComponent<PlanetController>().namePlanet);
-            //yield return null;
         }
-        //yield return null;
     }
-    
+
     public void HomePlanetAddingToPlayer()
     {
         //домашняя планета
@@ -160,10 +139,17 @@ public class MainPlanetController : NetworkBehaviour
             AllSingleton.instance.currentPlayer.playerPlanets.Add(homePlanet);
             homePlanet.isHomePlanet = true;
             homePlanet.HomingPlanetShow();
-            AllSingleton.instance.cameraMove.DoMove(homePlanet.transform.position.x, homePlanet.transform.position.y, 1f);
             homePlanet.isColonized = true;
             homePlanet.ResourceIconShow();
+            
+            CameraToHome(homePlanet.transform.position);
         }
+    }
+
+    [Client]
+    public void CameraToHome(Vector3 position)
+    {
+        AllSingleton.instance.cameraMove.DoMove(position.x, position.y, 1f);
     }
 
     private void RandomXY(ref float x, ref float y)
