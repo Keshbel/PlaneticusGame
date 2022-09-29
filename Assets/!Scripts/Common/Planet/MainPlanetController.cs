@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using Mirror;
 using RandomNameGen;
 using UnityEngine;
@@ -12,26 +12,30 @@ public class MainPlanetController : NetworkBehaviour
     public GameObject planetPrefab;
     public List<Sprite> listSpritePlanet;
     
-    public SyncList<PlanetController> syncListPlanet = new SyncList<PlanetController>();
+    //public SyncList<PlanetController> syncListPlanet = new SyncList<PlanetController>();
     [SyncVar]
-    public List<GameObject> listPlanet;
+    [SerializeField]
+    public List<PlanetController> listPlanet;
     
     //Границы видимости камеры
     public Vector2 xBounds;
     public Vector2 yBounds;
 
-    private void Start()
+    public override void OnStartServer()
     {
+        base.OnStartServer();
+
         Generation();
     }
 
-    /*public override void OnStartServer()
-    {
-        base.OnStartServer();
-        Generation();
-    }*/
-
     public override void OnStartClient()
+    {
+        base.OnStartClient();
+        
+        Invoke(nameof(FillingListPlanet), 0.2f);
+    }
+
+    /*public override void OnStartClient()
     {
         base.OnStartClient();
 
@@ -88,9 +92,8 @@ public class MainPlanetController : NetworkBehaviour
                 break;
             }
         }
-    }
+    }*/
     
-    /*[Server]*/
     public void Generation() //Генерация планет, если они не были сгенерированы
     {
         var countPlanet = Random.Range(50, 70);
@@ -98,26 +101,28 @@ public class MainPlanetController : NetworkBehaviour
         RandomName nameGen = new RandomName(); // create a new instance of the RandomName class
         List<string> allRandomNames = nameGen.RandomNames(countPlanet, 0); // generate 100 random names with up to two middle names
 
-        while (syncListPlanet.Count < countPlanet)
+        while (listPlanet.Count < countPlanet)
         {
             //создание планеты
             var planet = Instantiate(planetPrefab, parentTransform);
-
             var planetController = planet.GetComponent<PlanetController>();
-            //var networkIdentity = planet.GetComponent<NetworkIdentity>();
 
             //рандомные параметры для неё
             float x = 0, y = 0;
             RandomXY(ref x, ref y);
 
             planetController.indSpritePlanet = Random.Range(0, listSpritePlanet.Count); //присвоение номера вида планеты
-            planetController.namePlanet = allRandomNames[syncListPlanet.Count]; //имя
+            planetController.namePlanet = allRandomNames[listPlanet.Count]; //имя
             planetController.AddResourcesForPlanet(); //ресурсы
-            planet.transform.position = new Vector3(x, y, 0); //позиция
+            
             var randomScale = Random.Range(0.1f, 0.2f); // случайный размер
+            planet.transform.position = new Vector3(x, y, 0); //позиция
             planet.transform.localScale = new Vector3(randomScale, randomScale, randomScale); //присвоение размера
+            
+            NetworkServer.Spawn(planet, connectionToClient);
+            listPlanet.Add(planetController);
 
-            //добавление планеты в список
+            /*//добавление планеты в список
             if (isServer)
             {
                 ChangeListPlanet(planetController);
@@ -125,31 +130,15 @@ public class MainPlanetController : NetworkBehaviour
             else
             {
                 CmdChangeListPlanet(planetController);
-            }
+            }*/
         }
     }
 
-    public void HomePlanetAddingToPlayer()
+    public void FillingListPlanet()
     {
-        //домашняя планета
-        if (syncListPlanet.Count > 0)
-        {
-            var homePlanet = syncListPlanet[Random.Range(0, syncListPlanet.Count)].GetComponent<PlanetController>();
-            homePlanet.SetHomePlanet();
-            AllSingleton.instance.currentPlayer.playerPlanets.Add(homePlanet);
-            homePlanet.isHomePlanet = true;
-            homePlanet.HomingPlanetShow();
-            homePlanet.isColonized = true;
-            homePlanet.ResourceIconShow();
-            
-            CameraToHome(homePlanet.transform.position);
-        }
-    }
-
-    [Client]
-    public void CameraToHome(Vector3 position)
-    {
-        AllSingleton.instance.cameraMove.DoMove(position.x, position.y, 1f);
+        var planets = FindObjectsOfType<PlanetController>();
+        
+        listPlanet = planets.Reverse().ToList();
     }
 
     private void RandomXY(ref float x, ref float y)

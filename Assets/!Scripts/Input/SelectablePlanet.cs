@@ -2,7 +2,7 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
+public class SelectablePlanet : MonoBehaviour, IPointerDownHandler
 {
     public PlanetController planetController;
     
@@ -47,11 +47,12 @@ public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
     {
         defaultScale = gameObject.transform.localScale;
     }
-    
+
     public void OnPointerDown(PointerEventData eventData) //нажатие на планету
     {
-        if (!FindObjectOfType<CurrentPlayer>().playerPlanets.Contains(planetController)) return;
-        
+        if (!NetworkClient.connection.identity.GetComponent<CurrentPlayer>().playerPlanets
+            .Contains(planetController.gameObject)) return;
+
         SelectingProcess();
         planetController.OpenPlanet();
         AllSingleton.instance.planetPanelController.OpenPanel();

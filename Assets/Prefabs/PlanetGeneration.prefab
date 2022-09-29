@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5059683152510991250}
   - component: {fileID: 5059683152510991251}
-  - component: {fileID: 5059683152510991244}
+  - component: {fileID: 6323691113103473250}
   m_Layer: 0
   m_Name: PlanetGeneration
   m_TagString: Untagged
@@ -303,7 +303,7 @@ MonoBehaviour:
   listPlanet: []
   xBounds: {x: -20, y: 20}
   yBounds: {x: -20, y: 20}
---- !u!114 &5059683152510991244
+--- !u!114 &6323691113103473250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

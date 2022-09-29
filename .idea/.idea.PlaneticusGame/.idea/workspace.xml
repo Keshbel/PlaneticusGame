@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" afterDir="false" />
@@ -29,8 +28,10 @@
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NetMan.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/NetMan.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlanetGeneration.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlanetGeneration.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,16 +43,18 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Network/CurrentPlayer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanetManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/PlanetController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/MainPlanetController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/Mirror/Runtime/NetworkIdentity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Enums.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanetManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/Mirror/Runtime/SyncList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/MainPlanetController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -67,18 +70,18 @@
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetGeneration.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Enums.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceForPlanet.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetGeneration.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
       </list>
     </option>
   </component>
@@ -152,6 +155,9 @@
       <workItem from="1664280219061" duration="9368000" />
       <workItem from="1664295940567" duration="13641000" />
       <workItem from="1664341328827" duration="10994000" />
+      <workItem from="1664385721801" duration="7791000" />
+      <workItem from="1664423979191" duration="1896000" />
+      <workItem from="1664426206248" duration="19821000" />
     </task>
     <servers />
   </component>
@@ -177,9 +183,17 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="93" y="93" width="1862" height="926" key="VCS.FileHistoryDialog" timestamp="1664431840541">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="93" y="93" width="1862" height="926" key="VCS.FileHistoryDialog/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1664431840541" />
     <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1664288736987">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="617" y="289" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1664288736987" />
+    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1664452963336">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1664452963336" />
   </component>
 </project>
