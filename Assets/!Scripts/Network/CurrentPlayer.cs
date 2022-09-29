@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
@@ -10,6 +9,7 @@ public class CurrentPlayer : NetworkBehaviour
     public string playerName;
     
     public SyncList<GameObject> playerPlanets = new SyncList<GameObject>();
+    public SyncList<GameObject> playerInvaders = new SyncList<GameObject>();
 
     public override void OnStartClient()
     {
@@ -24,6 +24,7 @@ public class CurrentPlayer : NetworkBehaviour
             else
             {
                 Invoke(nameof(CmdHomePlanetAddingToPlayer), 0.5f);
+                Invoke(nameof(CameraToHome), 0.6f);
             }
         }
     }
@@ -38,8 +39,9 @@ public class CurrentPlayer : NetworkBehaviour
             AllSingleton.instance.AddPlayer(GetComponent<NetworkIdentity>());
     }
 
+    
     [Server]
-    public void ChangeListWithPlanet(GameObject planet, bool isAdding)
+    public void ChangeListWithPlanets(GameObject planet, bool isAdding)
     {
         if (isAdding)
         {
@@ -51,10 +53,30 @@ public class CurrentPlayer : NetworkBehaviour
         }
     }
     [Command]
-    public void CmdChangeListWithPlanet(GameObject planet, bool isAdding)
+    public void CmdChangeListWithPlanets(GameObject planet, bool isAdding)
     {
-        ChangeListWithPlanet(planet, isAdding);
+        ChangeListWithPlanets(planet, isAdding);
     }
+    
+    
+    [Server]
+    public void ChangeListWithInvaders(GameObject invader, bool isAdding)
+    {
+        if (isAdding)
+        {
+            playerPlanets.Add(invader);
+        }
+        else
+        {
+            playerPlanets.Remove(invader);
+        }
+    }
+    [Command]
+    public void CmdChangeListWithInvaders(GameObject invader, bool isAdding)
+    {
+        ChangeListWithPlanets(invader, isAdding);
+    }
+    
     
     public void HomePlanetAddingToPlayer()
     {
@@ -67,20 +89,20 @@ public class CurrentPlayer : NetworkBehaviour
 
             if (isServer)
             {
-                ChangeListWithPlanet(homePlanet.gameObject, true);
+                ChangeListWithPlanets(homePlanet.gameObject, true);
                 homePlanet.HomingPlanetShow();
                 homePlanet.ResourceIconShow();
                 homePlanet.SetColonizedBoolTrue();
             }
             else
             {
-                CmdChangeListWithPlanet(homePlanet.gameObject, true);
+                CmdChangeListWithPlanets(homePlanet.gameObject, true);
                 homePlanet.CmdHomingPlanetShow();
                 homePlanet.RcpResourceIconShow();
                 homePlanet.CmdSetColonizedBoolTrue();
             }
             
-            CameraToHome(homePlanet.transform.position);
+            CameraToHome();
         }
     }
 
@@ -91,8 +113,9 @@ public class CurrentPlayer : NetworkBehaviour
     }
     
     [Client]
-    public void CameraToHome(Vector3 position)
+    public void CameraToHome()
     {
+        var position = playerPlanets[0].transform.position;
         if (hasAuthority && NetworkClient.connection.identity.GetComponent<CurrentPlayer>() == this)
             AllSingleton.instance.cameraMove.DoMove(position.x, position.y, 1f);
     }

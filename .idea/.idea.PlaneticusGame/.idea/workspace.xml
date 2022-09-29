@@ -20,18 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NetMan.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/NetMan.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlanetGeneration.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlanetGeneration.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,13 +38,14 @@
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/PlanetController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/Mirror/Runtime/NetworkIdentity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Enums.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanetManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/Mirror/Runtime/SyncList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/Mirror/Runtime/SyncList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/MainPlanetController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -81,7 +74,9 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/ToggleIsOn.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
       </list>
     </option>
   </component>
@@ -157,7 +152,8 @@
       <workItem from="1664341328827" duration="10994000" />
       <workItem from="1664385721801" duration="7791000" />
       <workItem from="1664423979191" duration="1896000" />
-      <workItem from="1664426206248" duration="19821000" />
+      <workItem from="1664426206248" duration="19822000" />
+      <workItem from="1664460876709" duration="5419000" />
     </task>
     <servers />
   </component>

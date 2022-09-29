@@ -19,6 +19,7 @@
               <e p="ResourceForPlanet.cs" t="Include" />
               <e p="ResourceSingleton.cs" t="Include" />
             </e>
+            <e p="SpaceInvaderController.cs" t="Include" />
           </e>
           <e p="Input" t="Include">
             <e p="CameraMove.cs" t="Include" />
