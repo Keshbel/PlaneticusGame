@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
@@ -12,17 +13,18 @@ public class PlanetController : NetworkBehaviour
     [SyncVar]
     public int indSpritePlanet;
 
-    //resources
+    // resources
     [SyncVar]
     public int indexCurrentResource;
     public SyncList<ResourceForPlanet> planetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
     public List<GameObject> resourcesIcon;
     
-    //super planet
+    // super planet
     [SyncVar]
     public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
+    public Coroutine SpawnInvaderCoroutine;
     
-    //home
+    // home/colonized
     [SyncVar]
     public bool isHomePlanet = false; //является ли стартовой планетой?
     [SyncVar]
@@ -35,77 +37,88 @@ public class PlanetController : NetworkBehaviour
         Invoke(nameof(SetSpritePlanet), 0.4f);
     }
 
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        
+        StartCoroutine(ResourcesIconShowUpdated());
+    }
+    
     public override void OnStartClient()
     {
         base.OnStartClient();
-
+        
         HomingPlanetShow();
-        if (isServer)
-            RcpResourceIconShow();
-        else
-        {
-            ResourceIconShow();
-        }
-
-        Invoke(nameof(ResourceIconShow), 1f);
         Invoke(nameof(HomingPlanetShow), 1f);
+        ResourceIconShow();
+        Invoke(nameof(ResourceIconShow), 1f);
     }
 
-    private void Update()
+    public IEnumerator StartSpawnInvadersRoutine()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        while (NetworkServer.active)
         {
-            /*if (isClient)
+            if (isSuperPlanet && hasAuthority)
             {
-                CmdAddResource(new ResourceForPlanet
-                    {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 4), resourceMining = 1});
-                planetResources.Clear();
-                CmdResourceIconShow();
-            }*/
-
-            if (isServer)
-            {
-                RcpResourceIconShow();
+                //AllSingleton.instance.player.SpawnInvader(1, gameObject);
+                yield return new WaitForSeconds(20f);
             }
         }
     }
-
+    
     [Server]
-    public void AddResource(ResourceForPlanet resource) //добавление ресурса для планеты, с ограничением добавления
+    public void ChangeResourceList(ResourceForPlanet resource, bool isAdding = true) //добавление ресурса для планеты, с ограничением добавления
     {
-        if (planetResources.Count < 5)
+        if (isAdding)
         {
-            planetResources.Add(resource);
-            
-            resource.UpdateInfo();
-            RcpResourceIconShow();
+            if (planetResources.Count < 5)
+            {
+                planetResources.Add(resource);
+
+                if (planetResources.Count == 5)
+                {
+                    isSuperPlanet = true;
+                    //SpawnInvaderCoroutine = StartCoroutine(StartSpawnInvadersRoutine());
+                }
+                else
+                {
+                    isSuperPlanet = false;
+                    if (SpawnInvaderCoroutine != null)
+                        StopCoroutine(SpawnInvaderCoroutine);
+                }
+            }
+            else
+            {
+                print("Вы пытаетесь добавить шестой ресурс...");
+            }
         }
         else
         {
-            print("Вы пытаетесь добавить шестой ресурс...");
+            if (planetResources.Count > 1)
+                planetResources.Remove(resource);
         }
+        
+        resource.UpdateInfo();
+        RpcResourceIconShow();
     }
-    
     [Command]
-    public void CmdAddResource(ResourceForPlanet resource)
+    public void CmdChangeResourceList(ResourceForPlanet resource, bool isAdding)
     {
-        AddResource(resource);
+        ChangeResourceList(resource, isAdding);
     }
     
-    public void AddResourcesForPlanet()
+    
+    public void AddResourceForPlanetGeneration()
     {
         var res1 = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 4), resourceMining = 1};
-        var res2 = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 4), resourceMining = 1};
         if (isServer)
         {
-            AddResource(res1);
-            AddResource(res2);
-            RcpResourceIconShow();
+            ChangeResourceList(res1);
+            RpcResourceIconShow();
         }
         else
         {
-            CmdAddResource(res1);
-            CmdAddResource(res2);
+            CmdChangeResourceList(res1, true);
             ResourceIconShow();
         }
     }
@@ -131,21 +144,21 @@ public class PlanetController : NetworkBehaviour
 
         if (isServer) //добавление ресурсов
         {
-            AddResource(res1);
-            AddResource(res2);
-            AddResource(res3);
-            AddResource(res4);
-            AddResource(res5);
-            RcpResourceIconShow();
+            ChangeResourceList(res1);
+            ChangeResourceList(res2);
+            ChangeResourceList(res3);
+            ChangeResourceList(res4);
+            ChangeResourceList(res5);
+            RpcResourceIconShow();
         }
         else
         {
-            CmdAddResource(res1);
-            CmdAddResource(res2);
-            CmdAddResource(res3);
-            CmdAddResource(res4);
-            CmdAddResource(res5);
-            ResourceIconShow();
+            CmdChangeResourceList(res1, true);
+            CmdChangeResourceList(res2, true);
+            CmdChangeResourceList(res3, true);
+            CmdChangeResourceList(res4, true);
+            CmdChangeResourceList(res5, true);
+            RpcResourceIconShow();
         }
     }
 
@@ -162,17 +175,23 @@ public class PlanetController : NetworkBehaviour
     }
     #endregion
 
-    #region ColonizedBoolTrue
+    #region Colonization
+    
     [Server]
-    public void SetColonizedBoolTrue()
+    public void Colonization()
     {
         isColonized = true;
+        if (isServer)
+        {
+            RpcResourceIconShow();
+        }
     }
     [Command]
-    public void CmdSetColonizedBoolTrue()
+    public void CmdColonization()
     {
-        SetColonizedBoolTrue();
+        Colonization();
     }
+    
     #endregion
 
     #region ClearPlanetResource
@@ -191,7 +210,7 @@ public class PlanetController : NetworkBehaviour
     public void SetSpritePlanet() //назначить внешний вид планеты
     {
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = AllSingleton.instance.planetGeneration.listSpritePlanet[indSpritePlanet];
+        spriteRenderer.sprite = AllSingleton.instance.mainPlanetController.listSpritePlanet[indSpritePlanet];
     }
 
     public void OpenPlanet()
@@ -268,8 +287,17 @@ public class PlanetController : NetworkBehaviour
         }
     }
 
+    private IEnumerator ResourcesIconShowUpdated()
+    {
+        while (NetworkServer.active)
+        {
+            RpcResourceIconShow();
+            yield return new WaitForSeconds(2f);
+        }
+    }
+    
     [ClientRpc]
-    public void RcpResourceIconShow()
+    public void RpcResourceIconShow()
     {
         ResourceIconShow();
     }

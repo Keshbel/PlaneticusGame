@@ -9,7 +9,6 @@ public class MainPlanetController : NetworkBehaviour
 {
     //Планеты
     public Transform parentTransform;
-    public GameObject planetPrefab;
     public List<Sprite> listSpritePlanet;
     
     //public SyncList<PlanetController> syncListPlanet = new SyncList<PlanetController>();
@@ -104,33 +103,23 @@ public class MainPlanetController : NetworkBehaviour
         while (listPlanet.Count < countPlanet)
         {
             //создание планеты
-            var planet = Instantiate(planetPrefab, parentTransform);
+            var planet = Instantiate(AllSingleton.instance.planetPrefab, parentTransform);
+            NetworkServer.Spawn(planet);
             var planetController = planet.GetComponent<PlanetController>();
 
             //рандомные параметры для неё
-            float x = 0, y = 0;
-            RandomXY(ref x, ref y);
+            
 
             planetController.indSpritePlanet = Random.Range(0, listSpritePlanet.Count); //присвоение номера вида планеты
             planetController.namePlanet = allRandomNames[listPlanet.Count]; //имя
-            planetController.AddResourcesForPlanet(); //ресурсы
-            
+            planetController.AddResourceForPlanetGeneration(); //ресурсы
+            SetRandomPosition(planet);
             var randomScale = Random.Range(0.1f, 0.2f); // случайный размер
-            planet.transform.position = new Vector3(x, y, 0); //позиция
+            
             planet.transform.localScale = new Vector3(randomScale, randomScale, randomScale); //присвоение размера
             
-            NetworkServer.Spawn(planet, connectionToClient);
             listPlanet.Add(planetController);
-
-            /*//добавление планеты в список
-            if (isServer)
-            {
-                ChangeListPlanet(planetController);
-            }
-            else
-            {
-                CmdChangeListPlanet(planetController);
-            }*/
+            
         }
     }
 
@@ -141,7 +130,23 @@ public class MainPlanetController : NetworkBehaviour
         listPlanet = planets.Reverse().ToList();
     }
 
-    private void RandomXY(ref float x, ref float y)
+    [Server]
+    public void SetRandomPosition(GameObject planet)
+    {
+        //рандомные параметры
+        float x = 0, y = 0;
+        RandomXY(ref x, ref y);
+        
+        //присвоение рандомной позиции
+        planet.transform.position = new Vector3(x, y, 0); //позиция
+    }
+    [Command]
+    public void CmdSetRandomPosition(GameObject planet)
+    {
+        SetRandomPosition(planet);
+    }
+    
+    public void RandomXY(ref float x, ref float y)
     {
         x = Random.Range(xBounds.x, xBounds.y);
         y = Random.Range(yBounds.x, yBounds.y);

@@ -48,7 +48,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   parentTransform: {fileID: 0}
-  planetPrefab: {fileID: 3003615264639470420, guid: 35bf5fe1fc71e2541aeb56ba41f6858e, type: 3}
   listSpritePlanet:
   - {fileID: 21300000, guid: be8469eb93ca54240b9459dc68523e39, type: 3}
   - {fileID: 21300000, guid: dea42632ef7e4574f929e28abd69db4e, type: 3}

@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class AllSingleton : NetworkBehaviour
 {
+    [Header("Players")] 
+    public CurrentPlayer player;
     public SyncList<NetworkIdentity> syncCurrentPlayers = new SyncList<NetworkIdentity>();
     public List<NetworkIdentity> currentPlayers;
+    public List<SelectablePlanet> selectablePlanets;
+
+    [Header("Prefabs")] 
+    public GameObject planetPrefab;
+    public GameObject invaderPrefab;
+    
+    [Header("Scripts")]
     public CameraMove cameraMove;
-    public MainPlanetController planetGeneration;
+    public MainPlanetController mainPlanetController;
     
     [Header("PlanetPanel")]
     public PanelController planetPanelController;
@@ -16,6 +25,13 @@ public class AllSingleton : NetworkBehaviour
     #region Singleton
 
     public static AllSingleton instance;
+
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        
+        selectablePlanets = new List<SelectablePlanet>();
+    }
 
     public override void OnStartClient()
     {
@@ -77,8 +93,8 @@ public class AllSingleton : NetworkBehaviour
 
     private void Awake()
     {
-        if (!planetGeneration)
-            planetGeneration = FindObjectOfType<MainPlanetController>();
+        if (!mainPlanetController)
+            mainPlanetController = FindObjectOfType<MainPlanetController>();
         if (instance != null)
         {
             Destroy(gameObject);

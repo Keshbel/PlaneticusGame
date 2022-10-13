@@ -2,14 +2,12 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SelectablePlanet : MonoBehaviour, IPointerDownHandler
+public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
 {
     public PlanetController planetController;
     
     public GameObject selectingObject;
     public bool isSelecting;
-
-    public Vector3 defaultScale;
 
     private void OnEnable()
     {
@@ -18,34 +16,25 @@ public class SelectablePlanet : MonoBehaviour, IPointerDownHandler
 
         if (!planetController)
             planetController = GetComponent<PlanetController>();
-        
-        Invoke(nameof(SetDefaultScale),0.5f);
     }
 
     private void SelectingProcess() //процесс выделяемости/развыделяемости для других планет
     {
-        if (SelectablePlanetManager.SelectablePlanets.Count != 0)
+        if (AllSingleton.instance.selectablePlanets.Count != 0)
         {
-            SelectablePlanetManager.SelectablePlanets[0].SelectingChange();
-            SelectablePlanetManager.SelectablePlanets.Clear();
+            AllSingleton.instance.selectablePlanets[0].SelectingChange();
+            AllSingleton.instance.selectablePlanets.Clear();
         }
 
         SelectingChange();
         
-        SelectablePlanetManager.SelectablePlanets.Add(this);
+        AllSingleton.instance.selectablePlanets.Add(this);
     }
     
     private void SelectingChange() //изменение выделяемости планеты
     {
         selectingObject.SetActive(!selectingObject.activeSelf);
         isSelecting = !isSelecting;
-        
-        gameObject.transform.localScale = isSelecting ? defaultScale * 1.1f : defaultScale;
-    }
-
-    public void SetDefaultScale()
-    {
-        defaultScale = gameObject.transform.localScale;
     }
 
     public void OnPointerDown(PointerEventData eventData) //нажатие на планету
@@ -58,12 +47,15 @@ public class SelectablePlanet : MonoBehaviour, IPointerDownHandler
         AllSingleton.instance.planetPanelController.OpenPanel();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other) 
     {
-        /*if (!other.collider.CompareTag("Planet") || defaultScale.x > 0) return;
+        if (!other.CompareTag("Planet")) return;
         
-        FindObjectOfType<MainPlanetController>().listPlanet.Remove(other.gameObject);
-        Destroy(other.gameObject);
-        print("Sorting Planet");*/
+        if (isServer) //если планеты в зоне коллайдера друг друга, то они рандомно перемещаются
+            AllSingleton.instance.mainPlanetController.SetRandomPosition(other.gameObject);
+        else
+        {
+            AllSingleton.instance.mainPlanetController.CmdSetRandomPosition(other.gameObject);
+        }
     }
 }
