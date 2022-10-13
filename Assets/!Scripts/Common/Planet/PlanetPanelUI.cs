@@ -7,9 +7,11 @@ public class PlanetPanelUI : MonoBehaviour
 {
     public TMP_Text planetNameText;
 
+    public PanelController logisticListPanel;
+
     [Header("Toggles and Buttons")] 
     public List<Toggle> resToggles;
-    public Button deliveryButton;
+    public Button logisticButton;
     
     /*public Toggle resToggle1;
     public Toggle resToggle2;

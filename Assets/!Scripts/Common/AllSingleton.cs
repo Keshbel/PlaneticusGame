@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AllSingleton : NetworkBehaviour
 {
-    [Header("Players")] 
+    [Header("Players")]
     public CurrentPlayer player;
     public SyncList<NetworkIdentity> syncCurrentPlayers = new SyncList<NetworkIdentity>();
     public List<NetworkIdentity> currentPlayers;
@@ -12,6 +12,7 @@ public class AllSingleton : NetworkBehaviour
 
     [Header("Prefabs")] 
     public GameObject planetPrefab;
+    public GameObject planetButtonPrefab;
     public GameObject invaderPrefab;
     
     [Header("Scripts")]
@@ -21,6 +22,7 @@ public class AllSingleton : NetworkBehaviour
     [Header("PlanetPanel")]
     public PanelController planetPanelController;
     public PlanetPanelUI planetPanelUI;
+    public PlanetList planetList;
     
     #region Singleton
 

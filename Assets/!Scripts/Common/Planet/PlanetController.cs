@@ -8,23 +8,24 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class PlanetController : NetworkBehaviour
 {
+    [Header("Main")]
     [SyncVar]
     public string namePlanet;
     [SyncVar]
     public int indSpritePlanet;
 
-    // resources
+    [Header("Resources")]
     [SyncVar]
     public int indexCurrentResource;
     public SyncList<ResourceForPlanet> planetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
     public List<GameObject> resourcesIcon;
     
-    // super planet
+    [Header("Super Planet")]
     [SyncVar]
     public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
     public Coroutine SpawnInvaderCoroutine;
     
-    // home/colonized
+    [Header("HomeColonized")]
     [SyncVar]
     public bool isHomePlanet = false; //является ли стартовой планетой?
     [SyncVar]
@@ -54,7 +55,7 @@ public class PlanetController : NetworkBehaviour
         Invoke(nameof(ResourceIconShow), 1f);
     }
 
-    public IEnumerator StartSpawnInvadersRoutine()
+    public IEnumerator StartSpawnInvadersRoutine() //спавн захватчиков при статусе супер планеты
     {
         while (NetworkServer.active)
         {
@@ -66,66 +67,12 @@ public class PlanetController : NetworkBehaviour
         }
     }
     
-    [Server]
-    public void ChangeResourceList(ResourceForPlanet resource, bool isAdding = true) //добавление ресурса для планеты, с ограничением добавления
-    {
-        if (isAdding)
-        {
-            if (planetResources.Count < 5)
-            {
-                planetResources.Add(resource);
 
-                if (planetResources.Count == 5)
-                {
-                    isSuperPlanet = true;
-                    //SpawnInvaderCoroutine = StartCoroutine(StartSpawnInvadersRoutine());
-                }
-                else
-                {
-                    isSuperPlanet = false;
-                    if (SpawnInvaderCoroutine != null)
-                        StopCoroutine(SpawnInvaderCoroutine);
-                }
-            }
-            else
-            {
-                print("Вы пытаетесь добавить шестой ресурс...");
-            }
-        }
-        else
-        {
-            if (planetResources.Count > 1)
-                planetResources.Remove(resource);
-        }
-        
-        resource.UpdateInfo();
-        RpcResourceIconShow();
-    }
-    [Command]
-    public void CmdChangeResourceList(ResourceForPlanet resource, bool isAdding)
-    {
-        ChangeResourceList(resource, isAdding);
-    }
+    #region HomePlanetOptions
     
-    
-    public void AddResourceForPlanetGeneration()
+    public void SetHomePlanet() // установка домашней планеты
     {
-        var res1 = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 4), resourceMining = 1};
-        if (isServer)
-        {
-            ChangeResourceList(res1);
-            RpcResourceIconShow();
-        }
-        else
-        {
-            CmdChangeResourceList(res1, true);
-            ResourceIconShow();
-        }
-    }
-    
-    public void SetHomePlanet()
-    {
-        if (isServer) //очистка и буль он
+        if (isServer) //очистка и простановка статуса
         {
             ClearPlanetResource();
             SetHomePlanetBoolTrue();
@@ -161,8 +108,20 @@ public class PlanetController : NetworkBehaviour
             RpcResourceIconShow();
         }
     }
-
-    #region HomePlanetBoolTrue
+    
+    public void HomingPlanetShow() //отображение иконки для родной планеты
+    {
+        if (isHomePlanet && homeIcon)
+        {
+            homeIcon.SetActive(true);
+        }
+    }
+    [Command]
+    public void CmdHomingPlanetShow() //отображение иконки для родной планеты
+    {
+        HomingPlanetShow();
+    }
+    
     [Server]
     public void SetHomePlanetBoolTrue()
     {
@@ -173,6 +132,7 @@ public class PlanetController : NetworkBehaviour
     {
         SetHomePlanetBoolTrue();
     }
+    
     #endregion
 
     #region Colonization
@@ -194,44 +154,69 @@ public class PlanetController : NetworkBehaviour
     
     #endregion
 
-    #region ClearPlanetResource
+    #region PlanetResource
+    
+    //добавление ресурса для планеты, с ограничением добавления
     [Server]
-    public void ClearPlanetResource()
+    public void ChangeResourceList(ResourceForPlanet resource, bool isAdding = true) 
     {
-        planetResources.Clear();
+        if (isAdding) //добавляем ли планету?
+        {
+            if (planetResources.Count < 5)
+            {
+                planetResources.Add(resource);
+
+                if (planetResources.Count == 5)
+                {
+                    isSuperPlanet = true;
+                    //SpawnInvaderCoroutine = StartCoroutine(StartSpawnInvadersRoutine());
+                }
+                else
+                {
+                    isSuperPlanet = false;
+                    /*if (SpawnInvaderCoroutine != null)
+                        StopCoroutine(SpawnInvaderCoroutine);*/
+                }
+            }
+            else
+            {
+                print("Вы пытаетесь добавить шестой ресурс...");
+            }
+        }
+        else // отнимаем
+        {
+            if (planetResources.Count > 1)
+                planetResources.Remove(resource);
+        }
+        
+        resource.UpdateInfo();
+        RpcResourceIconShow();
     }
     [Command]
-    public void CmdClearPlanetResource()
+    public void CmdChangeResourceList(ResourceForPlanet resource, bool isAdding)
     {
-        ClearPlanetResource();
+        ChangeResourceList(resource, isAdding);
     }
-    #endregion
     
-    public void SetSpritePlanet() //назначить внешний вид планеты
+    
+    //добавление ресурсов при создании планет
+    public void AddResourceForPlanetGeneration() 
     {
-        var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = AllSingleton.instance.mainPlanetController.listSpritePlanet[indSpritePlanet];
+        var res1 = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 4), resourceMining = 1};
+        if (isServer)
+        {
+            ChangeResourceList(res1);
+            RpcResourceIconShow();
+        }
+        else
+        {
+            CmdChangeResourceList(res1, true);
+            ResourceIconShow();
+        }
     }
 
-    public void OpenPlanet()
-    {
-        if (planetResources.Count > 0)
-            SelectResource(0);
-        if (planetResources.Count > 1)
-            SelectResource(1);
-        if (planetResources.Count > 2)
-            SelectResource(2);
-        if (planetResources.Count > 3)
-            SelectResource(3);
-        if (planetResources.Count > 4)
-            SelectResource(4);
-        
-        indexCurrentResource = 0;
-        SubscribeResourceToggle();
-        UpdateInfo();
-    }
-
-    public void SubscribeResourceToggle()
+    //подписка туглов с ресурсами
+    public void SubscribeResourceToggle() 
     {
         var planetPanel = AllSingleton.instance.planetPanelUI;
         
@@ -248,14 +233,17 @@ public class PlanetController : NetworkBehaviour
             planetPanel.resToggles[index].interactable = true;
         }
     }
-
-    public void SelectResource(int indexResource)
+    
+    // выбор ресурса (прожатый тугл)
+    public void SelectResource(int indexResource) 
     {
         indexCurrentResource = indexResource;
         UpdateInfo();
     }
     
-    public void ResourceIconShow()
+    
+    //отображение иконок ресурсов на карте
+    public void ResourceIconShow() 
     {
         if (!isColonized || planetResources.Count == 0) return;
         
@@ -286,8 +274,15 @@ public class PlanetController : NetworkBehaviour
             }
         }
     }
-
-    private IEnumerator ResourcesIconShowUpdated()
+    [ClientRpc]
+    public void RpcResourceIconShow()
+    {
+        ResourceIconShow();
+    }
+    
+    
+    //обновление иконок на всех клиентах раз в пару секунд
+    private IEnumerator ResourcesIconShowUpdated() 
     {
         while (NetworkServer.active)
         {
@@ -296,29 +291,73 @@ public class PlanetController : NetworkBehaviour
         }
     }
     
-    [ClientRpc]
-    public void RpcResourceIconShow()
+    
+    //очистка всех ресурсов планеты
+    [Server]
+    public void ClearPlanetResource()
     {
-        ResourceIconShow();
+        planetResources.Clear();
+    }
+    [Command]
+    public void CmdClearPlanetResource()
+    {
+        ClearPlanetResource();
+    }
+    
+    #endregion
+
+    #region Logistic (delivery resource)
+
+    public void LogisticResource()
+    {
+        
+    }
+    
+    public void SubscribeLogisticButton()
+    {
+        var planetPanel = AllSingleton.instance.planetPanelUI;
+        
+        //очистка
+        planetPanel.logisticButton.onClick.RemoveAllListeners();
+        //заполнение
+        planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetList.FillingList);
+        //открытие панели
+        planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetPanelUI.logisticListPanel.OpenPanel);
     }
 
-    public void HomingPlanetShow() //отображение иконки для родной планеты
+    #endregion
+    
+    
+    public void SetSpritePlanet() //назначить внешний вид планеты
     {
-        if (isHomePlanet && homeIcon)
-        {
-            homeIcon.SetActive(true);
-        }
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = AllSingleton.instance.mainPlanetController.listSpritePlanet[indSpritePlanet];
+    }
+
+    public void OpenPlanet()
+    {
+        if (planetResources.Count > 0)
+            SelectResource(0);
+        if (planetResources.Count > 1)
+            SelectResource(1);
+        if (planetResources.Count > 2)
+            SelectResource(2);
+        if (planetResources.Count > 3)
+            SelectResource(3);
+        if (planetResources.Count > 4)
+            SelectResource(4);
+        
+        indexCurrentResource = 0;
+        SubscribeResourceToggle();
+        SubscribeLogisticButton();
+        UpdateInfo();
     }
     
-    [Command]
-    public void CmdHomingPlanetShow() //отображение иконки для родной планеты
-    {
-        HomingPlanetShow();
-    }
-    
+
     public void UpdateInfo()
     {
         SubscribeResourceToggle();
+        SubscribeLogisticButton();
         
         var planetPanel = AllSingleton.instance.planetPanelUI;
         var curRes = planetResources[indexCurrentResource];
