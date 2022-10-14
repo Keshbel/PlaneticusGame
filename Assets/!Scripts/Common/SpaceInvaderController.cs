@@ -16,7 +16,9 @@ public class SpaceInvaderController : NetworkBehaviour
     public Light2D lightLamp;
     
     [Header("Idle")]
+    [SyncVar]
     public bool isIdle;
+    [SyncVar]
     public bool isRotateOrbit;
 
     [Header("Move/Rotate")] 
@@ -46,6 +48,8 @@ public class SpaceInvaderController : NetworkBehaviour
 
     private void OnDestroy()
     {
+        MoveTween?.Kill();
+        MoveTween = null;
         StopAllCoroutines();
     }
 
@@ -89,11 +93,23 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         if (other.CompareTag("Planet"))
         {
-            if (playerIdentity.GetComponent<CurrentPlayer>().playerPlanets.Contains(other.gameObject)) 
+            if (AllSingleton.instance.player.playerPlanets.Contains(other.gameObject)) 
             {
-                isIdle = true;
-                isRotateOrbit = true;
-                targetTransform = other.gameObject.transform;
+                if (other.transform == targetTransform)
+                {
+                    if (isServer)
+                    {
+                        SetIdle(true);
+                        SetRotateOrbit(true);
+                    }
+                    else
+                    {
+                        CmdSetIdle(true);
+                        CmdSetRotateOrbit(true);
+                    }
+                }
+
+                //targetTransform = other.gameObject.transform;
             }
             else
             {
@@ -154,6 +170,18 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         SetIdle(isOn);
     }
+
+    
+    [Server]
+    public void SetRotateOrbit(bool isOn)
+    {
+        isRotateOrbit = isOn;
+    }
+    [Command]
+    public void CmdSetRotateOrbit(bool isOn)
+    {
+        SetRotateOrbit(isOn);
+    }
     
 
     [ClientRpc]
@@ -190,6 +218,7 @@ public class SpaceInvaderController : NetworkBehaviour
     
     public void MoveTowards(GameObject target) //двигаться к (комбинация)
     {
+        targetTransform = target.transform;
         var targetPos = target.transform.position;
         var distance = Vector2.Distance(targetPos, transform.position);
 
@@ -222,7 +251,7 @@ public class SpaceInvaderController : NetworkBehaviour
     [Server]
     public void Move(Vector3 targetPos, float duration) //движение в сторону цели
     {
-        isIdle = false;
+        SetIdle(false);
         MoveTween?.Kill();
         MoveTween = transform.DOMove(targetPos, duration);
     }

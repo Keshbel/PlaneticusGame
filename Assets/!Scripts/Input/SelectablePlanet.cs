@@ -39,8 +39,9 @@ public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData) //нажатие на планету
     {
-        if (!NetworkClient.connection.identity.GetComponent<CurrentPlayer>().playerPlanets
-            .Contains(planetController.gameObject)) return;
+        if (!AllSingleton.instance.player.playerPlanets.Contains(planetController.gameObject) 
+            || AllSingleton.instance.player.invaderController != null 
+            || planetController.planetResources.Count == 0) return;
 
         SelectingProcess();
         planetController.OpenPlanet();

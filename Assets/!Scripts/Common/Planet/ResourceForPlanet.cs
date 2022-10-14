@@ -11,7 +11,7 @@ public class ResourceForPlanet
     public string nameResource; //имя
     public int resourceDelivery;
     public int resourceMining;
-    public int resourceAll;
+    public int resourceAll => resourceDelivery + resourceMining;
     public bool isMined;
     //ссылки
     [NonSerialized]

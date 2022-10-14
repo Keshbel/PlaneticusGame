@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using Mirror;
 using UnityEngine;
+using Random = System.Random;
 
 [Serializable]
 public class CurrentPlayer : NetworkBehaviour
 {
     [SyncVar]
     public string playerName;
+
+    [SyncVar] 
+    public Color playerColor;
     
     [Header("SyncLists")]
     public SyncList<GameObject> playerPlanets = new SyncList<GameObject>();
@@ -24,11 +28,11 @@ public class CurrentPlayer : NetworkBehaviour
 
         if (hasAuthority)
         {
+            AllSingleton.instance.player = this;
             if (isServer)
                 Invoke(nameof(HomePlanetAddingToPlayer), 0.5f);
             else
             {
-                AllSingleton.instance.player = this;
                 Invoke(nameof(CmdHomePlanetAddingToPlayer), 0.5f);
                 Invoke(nameof(CameraToHome), 0.6f);
             }
@@ -39,36 +43,49 @@ public class CurrentPlayer : NetworkBehaviour
     {
         if (hasAuthority)
         {
-            if (Input.GetMouseButtonDown(0)) //при клике
+            if (Input.GetMouseButtonDown(0)) //при клике левой кнопкой
             {
                 Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-                if (hit.collider != null)
+                
+                //при попадании по объекту с колайдером
+                if (hit.collider != null) 
                 {
                     var invader = hit.collider.GetComponent<SpaceInvaderController>();
                     targetPlanet = hit.collider.GetComponent<PlanetController>();
-                    
-                    if (invader != null)
+
+                    if (invader != null && playerInvaders.Contains(invader.gameObject)) //если клик был по захватчику, то выделяем его
                     {
-                        if (playerInvaders.Contains(invader.gameObject))
+                        //снимаем выделение с прошлого захватчика, если был
+                        if (invaderController != null)
                         {
-                            invaderController = invader;
                             if (isServer)
-                                invaderController.Selecting(true);
+                                invaderController.Selecting(false);
                             else
                             {
-                                invaderController.CmdSelecting(true);
+                                invaderController.CmdSelecting(false);
                             }
                         }
+                        
+                        //назначаем и выделяем нового захватчика
+                        invaderController = invader;
+                        if (isServer)
+                            invaderController.Selecting(true);
+                        else
+                        {
+                            invaderController.CmdSelecting(true);
+                        }
                     }
-
+                    
                     // если есть цель, выбран захватчик и дистанция не слишком маленькая, то движемся к цели
                     if (targetPlanet != null && invaderController != null && Vector2.Distance
-                        (invaderController.transform.position, targetPlanet.transform.position) > 1.7) 
+                        (invaderController.transform.position, targetPlanet.transform.position) > 1.7)
                     {
                         invaderController.MoveTowards(targetPlanet.gameObject);
                     }
                 }
+                
+                //при попадании по объекту без коллайдера, снимаем выделение
                 else
                 {
                     if (invaderController != null)
@@ -151,6 +168,9 @@ public class CurrentPlayer : NetworkBehaviour
 
             var planetSpawnPosition = goPosition.transform.position; //позиция планеты
             var xBoundCollider = goPosition.GetComponent<CircleCollider2D>().bounds.max.x; //граница коллайдера по х
+
+            var invaderControllerComponent = invader.GetComponent<SpaceInvaderController>();
+            invaderControllerComponent.targetTransform = goPosition.transform;
             
             invader.transform.position = new Vector3(xBoundCollider, planetSpawnPosition.y, planetSpawnPosition.z);
             
@@ -203,7 +223,6 @@ public class CurrentPlayer : NetworkBehaviour
             CameraToHome();
         }
     }
-
     [Command]
     public void CmdHomePlanetAddingToPlayer()
     {
@@ -211,6 +230,13 @@ public class CurrentPlayer : NetworkBehaviour
     }
 
     #region Other
+
+    [Server]
+    public void SetPlayerColor()
+    {
+        //playerColor = Random
+    }
+    
     [Client]
     public void CameraToHome()
     {

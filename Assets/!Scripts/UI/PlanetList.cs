@@ -1,6 +1,7 @@
+using Mirror;
 using UnityEngine;
 
-public class PlanetList : MonoBehaviour
+public class PlanetList : NetworkBehaviour
 {
     public GameObject contentParent;
 
@@ -33,10 +34,27 @@ public class PlanetList : MonoBehaviour
         //инициализация
         var planetButton = Instantiate(AllSingleton.instance.planetButtonPrefab, contentParent.transform);
         var data = planetButton.GetComponent<ButtonPlanetInfo>();
+        var planetParent = AllSingleton.instance.selectablePlanets[0].GetComponent<PlanetController>();
 
         //присвоение информации
         data.planetController = planet;
         data.namePlanetText.text = planet.namePlanet;
-        //data.buttonPlanet.onClick.AddListener();
+        
+        if (isServer)
+        {
+            data.buttonPlanet.onClick.AddListener(() =>
+                planetParent.LogisticResource(planetParent.planetResources[planetParent.indexCurrentResource], planet));
+        }
+        else
+        {
+            data.buttonPlanet.onClick.AddListener(() =>
+                planetParent.CmdLogisticResource(planetParent.planetResources[planetParent.indexCurrentResource], planet));
+        }
+        
+        data.buttonPlanet.onClick.AddListener(() => 
+            AllSingleton.instance.planetPanelUI.logisticListPanel.ClosePanel());
+        data.buttonPlanet.onClick.AddListener(() => 
+            planetParent.UpdateInfo(0));
+
     }
 }
