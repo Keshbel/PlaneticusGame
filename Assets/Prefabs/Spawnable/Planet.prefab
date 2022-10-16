@@ -603,6 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  textName: {fileID: 4203635130206805858}
   namePlanet: 
   indSpritePlanet: 0
   indexCurrentResource: 0

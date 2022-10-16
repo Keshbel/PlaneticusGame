@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Mirror;
 using UnityEngine;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 [Serializable]
 public class CurrentPlayer : NetworkBehaviour
@@ -30,9 +30,13 @@ public class CurrentPlayer : NetworkBehaviour
         {
             AllSingleton.instance.player = this;
             if (isServer)
+            {
+                SetPlayerColor();
                 Invoke(nameof(HomePlanetAddingToPlayer), 0.5f);
+            }
             else
             {
+                CmdSetPlayerColor();
                 Invoke(nameof(CmdHomePlanetAddingToPlayer), 0.5f);
                 Invoke(nameof(CameraToHome), 0.6f);
             }
@@ -126,11 +130,13 @@ public class CurrentPlayer : NetworkBehaviour
         {
             playerPlanets.Add(planet);
             planet.GetComponent<NetworkIdentity>().AssignClientAuthority(connectionToClient);
+            planet.GetComponent<PlanetController>().textName.color = playerColor;
         }
         else
         {
             playerPlanets.Remove(planet);
             planet.GetComponent<NetworkIdentity>().RemoveClientAuthority();
+            planet.GetComponent<PlanetController>().textName.color = Color.white;
         }
     }
     [Command]
@@ -234,7 +240,12 @@ public class CurrentPlayer : NetworkBehaviour
     [Server]
     public void SetPlayerColor()
     {
-        //playerColor = Random
+        playerColor = Random.ColorHSV();
+    }
+    [Command]
+    public void CmdSetPlayerColor()
+    {
+        SetPlayerColor();
     }
     
     [Client]

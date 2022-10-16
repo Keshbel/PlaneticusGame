@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,28 +10,31 @@ using Random = UnityEngine.Random;
 public class PlanetController : NetworkBehaviour
 {
     [Header("Main")]
-    [SyncVar]
-    public string namePlanet;
-    [SyncVar]
-    public int indSpritePlanet;
+    public TMP_Text textName;
+    [SyncVar] public string namePlanet;
+    [SyncVar] public int indSpritePlanet;
 
+    
     [Header("Resources")]
-    [SyncVar]
-    public int indexCurrentResource;
+    [SyncVar] public int indexCurrentResource;
     public SyncList<ResourceForPlanet> planetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
     public List<GameObject> resourcesIcon;
+
+
+    [Header("LogisticRoutes")] 
+    public SyncList<LogisticRoute> LogisticRoutes = new SyncList<LogisticRoute>();
+    
     
     [Header("Super Planet")]
-    [SyncVar]
-    public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
+    [SyncVar] public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
+       
 
     [Header("HomeColonized")]
-    [SyncVar]
-    public bool isHomePlanet = false; //является ли стартовой планетой?
-    [SyncVar]
-    public bool isColonized;
+    [SyncVar] public bool isHomePlanet = false; //является ли стартовой планетой?
+    [SyncVar] public bool isColonized;
     public GameObject homeIcon;
 
+    
     private void Start()
     {
         SetSpritePlanet();
@@ -314,12 +318,26 @@ public class PlanetController : NetworkBehaviour
     {
         if (resource.resourceAll == 0) return;
         
+        //инициализация
+        var logisticRoute = new GameObject().AddComponent<LogisticRoute>();
+        logisticRoute.FromTransform = transform;
+        logisticRoute.ToTransform = toPlanet.transform;
+        StartCoroutine(logisticRoute.StartRouteRoutine());
+        
+        
         var planetResource = toPlanet.planetResources.Find(p => p.resourcePlanet == resource.resourcePlanet);
         var newRes = resource;
-        
+
+        /*//ожидание доставки "первого груза" (для передачи ресурса планете)
+        while (!logisticRoute.IsProductTransfered)
+        {
+            
+        }*/
+
         //избавляемся от ресурса на планете-отдавателе
         ChangeResourceList(resource, false);
         
+        //добавляем планете приемнику
         if (planetResource == null) //если на планете-получателе нет ресурса этого типа, то добавляем
         {
             toPlanet.ChangeResourceList(newRes, true);

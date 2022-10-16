@@ -110,6 +110,7 @@ public class MainPlanetController : NetworkBehaviour
             //рандомные параметры для неё
             planetController.indSpritePlanet = Random.Range(0, listSpritePlanet.Count); //присвоение номера вида планеты
             planetController.namePlanet = allRandomNames[listPlanet.Count]; //имя
+            planetController.textName.text = planetController.namePlanet;
             planetController.AddResourceForPlanetGeneration(); //ресурсы
             SetRandomPosition(planet);
             var randomScale = Random.Range(0.1f, 0.2f); // случайный размер

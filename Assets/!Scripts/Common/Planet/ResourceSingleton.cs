@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class ResourceSingleton : MonoBehaviour
 {
-    [Header("Elements")]
+    [Header("LogisticElements")] 
+    public GameObject logisticArrowPrefab;
+    
+    
+    [Header("FiveElements")]
     public Sprite earthSprite;
     public Sprite waterSprite;
     public Sprite windSprite;

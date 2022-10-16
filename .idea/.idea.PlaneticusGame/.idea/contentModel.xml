@@ -13,6 +13,7 @@
             <e p="AllSingleton.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
             <e p="Planet" t="Include">
+              <e p="LogisticRoute.cs" t="Include" />
               <e p="MainPlanetController.cs" t="Include" />
               <e p="PlanetController.cs" t="Include" />
               <e p="PlanetPanelUI.cs" t="Include" />
