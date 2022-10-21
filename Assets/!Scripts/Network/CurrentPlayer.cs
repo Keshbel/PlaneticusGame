@@ -61,15 +61,7 @@ public class CurrentPlayer : NetworkBehaviour
                     if (invader != null && playerInvaders.Contains(invader.gameObject)) //если клик был по захватчику, то выделяем его
                     {
                         //снимаем выделение с прошлого захватчика, если был
-                        if (invaderController != null)
-                        {
-                            if (isServer)
-                                invaderController.Selecting(false);
-                            else
-                            {
-                                invaderController.CmdSelecting(false);
-                            }
-                        }
+                        UnSelecting();
                         
                         //назначаем и выделяем нового захватчика
                         invaderController = invader;
@@ -86,23 +78,16 @@ public class CurrentPlayer : NetworkBehaviour
                         (invaderController.transform.position, targetPlanet.transform.position) > 1.7)
                     {
                         invaderController.MoveTowards(targetPlanet.gameObject);
+                        UnSelecting();
+                        invaderController = null;
                     }
                 }
                 
                 //при попадании по объекту без коллайдера, снимаем выделение
                 else
                 {
-                    if (invaderController != null)
-                    {
-                        if (isServer)
-                            invaderController.Selecting(false);
-                        else
-                        {
-                            invaderController.CmdSelecting(false);
-                        }
-
-                        invaderController = null;
-                    }
+                    UnSelecting();
+                    invaderController = null;
                 }
             }
         }
@@ -246,6 +231,19 @@ public class CurrentPlayer : NetworkBehaviour
     public void CmdSetPlayerColor()
     {
         SetPlayerColor();
+    }
+
+    public void UnSelecting()
+    {
+        if (invaderController != null)
+        {
+            if (isServer)
+                invaderController.Selecting(false);
+            else
+            {
+                invaderController.CmdSelecting(false);
+            }
+        }
     }
     
     [Client]

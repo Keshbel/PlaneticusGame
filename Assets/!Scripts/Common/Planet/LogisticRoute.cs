@@ -1,26 +1,32 @@
 using System;
 using System.Collections;
-using System.Numerics;
+using System.Collections.Generic;
 using DG.Tweening;
 using Mirror;
 using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
 
+[Serializable]
 public class LogisticRoute : NetworkBehaviour
 {
+    [Header("Transforms")]
     public Transform FromTransform;
     public Transform ToTransform;
 
-    public bool IsOn = true;
-    public bool IsProductTransfered;
+    [Header("Options")]
+    public int speed = 5;
+    
+    [Header("Resources")]
+    public SyncList<ResourceForPlanet> SaveResources = new SyncList<ResourceForPlanet>();
+
+    [Header("States")]
+    public bool isOn = true;
 
     [Server]
     public IEnumerator StartRouteRoutine()
     {
         var distance = Vector2.Distance(ToTransform.position, FromTransform.position);
-        while (IsOn)
+        while (isOn)
         {
             //инициализация
             var logisticArrow = Instantiate(ResourceSingleton.instance.logisticArrowPrefab, FromTransform); //спавн объекта локально
@@ -36,14 +42,11 @@ public class LogisticRoute : NetworkBehaviour
             logisticArrow.transform.Rotate(0, 0, (float)deg_an, Space.Self);
 
             //движение
-            logisticArrow.transform.DOMove(toPosition, distance*10).OnComplete(()=> // движение в сторону цели
-            {
-                IsProductTransfered = true;
-                Destroy(logisticArrow);
-            }); 
-            
+            logisticArrow.transform.DOMove(toPosition, distance * speed).
+                OnComplete(()=>Destroy(logisticArrow)).SetEase(Ease.Linear); // движение в сторону цели
+
             //задержка
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
     }
 
@@ -55,6 +58,6 @@ public class LogisticRoute : NetworkBehaviour
 
     public void StopRouteRoutine()
     {
-        IsOn = false;
+        isOn = false;
     }
 }

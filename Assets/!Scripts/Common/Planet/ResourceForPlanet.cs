@@ -12,7 +12,7 @@ public class ResourceForPlanet
     public int resourceDelivery;
     public int resourceMining;
     public int resourceAll => resourceDelivery + resourceMining;
-    public bool isMined;
+    public bool isLogistic;
     //ссылки
     [NonSerialized]
     public Sprite spriteIcon;

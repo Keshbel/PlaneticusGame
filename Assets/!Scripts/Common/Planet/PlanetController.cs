@@ -171,25 +171,18 @@ public class PlanetController : NetworkBehaviour
             if (planetResources.Count < 5)
             {
                 planetResources.Add(resource);
-
-                if (planetResources.Count == 5)
-                {
-                    isSuperPlanet = true;
-                    StartCoroutine(StartSpawnInvadersRoutine());
-                }
-                else
-                {
-                    isSuperPlanet = false;
-                }
             }
-            else
+            
+            if (planetResources.Count == 5)
             {
-                print("Вы пытаетесь добавить шестой ресурс...");
+                isSuperPlanet = true;
+                StartCoroutine(StartSpawnInvadersRoutine());
             }
         }
         else // отнимаем
         {
             planetResources.Remove(resource);
+            isSuperPlanet = false;
         }
         
         resource.UpdateInfo();
@@ -234,7 +227,7 @@ public class PlanetController : NetworkBehaviour
         for (var index = 0; index < planetResources.Count; index++) //подписка
         {
             var index1 = index;
-            planetPanel.resToggles[index].onValueChanged.AddListener((b)=>SelectResource(index1));
+            planetPanel.resToggles[index].onValueChanged.AddListener((b) => SelectResource(index1));
             planetPanel.resToggles[index].interactable = true;
         }
     }
@@ -314,26 +307,51 @@ public class PlanetController : NetworkBehaviour
     #region Logistic (delivery resource)
 
     [Server]
-    public void LogisticResource(ResourceForPlanet resource, PlanetController toPlanet)
+    public IEnumerator LogisticResource(ResourceForPlanet resource, PlanetController toPlanet)
     {
-        if (resource.resourceAll == 0) return;
+        if (resource.resourceAll == 0) yield break;
         
         //инициализация
-        var logisticRoute = new GameObject().AddComponent<LogisticRoute>();
-        logisticRoute.FromTransform = transform;
-        logisticRoute.ToTransform = toPlanet.transform;
-        StartCoroutine(logisticRoute.StartRouteRoutine());
-        
-        
-        var planetResource = toPlanet.planetResources.Find(p => p.resourcePlanet == resource.resourcePlanet);
         var newRes = resource;
+        var planetResource = toPlanet.planetResources.Find(p => p.resourcePlanet == resource.resourcePlanet);
 
-        /*//ожидание доставки "первого груза" (для передачи ресурса планете)
-        while (!logisticRoute.IsProductTransfered)
+        //transform/distance
+        var fromTransform = transform;
+        var toTransform = toPlanet.transform;
+        var distance = Vector2.Distance(toTransform.position, fromTransform.position);
+        
+        var route = LogisticRoutes.Find(r => r.FromTransform == fromTransform && r.ToTransform == toTransform);
+        
+        newRes.isLogistic = true;
+        
+        if (route != null) //если визуальный маршрут уже есть
         {
+            route.SaveResources?.Add(newRes);
+        }
+        else
+        {
+            //spawn
+            var logisticRoute = Instantiate(ResourceSingleton.instance.logisticRoutePrefab, fromTransform).GetComponent<LogisticRoute>();
+            NetworkServer.Spawn(logisticRoute.gameObject);
             
-        }*/
+            //data
+            logisticRoute.FromTransform = fromTransform;
+            logisticRoute.ToTransform = toTransform;
+            
+            //start visual
+            StartCoroutine(logisticRoute.StartRouteRoutine());
+            
+            //initialization
+            LogisticRoutes?.Add(logisticRoute);
+            route = logisticRoute;
+            route.SaveResources?.Add(newRes);
+            
+        }
 
+        //ожидание доставки ресурса (прибытие первой стрелочки)
+        yield return new WaitForSeconds(distance*route.speed);
+
+        
         //избавляемся от ресурса на планете-отдавателе
         ChangeResourceList(resource, false);
         
@@ -350,7 +368,7 @@ public class PlanetController : NetworkBehaviour
     [Command]
     public void CmdLogisticResource(ResourceForPlanet resource, PlanetController toPlanet)
     {
-        LogisticResource(resource, toPlanet);
+        StartCoroutine(LogisticResource(resource, toPlanet));
     }
     
     
@@ -358,12 +376,25 @@ public class PlanetController : NetworkBehaviour
     {
         var planetPanel = AllSingleton.instance.planetPanelUI;
         
-        //очистка
-        planetPanel.logisticButton.onClick.RemoveAllListeners();
-        //заполнение
-        planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetList.FillingList);
-        //открытие панели
-        planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetPanelUI.logisticListPanel.OpenPanel);
+        if (!planetResources[indexCurrentResource].isLogistic) //если ресурс ещё не учавствует в логистике
+        {
+            //очистка
+            planetPanel.logisticButton.onClick.RemoveAllListeners();
+
+            //заполнение
+            planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetList.FillingList);
+
+            //открытие панели
+            planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetPanelUI.logisticListPanel
+                .OpenPanel);
+            
+            //прожимаемая кнопка
+            planetPanel.logisticButton.interactable = true;
+        }
+        else
+        {
+            planetPanel.logisticButton.interactable = false;
+        }
     }
 
     #endregion

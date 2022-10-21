@@ -108,16 +108,18 @@ public class SpaceInvaderController : NetworkBehaviour
                         CmdSetRotateOrbit(true);
                     }
                 }
-
-                //targetTransform = other.gameObject.transform;
             }
+            
             else
             {
-                if (isServer)
-                    Attack(other.gameObject);
-                else
+                if (other.transform == targetTransform)
                 {
-                    CmdAttack(other.gameObject);
+                    if (isServer)
+                        Attack(other.gameObject);
+                    else
+                    {
+                        CmdAttack(other.gameObject);
+                    }
                 }
             }
         }
