@@ -294,9 +294,9 @@ public class SpaceInvaderController : NetworkBehaviour
         var player = playerIdentity.GetComponent<CurrentPlayer>();
         var planet = target.GetComponent<PlanetController>();
 
-        if (planet.planetResources.Count > 1) //если ресурсов больше одного, то убираем рандомный ресурс
+        if (planet.PlanetResources.Count > 1) //если ресурсов больше одного, то убираем рандомный ресурс
         {
-            planet.ChangeResourceList(planet.planetResources[Random.Range(0, planet.planetResources.Count-1)], false);
+            planet.ChangeResourceList(planet.PlanetResources[Random.Range(0, planet.PlanetResources.Count-1)], false);
             
             if (planet.isHomePlanet || planet.isSuperPlanet) //если при этом это домашняя или суперпланета, то лишаем возможности создавать юнитов
             {

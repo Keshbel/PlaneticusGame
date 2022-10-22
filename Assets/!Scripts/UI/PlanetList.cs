@@ -43,12 +43,12 @@ public class PlanetList : NetworkBehaviour
         if (isServer)
         {
             data.buttonPlanet.onClick.AddListener(() =>
-                StartCoroutine(planetParent.LogisticResource(planetParent.planetResources[planetParent.indexCurrentResource], planet)));
+                StartCoroutine(planetParent.LogisticResource(planetParent.PlanetResources[planetParent.indexCurrentResource], planet)));
         }
         else
         {
             data.buttonPlanet.onClick.AddListener(() =>
-                planetParent.CmdLogisticResource(planetParent.planetResources[planetParent.indexCurrentResource], planet));
+                planetParent.CmdLogisticResource(planetParent.PlanetResources[planetParent.indexCurrentResource], planet));
         }
         
         data.buttonPlanet.onClick.AddListener(() => 

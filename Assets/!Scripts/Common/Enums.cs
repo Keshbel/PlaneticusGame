@@ -5,7 +5,7 @@ public class Enums : MonoBehaviour
     public enum ResourcePlanet
     {
         Fire,
-        Wind,
+        Air,
         Water,
         Earth,
         Aether

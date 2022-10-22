@@ -11,6 +11,11 @@ public class PlanetPanelUI : MonoBehaviour
 
     [Header("Toggles and Buttons")] 
     public List<Toggle> resToggles;
+    public Toggle waterToggle;
+    public Toggle earthToggle;
+    public Toggle fireToggle;
+    public Toggle airToggle;
+    public Toggle aetherToggle;
     public Button logisticButton;
     
     /*public Toggle resToggle1;

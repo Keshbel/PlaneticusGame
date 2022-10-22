@@ -37,9 +37,9 @@ public class ResourceForPlanet
                 spriteIcon = ResourceSingleton.instance.waterSprite;
                 nameResource = LeanLocalization.GetFirstCurrentLanguage() == "English" ? "Water" : "Вода";
                 break;
-            case Enums.ResourcePlanet.Wind:
+            case Enums.ResourcePlanet.Air:
                 spriteIcon = ResourceSingleton.instance.windSprite;
-                nameResource = LeanLocalization.GetFirstCurrentLanguage() == "English" ? "Wind" : "Ветер";
+                nameResource = LeanLocalization.GetFirstCurrentLanguage() == "English" ? "Air" : "Воздух";
                 break;
         }
     }

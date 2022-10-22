@@ -17,7 +17,7 @@ public class PlanetController : NetworkBehaviour
     
     [Header("Resources")]
     [SyncVar] public int indexCurrentResource;
-    public SyncList<ResourceForPlanet> planetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
+    public SyncList<ResourceForPlanet> PlanetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
     public List<GameObject> resourcesIcon;
 
 
@@ -89,10 +89,10 @@ public class PlanetController : NetworkBehaviour
             CmdSetHomePlanetBoolTrue();
         }
 
-        var res1 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Wind, resourceMining = 1};
-        var res2 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Water, resourceMining = 1};
-        var res3 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Earth, resourceMining = 1};
-        var res4 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Fire, resourceMining = 1};
+        var res1 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Water, resourceMining = 1};
+        var res2 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Earth, resourceMining = 1};
+        var res3 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Fire, resourceMining = 1};
+        var res4 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Air, resourceMining = 1};
         var res5 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Aether, resourceMining = 1};
 
         if (isServer) //добавление ресурсов
@@ -168,12 +168,12 @@ public class PlanetController : NetworkBehaviour
     {
         if (isAdding) //добавляем ли планету?
         {
-            if (planetResources.Count < 5)
+            if (PlanetResources.Count < 5)
             {
-                planetResources.Add(resource);
+                PlanetResources.Add(resource);
             }
             
-            if (planetResources.Count == 5)
+            if (PlanetResources.Count == 5)
             {
                 isSuperPlanet = true;
                 StartCoroutine(StartSpawnInvadersRoutine());
@@ -181,7 +181,7 @@ public class PlanetController : NetworkBehaviour
         }
         else // отнимаем
         {
-            planetResources.Remove(resource);
+            PlanetResources.Remove(resource);
             isSuperPlanet = false;
         }
         
@@ -224,11 +224,33 @@ public class PlanetController : NetworkBehaviour
             planetPanel.resToggles[index].interactable = false;
         }
         
-        for (var index = 0; index < planetResources.Count; index++) //подписка
+        for (var index = 0; index < PlanetResources.Count; index++) //подписка
         {
             var index1 = index;
-            planetPanel.resToggles[index].onValueChanged.AddListener((b) => SelectResource(index1));
-            planetPanel.resToggles[index].interactable = true;
+
+            switch (PlanetResources[index].resourcePlanet)
+            {
+                case Enums.ResourcePlanet.Water:
+                    planetPanel.waterToggle.onValueChanged.AddListener(b => SelectResource(index1));
+                    planetPanel.waterToggle.interactable = true;
+                    break;
+                case Enums.ResourcePlanet.Earth:
+                    planetPanel.earthToggle.onValueChanged.AddListener((b) => SelectResource(index1));
+                    planetPanel.earthToggle.interactable = true;
+                    break;
+                case Enums.ResourcePlanet.Fire:
+                    planetPanel.fireToggle.onValueChanged.AddListener((b) => SelectResource(index1));
+                    planetPanel.fireToggle.interactable = true;
+                    break;
+                case Enums.ResourcePlanet.Air:
+                    planetPanel.airToggle.onValueChanged.AddListener((b) => SelectResource(index1));
+                    planetPanel.airToggle.interactable = true;
+                    break;
+                case Enums.ResourcePlanet.Aether:
+                    planetPanel.aetherToggle.onValueChanged.AddListener((b) => SelectResource(index1));
+                    planetPanel.aetherToggle.interactable = true;
+                    break;
+            }
         }
     }
     
@@ -250,11 +272,11 @@ public class PlanetController : NetworkBehaviour
             icon.SetActive(false);
         }
 
-        foreach (var resource in planetResources) //включаем нужные
+        foreach (var resource in PlanetResources) //включаем нужные
         {
             switch (resource.resourcePlanet)
             {
-                case Enums.ResourcePlanet.Wind:
+                case Enums.ResourcePlanet.Air:
                     resourcesIcon[0].SetActive(true);
                     break;
                 case Enums.ResourcePlanet.Water:
@@ -294,7 +316,7 @@ public class PlanetController : NetworkBehaviour
     [Server]
     public void ClearPlanetResource()
     {
-        planetResources.Clear();
+        PlanetResources.Clear();
     }
     [Command]
     public void CmdClearPlanetResource()
@@ -313,7 +335,7 @@ public class PlanetController : NetworkBehaviour
         
         //инициализация
         var newRes = resource;
-        var planetResource = toPlanet.planetResources.Find(p => p.resourcePlanet == resource.resourcePlanet);
+        var planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == resource.resourcePlanet);
 
         //transform/distance
         var fromTransform = transform;
@@ -376,7 +398,7 @@ public class PlanetController : NetworkBehaviour
     {
         var planetPanel = AllSingleton.instance.planetPanelUI;
         
-        if (!planetResources[indexCurrentResource].isLogistic) //если ресурс ещё не учавствует в логистике
+        if (!PlanetResources[indexCurrentResource].isLogistic) //если ресурс ещё не учавствует в логистике
         {
             //очистка
             planetPanel.logisticButton.onClick.RemoveAllListeners();
@@ -408,15 +430,15 @@ public class PlanetController : NetworkBehaviour
 
     public void OpenPlanet()
     {
-        if (planetResources.Count > 0)
+        if (PlanetResources.Count > 0)
             SelectResource(0);
-        if (planetResources.Count > 1)
+        if (PlanetResources.Count > 1)
             SelectResource(1);
-        if (planetResources.Count > 2)
+        if (PlanetResources.Count > 2)
             SelectResource(2);
-        if (planetResources.Count > 3)
+        if (PlanetResources.Count > 3)
             SelectResource(3);
-        if (planetResources.Count > 4)
+        if (PlanetResources.Count > 4)
             SelectResource(4);
         
         indexCurrentResource = 0;
@@ -433,9 +455,9 @@ public class PlanetController : NetworkBehaviour
 
         var planetPanel = AllSingleton.instance.planetPanelUI;
 
-        if (planetResources.Count-1 >= index)
+        if (PlanetResources.Count-1 >= index)
         {
-            var curRes = planetResources[index];
+            var curRes = PlanetResources[index];
 
             planetPanel.planetNameText.text = namePlanet;
 
@@ -445,7 +467,7 @@ public class PlanetController : NetworkBehaviour
             planetPanel.resourceAllText.text = curRes.resourceAll.ToString();
             planetPanel.resourceIconImage.sprite = curRes.spriteIcon;
 
-            planetResources[index].UpdateInfo();
+            PlanetResources[index].UpdateInfo();
         }
         else
         {
