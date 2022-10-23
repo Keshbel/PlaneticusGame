@@ -200,7 +200,7 @@ public class CurrentPlayer : NetworkBehaviour
                 homePlanet.HomingPlanetShow();
                 homePlanet.RpcResourceIconShow();
                 homePlanet.Colonization();
-                StartCoroutine(SpawnInvader(3, homePlanet.gameObject));
+                StartCoroutine(SpawnInvader(2, homePlanet.gameObject));
             }
             else
             {
@@ -208,7 +208,7 @@ public class CurrentPlayer : NetworkBehaviour
                 homePlanet.CmdHomingPlanetShow();
                 homePlanet.RpcResourceIconShow();
                 homePlanet.CmdColonization();
-                CmdSpawnInvader(3, homePlanet.gameObject);
+                CmdSpawnInvader(2, homePlanet.gameObject);
             }
             
             CameraToHome();

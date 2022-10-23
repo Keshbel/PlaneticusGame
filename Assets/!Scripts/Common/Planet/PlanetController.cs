@@ -1,40 +1,47 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Mirror;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 [Serializable]
 public class PlanetController : NetworkBehaviour
 {
-    [Header("Main")]
-    public TMP_Text textName;
+    [Header("Main")] public TMP_Text textName;
     [SyncVar] public string namePlanet;
     [SyncVar] public int indSpritePlanet;
 
-    
-    [Header("Resources")]
-    [SyncVar] public int indexCurrentResource;
+
+    [Header("Resources")] [SyncVar] public int indexCurrentResource;
     public SyncList<ResourceForPlanet> PlanetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
     public List<GameObject> resourcesIcon;
 
 
     [Header("LogisticRoutes")] 
     public SyncList<LogisticRoute> LogisticRoutes = new SyncList<LogisticRoute>();
-    
-    
-    [Header("Super Planet")]
-    [SyncVar] public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
-       
 
-    [Header("HomeColonized")]
+
+    [Header("Home / Super Planet")] 
     [SyncVar] public bool isHomePlanet = false; //является ли стартовой планетой?
-    [SyncVar] public bool isColonized;
     public GameObject homeIcon;
-
     
+    [SyncVar] public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
+    [SyncVar] public GameObject effectSuperPlanet;
+    public GameObject sliderCanvas;
+    public Slider slider;
+    public float counterToSpawn = 0;
+    public float timeToSpawn = 20f;
+
+
+    [Header("Colonized")]
+    [SyncVar] public bool isColonized;
+    public SyncList<SpaceInvaderController> SpaceOrbitInvader = new SyncList<SpaceInvaderController>(); //союзные захватчики на орбите
+    
+
     private void Start()
     {
         SetSpritePlanet();
@@ -44,14 +51,14 @@ public class PlanetController : NetworkBehaviour
     public override void OnStartServer()
     {
         base.OnStartServer();
-        
+
         StartCoroutine(ResourcesIconShowUpdated());
     }
-    
+
     public override void OnStartClient()
     {
         base.OnStartClient();
-        
+
         HomingPlanetShow();
         Invoke(nameof(HomingPlanetShow), 1f);
         ResourceIconShow();
@@ -60,22 +67,37 @@ public class PlanetController : NetworkBehaviour
 
     public IEnumerator StartSpawnInvadersRoutine() //спавн захватчиков при статусе супер планеты
     {
-        if (isHomePlanet) //начальная задержка после спавна стартовых захватичков
-            yield return new WaitForSeconds(26f);
+        sliderCanvas.SetActive(true);
         
+        if (isHomePlanet) //начальная задержка после спавна стартовых захватичков
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                slider.value = 0;
+                slider.DOValue(1, 2f).SetEase(Ease.Linear);
+                
+                yield return new WaitForSeconds(2f);
+            }
+        }
+
         while (isSuperPlanet)
         {
             if (hasAuthority)
             {
                 StartCoroutine(AllSingleton.instance.player.SpawnInvader(1, gameObject));
-                yield return new WaitForSeconds(20f);
+                
+                counterToSpawn = 0;
+                slider.value = counterToSpawn;
+                slider.DOValue(1, timeToSpawn).SetEase(Ease.Linear);
+                
+                yield return new WaitForSeconds(timeToSpawn);
             }
         }
     }
-    
+
 
     #region HomePlanetOptions
-    
+
     public void SetHomePlanet() // установка домашней планеты
     {
         if (isServer) //очистка и простановка статуса
@@ -89,11 +111,11 @@ public class PlanetController : NetworkBehaviour
             CmdSetHomePlanetBoolTrue();
         }
 
-        var res1 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Water, resourceMining = 1};
-        var res2 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Earth, resourceMining = 1};
-        var res3 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Fire, resourceMining = 1};
-        var res4 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Air, resourceMining = 1};
-        var res5 = new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Aether, resourceMining = 1};
+        var res1 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Water, resourceMining = 2 };
+        var res2 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Earth, resourceMining = 2 };
+        var res3 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Fire, resourceMining = 2 };
+        var res4 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Air, resourceMining = 2 };
+        var res5 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Aether, resourceMining = 2 };
 
         if (isServer) //добавление ресурсов
         {
@@ -114,7 +136,7 @@ public class PlanetController : NetworkBehaviour
             RpcResourceIconShow();
         }
     }
-    
+
     public void HomingPlanetShow() //отображение иконки для родной планеты
     {
         if (isHomePlanet && homeIcon)
@@ -122,27 +144,29 @@ public class PlanetController : NetworkBehaviour
             homeIcon.SetActive(true);
         }
     }
+
     [Command]
     public void CmdHomingPlanetShow() //отображение иконки для родной планеты
     {
         HomingPlanetShow();
     }
-    
+
     [Server]
     public void SetHomePlanetBoolTrue()
     {
         isHomePlanet = true;
     }
+
     [Command]
     public void CmdSetHomePlanetBoolTrue()
     {
         SetHomePlanetBoolTrue();
     }
-    
+
     #endregion
 
     #region Colonization
-    
+
     [Server]
     public void Colonization()
     {
@@ -157,14 +181,31 @@ public class PlanetController : NetworkBehaviour
     {
         Colonization();
     }
-    
+
+    [Server]
+    public void ChangeOrbitInvaderList(SpaceInvaderController invader, bool isAdding)
+    {
+        if (isAdding)
+        {
+            SpaceOrbitInvader.Add(invader);
+        }
+        else
+        {
+            SpaceOrbitInvader.Remove(invader);
+        }
+    }
+    [Command]
+    public void CmdChangeOrbitInvaderList(SpaceInvaderController invader, bool isAdding)
+    {
+        ChangeOrbitInvaderList(invader, isAdding);
+    }
     #endregion
 
     #region PlanetResource
-    
+
     //добавление ресурса для планеты, с ограничением добавления
     [Server]
-    public void ChangeResourceList(ResourceForPlanet resource, bool isAdding = true) 
+    public void ChangeResourceList(ResourceForPlanet resource, bool isAdding = true)
     {
         if (isAdding) //добавляем ли планету?
         {
@@ -172,30 +213,45 @@ public class PlanetController : NetworkBehaviour
             {
                 PlanetResources.Add(resource);
             }
-            
+
             if (PlanetResources.Count == 5)
             {
                 isSuperPlanet = true;
+                sliderCanvas.SetActive(true);
                 StartCoroutine(StartSpawnInvadersRoutine());
             }
         }
         else // отнимаем
         {
-            PlanetResources.Remove(resource);
-            isSuperPlanet = false;
+            if (resource.resourceAll > 1)
+            {
+                if (resource.resourceMining > 0)
+                    resource.resourceMining--;
+                else
+                {
+                    resource.resourceDelivery--;
+                }
+            }
+            else
+            {
+                PlanetResources.Remove(resource);
+                sliderCanvas.SetActive(false);
+                isSuperPlanet = false;
+            }
         }
-        
+
+        RpcEffectChangeActive();
         resource.UpdateInfo();
         RpcResourceIconShow();
     }
+
     [Command]
     public void CmdChangeResourceList(ResourceForPlanet resource, bool isAdding)
     {
         ChangeResourceList(resource, isAdding);
     }
-    
-    
-    //добавление ресурсов при создании планет
+
+//добавление ресурсов при создании планет
     public void AddResourceForPlanetGeneration() 
     {
         var res1 = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 5), resourceMining = 1};
@@ -300,13 +356,19 @@ public class PlanetController : NetworkBehaviour
         ResourceIconShow();
     }
     
-    
+    [ClientRpc]
+    public void RpcEffectChangeActive()
+    {
+        effectSuperPlanet.SetActive(isSuperPlanet);
+    }
+
     //обновление иконок на всех клиентах раз в пару секунд
     private IEnumerator ResourcesIconShowUpdated() 
     {
         while (NetworkServer.active)
         {
             RpcResourceIconShow();
+            //RpcEffectChangeActive();
             yield return new WaitForSeconds(2f);
         }
     }
@@ -331,11 +393,10 @@ public class PlanetController : NetworkBehaviour
     [Server]
     public IEnumerator LogisticResource(ResourceForPlanet resource, PlanetController toPlanet)
     {
-        if (resource.resourceAll == 0) yield break;
+        if (resource.resourceMining == 0) yield break;
         
         //инициализация
-        var newRes = resource;
-        var planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == resource.resourcePlanet);
+        var newRes = new ResourceForPlanet{ resourcePlanet = resource.resourcePlanet, resourceDelivery = 1 };
 
         //transform/distance
         var fromTransform = transform;
@@ -343,9 +404,7 @@ public class PlanetController : NetworkBehaviour
         var distance = Vector2.Distance(toTransform.position, fromTransform.position);
         
         var route = LogisticRoutes.Find(r => r.FromTransform == fromTransform && r.ToTransform == toTransform);
-        
-        newRes.isLogistic = true;
-        
+
         if (route != null) //если визуальный маршрут уже есть
         {
             route.SaveResources?.Add(newRes);
@@ -370,12 +429,13 @@ public class PlanetController : NetworkBehaviour
             
         }
 
-        //ожидание доставки ресурса (прибытие первой стрелочки)
-        yield return new WaitForSeconds(distance*route.speed);
-
-        
         //избавляемся от ресурса на планете-отдавателе
         ChangeResourceList(resource, false);
+
+        //ожидание доставки ресурса (прибытие первой стрелочки)
+        yield return new WaitForSeconds(distance*route.speed);        
+        
+        var planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == resource.resourcePlanet);
         
         //добавляем планете приемнику
         if (planetResource == null) //если на планете-получателе нет ресурса этого типа, то добавляем
@@ -398,7 +458,7 @@ public class PlanetController : NetworkBehaviour
     {
         var planetPanel = AllSingleton.instance.planetPanelUI;
         
-        if (!PlanetResources[indexCurrentResource].isLogistic) //если ресурс ещё не учавствует в логистике
+        if (PlanetResources[indexCurrentResource].resourceMining > 0) //если ресурс ещё не учавствует в логистике
         {
             //очистка
             planetPanel.logisticButton.onClick.RemoveAllListeners();

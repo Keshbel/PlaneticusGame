@@ -41,7 +41,8 @@ public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
     {
         if (!AllSingleton.instance.player.playerPlanets.Contains(planetController.gameObject) 
             || AllSingleton.instance.player.invaderController != null 
-            || planetController.PlanetResources.Count == 0) return;
+            || planetController.PlanetResources.Count == 0
+            || planetController.PlanetResources.FindAll(p => p.resourceMining > 0).Count == 0) return;
 
         SelectingProcess();
         planetController.OpenPlanet();

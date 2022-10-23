@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using Mirror;
@@ -32,9 +33,10 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         base.OnStartClient();
 
-        var identity = NetworkClient.connection.identity;
         if (hasAuthority)
         {
+            var identity = NetworkClient.connection.identity;
+            
             if (isServer)
             {
                 SetPlayer(identity);
@@ -91,21 +93,25 @@ public class SpaceInvaderController : NetworkBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Planet"))
+        if (other.CompareTag("Planet") && hasAuthority)
         {
-            if (AllSingleton.instance.player.playerPlanets.Contains(other.gameObject)) 
+            if (AllSingleton.instance.player.playerPlanets.Contains(other.gameObject)) // союзная планета 
             {
                 if (other.transform == targetTransform)
                 {
+                    var planet = other.GetComponent<PlanetController>();
+                    
                     if (isServer)
                     {
                         SetIdle(true);
                         SetRotateOrbit(true);
+                        planet.ChangeOrbitInvaderList(this, true);
                     }
                     else
                     {
                         CmdSetIdle(true);
                         CmdSetRotateOrbit(true);
+                        planet.CmdChangeOrbitInvaderList(this, true);
                     }
                 }
             }
@@ -120,6 +126,26 @@ public class SpaceInvaderController : NetworkBehaviour
                     {
                         CmdAttack(other.gameObject);
                     }
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Planet") && hasAuthority)
+        {
+            if (AllSingleton.instance.player.playerPlanets.Contains(other.gameObject)) // союзная планета 
+            {
+                var planet = other.GetComponent<PlanetController>();
+                
+                if (isServer)
+                {
+                    planet.ChangeOrbitInvaderList(this, false);
+                }
+                else
+                {
+                    planet.CmdChangeOrbitInvaderList(this, false);
                 }
             }
         }
@@ -294,6 +320,20 @@ public class SpaceInvaderController : NetworkBehaviour
         var player = playerIdentity.GetComponent<CurrentPlayer>();
         var planet = target.GetComponent<PlanetController>();
 
+        if (planet.SpaceOrbitInvader.Count > 0) //если есть защитники
+        {
+            var invaderDefender = planet.SpaceOrbitInvader[0];
+            planet.ChangeOrbitInvaderList(invaderDefender, false);
+            NetworkServer.UnSpawn(invaderDefender.gameObject);
+            Destroy(invaderDefender.gameObject);
+            
+            //удаляем этого захватчика
+            player.ChangeListWithInvaders(gameObject, false);
+            NetworkServer.UnSpawn(gameObject);
+            Destroy(gameObject);
+            return;
+        }
+        
         if (planet.PlanetResources.Count > 1) //если ресурсов больше одного, то убираем рандомный ресурс
         {
             planet.ChangeResourceList(planet.PlanetResources[Random.Range(0, planet.PlanetResources.Count-1)], false);
@@ -325,12 +365,6 @@ public class SpaceInvaderController : NetworkBehaviour
                 planet.RpcResourceIconShow();
                 Invoke(nameof(planet.RpcResourceIconShow), 1f);
             }
-            else
-            {
-                planet.CmdColonization();
-                planet.RpcResourceIconShow();
-                Invoke(nameof(planet.ResourceIconShow), 1f);
-            }
         }
         
         //обновление инфы
@@ -339,19 +373,9 @@ public class SpaceInvaderController : NetworkBehaviour
             planet.RpcResourceIconShow();
             Invoke(nameof(planet.RpcResourceIconShow), 3f);
         }
-        else
-        {
-            planet.ResourceIconShow();
-            Invoke(nameof(planet.ResourceIconShow), 3f);
-        }
 
         //удаление захватчика
-        if (isServer)
-            player.ChangeListWithInvaders(gameObject, false);
-        else
-        {
-            player.CmdChangeListWithInvaders(gameObject, false);
-        }
+        player.ChangeListWithInvaders(gameObject, false);
         NetworkServer.UnSpawn(gameObject);
         Destroy(gameObject);
     }
