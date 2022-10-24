@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Lean.Localization;
 using Mirror;
 using TMPro;
 using UnityEngine;
@@ -11,12 +12,15 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class PlanetController : NetworkBehaviour
 {
-    [Header("Main")] public TMP_Text textName;
+    [Header("Main")] 
+    public TMP_Text textName;
+    public TMP_Text textTimeDistance;
     [SyncVar] public string namePlanet;
     [SyncVar] public int indSpritePlanet;
 
 
-    [Header("Resources")] [SyncVar] public int indexCurrentResource;
+    [Header("Resources")] 
+    [SyncVar] public int indexCurrentResource;
     public SyncList<ResourceForPlanet> PlanetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
     public List<GameObject> resourcesIcon;
 
@@ -433,7 +437,7 @@ public class PlanetController : NetworkBehaviour
         ChangeResourceList(resource, false);
 
         //ожидание доставки ресурса (прибытие первой стрелочки)
-        yield return new WaitForSeconds(distance*route.speed);        
+        yield return new WaitForSeconds(distance/route.speed);        
         
         var planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == resource.resourcePlanet);
         
@@ -463,13 +467,30 @@ public class PlanetController : NetworkBehaviour
             //очистка
             planetPanel.logisticButton.onClick.RemoveAllListeners();
 
-            //заполнение
-            planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetList.FillingList);
-
-            //открытие панели
-            planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetPanelUI.logisticListPanel
-                .OpenPanel);
+            //включение логистического режима
+            planetPanel.logisticButton.onClick.AddListener(() => AllSingleton.instance.player.isLogisticMode = true);
             
+            //просчёт дистанции
+            planetPanel.logisticButton.onClick.AddListener(() =>
+            {
+                foreach (var planet in AllSingleton.instance.mainPlanetController.listPlanet)
+                {
+                    if (AllSingleton.instance.player.playerPlanets.Contains(planet.gameObject) && planet.gameObject != gameObject)
+                    {
+                        float speed = AllSingleton.instance.speed;;
+                        if (planet.LogisticRoutes.Count != 0)
+                        {
+                            speed = planet.LogisticRoutes[0].speed;
+                        }
+
+                        planet.CalculateDistance(transform.position, speed);
+                    }
+                }
+            });
+            
+            //закрытие панели
+            planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetPanelController.ClosePanel);
+
             //прожимаемая кнопка
             planetPanel.logisticButton.interactable = true;
         }
@@ -480,7 +501,23 @@ public class PlanetController : NetworkBehaviour
     }
 
     #endregion
+
+
+    public void CalculateDistance(Vector2 fromPosition, float speed)
+    {
+        var secondsLanguage = "";
+        if (LeanLocalization.GetFirstCurrentLanguage() == "Russian")
+            secondsLanguage = " с";
+        if (LeanLocalization.GetFirstCurrentLanguage() == "English")
+            secondsLanguage = " s";
+
+        textTimeDistance.text = (Vector2.Distance(fromPosition, transform.position)/speed).ToString("0.0") + secondsLanguage;
+    }
     
+    public void ClearDistanceText()
+    {
+        textTimeDistance.text = "";
+    }
     
     public void SetSpritePlanet() //назначить внешний вид планеты
     {

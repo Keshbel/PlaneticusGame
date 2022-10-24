@@ -10,6 +10,9 @@ public class AllSingleton : NetworkBehaviour
     public List<NetworkIdentity> currentPlayers;
     public List<SelectablePlanet> selectablePlanets;
 
+    [Header("Options")] 
+    public float speed = 0.2f;
+    
     [Header("Prefabs")] 
     public GameObject planetPrefab;
     public GameObject planetButtonPrefab;
@@ -22,8 +25,7 @@ public class AllSingleton : NetworkBehaviour
     [Header("PlanetPanel")]
     public PanelController planetPanelController;
     public PlanetPanelUI planetPanelUI;
-    public PlanetList planetList;
-    
+
     #region Singleton
 
     public static AllSingleton instance;

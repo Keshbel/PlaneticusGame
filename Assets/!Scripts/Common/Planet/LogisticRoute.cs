@@ -14,7 +14,7 @@ public class LogisticRoute : NetworkBehaviour
     public Transform ToTransform;
 
     [Header("Options")]
-    public int speed = 5;
+    public float speed = 0.2f;
     
     [Header("Resources")]
     public SyncList<ResourceForPlanet> SaveResources = new SyncList<ResourceForPlanet>();
@@ -42,7 +42,7 @@ public class LogisticRoute : NetworkBehaviour
             logisticArrow.transform.Rotate(0, 0, (float)deg_an, Space.Self);
 
             //движение
-            logisticArrow.transform.DOMove(toPosition, distance * speed).
+            logisticArrow.transform.DOMove(toPosition, distance / speed).
                 OnComplete(()=>Destroy(logisticArrow)).SetEase(Ease.Linear); // движение в сторону цели
 
             //задержка

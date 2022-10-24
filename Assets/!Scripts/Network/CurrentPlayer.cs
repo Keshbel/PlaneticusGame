@@ -17,8 +17,10 @@ public class CurrentPlayer : NetworkBehaviour
     public SyncList<GameObject> playerPlanets = new SyncList<GameObject>();
     public SyncList<GameObject> playerInvaders = new SyncList<GameObject>();
 
+    [Header("Targets")]
     public SpaceInvaderController invaderController;
     public PlanetController targetPlanet;
+    public bool isLogisticMode;
 
     public override void OnStartClient()
     {
@@ -58,34 +60,56 @@ public class CurrentPlayer : NetworkBehaviour
                     var invader = hit.collider.GetComponent<SpaceInvaderController>();
                     targetPlanet = hit.collider.GetComponent<PlanetController>();
 
-                    if (invader != null && playerInvaders.Contains(invader.gameObject)) //если клик был по захватчику, то выделяем его
+                    if (isLogisticMode) //режим передачи ресурсов
                     {
-                        //снимаем выделение с прошлого захватчика, если был
-                        UnSelecting();
-                        
-                        //назначаем и выделяем нового захватчика
-                        invaderController = invader;
-                        if (isServer)
-                            invaderController.Selecting(true);
-                        else
+                        if (targetPlanet != null && playerPlanets.Contains(targetPlanet.gameObject))
                         {
-                            invaderController.CmdSelecting(true);
+                            var planetParent = AllSingleton.instance.selectablePlanets[0].GetComponent<PlanetController>();
+                            if (planetParent != targetPlanet)
+                                StartCoroutine(planetParent.LogisticResource
+                                    (planetParent.PlanetResources[planetParent.indexCurrentResource], targetPlanet));
                         }
+                        ClearDistanceInfo();
                     }
-                    
-                    // если есть цель, выбран захватчик и дистанция не слишком маленькая, то движемся к цели
-                    if (targetPlanet != null && invaderController != null && Vector2.Distance
-                        (invaderController.transform.position, targetPlanet.transform.position) > 1.7)
+                    else
                     {
-                        invaderController.MoveTowards(targetPlanet.gameObject);
-                        UnSelecting();
-                        invaderController = null;
+                        if (invader != null && playerInvaders.Contains(invader.gameObject)) //если клик был по захватчику, то выделяем его
+                        {
+                            //снимаем выделение с прошлого захватчика, если был
+                            UnSelecting();
+                        
+                            //назначаем и выделяем нового захватчика
+                            invaderController = invader;
+                            if (isClient) invaderController.CmdSelecting(true);
+
+                            foreach (var planet in AllSingleton.instance.mainPlanetController.listPlanet)
+                            {
+                                float speed = AllSingleton.instance.speed;
+                                if (planet.LogisticRoutes.Count != 0)
+                                {
+                                    speed = planet.LogisticRoutes[0].speed;
+                                }
+                                planet.CalculateDistance(invaderController.transform.position, speed);
+                            }
+
+                        }
+                    
+                        // если есть цель, выбран захватчик и дистанция не слишком маленькая, то движемся к цели
+                        if (targetPlanet != null && invaderController != null && Vector2.Distance
+                                (invaderController.transform.position, targetPlanet.transform.position) > 1.7)
+                        {
+                            invaderController.MoveTowards(targetPlanet.gameObject);
+                            ClearDistanceInfo();
+                            UnSelecting();
+                            invaderController = null;
+                        }
                     }
                 }
                 
                 //при попадании по объекту без коллайдера, снимаем выделение
                 else
                 {
+                    ClearDistanceInfo();
                     UnSelecting();
                     invaderController = null;
                 }
@@ -244,6 +268,16 @@ public class CurrentPlayer : NetworkBehaviour
                 invaderController.CmdSelecting(false);
             }
         }
+    }
+
+    public void ClearDistanceInfo()
+    {
+        foreach (var planet in AllSingleton.instance.mainPlanetController.listPlanet)
+        {
+            planet.ClearDistanceText();
+        }
+
+        isLogisticMode = false;
     }
     
     [Client]
