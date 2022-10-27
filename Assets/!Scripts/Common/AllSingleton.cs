@@ -15,16 +15,17 @@ public class AllSingleton : NetworkBehaviour
     
     [Header("Prefabs")] 
     public GameObject planetPrefab;
-    public GameObject planetButtonPrefab;
     public GameObject invaderPrefab;
     
     [Header("Scripts")]
     public CameraMove cameraMove;
     public MainPlanetController mainPlanetController;
+    public LogisticRouteController logisticRouteController;
     
-    [Header("PlanetPanel")]
+    [Header("Panels")]
     public PanelController planetPanelController;
     public PlanetPanelUI planetPanelUI;
+    public LogisticRouteUI logisticRouteUI;
 
     #region Singleton
 

@@ -115,11 +115,11 @@ public class PlanetController : NetworkBehaviour
             CmdSetHomePlanetBoolTrue();
         }
 
-        var res1 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Water, resourceMining = 2 };
-        var res2 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Earth, resourceMining = 2 };
-        var res3 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Fire, resourceMining = 2 };
-        var res4 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Air, resourceMining = 2 };
-        var res5 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Aether, resourceMining = 2 };
+        var res1 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Water, resourceMining = 1 };
+        var res2 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Earth, resourceMining = 1 };
+        var res3 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Fire, resourceMining = 1 };
+        var res4 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Air, resourceMining = 1 };
+        var res5 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Aether, resourceMining = 1 };
 
         if (isServer) //добавление ресурсов
         {
@@ -400,28 +400,43 @@ public class PlanetController : NetworkBehaviour
         if (resource.resourceMining == 0) yield break;
         
         //инициализация
-        var newRes = new ResourceForPlanet{ resourcePlanet = resource.resourcePlanet, resourceDelivery = 1 };
+        var routeResource = new ResourceForPlanet{ resourcePlanet = resource.resourcePlanet, resourceDelivery = 1, isLogistic = false}; //ресурс в маршруте
+        var finalRes = new ResourceForPlanet{ resourcePlanet = resource.resourcePlanet, resourceDelivery = 1, isLogistic = false}; //финальный ресурс доставленный на планету
+        var planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == resource.resourcePlanet); //если ресурс этого типа на планете уже есть
 
         //transform/distance
         var fromTransform = transform;
         var toTransform = toPlanet.transform;
         var distance = Vector2.Distance(toTransform.position, fromTransform.position);
         
-        var route = LogisticRoutes.Find(r => r.FromTransform == fromTransform && r.ToTransform == toTransform);
+        var route = LogisticRoutes.Find(r => r.fromTransform == fromTransform && r.toTransform == toTransform);
+        
+        //если на планете-получателе есть ресурс этого типа, то выключаем логистику у него (для узнавания, долетел ли или нет)
+        if (planetResource != null) 
+        {
+            planetResource.isLogistic = false;
+        }
 
         if (route != null) //если визуальный маршрут уже есть
         {
-            route.SaveResources?.Add(newRes);
+            var routeRes = route.SaveResources?.Find(res => res.resourcePlanet == routeResource.resourcePlanet);
+            if (routeRes != null)
+            {
+                routeRes.resourceDelivery++;
+                routeRes.isLogistic = false;
+            }
+            else
+                route.SaveResources?.Add(routeResource);
         }
-        else
+        else // если нет, то создаём
         {
             //spawn
             var logisticRoute = Instantiate(ResourceSingleton.instance.logisticRoutePrefab, fromTransform).GetComponent<LogisticRoute>();
             NetworkServer.Spawn(logisticRoute.gameObject);
             
             //data
-            logisticRoute.FromTransform = fromTransform;
-            logisticRoute.ToTransform = toTransform;
+            logisticRoute.fromTransform = fromTransform;
+            logisticRoute.toTransform = toTransform;
             
             //start visual
             StartCoroutine(logisticRoute.StartRouteRoutine());
@@ -429,27 +444,30 @@ public class PlanetController : NetworkBehaviour
             //initialization
             LogisticRoutes?.Add(logisticRoute);
             route = logisticRoute;
-            route.SaveResources?.Add(newRes);
-            
+            route.SaveResources?.Add(routeResource);
         }
-
+        
         //избавляемся от ресурса на планете-отдавателе
         ChangeResourceList(resource, false);
 
+        
         //ожидание доставки ресурса (прибытие первой стрелочки)
-        yield return new WaitForSeconds(distance/route.speed);        
-        
-        var planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == resource.resourcePlanet);
-        
+        yield return new WaitForSeconds(distance/route.speed);
+
+        planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == resource.resourcePlanet); //если ресурс этого типа на планете уже есть
+
         //добавляем планете приемнику
         if (planetResource == null) //если на планете-получателе нет ресурса этого типа, то добавляем
         {
-            toPlanet.ChangeResourceList(newRes, true);
+            finalRes.isLogistic = true;
+            toPlanet.ChangeResourceList(finalRes, true);
         }
         else //если есть ресурс этого типа
         {
             planetResource.resourceDelivery++; //плюсуем ресурс в доставку у планеты-получателя
+            planetResource.isLogistic = true;
         }
+        routeResource.isLogistic = true;
     }
     [Command]
     public void CmdLogisticResource(ResourceForPlanet resource, PlanetController toPlanet)

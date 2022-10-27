@@ -84,11 +84,8 @@ public class CurrentPlayer : NetworkBehaviour
 
                             foreach (var planet in AllSingleton.instance.mainPlanetController.listPlanet)
                             {
-                                float speed = AllSingleton.instance.speed;
-                                if (planet.LogisticRoutes.Count != 0)
-                                {
-                                    speed = planet.LogisticRoutes[0].speed;
-                                }
+                                float speed = invader.speed;
+
                                 planet.CalculateDistance(invaderController.transform.position, speed);
                             }
 

@@ -27,7 +27,7 @@ public class SpaceInvaderController : NetworkBehaviour
     [SyncVar]
     public Transform targetTransform;
     [SyncVar]
-    public float speed = 0.2f;
+    public float speed = 1f;
 
     public override void OnStartClient()
     {
