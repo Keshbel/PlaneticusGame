@@ -34,6 +34,13 @@ public class MainPlanetController : NetworkBehaviour
         Invoke(nameof(FillingListPlanet), 0.2f);
     }
 
+    public override void OnStopServer()
+    {
+        base.OnStopServer();
+
+        listPlanet.Clear();
+    }
+
     public void Generation() //Генерация планет, если они не были сгенерированы
     {
         var countPlanet = Random.Range(50, 70);
@@ -51,9 +58,27 @@ public class MainPlanetController : NetworkBehaviour
             //рандомные параметры для неё
             planetController.indSpritePlanet = Random.Range(0, listSpritePlanet.Count); //присвоение номера вида планеты
             planetController.namePlanet = allRandomNames[listPlanet.Count]; //имя
-            planetController.textName.text = planetController.namePlanet;
             planetController.AddResourceForPlanetGeneration(); //ресурсы
-            SetRandomPosition(planet);
+            var pos = GetRandomPosition();
+            
+            while (planet.transform.position == Vector3.zero) 
+            {
+                //есть ли планета, с дистанцией меньше 3 с предпологаемой новой позицией новой планеты
+                var isNoDistance = listPlanet.Find(planController =>
+                {
+                    return Vector2.Distance(pos, planController.gameObject.transform.position) < 3 ? planController : false;
+                });
+
+                //если есть такая, то тусуем новую позицию, иначе присваиваем хорошую позицию
+                if (isNoDistance) 
+                    pos = GetRandomPosition();
+                else
+                {
+                    planet.transform.position = pos;
+                }
+            }
+
+
             var randomScale = Random.Range(0.1f, 0.2f); // случайный размер
             
             planet.transform.localScale = new Vector3(randomScale, randomScale, randomScale); //присвоение размера
@@ -62,6 +87,17 @@ public class MainPlanetController : NetworkBehaviour
         }
     }
 
+    [Server]
+    public void RemovePlanetFromListPlanet(PlanetController planet)
+    {
+        listPlanet.Remove(planet);
+    }
+    [Command]
+    public void CmdRemovePlanetFromListPlanet(PlanetController planet)
+    {
+        RemovePlanetFromListPlanet(planet);
+    }
+    
     public void FillingListPlanet()
     {
         var planets = FindObjectsOfType<PlanetController>();
@@ -75,14 +111,26 @@ public class MainPlanetController : NetworkBehaviour
         //рандомные параметры
         float x = 0, y = 0;
         RandomXY(ref x, ref y);
+        var position = new Vector2(x, y);
         
         //присвоение рандомной позиции
-        planet.transform.position = new Vector3(x, y, 0); //позиция
+        planet.transform.position = position; //позиция
     }
     [Command]
     public void CmdSetRandomPosition(GameObject planet)
     {
         SetRandomPosition(planet);
+    }
+    
+    [Server]
+    public Vector2 GetRandomPosition()
+    {
+        //рандомные параметры
+        float x = 0, y = 0;
+        RandomXY(ref x, ref y);
+        var position = new Vector2(x, y);
+
+        return position;
     }
     
     public void RandomXY(ref float x, ref float y)

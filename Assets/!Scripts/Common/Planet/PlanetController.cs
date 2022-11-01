@@ -12,10 +12,11 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class PlanetController : NetworkBehaviour
 {
-    [Header("Main")] 
+    [Header("Main")]
     public TMP_Text textName;
     public TMP_Text textTimeDistance;
-    [SyncVar] public string namePlanet;
+    [SyncVar(hook = nameof(UpdateTextName))] public string namePlanet;
+    [SyncVar(hook = nameof(UpdateTextColor))] public Color colorPlanet;
     [SyncVar] public int indSpritePlanet;
 
 
@@ -33,7 +34,7 @@ public class PlanetController : NetworkBehaviour
     [SyncVar] public bool isHomePlanet = false; //является ли стартовой планетой?
     public GameObject homeIcon;
     
-    [SyncVar] public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
+    [SyncVar/*(hook = nameof(EffectChangeActive))*/] public bool isSuperPlanet = false; //является ли супер планетой? (все 5 ресурсов на ней)
     [SyncVar] public GameObject effectSuperPlanet;
     public GameObject sliderCanvas;
     public Slider slider;
@@ -56,7 +57,8 @@ public class PlanetController : NetworkBehaviour
     {
         base.OnStartServer();
 
-        StartCoroutine(ResourcesIconShowUpdated());
+        if (isServer)
+            StartCoroutine(ResourcesIconShowUpdated());
     }
 
     public override void OnStartClient()
@@ -123,11 +125,11 @@ public class PlanetController : NetworkBehaviour
 
         if (isServer) //добавление ресурсов
         {
-            ChangeResourceList(res1);
-            ChangeResourceList(res2);
-            ChangeResourceList(res3);
-            ChangeResourceList(res4);
-            ChangeResourceList(res5);
+            ChangeResourceList(res1, true);
+            ChangeResourceList(res2, true);
+            ChangeResourceList(res3, true);
+            ChangeResourceList(res4, true);
+            ChangeResourceList(res5, true);
             RpcResourceIconShow();
         }
         else
@@ -209,7 +211,7 @@ public class PlanetController : NetworkBehaviour
 
     //добавление ресурса для планеты, с ограничением добавления
     [Server]
-    public void ChangeResourceList(ResourceForPlanet resource, bool isAdding = true)
+    public void ChangeResourceList(ResourceForPlanet resource, bool isAdding)
     {
         if (isAdding) //добавляем ли планету?
         {
@@ -221,13 +223,12 @@ public class PlanetController : NetworkBehaviour
             if (PlanetResources.Count == 5)
             {
                 isSuperPlanet = true;
-                sliderCanvas.SetActive(true);
-                StartCoroutine(StartSpawnInvadersRoutine());
+                //StartCoroutine(StartSpawnInvadersRoutine());
             }
         }
         else // отнимаем
         {
-            if (resource.resourceAll > 1)
+            if (resource.ResourceAll > 1)
             {
                 if (resource.resourceMining > 0)
                     resource.resourceMining--;
@@ -243,9 +244,7 @@ public class PlanetController : NetworkBehaviour
                 isSuperPlanet = false;
             }
         }
-
-        RpcEffectChangeActive();
-        resource.UpdateInfo();
+        
         RpcResourceIconShow();
     }
 
@@ -263,7 +262,7 @@ public class PlanetController : NetworkBehaviour
         
         if (isServer)
         {
-            ChangeResourceList(res1);
+            ChangeResourceList(res1, true);
             RpcResourceIconShow();
         }
         else
@@ -360,10 +359,10 @@ public class PlanetController : NetworkBehaviour
         ResourceIconShow();
     }
     
-    [ClientRpc]
-    public void RpcEffectChangeActive()
+    [SerializeField]
+    public void EffectChangeActive(bool oldBool, bool newBool)
     {
-        effectSuperPlanet.SetActive(isSuperPlanet);
+        effectSuperPlanet.SetActive(newBool);
     }
 
     //обновление иконок на всех клиентах раз в пару секунд
@@ -411,7 +410,7 @@ public class PlanetController : NetworkBehaviour
         
         var route = LogisticRoutes.Find(r => r.fromTransform == fromTransform && r.toTransform == toTransform);
         
-        //если на планете-получателе есть ресурс этого типа, то выключаем логистику у него (для узнавания, долетел ли или нет)
+        //если на планете-получателе есть ресурс этого типа, то выключаем логистику у него (для узнавания, долетел или нет)
         if (planetResource != null) 
         {
             planetResource.isLogistic = false;
@@ -446,15 +445,16 @@ public class PlanetController : NetworkBehaviour
             route = logisticRoute;
             route.SaveResources?.Add(routeResource);
         }
-        
+
+        var res = PlanetResources.Find(r => r.resourcePlanet == resource.resourcePlanet);
         //избавляемся от ресурса на планете-отдавателе
-        ChangeResourceList(resource, false);
+        ChangeResourceList(res, false);
 
         
         //ожидание доставки ресурса (прибытие первой стрелочки)
         yield return new WaitForSeconds(distance/route.speed);
 
-        planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == resource.resourcePlanet); //если ресурс этого типа на планете уже есть
+        planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == routeResource.resourcePlanet); //если ресурс этого типа на планете уже есть
 
         //добавляем планете приемнику
         if (planetResource == null) //если на планете-получателе нет ресурса этого типа, то добавляем
@@ -579,7 +579,7 @@ public class PlanetController : NetworkBehaviour
             planetPanel.resourceNameText.text = curRes.nameResource;
             planetPanel.resourceDeliveryText.text = curRes.resourceDelivery.ToString();
             planetPanel.resourceMiningText.text = curRes.resourceMining.ToString();
-            planetPanel.resourceAllText.text = curRes.resourceAll.ToString();
+            planetPanel.resourceAllText.text = curRes.ResourceAll.ToString();
             planetPanel.resourceIconImage.sprite = curRes.spriteIcon;
 
             PlanetResources[index].UpdateInfo();
@@ -588,5 +588,16 @@ public class PlanetController : NetworkBehaviour
         {
             AllSingleton.instance.planetPanelController.ClosePanel();
         }
+    }
+
+    public void UpdateTextName(string oldS, string newS)
+    {
+        textName.text = newS;
+    }
+    
+    public void UpdateTextColor(Color oldS, Color newS)
+    {
+        textName.color = newS;
+        textTimeDistance.color = newS;
     }
 }

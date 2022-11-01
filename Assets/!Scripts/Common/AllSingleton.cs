@@ -6,12 +6,12 @@ public class AllSingleton : NetworkBehaviour
 {
     [Header("Players")]
     public CurrentPlayer player;
-    public SyncList<NetworkIdentity> syncCurrentPlayers = new SyncList<NetworkIdentity>();
-    public List<NetworkIdentity> currentPlayers;
+    public SyncList<GameObject> syncCurrentPlayers = new SyncList<GameObject>();
+    public List<GameObject> currentPlayers;
     public List<SelectablePlanet> selectablePlanets;
 
     [Header("Options")] 
-    public float speed = 0.2f;
+    public float speed = 0.3f;
     
     [Header("Prefabs")] 
     public GameObject planetPrefab;
@@ -44,7 +44,7 @@ public class AllSingleton : NetworkBehaviour
 
         syncCurrentPlayers.Callback += SyncCurrentPlayer; //вместо hook, для SyncList используем подписку на Callback
 
-        currentPlayers = new List<NetworkIdentity>(syncCurrentPlayers.Count); //так как Callback действует только на изменение массива,  
+        currentPlayers = new List<GameObject>(syncCurrentPlayers.Count); //так как Callback действует только на изменение массива,  
         for (int i = 0; i < syncCurrentPlayers.Count; i++) //а у нас на момент подключения уже могут быть какие-то данные в массиве, нам нужно эти данные внести в локальный массив
         {
             //SyncListPlanet(SyncList<PlanetController>.Operation.OP_ADD, i, planetPrefab.AddComponent<PlanetController>(), syncListPlanet[i]);
@@ -53,42 +53,42 @@ public class AllSingleton : NetworkBehaviour
     }
 
     [Server]
-    public void AddPlayer(NetworkIdentity newPlayer)
+    public void AddPlayer(GameObject newPlayer)
     {
         syncCurrentPlayers.Add(newPlayer);
     }
     [Command]
-    public void CmdAddPlayer(NetworkIdentity newPlayer)
+    public void CmdAddPlayer(GameObject newPlayer)
     {
         AddPlayer(newPlayer);
     }
 
-    private void SyncCurrentPlayer(SyncList<NetworkIdentity>.Operation op, int index, NetworkIdentity oldItem,
-        NetworkIdentity newItem) //обработчик ля синхронизации планет
+    //обработчик для синхронизации планет
+    void SyncCurrentPlayer(SyncList<GameObject>.Operation op, int index, GameObject oldItem, GameObject newItem) 
     {
         switch (op)
         {
-            case SyncList<NetworkIdentity>.Operation.OP_ADD:
+            case SyncList<GameObject>.Operation.OP_ADD:
             {
                 currentPlayers.Add(newItem);
                 break;
             }
-            case SyncList<NetworkIdentity>.Operation.OP_CLEAR:
+            case SyncList<GameObject>.Operation.OP_CLEAR:
             {
 
                 break;
             }
-            case SyncList<NetworkIdentity>.Operation.OP_INSERT:
+            case SyncList<GameObject>.Operation.OP_INSERT:
             {
 
                 break;
             }
-            case SyncList<NetworkIdentity>.Operation.OP_REMOVEAT:
+            case SyncList<GameObject>.Operation.OP_REMOVEAT:
             {
 
                 break;
             }
-            case SyncList<NetworkIdentity>.Operation.OP_SET:
+            case SyncList<GameObject>.Operation.OP_SET:
             {
 
                 break;

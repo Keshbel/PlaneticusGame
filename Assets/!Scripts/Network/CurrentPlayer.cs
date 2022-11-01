@@ -45,6 +45,18 @@ public class CurrentPlayer : NetworkBehaviour
         }
     }
 
+    public override void OnStopClient()
+    {
+        base.OnStopClient();
+
+        AllSingleton.instance.currentPlayers.Remove(gameObject);
+        
+        foreach (var planet in playerPlanets)
+        {
+            AllSingleton.instance.mainPlanetController.CmdRemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
+        }
+    }
+
     private void Update()
     {
         if (hasAuthority)
@@ -65,9 +77,11 @@ public class CurrentPlayer : NetworkBehaviour
                         if (targetPlanet != null && playerPlanets.Contains(targetPlanet.gameObject))
                         {
                             var planetParent = AllSingleton.instance.selectablePlanets[0].GetComponent<PlanetController>();
-                            if (planetParent != targetPlanet)
-                                StartCoroutine(planetParent.LogisticResource
-                                    (planetParent.PlanetResources[planetParent.indexCurrentResource], targetPlanet));
+                            if (planetParent != targetPlanet && isClient)
+                            {
+                                planetParent.CmdLogisticResource
+                                    (planetParent.PlanetResources[planetParent.indexCurrentResource], targetPlanet);
+                            }
                         }
                         ClearDistanceInfo();
                     }
@@ -119,11 +133,11 @@ public class CurrentPlayer : NetworkBehaviour
     {
         if (isClient)
         {
-            AllSingleton.instance.CmdAddPlayer(GetComponent<NetworkIdentity>());
+            AllSingleton.instance.CmdAddPlayer(gameObject);
         }
         if (isServer)
         {
-            AllSingleton.instance.AddPlayer(GetComponent<NetworkIdentity>());
+            AllSingleton.instance.AddPlayer(gameObject);
         }
     }
     #endregion
@@ -136,13 +150,13 @@ public class CurrentPlayer : NetworkBehaviour
         {
             playerPlanets.Add(planet);
             planet.GetComponent<NetworkIdentity>().AssignClientAuthority(connectionToClient);
-            planet.GetComponent<PlanetController>().textName.color = playerColor;
+            planet.GetComponent<PlanetController>().colorPlanet = playerColor;
         }
         else
         {
             playerPlanets.Remove(planet);
             planet.GetComponent<NetworkIdentity>().RemoveClientAuthority();
-            planet.GetComponent<PlanetController>().textName.color = Color.white;
+            planet.GetComponent<PlanetController>().colorPlanet = Color.white;
         }
     }
     [Command]

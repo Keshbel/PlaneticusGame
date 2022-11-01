@@ -49,16 +49,4 @@ public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
         planetController.OpenPlanet();
         AllSingleton.instance.planetPanelController.OpenPanel();
     }
-
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-        if (!other.CompareTag("Planet")) return;
-        
-        if (isServer) //если планеты в зоне коллайдера друг друга, то они рандомно перемещаются
-            AllSingleton.instance.mainPlanetController.SetRandomPosition(other.gameObject);
-        else
-        {
-            AllSingleton.instance.mainPlanetController.CmdSetRandomPosition(other.gameObject);
-        }
-    }
 }

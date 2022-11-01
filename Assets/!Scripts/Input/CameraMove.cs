@@ -12,7 +12,14 @@ public class CameraMove : MonoBehaviour
     private float _ortographicOffset;
     private float _targetPosX;
     private float _targetPosY;
+    private Vector3 _newPos;
     
+    //ограничение границ камеры
+    private const float XMinBorder = -11.5f;
+    private const float XMaxBorder = 11.5f;
+    private const float YMinBorder = -15.4f;
+    private const float YMaxBorder = 15.4f;
+
     //зум
     public float zoomMax;
     public float zoomMin;
@@ -36,22 +43,45 @@ public class CameraMove : MonoBehaviour
     void Update()
     {
         if (!isEnable) return;
+
+        /*if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0) || Input.GetAxis("Horizontal") != 0 ||
+            Input.GetAxis("Vertical") != 0) //если есть любое воздействие на инструменты передвижения камеры
+        {*/
+            
+            //передвижение камеры c помощью мыши
+            if (Input.GetMouseButtonDown(0)) _startPos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
+            else if (Input.GetMouseButton(0))
+            {
+                float posX = _mainCam.ScreenToWorldPoint(Input.mousePosition).x - _startPos.x;
+                float posY = _mainCam.ScreenToWorldPoint(Input.mousePosition).y - _startPos.y;
+
+                _targetPosX = Mathf.Clamp(transform.position.x - posX, XMinBorder, XMaxBorder);
+                _targetPosY = Mathf.Clamp(transform.position.y - posY, YMinBorder, YMaxBorder);
+            }
+
+            //передвижение с помощью стиков или кнопок клавиатуры
+            if (Input.GetAxis("Horizontal") > 0)
+                _targetPosX = Mathf.Clamp(transform.position.x + 2f, XMinBorder, XMaxBorder);
+            else if (Input.GetAxis("Horizontal") < 0)
+            {
+                _targetPosX = Mathf.Clamp(transform.position.x - 2f, XMinBorder, XMaxBorder);
+            }
+            
+            if (Input.GetAxis("Vertical") > 0)
+                _targetPosY = Mathf.Clamp(transform.position.y + 2f, YMinBorder, YMaxBorder);
+            else if (Input.GetAxis("Vertical") < 0)
+            {
+                _targetPosY = Mathf.Clamp(transform.position.y - 2f, YMinBorder, YMaxBorder);
+            }
+            
+
+            
+            
+            transform.position = new Vector3(Mathf.Lerp(transform.position.x, _targetPosX, sensivity * Time.deltaTime),
+                Mathf.Lerp(transform.position.y, _targetPosY, sensivity * Time.deltaTime),
+                transform.position.z);
+
         
-        //передвижение камеры
-        if (Input.GetMouseButtonDown(0)) _startPos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
-        else if (Input.GetMouseButton(0))
-        {
-            float posX = _mainCam.ScreenToWorldPoint(Input.mousePosition).x - _startPos.x;
-            float posY = _mainCam.ScreenToWorldPoint(Input.mousePosition).y - _startPos.y;
-
-            //_ortographicOffset = _mainCam.orthographicSize / 5;
-            _targetPosX = Mathf.Clamp(transform.position.x - posX, -11.5f, 11.5f);
-            _targetPosY = Mathf.Clamp(transform.position.y - posY, -15.4f, 15.4f);
-        }
-
-        transform.position = new Vector3(Mathf.Lerp(transform.position.x, _targetPosX, sensivity * Time.deltaTime),
-            Mathf.Lerp(transform.position.y, _targetPosY, sensivity * Time.deltaTime),
-            transform.position.z);
 
         #if !UNITY_STANDALONE //масштабирование(зум) для мобилок
         //масштабирование(зум)

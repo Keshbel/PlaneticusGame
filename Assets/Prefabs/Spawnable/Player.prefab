@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4461781612412572344}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: 
+  m_AssetId: fa8b0997dd42ce14a96a956a0046ad1a
   hasSpawned: 0
 --- !u!114 &4461781612412572344
 MonoBehaviour:
@@ -65,4 +65,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerName: 
-  playerPlanets: []
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  invaderController: {fileID: 0}
+  targetPlanet: {fileID: 0}
+  isLogisticMode: 0

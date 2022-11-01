@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using DG.Tweening;
 using Mirror;
@@ -99,19 +98,17 @@ public class SpaceInvaderController : NetworkBehaviour
             {
                 if (other.transform == targetTransform)
                 {
-                    var planet = other.GetComponent<PlanetController>();
+                    //var planet = other.GetComponent<PlanetController>();
                     
                     if (isServer)
                     {
                         SetIdle(true);
                         SetRotateOrbit(true);
-                        planet.ChangeOrbitInvaderList(this, true);
                     }
                     else
                     {
                         CmdSetIdle(true);
                         CmdSetRotateOrbit(true);
-                        planet.CmdChangeOrbitInvaderList(this, true);
                     }
                 }
             }
@@ -131,6 +128,31 @@ public class SpaceInvaderController : NetworkBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Planet") && hasAuthority)
+        {
+            if (AllSingleton.instance.player.playerPlanets.Contains(other.gameObject)) // союзная планета 
+            {
+                if (other.transform == targetTransform)
+                {
+                    var planet = other.GetComponent<PlanetController>();
+
+                    if (isServer)
+                    {
+                        if (!planet.SpaceOrbitInvader.Contains(this))
+                            planet.ChangeOrbitInvaderList(this, true);
+                    }
+                    else
+                    {
+                        if (!planet.SpaceOrbitInvader.Contains(this))
+                            planet.CmdChangeOrbitInvaderList(this, true);
+                    }
+                }
+            }
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Planet") && hasAuthority)
@@ -141,11 +163,13 @@ public class SpaceInvaderController : NetworkBehaviour
                 
                 if (isServer)
                 {
-                    planet.ChangeOrbitInvaderList(this, false);
+                    if (planet.SpaceOrbitInvader.Contains(this))
+                        planet.ChangeOrbitInvaderList(this, false);
                 }
                 else
                 {
-                    planet.CmdChangeOrbitInvaderList(this, false);
+                    if (planet.SpaceOrbitInvader.Contains(this))
+                        planet.CmdChangeOrbitInvaderList(this, false);
                 }
             }
         }
@@ -263,6 +287,17 @@ public class SpaceInvaderController : NetworkBehaviour
     }
 
     [Server]
+    public void StopMoving()
+    {
+        MoveTween?.Kill();
+    }
+    [Command]
+    public void CmdStopMoving()
+    {
+        StopMoving();
+    }
+
+    [Server]
     public void RotateTowards() //поворот в сторону цели
     {
         var thisTransform = transform;
@@ -323,14 +358,13 @@ public class SpaceInvaderController : NetworkBehaviour
         if (planet.SpaceOrbitInvader.Count > 0) //если есть защитники
         {
             var invaderDefender = planet.SpaceOrbitInvader[0];
-            planet.ChangeOrbitInvaderList(invaderDefender, false);
+            //planet.ChangeOrbitInvaderList(invaderDefender, false);
             NetworkServer.UnSpawn(invaderDefender.gameObject);
             Destroy(invaderDefender.gameObject);
             
             //удаляем этого захватчика
             player.ChangeListWithInvaders(gameObject, false);
             NetworkServer.UnSpawn(gameObject);
-            Destroy(gameObject);
             return;
         }
         
