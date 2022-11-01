@@ -140,12 +140,12 @@ public class SpaceInvaderController : NetworkBehaviour
 
                     if (isServer)
                     {
-                        if (!planet.SpaceOrbitInvader.Contains(this))
+                        if (!planet.SpaceOrbitInvader.Contains(this) && NetworkServer.active)
                             planet.ChangeOrbitInvaderList(this, true);
                     }
                     else
                     {
-                        if (!planet.SpaceOrbitInvader.Contains(this))
+                        if (!planet.SpaceOrbitInvader.Contains(this) && NetworkClient.active)
                             planet.CmdChangeOrbitInvaderList(this, true);
                     }
                 }

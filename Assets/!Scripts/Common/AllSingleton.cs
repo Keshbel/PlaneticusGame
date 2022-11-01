@@ -63,6 +63,17 @@ public class AllSingleton : NetworkBehaviour
         AddPlayer(newPlayer);
     }
 
+    [Server]
+    public void RemovePlayer(GameObject playerGO)
+    {
+        syncCurrentPlayers.Remove(playerGO);
+    }
+    [Command]
+    public void CmdRemovePlayer(GameObject playerGO)
+    {
+        RemovePlayer(playerGO);
+    }
+
     //обработчик для синхронизации планет
     void SyncCurrentPlayer(SyncList<GameObject>.Operation op, int index, GameObject oldItem, GameObject newItem) 
     {
@@ -85,7 +96,7 @@ public class AllSingleton : NetworkBehaviour
             }
             case SyncList<GameObject>.Operation.OP_REMOVEAT:
             {
-
+                currentPlayers.Remove(newItem);
                 break;
             }
             case SyncList<GameObject>.Operation.OP_SET:

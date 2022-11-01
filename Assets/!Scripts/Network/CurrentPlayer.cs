@@ -49,11 +49,15 @@ public class CurrentPlayer : NetworkBehaviour
     {
         base.OnStopClient();
 
-        AllSingleton.instance.currentPlayers.Remove(gameObject);
-        
-        foreach (var planet in playerPlanets)
+        if (NetworkServer.active)
         {
-            AllSingleton.instance.mainPlanetController.CmdRemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
+            foreach (var planet in playerPlanets)
+            {
+                AllSingleton.instance.mainPlanetController.CmdRemovePlanetFromListPlanet(
+                    planet.GetComponent<PlanetController>());
+            }
+
+            AllSingleton.instance.CmdRemovePlayer(gameObject);
         }
     }
 
