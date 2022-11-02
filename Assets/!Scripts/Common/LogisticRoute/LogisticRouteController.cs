@@ -2,7 +2,7 @@ using Mirror;
 
 public class LogisticRouteController : NetworkBehaviour
 {
-    public void OpenRoute(LogisticRoute route)
+    /*public void OpenRoute(LogisticRoute route)
     {
         if (route?.SaveResources?.Count == 0) return;
         
@@ -91,5 +91,5 @@ public class LogisticRouteController : NetworkBehaviour
         else routeUI.deleteRouteButton.onClick.AddListener(()=> route.CmdReturnAllResource(route));
         
         routeUI.deleteRouteButton.onClick.AddListener(AllSingleton.instance.logisticRouteUI.panel.ClosePanel);
-    }
+    }*/
 }

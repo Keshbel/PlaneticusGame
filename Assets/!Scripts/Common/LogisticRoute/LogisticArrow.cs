@@ -4,9 +4,8 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class LogisticArrow : NetworkBehaviour, IMovable, IRotateable, IPointerDownHandler
+public class LogisticArrow : NetworkBehaviour, IPointerDownHandler
 {
-    [SyncVar] public LogisticRoute route;
     public Collider2D thisCollider;
 
     private void Start()
@@ -14,84 +13,72 @@ public class LogisticArrow : NetworkBehaviour, IMovable, IRotateable, IPointerDo
         if (!thisCollider)
             thisCollider = GetComponent<Collider2D>();
 
-        if (isClient)
+        /*if (isClient)
             if (transform.rotation.z == 0)
             {
                 Invoke(nameof(CmdRotateTo), 0.5f);
                 Invoke(nameof(CmdRotateTo), 2.5f);
-            }
+            }*/
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("SpaceInvader"))
+        /*if (other.gameObject.CompareTag("SpaceInvader"))
         {
-            if (!route) return;
+            var spaceInvaderController = other.gameObject.GetComponent<SpaceInvaderController>();
             
-            if (AllSingleton.instance.player.playerPlanets.Contains(route.fromTransform.gameObject))
+            if (spaceInvaderController.hasAuthority)
                 Physics2D.IgnoreCollision(other.collider, thisCollider);
             else
             {
-                if (isClient)
-                    other.gameObject.GetComponent<SpaceInvaderController>().CmdStopMoving();
+                if (isClient) other.gameObject.GetComponent<SpaceInvaderController>().CmdStopMoving();
             }
-        }
+        }*/
         
     }
 
     public void OnPointerDown(PointerEventData eventData) //нажатие на планету
     {
-        if (AllSingleton.instance.player.playerPlanets.Contains(route.fromTransform.gameObject))
+        /*if (AllSingleton.instance.player.playerPlanets.Contains(route.fromTransform.gameObject))
         {
             AllSingleton.instance.logisticRouteUI.panel.OpenPanel();
             AllSingleton.instance.logisticRouteController.OpenRoute(route);
-        }
+        }*/
     }
 
     [Server]
-    public void SetStartPosition()
+    public void SetStartPosition(Transform fromTransform)
     {
-        transform.position = route.fromTransform.position;
+        transform.position = fromTransform.position;
     }
-    [Command]
-    public void CmdSetStartPosition()
-    {
-        SetStartPosition();
-    }
-    
+
     // движение в сторону
     [Server]
-    public void MoveTo()
+    public void MoveTo(Transform toTransform)
     {
-        var toPosition = route.toTransform.position;
+        var toPosition = toTransform.position;
         var distance = Vector2.Distance(transform.position, toPosition);
         
         transform.DOMove(toPosition, distance / AllSingleton.instance.speed).SetEase(Ease.Linear).OnComplete(()=> Destroy(gameObject));
     }
 
-    [Command]
-    public void CmdMoveTo()
-    {
-        MoveTo();
-    }
-
     //поворот в сторону + движение
     [Server]
-    public void RotateTo()
+    public void RotateTo(Transform toTransform)
     {
         var fromPosition = transform.position;
-        var toPosition = route.toTransform.position;
+        var toPosition = toTransform.position;
 
         var an = Math.Atan2(toPosition.y - fromPosition.y, toPosition.x - fromPosition.x);
         var degAn = an * 180 / Math.PI;
 
-        transform.DORotate(new Vector3(0, 0, (float) degAn), 0, RotateMode.LocalAxisAdd).OnComplete(MoveTo);
+        transform.DORotate(new Vector3(0, 0, (float) degAn), 0, RotateMode.LocalAxisAdd).OnComplete(()=>MoveTo(toTransform));
 
     }
 
-    [Command]
-    public void CmdRotateTo()
+    /*[Command]
+    public void CmdRotateTo(Transform toTransform)
     {
-        RotateTo();
-    }
+        RotateTo(toTransform);
+    }*/
 }

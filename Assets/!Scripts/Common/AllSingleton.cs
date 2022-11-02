@@ -41,14 +41,14 @@ public class AllSingleton : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-
+        
         syncCurrentPlayers.Callback += SyncCurrentPlayer; //вместо hook, для SyncList используем подписку на Callback
 
         currentPlayers = new List<GameObject>(syncCurrentPlayers.Count); //так как Callback действует только на изменение массива,  
         for (int i = 0; i < syncCurrentPlayers.Count; i++) //а у нас на момент подключения уже могут быть какие-то данные в массиве, нам нужно эти данные внести в локальный массив
         {
-            //SyncListPlanet(SyncList<PlanetController>.Operation.OP_ADD, i, planetPrefab.AddComponent<PlanetController>(), syncListPlanet[i]);
-            currentPlayers.Add(syncCurrentPlayers[i]);
+            SyncCurrentPlayer(SyncList<GameObject>.Operation.OP_ADD, i, new GameObject(), syncCurrentPlayers[i]);
+            //currentPlayers.Add(syncCurrentPlayers[i]);
         }
     }
 
@@ -66,7 +66,8 @@ public class AllSingleton : NetworkBehaviour
     [Server]
     public void RemovePlayer(GameObject playerGO)
     {
-        syncCurrentPlayers.Remove(playerGO);
+        var index = syncCurrentPlayers.FindIndex(p => playerGO == p);
+        syncCurrentPlayers.RemoveAt(index);
     }
     [Command]
     public void CmdRemovePlayer(GameObject playerGO)
@@ -86,12 +87,12 @@ public class AllSingleton : NetworkBehaviour
             }
             case SyncList<GameObject>.Operation.OP_CLEAR:
             {
-
+                currentPlayers.Clear();
                 break;
             }
             case SyncList<GameObject>.Operation.OP_INSERT:
             {
-
+                currentPlayers.Insert(index, newItem);
                 break;
             }
             case SyncList<GameObject>.Operation.OP_REMOVEAT:
@@ -101,7 +102,6 @@ public class AllSingleton : NetworkBehaviour
             }
             case SyncList<GameObject>.Operation.OP_SET:
             {
-
                 break;
             }
         }

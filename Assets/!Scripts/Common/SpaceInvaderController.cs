@@ -134,18 +134,18 @@ public class SpaceInvaderController : NetworkBehaviour
         {
             if (AllSingleton.instance.player.playerPlanets.Contains(other.gameObject)) // союзная планета 
             {
-                if (other.transform == targetTransform)
+                if (other.transform == targetTransform && NetworkServer.active)
                 {
                     var planet = other.GetComponent<PlanetController>();
 
                     if (isServer)
                     {
-                        if (!planet.SpaceOrbitInvader.Contains(this) && NetworkServer.active)
+                        if (!planet.SpaceOrbitInvader.Contains(this))
                             planet.ChangeOrbitInvaderList(this, true);
                     }
                     else
                     {
-                        if (!planet.SpaceOrbitInvader.Contains(this) && NetworkClient.active)
+                        if (!planet.SpaceOrbitInvader.Contains(this))
                             planet.CmdChangeOrbitInvaderList(this, true);
                     }
                 }
@@ -396,16 +396,7 @@ public class SpaceInvaderController : NetworkBehaviour
             if (isServer)
             {
                 planet.Colonization();
-                planet.RpcResourceIconShow();
-                Invoke(nameof(planet.RpcResourceIconShow), 1f);
             }
-        }
-        
-        //обновление инфы
-        if (isServer)
-        {
-            planet.RpcResourceIconShow();
-            Invoke(nameof(planet.RpcResourceIconShow), 3f);
         }
 
         //удаление захватчика

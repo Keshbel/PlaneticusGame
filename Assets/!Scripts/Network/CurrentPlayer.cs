@@ -40,25 +40,22 @@ public class CurrentPlayer : NetworkBehaviour
             {
                 CmdSetPlayerColor();
                 Invoke(nameof(CmdHomePlanetAddingToPlayer), 0.5f);
-                Invoke(nameof(CameraToHome), 0.6f);
+                Invoke(nameof(CameraToHome), 1f);
             }
         }
     }
 
-    public override void OnStopClient()
+    public override void OnStopServer()
     {
-        base.OnStopClient();
+        base.OnStopServer();
 
-        if (NetworkServer.active)
+        foreach (var planet in playerPlanets)
         {
-            foreach (var planet in playerPlanets)
-            {
-                AllSingleton.instance.mainPlanetController.CmdRemovePlanetFromListPlanet(
-                    planet.GetComponent<PlanetController>());
-            }
-
-            AllSingleton.instance.CmdRemovePlayer(gameObject);
+            AllSingleton.instance.mainPlanetController.RemovePlanetFromListPlanet(
+                planet.GetComponent<PlanetController>());
         }
+
+        AllSingleton.instance.RemovePlayer(gameObject);
     }
 
     private void Update()
@@ -71,7 +68,7 @@ public class CurrentPlayer : NetworkBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
                 
                 //при попадании по объекту с колайдером
-                if (hit.collider != null) 
+                if (hit.collider != null)
                 {
                     var invader = hit.collider.GetComponent<SpaceInvaderController>();
                     targetPlanet = hit.collider.GetComponent<PlanetController>();
@@ -236,16 +233,12 @@ public class CurrentPlayer : NetworkBehaviour
             if (isServer)
             {
                 ChangeListWithPlanets(homePlanet.gameObject, true);
-                homePlanet.HomingPlanetShow();
-                homePlanet.RpcResourceIconShow();
                 homePlanet.Colonization();
                 StartCoroutine(SpawnInvader(2, homePlanet.gameObject));
             }
             else
             {
                 CmdChangeListWithPlanets(homePlanet.gameObject, true);
-                homePlanet.CmdHomingPlanetShow();
-                homePlanet.RpcResourceIconShow();
                 homePlanet.CmdColonization();
                 CmdSpawnInvader(2, homePlanet.gameObject);
             }

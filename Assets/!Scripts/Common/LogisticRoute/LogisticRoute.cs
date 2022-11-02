@@ -8,7 +8,7 @@ using Vector2 = UnityEngine.Vector2;
 [Serializable]
 public class LogisticRoute : NetworkBehaviour
 {
-    [Header("Transforms")]
+    /*[Header("Transforms")]
     [SyncVar] public Transform fromTransform;
     [SyncVar] public Transform toTransform;
 
@@ -21,40 +21,7 @@ public class LogisticRoute : NetworkBehaviour
     [Header("States")]
     [SyncVar] public bool isOn = true;
 
-    [Server]
-    public IEnumerator StartRouteRoutine()
-    {
-        while (isOn)
-        {
-            //инициализация
-            var logisticArrowGO = Instantiate(ResourceSingleton.instance.logisticArrowPrefab); //спавн объекта локально
-            NetworkServer.Spawn(logisticArrowGO); //всеобщий спавн (для всех клиентов)
-            var logisticArrow = logisticArrowGO.GetComponent<LogisticArrow>();
-            logisticArrow.route = this;
-            logisticArrow.SetStartPosition();
-
-            logisticArrow.RotateTo();
-
-            //задержка
-            yield return new WaitForSeconds(1.9f);
-        }
-    }
-    [Command]
-    public void CmdStartRouteRoutine()
-    {
-        StartCoroutine(StartRouteRoutine());
-    }
-
-    [Server]
-    public void StopRouteRoutine()
-    {
-        isOn = false;
-    }
-    [Command]
-    public void CmdStopRouteRoutine()
-    {
-        StopRouteRoutine();
-    }
+    
 
     [Server]
     public IEnumerator ReturnResource(ResourceForPlanet resourceRoute)
@@ -135,5 +102,5 @@ public class LogisticRoute : NetworkBehaviour
     public void CmdReturnAllResource(LogisticRoute route)
     {
         ReturnAllResource(route);
-    }
+    }*/
 }

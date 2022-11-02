@@ -21,7 +21,5 @@ public class PlanetPanelUI : MonoBehaviour
     [Header("Images and Texts")]
     public Image resourceIconImage;
     public TMP_Text resourceNameText;
-    public TMP_Text resourceDeliveryText;
-    public TMP_Text resourceMiningText;
-    public TMP_Text resourceAllText;
+    public TMP_Text resourceCountText;
 }
