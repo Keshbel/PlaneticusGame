@@ -6,7 +6,6 @@ using Lean.Localization;
 using Mirror;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -54,14 +53,6 @@ public class PlanetController : NetworkBehaviour
         sliderCanvas.GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
-    public override void OnStartServer()
-    {
-        base.OnStartServer();
-
-        /*if (isServer)
-            StartCoroutine(ResourcesIconShowUpdated());*/
-    }
-
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -71,33 +62,40 @@ public class PlanetController : NetworkBehaviour
 
     public IEnumerator StartSpawnInvadersRoutine() //спавн захватчиков при статусе супер планеты
     {
-        sliderCanvas.SetActive(true);
-        
-        if (isHomePlanet) //начальная задержка после спавна стартовых захватичков
+        if (isSuperPlanet)
         {
-            for (int i = 0; i < 2; i++)
+            if (isHomePlanet) //начальная задержка после спавна стартовых захватичков
             {
-                slider.value = 0;
-                slider.DOValue(1, 2f).SetEase(Ease.Linear);
-                
-                yield return new WaitForSeconds(2f);
-            }
-        }
+                for (int i = 0; i < 2; i++)
+                {
+                    slider.value = 0;
+                    slider.DOValue(1, 2f).SetEase(Ease.Linear);
 
-        while (isSuperPlanet)
-        {
-            if (hasAuthority)
+                    yield return new WaitForSeconds(2f);
+                }
+            }
+
+            while (isSuperPlanet)
             {
-                StartCoroutine(AllSingleton.instance.player.SpawnInvader(1, gameObject));
-                
+                if (hasAuthority)
+                {
+                    if (isServer)
+                        StartCoroutine(AllSingleton.instance.player.SpawnInvader(1, gameObject));
+                    else
+                    {
+                        AllSingleton.instance.player.CmdSpawnInvader(1, gameObject);
+                    }
+                }
+
                 counterToSpawn = 0;
                 slider.value = counterToSpawn;
                 slider.DOValue(1, timeToSpawn).SetEase(Ease.Linear);
-                
+
                 yield return new WaitForSeconds(timeToSpawn);
             }
         }
     }
+
 
 
     #region HomePlanetOptions
@@ -177,20 +175,26 @@ public class PlanetController : NetworkBehaviour
     [Server]
     public void ChangeOrbitInvaderList(SpaceInvaderController invader, bool isAdding)
     {
-        if (isAdding)
+        if (NetworkServer.active)
         {
-            SpaceOrbitInvader.Add(invader);
-        }
-        else
-        {
-            SpaceOrbitInvader.Remove(invader);
+            if (isAdding)
+            {
+                SpaceOrbitInvader.Add(invader);
+            }
+            else
+            {
+                SpaceOrbitInvader.Remove(invader);
+            }
         }
     }
+
     [Command]
     public void CmdChangeOrbitInvaderList(SpaceInvaderController invader, bool isAdding)
     {
-        ChangeOrbitInvaderList(invader, isAdding);
+        if (NetworkServer.active && NetworkClient.active)
+            ChangeOrbitInvaderList(invader, isAdding);
     }
+
     #endregion
 
     #region PlanetResource
@@ -366,6 +370,11 @@ public class PlanetController : NetworkBehaviour
     public void EffectChangeActive(bool oldBool, bool newBool)
     {
         transform.GetChild(0).gameObject.SetActive(newBool);
+        sliderCanvas.SetActive(newBool);
+        if (newBool)
+        {
+            StartCoroutine(StartSpawnInvadersRoutine());
+        }
     }
 
     //очистка всех ресурсов планеты

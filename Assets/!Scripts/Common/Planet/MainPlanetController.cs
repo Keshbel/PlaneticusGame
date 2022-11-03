@@ -79,7 +79,7 @@ public class MainPlanetController : NetworkBehaviour
             }
 
 
-            var randomScale = Random.Range(0.1f, 0.2f); // случайный размер
+            var randomScale = Random.Range(0.13f, 0.17f); // случайный размер
             
             planet.transform.localScale = new Vector3(randomScale, randomScale, randomScale); //присвоение размера
             
