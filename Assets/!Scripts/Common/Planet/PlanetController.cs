@@ -80,10 +80,10 @@ public class PlanetController : NetworkBehaviour
                 if (hasAuthority)
                 {
                     if (isServer)
-                        StartCoroutine(AllSingleton.instance.player.SpawnInvader(1, gameObject));
+                        StartCoroutine(AllSingleton.Instance.player.SpawnInvader(1, gameObject));
                     else
                     {
-                        AllSingleton.instance.player.CmdSpawnInvader(1, gameObject);
+                        AllSingleton.Instance.player.CmdSpawnInvader(1, gameObject);
                     }
                 }
 
@@ -284,7 +284,7 @@ public class PlanetController : NetworkBehaviour
     //подписка туглов с ресурсами
     public void SubscribeResourceToggle() 
     {
-        var planetPanel = AllSingleton.instance.planetPanelUI;
+        var planetPanel = AllSingleton.Instance.planetPanelUI;
         
         for (var index = 0; index < 5; index++) //отписка
         {
@@ -398,6 +398,10 @@ public class PlanetController : NetworkBehaviour
     {
         if (resource.countResource == 0) yield break;
         
+        var planetResourceInit = toPlanet.PlanetResources.Find(resForPlanet => resForPlanet.resourcePlanet == resource.resourcePlanet); //если ресурс этого типа на старте на планете уже есть
+        
+        if (planetResourceInit != null) yield break;
+        
         //инициализация
         var finalRes = new ResourceForPlanet{ resourcePlanet = resource.resourcePlanet, countResource = 1}; //финальный ресурс доставленный на планету
 
@@ -407,27 +411,27 @@ public class PlanetController : NetworkBehaviour
         var distance = Vector2.Distance(toTransform.position, fromTransform.position);
 
         //запуск стрелочек
-        StartCoroutine(StartRouteRoutine(fromTransform, toTransform, distance/AllSingleton.instance.speed));
+        StartCoroutine(StartRouteRoutine(fromTransform, toTransform, distance/AllSingleton.Instance.speed));
 
         //избавляемся от ресурса на планете-отдавателе
         var res = PlanetResources.Find(r => r.resourcePlanet == resource.resourcePlanet);
         ChangeResourceList(res, false);
 
-        
         //ожидание доставки ресурса (прибытие первой стрелочки)
-        yield return new WaitForSeconds(distance/AllSingleton.instance.speed);
-
+        yield return new WaitForSeconds(distance/AllSingleton.Instance.speed);
         
-        var planetResource = toPlanet.PlanetResources.Find(p => p.resourcePlanet == resource.resourcePlanet); //если ресурс этого типа на планете уже есть
+        var planetResource = toPlanet.PlanetResources.Find(resForPlanet => resForPlanet.resourcePlanet == resource.resourcePlanet); //если ресурс этого типа на планете уже есть
         //добавляем планете-приемнику
         if (planetResource == null) //если на планете-получателе нет ресурса этого типа, то добавляем
         {
             toPlanet.ChangeResourceList(finalRes, true);
         }
-        else //если есть ресурс этого типа
+        /*else //если есть ресурс этого типа
         {
             planetResource.countResource++; //плюсуем ресурс в доставку у планеты-получателя
         }
+        print("Есть ли ресурс на финальной планете - " + planetResource + ". Количество ресурса - " +
+              planetResource?.countResource);*/
     }
     [Command]
     public void CmdLogisticResource(ResourceForPlanet resource, PlanetController toPlanet)
@@ -435,10 +439,10 @@ public class PlanetController : NetworkBehaviour
         StartCoroutine(LogisticResource(resource, toPlanet));
     }
     
-    
+
     public void SubscribeLogisticButton()
     {
-        var planetPanel = AllSingleton.instance.planetPanelUI;
+        var planetPanel = AllSingleton.Instance.planetPanelUI;
         
         if (PlanetResources[indexCurrentResource].countResource > 0) //если ресурс ещё не учавствует в логистике
         {
@@ -446,16 +450,16 @@ public class PlanetController : NetworkBehaviour
             planetPanel.logisticButton.onClick.RemoveAllListeners();
 
             //включение логистического режима
-            planetPanel.logisticButton.onClick.AddListener(() => AllSingleton.instance.player.isLogisticMode = true);
+            planetPanel.logisticButton.onClick.AddListener(() => AllSingleton.Instance.player.selectUnits.isLogisticMode = true);
             
             //просчёт дистанции
             planetPanel.logisticButton.onClick.AddListener(() =>
             {
-                foreach (var planet in AllSingleton.instance.mainPlanetController.listPlanet)
+                foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet)
                 {
-                    if (AllSingleton.instance.player.playerPlanets.Contains(planet.gameObject) && planet.gameObject != gameObject)
+                    if (AllSingleton.Instance.player.playerPlanets.Contains(planet.gameObject) && planet.gameObject != gameObject)
                     {
-                        float speed = AllSingleton.instance.speed;;
+                        float speed = AllSingleton.Instance.speed;;
 
                         planet.CalculateDistance(transform.position, speed);
                     }
@@ -463,7 +467,7 @@ public class PlanetController : NetworkBehaviour
             });
             
             //закрытие панели
-            planetPanel.logisticButton.onClick.AddListener(AllSingleton.instance.planetPanelController.ClosePanel);
+            planetPanel.logisticButton.onClick.AddListener(AllSingleton.Instance.planetPanelController.ClosePanel);
 
             //прожимаемая кнопка
             planetPanel.logisticButton.interactable = true;
@@ -521,26 +525,21 @@ public class PlanetController : NetworkBehaviour
     public void SetSpritePlanet(int oldInt, int newInt) //назначить внешний вид планеты
     {
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = AllSingleton.instance.mainPlanetController.listSpritePlanet[newInt];
+        spriteRenderer.sprite = AllSingleton.Instance.mainPlanetController.listSpritePlanet[newInt];
     }
 
     public void OpenPlanet()
     {
-        if (PlanetResources.Count > 0)
-            SelectResource(0);
-        if (PlanetResources.Count > 1)
-            SelectResource(1);
-        if (PlanetResources.Count > 2)
-            SelectResource(2);
-        if (PlanetResources.Count > 3)
-            SelectResource(3);
-        if (PlanetResources.Count > 4)
-            SelectResource(4);
-        
         indexCurrentResource = 0;
+
+        for (var index = 0; index < PlanetResources.Count; index++) //прокликиваем всё по разу, чтобы картинка отображалась нормально
+        {
+            SelectResource(index);
+        }
+
         SubscribeResourceToggle();
         SubscribeLogisticButton();
-        UpdateInfo(0);
+        SelectResource(0);
     }
 
 
@@ -549,7 +548,7 @@ public class PlanetController : NetworkBehaviour
         SubscribeResourceToggle();
         SubscribeLogisticButton();
 
-        var planetPanel = AllSingleton.instance.planetPanelUI;
+        var planetPanel = AllSingleton.Instance.planetPanelUI;
 
         if (PlanetResources.Count-1 >= index)
         {
@@ -565,7 +564,7 @@ public class PlanetController : NetworkBehaviour
         }
         else
         {
-            AllSingleton.instance.planetPanelController.ClosePanel();
+            AllSingleton.Instance.planetPanelController.ClosePanel();
         }
     }
 

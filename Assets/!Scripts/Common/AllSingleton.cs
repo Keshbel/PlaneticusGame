@@ -16,20 +16,21 @@ public class AllSingleton : NetworkBehaviour
     [Header("Prefabs")] 
     public GameObject planetPrefab;
     public GameObject invaderPrefab;
-    
+    public GameObject selectUnitsPrefab;
+
     [Header("Scripts")]
     public CameraMove cameraMove;
     public MainPlanetController mainPlanetController;
-    public LogisticRouteController logisticRouteController;
-    
+
     [Header("Panels")]
     public PanelController planetPanelController;
     public PlanetPanelUI planetPanelUI;
-    public LogisticRouteUI logisticRouteUI;
 
+    [Header("?")] 
+    public GUISkin skin;
     #region Singleton
 
-    public static AllSingleton instance;
+    public static AllSingleton Instance;
 
     public override void OnStartServer()
     {
@@ -111,13 +112,13 @@ public class AllSingleton : NetworkBehaviour
     {
         if (!mainPlanetController)
             mainPlanetController = FindObjectOfType<MainPlanetController>();
-        if (instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
     }
     #endregion

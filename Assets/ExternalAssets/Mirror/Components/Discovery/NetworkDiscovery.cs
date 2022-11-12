@@ -59,7 +59,10 @@ namespace Mirror.Discovery
                 return new ServerResponse
                 {
                     serverId = ServerId,
-                    uri = transport.ServerUri()
+                    uri = transport.ServerUri(),
+                    CurrentPlayers = GetComponent<NetworkManager>().numPlayers,
+                    TotalPlayers = GetComponent<NetworkManager>().maxConnections,
+                    HostPlayerName = FindObjectOfType<NetworkRoomPlayer>().playerName
                 };
             }
             catch (NotImplementedException)

@@ -52,6 +52,13 @@ public class SpaceInvaderController : NetworkBehaviour
         MoveTween?.Kill();
         MoveTween = null;
         StopAllCoroutines();
+
+        if (AllSingleton.Instance.player)
+        {
+            AllSingleton.Instance.player.selectUnits.invaderControllers?.Remove(this);
+            if (isServer) AllSingleton.Instance.player.ChangeListWithInvaders(this, false);
+            else AllSingleton.Instance.player.CmdChangeListWithInvaders(this, false);
+        }
     }
 
     private void Update()
@@ -94,7 +101,7 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         if (other.CompareTag("Planet") && hasAuthority)
         {
-            if (AllSingleton.instance.player.playerPlanets.Contains(other.gameObject)) // союзная планета 
+            if (AllSingleton.Instance.player.playerPlanets.Contains(other.gameObject)) // союзная планета 
             {
                 if (other.transform == targetTransform)
                 {
@@ -136,7 +143,7 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         if (other.CompareTag("Planet") && hasAuthority)
         {
-            if (AllSingleton.instance.player.playerPlanets.Contains(other.gameObject)) // союзная планета 
+            if (AllSingleton.Instance.player.playerPlanets.Contains(other.gameObject)) // союзная планета 
             {
                 var planet = other.GetComponent<PlanetController>();
                 
@@ -153,6 +160,7 @@ public class SpaceInvaderController : NetworkBehaviour
             }
         }
     }
+    
 
     [Server]
     private void SetPlayer(NetworkIdentity identity)
@@ -221,7 +229,7 @@ public class SpaceInvaderController : NetworkBehaviour
         lightShape.gameObject.SetActive(isOn);
         lightLamp.gameObject.SetActive(isOn);
         isSelecting = isOn;
-        if (isOn)
+        if (isSelecting)
             StartCoroutine(LampOn());
     }
     [Command]
@@ -338,13 +346,11 @@ public class SpaceInvaderController : NetworkBehaviour
         {
             var invaderDefender = planet.SpaceOrbitInvader[Random.Range(0, planet.SpaceOrbitInvader.Count)];
             planet.ChangeOrbitInvaderList(invaderDefender, false);
+            //удаляем защитника
             NetworkServer.Destroy(invaderDefender.gameObject);
-            //Destroy(invaderDefender.gameObject);
-            
+
             //удаляем этого захватчика
-            player.ChangeListWithInvaders(gameObject, false);
             NetworkServer.Destroy(gameObject);
-            //Destroy(invaderDefender.gameObject);
             return;
         }
         
@@ -355,7 +361,7 @@ public class SpaceInvaderController : NetworkBehaviour
         else //если остался 1 или меньше
         {
             //если у кого-то из игроков была планета, то удаляем из списка у него
-            foreach (var thisPlayerIdentity in AllSingleton.instance.currentPlayers)
+            foreach (var thisPlayerIdentity in AllSingleton.Instance.currentPlayers)
             {
                 var thisPlayer = thisPlayerIdentity.GetComponent<CurrentPlayer>();
 
@@ -375,14 +381,11 @@ public class SpaceInvaderController : NetworkBehaviour
         }
 
         //удаление захватчика
-        player.ChangeListWithInvaders(gameObject, false);
         NetworkServer.Destroy(gameObject);
-        //Destroy(gameObject);
     }
     [Command]
     public void CmdAttack(GameObject target)
     {
         Attack(target);
     }
-    
 }

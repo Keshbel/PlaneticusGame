@@ -14,5 +14,10 @@ namespace Mirror.Discovery
 
         // Prevent duplicate server appearance when a connection can be made via LAN on multiple NICs
         public long serverId;
+        
+        //custom
+        public int CurrentPlayers;
+        public int TotalPlayers;
+        public string HostPlayerName;
     }
 }

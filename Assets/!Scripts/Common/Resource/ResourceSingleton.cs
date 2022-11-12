@@ -4,7 +4,6 @@ public class ResourceSingleton : MonoBehaviour
 {
     [Header("LogisticElements")] 
     public GameObject logisticArrowPrefab;
-    public GameObject logisticRoutePrefab;
 
     [Header("FiveElements")]
     public Sprite earthSprite;

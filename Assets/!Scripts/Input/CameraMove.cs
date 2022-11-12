@@ -49,8 +49,8 @@ public class CameraMove : MonoBehaviour
         {*/
             
             //передвижение камеры c помощью мыши
-            if (Input.GetMouseButtonDown(0)) _startPos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
-            else if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(1)) _startPos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
+            else if (Input.GetMouseButton(1))
             {
                 float posX = _mainCam.ScreenToWorldPoint(Input.mousePosition).x - _startPos.x;
                 float posY = _mainCam.ScreenToWorldPoint(Input.mousePosition).y - _startPos.y;

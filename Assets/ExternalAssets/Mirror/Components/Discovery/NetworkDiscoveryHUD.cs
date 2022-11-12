@@ -9,7 +9,7 @@ namespace Mirror.Discovery
     [RequireComponent(typeof(NetworkDiscovery))]
     public class NetworkDiscoveryHUD : MonoBehaviour
     {
-        readonly Dictionary<long, ServerResponse> discoveredServers = new Dictionary<long, ServerResponse>();
+        public readonly Dictionary<long, ServerResponse> discoveredServers = new Dictionary<long, ServerResponse>();
         Vector2 scrollViewPos = Vector2.zero;
 
         public NetworkDiscovery networkDiscovery;
@@ -40,10 +40,10 @@ namespace Mirror.Discovery
 
         void DrawGUI()
         {
-            GUILayout.BeginArea(new Rect(10, 10, 300, 500));
-            GUILayout.BeginHorizontal();
+            /*GUILayout.BeginArea(new Rect(10, 10, 300, 500));
+            GUILayout.BeginHorizontal();*/
 
-            if (GUILayout.Button("Find Servers"))
+            /*if (GUILayout.Button("Find Servers"))
             {
                 discoveredServers.Clear();
                 networkDiscovery.StartDiscovery();
@@ -63,9 +63,9 @@ namespace Mirror.Discovery
                 discoveredServers.Clear();
                 NetworkManager.singleton.StartServer();
                 networkDiscovery.AdvertiseServer();
-            }
+            }*/
 
-            GUILayout.EndHorizontal();
+            /*GUILayout.EndHorizontal();
 
             // show list of found server
 
@@ -79,7 +79,7 @@ namespace Mirror.Discovery
                     Connect(info);
 
             GUILayout.EndScrollView();
-            GUILayout.EndArea();
+            GUILayout.EndArea();*/
         }
 
         void StopButtons()
@@ -117,7 +117,7 @@ namespace Mirror.Discovery
             GUILayout.EndArea();
         }
 
-        void Connect(ServerResponse info)
+        public void Connect(ServerResponse info)
         {
             networkDiscovery.StopDiscovery();
             NetworkManager.singleton.StartClient(info.uri);

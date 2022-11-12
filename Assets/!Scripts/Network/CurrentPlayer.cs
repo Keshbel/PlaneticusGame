@@ -15,12 +15,20 @@ public class CurrentPlayer : NetworkBehaviour
     
     [Header("SyncLists")]
     public SyncList<GameObject> playerPlanets = new SyncList<GameObject>();
-    public SyncList<GameObject> playerInvaders = new SyncList<GameObject>();
+    public SyncList<SpaceInvaderController> playerInvaders = new SyncList<SpaceInvaderController>();
+    
+    [SyncVar] public SelectUnits selectUnits;
 
-    [Header("Targets")]
-    public SpaceInvaderController invaderController;
-    public PlanetController targetPlanet;
-    public bool isLogisticMode;
+    private void Start()
+    {
+        if (hasAuthority)
+        {
+            if (!selectUnits && isClient)
+            {
+                CmdCreateSelectUnits();
+            }
+        }
+    }
 
     public override void OnStartClient()
     {
@@ -30,7 +38,7 @@ public class CurrentPlayer : NetworkBehaviour
 
         if (hasAuthority)
         {
-            AllSingleton.instance.player = this;
+            AllSingleton.Instance.player = this;
             if (isServer)
             {
                 SetPlayerColor();
@@ -52,104 +60,44 @@ public class CurrentPlayer : NetworkBehaviour
         foreach (var planet in playerPlanets)
         {
             if (isServer)
-                AllSingleton.instance.mainPlanetController.RemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
+                AllSingleton.Instance.mainPlanetController.RemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
             else
             {
-                AllSingleton.instance.mainPlanetController.CmdRemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
+                AllSingleton.Instance.mainPlanetController.CmdRemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
             }
         }
 
         if (isServer)
-            AllSingleton.instance.RemovePlayer(gameObject);
+            AllSingleton.Instance.RemovePlayer(gameObject);
         else
         {
-            AllSingleton.instance.CmdRemovePlayer(gameObject);
+            AllSingleton.Instance.CmdRemovePlayer(gameObject);
         }
     }
 
-    private void Update()
-    {
-        if (hasAuthority)
-        {
-            if (Input.GetMouseButtonDown(0)) //при клике левой кнопкой
-            {
-                Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-                
-                //при попадании по объекту с колайдером
-                if (hit.collider != null)
-                {
-                    var invader = hit.collider.GetComponent<SpaceInvaderController>();
-                    targetPlanet = hit.collider.GetComponent<PlanetController>();
-
-                    if (isLogisticMode) //режим передачи ресурсов
-                    {
-                        if (targetPlanet != null && playerPlanets.Contains(targetPlanet.gameObject))
-                        {
-                            var planetParent = AllSingleton.instance.selectablePlanets[0].GetComponent<PlanetController>();
-                            if (planetParent != targetPlanet && isClient)
-                            {
-                                planetParent.CmdLogisticResource
-                                    (planetParent.PlanetResources[planetParent.indexCurrentResource], targetPlanet);
-                            }
-                        }
-                        ClearDistanceInfo();
-                    }
-                    else
-                    {
-                        if (invader != null && playerInvaders.Contains(invader.gameObject)) //если клик был по захватчику, то выделяем его
-                        {
-                            //снимаем выделение с прошлого захватчика, если был
-                            UnSelecting();
-                        
-                            //назначаем и выделяем нового захватчика
-                            invaderController = invader;
-                            if (isClient) invaderController.CmdSelecting(true);
-
-                            foreach (var planet in AllSingleton.instance.mainPlanetController.listPlanet)
-                            {
-                                float speed = invader.speed;
-
-                                planet.CalculateDistance(invaderController.transform.position, speed);
-                            }
-
-                        }
-                    
-                        // если есть цель, выбран захватчик и дистанция не слишком маленькая, то движемся к цели
-                        if (targetPlanet != null && invaderController != null && Vector2.Distance
-                                (invaderController.transform.position, targetPlanet.transform.position) > 1.7)
-                        {
-                            invaderController.MoveTowards(targetPlanet.gameObject);
-                            ClearDistanceInfo();
-                            UnSelecting();
-                            invaderController = null;
-                        }
-                    }
-                }
-                
-                //при попадании по объекту без коллайдера, снимаем выделение
-                else
-                {
-                    ClearDistanceInfo();
-                    UnSelecting();
-                    invaderController = null;
-                }
-            }
-        }
-    }
+    
 
     #region User
     public void AddUserIdInList()
     {
         if (isClient)
         {
-            AllSingleton.instance.CmdAddPlayer(gameObject);
+            AllSingleton.Instance.CmdAddPlayer(gameObject);
         }
         if (isServer)
         {
-            AllSingleton.instance.AddPlayer(gameObject);
+            AllSingleton.Instance.AddPlayer(gameObject);
         }
     }
+    
+    [Command]
+    public void CmdCreateSelectUnits()
+    {
+        var sU = Instantiate(AllSingleton.Instance.selectUnitsPrefab);
+        NetworkServer.Spawn(sU, connectionToClient);
+        selectUnits = sU.GetComponent<SelectUnits>();
+    }
+    
     #endregion
 
     #region Planets
@@ -178,21 +126,21 @@ public class CurrentPlayer : NetworkBehaviour
 
     #region Invaders
     [Server]
-    public void ChangeListWithInvaders(GameObject invader, bool isAdding)
+    public void ChangeListWithInvaders(SpaceInvaderController invader, bool isAdding)
     {
         if (isAdding)
         {
-            playerInvaders.Add(invader);
+            playerInvaders?.Add(invader);
         }
         else
         {
-            playerInvaders.Remove(invader);
+            playerInvaders?.Remove(invader);
         }
     }
     [Command]
-    public void CmdChangeListWithInvaders(GameObject invader, bool isAdding)
+    public void CmdChangeListWithInvaders(SpaceInvaderController invader, bool isAdding)
     {
-        ChangeListWithPlanets(invader, isAdding);
+        ChangeListWithInvaders(invader, isAdding);
     }
 
     [Server]
@@ -200,7 +148,7 @@ public class CurrentPlayer : NetworkBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            var invader = Instantiate(AllSingleton.instance.invaderPrefab);
+            var invader = Instantiate(AllSingleton.Instance.invaderPrefab);
 
             var planetSpawnPosition = goPosition.transform.position; //позиция планеты
             var xBoundCollider = goPosition.GetComponent<CircleCollider2D>().bounds.max.x; //граница коллайдера по х
@@ -212,11 +160,11 @@ public class CurrentPlayer : NetworkBehaviour
             
             if (isServer)
             {
-                ChangeListWithInvaders(invader, true);
+                ChangeListWithInvaders(invaderControllerComponent, true);
             }
             else
             {
-                CmdChangeListWithInvaders(invader, true);
+                CmdChangeListWithInvaders(invaderControllerComponent, true);
             }
             NetworkServer.Spawn(invader, connectionToClient);
             
@@ -232,7 +180,7 @@ public class CurrentPlayer : NetworkBehaviour
 
     public void HomePlanetAddingToPlayer()
     {
-        var listPlanet = AllSingleton.instance.mainPlanetController.listPlanet;
+        var listPlanet = AllSingleton.Instance.mainPlanetController.listPlanet;
         //домашняя планета
         if (listPlanet.Count > 0)
         {
@@ -274,35 +222,12 @@ public class CurrentPlayer : NetworkBehaviour
         SetPlayerColor();
     }
 
-    public void UnSelecting()
-    {
-        if (invaderController != null)
-        {
-            if (isServer)
-                invaderController.Selecting(false);
-            else
-            {
-                invaderController.CmdSelecting(false);
-            }
-        }
-    }
-
-    public void ClearDistanceInfo()
-    {
-        foreach (var planet in AllSingleton.instance.mainPlanetController.listPlanet)
-        {
-            planet.ClearDistanceText();
-        }
-
-        isLogisticMode = false;
-    }
-    
     [Client]
     public void CameraToHome()
     {
         var position = playerPlanets[0].transform.position;
         if (hasAuthority && NetworkClient.connection.identity.GetComponent<CurrentPlayer>() == this)
-            AllSingleton.instance.cameraMove.DoMove(position.x, position.y, 1f);
+            AllSingleton.Instance.cameraMove.DoMove(position.x, position.y, 1f);
     }
     #endregion
 }

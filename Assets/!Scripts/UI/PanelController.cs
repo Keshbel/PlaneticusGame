@@ -9,7 +9,7 @@ public class PanelController : MonoBehaviour
     public CanvasGroup canvasGroup;
 
     //anim parameters
-    public float scaleDefault;
+    public float scaleDefault = 1f;
     public float duration = 0.5f;
 
     //tweens
@@ -27,13 +27,23 @@ public class PanelController : MonoBehaviour
     public void OpenPanel()
     {
         ScaleFadeOut();
-        AllSingleton.instance.cameraMove.isEnable = false;
+        if (AllSingleton.Instance != null)
+            AllSingleton.Instance.cameraMove.isEnable = false;
+        else
+        {
+            Camera.main.GetComponent<CameraMove>().isEnable = false;
+        }
     }
 
     public void ClosePanel()
     {
         ScaleFadeIn();
-        AllSingleton.instance.cameraMove.isEnable = true;
+        if (AllSingleton.Instance != null)
+            AllSingleton.Instance.cameraMove.isEnable = true;
+        else
+        {
+            Camera.main.GetComponent<CameraMove>().isEnable = true;
+        }
     }
     
     public void ScaleFadeOut()

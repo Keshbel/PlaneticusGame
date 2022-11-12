@@ -20,13 +20,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticArrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticArrow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceSingleton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/FiveElements/FiveElements.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/FiveElements/FiveElements.spriteatlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Planet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Planet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/Discovery/NetworkDiscovery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/Discovery/NetworkDiscovery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/Discovery/NetworkDiscoveryHUD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/Discovery/NetworkDiscoveryHUD.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/Discovery/ServerResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/Discovery/ServerResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/NetworkRoomPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/NetworkRoomPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Runtime/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Runtime/NetworkManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NetMan.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/NetMan.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlanetGeneration.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlanetGeneration.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +62,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Resource/Resource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/PlanetController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionHUD.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" root0="FORCE_HIGHLIGHTING" />
@@ -49,14 +70,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Interfaces/IMovable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/HostIpAdress.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Network/ConnectionHUD.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/PlayerSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Interfaces/IRotateable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/MainPlanetController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/UIRotates.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/Selectable.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraControl.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Parallax.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/ResourceScript.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet.cs" />
@@ -65,7 +88,6 @@
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/PlanetGeneration.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetGeneration.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/ToggleIsOn.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/UnitInputManager.cs" />
@@ -82,19 +104,33 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/Interfaces/IMovable.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Interfaces/IRotateable.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/ResourceForPlanet.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/Resource.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticRouteController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticRoute.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceForPlanet.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticArrow.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceSingleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceForPlanet.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectUnits.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/NetworkConnections.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/HostIpAdress.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/UIRotates.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionsHUD.cs" />
+        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Runtime/NetworkManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/Discovery/ServerResponse.cs" />
+        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/Discovery/NetworkDiscoveryHUD.cs" />
+        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/Discovery/NetworkDiscovery.cs" />
+        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/NetworkRoomPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionHUD.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/PlayerSettings.cs" />
       </list>
     </option>
   </component>
@@ -204,6 +240,9 @@
       <workItem from="1667296290610" duration="1395000" />
       <workItem from="1667391219123" duration="23228000" />
       <workItem from="1667449044029" duration="7077000" />
+      <workItem from="1667922982874" duration="4182000" />
+      <workItem from="1667931401749" duration="8328000" />
+      <workItem from="1667969520053" duration="15286000" />
     </task>
     <servers />
   </component>

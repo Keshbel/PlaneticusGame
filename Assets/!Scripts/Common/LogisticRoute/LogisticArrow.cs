@@ -59,7 +59,7 @@ public class LogisticArrow : NetworkBehaviour, IPointerDownHandler
         var toPosition = toTransform.position;
         var distance = Vector2.Distance(transform.position, toPosition);
         
-        transform.DOMove(toPosition, distance / AllSingleton.instance.speed).SetEase(Ease.Linear).OnComplete(()=> Destroy(gameObject));
+        transform.DOMove(toPosition, distance / AllSingleton.Instance.speed).SetEase(Ease.Linear).OnComplete(()=> Destroy(gameObject));
     }
 
     //поворот в сторону + движение

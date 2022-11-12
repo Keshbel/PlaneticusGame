@@ -101,6 +101,8 @@ namespace Mirror
 
         /// <summary>Number of active player objects across all connections on the server.</summary>
         public int numPlayers => NetworkServer.connections.Count(kv => kv.Value.identity != null);
+        
+        //public string hostName => nam
 
         /// <summary>True if the server is running or client is connected/connecting.</summary>
         public bool isNetworkActive => NetworkServer.active || NetworkClient.active;
