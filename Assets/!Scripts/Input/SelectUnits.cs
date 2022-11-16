@@ -25,7 +25,7 @@ public class SelectUnits : NetworkBehaviour
 
 	private void Update()
     {
-        if (hasAuthority && AllSingleton.Instance.cameraMove.isEnable)
+        if (isOwned && AllSingleton.Instance.cameraMove.isEnable)
         {
             if (Input.GetMouseButtonDown(0)) //при клике левой кнопкой
             {
@@ -53,7 +53,7 @@ public class SelectUnits : NetworkBehaviour
                     }
                     else
                     {
-                        if (invader != null && Player.playerInvaders.Contains(invader)) //если клик был по захватчику, то выделяем его
+                        if (invader != null && Player.PlayerInvaders.Contains(invader)) //если клик был по захватчику, то выделяем его
                         {
                             //снимаем выделение с прошлого захватчика, если был
                             Deselect();
@@ -121,7 +121,6 @@ public class SelectUnits : NetworkBehaviour
 				// делаем что-либо с выделенными объектами
 				if (isServer) invaderControllers[j].Selecting(true);
 				else invaderControllers[j].CmdSelecting(true);
-				
 			}
 		}
 	}
@@ -153,7 +152,7 @@ public class SelectUnits : NetworkBehaviour
 	
 	void OnGUI ()
 	{
-		if (hasAuthority && AllSingleton.Instance.cameraMove.isEnable)
+		if (isOwned && AllSingleton.Instance.cameraMove.isEnable)
 		{
 			GUI.skin = skin;
 			GUI.depth = 99;
@@ -176,7 +175,6 @@ public class SelectUnits : NetworkBehaviour
 
 			if (draw)
 			{
-				//invaderControllers.Clear();
 				_endPos = Input.mousePosition;
 				if (_startPos == _endPos) return;
 
@@ -188,7 +186,7 @@ public class SelectUnits : NetworkBehaviour
 
 				GUI.Box(_rect, "");
 
-				var invaders = Player.playerInvaders;
+				var invaders = Player.PlayerInvaders;
 				for (int j = 0; j < invaders.Count; j++)
 				{
 					if (invaders[j] == null) break;
@@ -210,6 +208,10 @@ public class SelectUnits : NetworkBehaviour
 					}
 				}
 			}
+		}
+		else
+		{
+			draw = false;
 		}
 	}
 }

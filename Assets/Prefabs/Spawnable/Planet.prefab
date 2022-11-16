@@ -200,9 +200,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 3812146891
   serverOnly: 0
   visible: 0
-  m_AssetId: 35bf5fe1fc71e2541aeb56ba41f6858e
   hasSpawned: 0
 --- !u!1 &956534669673201865
 GameObject:
@@ -302,9 +302,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 3812146891
   serverOnly: 0
   visible: 0
-  m_AssetId: 35bf5fe1fc71e2541aeb56ba41f6858e
   hasSpawned: 0
 --- !u!1 &1640662864022304636
 GameObject:
@@ -467,9 +467,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 3812146891
   serverOnly: 0
   visible: 0
-  m_AssetId: 35bf5fe1fc71e2541aeb56ba41f6858e
   hasSpawned: 0
 --- !u!1 &2020750751907892692
 GameObject:
@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14448992746c874383aa28cba54721f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
   planetController: {fileID: 6680024571693645976}
@@ -739,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f6d3fc854a7bc4c969afda0b75a2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
   textName: {fileID: 4203635130206805858}
@@ -776,9 +778,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 3812146891
   serverOnly: 0
   visible: 0
-  m_AssetId: 35bf5fe1fc71e2541aeb56ba41f6858e
   hasSpawned: 0
 --- !u!1 &3726654587544556531
 GameObject:
@@ -1214,9 +1216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 3812146891
   serverOnly: 0
   visible: 0
-  m_AssetId: 35bf5fe1fc71e2541aeb56ba41f6858e
   hasSpawned: 0
 --- !u!1 &4699131357808625563
 GameObject:
@@ -1342,9 +1344,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 3812146891
   serverOnly: 0
   visible: 0
-  m_AssetId: 35bf5fe1fc71e2541aeb56ba41f6858e
   hasSpawned: 0
 --- !u!1 &4857126967923353547
 GameObject:
@@ -1504,7 +1506,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 1a894e564cd9b964f9d13c009578febc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1906,9 +1908,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 3812146891
   serverOnly: 0
   visible: 0
-  m_AssetId: 35bf5fe1fc71e2541aeb56ba41f6858e
   hasSpawned: 0
 --- !u!1 &8439849126672613727
 GameObject:

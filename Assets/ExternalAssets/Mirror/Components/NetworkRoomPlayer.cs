@@ -17,10 +17,6 @@ namespace Mirror
         /// </summary>
         [Tooltip("This flag controls whether the default UI is shown for the room player")]
         public bool showRoomGUI = true;
-        
-        //Mine parameters
-        public string playerName;
-        public Color playerColor;
 
         [Header("Diagnostics")]
 
@@ -155,9 +151,7 @@ namespace Mirror
         {
             GUILayout.BeginArea(new Rect(20f + (index * 100), 200f, 90f, 130f));
 
-            GUI.contentColor = playerColor;
-
-            GUILayout.Label($"{playerName}"); //[{index + 1}]");
+            GUILayout.Label($"Player [{index + 1}]");
 
             if (readyToBegin)
                 GUILayout.Label("Ready");

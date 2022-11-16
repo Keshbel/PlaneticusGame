@@ -67,4 +67,5 @@ MonoBehaviour:
   invaderControllers: []
   targetPlanet: {fileID: 0}
   isLogisticMode: 0
-  skin: {fileID: 0}
+  skin: {fileID: 11400000, guid: 7ff5a79269a3120499605a3d0e57d204, type: 2}
+  draw: 0

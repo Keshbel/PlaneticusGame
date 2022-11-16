@@ -18,10 +18,12 @@ public class PanelController : MonoBehaviour
 
     private void Start()
     {
-        if (!panel)
-            panel = gameObject;
+        /*if (!panel)
+            panel = gameObject;*/
         if (!canvasGroup)
             canvasGroup = GetComponent<CanvasGroup>();
+        
+        if (canvasGroup.alpha > 0.9f) ClosePanel();
     }
 
     public void OpenPanel()
@@ -52,17 +54,23 @@ public class PanelController : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
         
         TweenerFade?.Kill();
-        TweenerFade = canvasGroup.DOFade(1, duration);
+        if (canvasGroup)
+            TweenerFade = canvasGroup.DOFade(1, duration);
+        
         _tweenerScale?.Kill();
-        _tweenerScale = panel.transform.DOScale(scaleDefault, duration);
+        if (panel)
+            _tweenerScale = panel.transform.DOScale(scaleDefault, duration);
     }
     
     public void ScaleFadeIn()
     {
         TweenerFade?.Kill();
-        TweenerFade = canvasGroup.DOFade(0, duration);
+        if (canvasGroup)
+            TweenerFade = canvasGroup.DOFade(0, duration);
+        
         _tweenerScale?.Kill();
-        _tweenerScale = panel.transform.DOScale(0f, duration);
+        if (panel)
+            _tweenerScale = panel.transform.DOScale(0f, duration);
         
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;

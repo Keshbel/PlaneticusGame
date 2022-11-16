@@ -6,8 +6,7 @@ public class AllSingleton : NetworkBehaviour
 {
     [Header("Players")]
     public CurrentPlayer player;
-    public SyncList<GameObject> syncCurrentPlayers = new SyncList<GameObject>();
-    public List<GameObject> currentPlayers;
+    public readonly SyncList<CurrentPlayer> Players = new SyncList<CurrentPlayer>();
     public List<SelectablePlanet> selectablePlanets;
 
     [Header("Options")] 
@@ -28,9 +27,6 @@ public class AllSingleton : NetworkBehaviour
 
     [Header("?")] 
     public GUISkin skin;
-    #region Singleton
-
-    public static AllSingleton Instance;
 
     public override void OnStartServer()
     {
@@ -39,87 +35,17 @@ public class AllSingleton : NetworkBehaviour
         selectablePlanets = new List<SelectablePlanet>();
     }
 
-    public override void OnStartClient()
-    {
-        base.OnStartClient();
-        
-        syncCurrentPlayers.Callback += SyncCurrentPlayer; //вместо hook, для SyncList используем подписку на Callback
-
-        currentPlayers = new List<GameObject>(syncCurrentPlayers.Count); //так как Callback действует только на изменение массива,  
-        for (int i = 0; i < syncCurrentPlayers.Count; i++) //а у нас на момент подключения уже могут быть какие-то данные в массиве, нам нужно эти данные внести в локальный массив
-        {
-            SyncCurrentPlayer(SyncList<GameObject>.Operation.OP_ADD, i, new GameObject(), syncCurrentPlayers[i]);
-            //currentPlayers.Add(syncCurrentPlayers[i]);
-        }
-    }
-
-    [Server]
-    public void AddPlayer(GameObject newPlayer)
-    {
-        syncCurrentPlayers.Add(newPlayer);
-    }
-    [Command]
-    public void CmdAddPlayer(GameObject newPlayer)
-    {
-        AddPlayer(newPlayer);
-    }
-
-    [Server]
-    public void RemovePlayer(GameObject playerGO)
-    {
-        var index = syncCurrentPlayers.FindIndex(p => playerGO == p);
-        syncCurrentPlayers.RemoveAt(index);
-    }
-    [Command]
-    public void CmdRemovePlayer(GameObject playerGO)
-    {
-        RemovePlayer(playerGO);
-    }
-
-    //обработчик для синхронизации планет
-    void SyncCurrentPlayer(SyncList<GameObject>.Operation op, int index, GameObject oldItem, GameObject newItem) 
-    {
-        switch (op)
-        {
-            case SyncList<GameObject>.Operation.OP_ADD:
-            {
-                currentPlayers.Add(newItem);
-                break;
-            }
-            case SyncList<GameObject>.Operation.OP_CLEAR:
-            {
-                currentPlayers.Clear();
-                break;
-            }
-            case SyncList<GameObject>.Operation.OP_INSERT:
-            {
-                currentPlayers.Insert(index, newItem);
-                break;
-            }
-            case SyncList<GameObject>.Operation.OP_REMOVEAT:
-            {
-                currentPlayers.Remove(newItem);
-                break;
-            }
-            case SyncList<GameObject>.Operation.OP_SET:
-            {
-                break;
-            }
-        }
-    }
-
+    #region Singleton
+    
+    public static AllSingleton Instance;
+    
     private void Awake()
     {
         if (!mainPlanetController)
             mainPlanetController = FindObjectOfType<MainPlanetController>();
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
+        
+        if (Instance != null) NetworkServer.Destroy(gameObject);
+        else Instance = this;
     }
     #endregion
 }

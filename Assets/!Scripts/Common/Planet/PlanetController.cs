@@ -19,34 +19,29 @@ public class PlanetController : NetworkBehaviour
     [SyncVar(hook = nameof(UpdateColor))] public Color colorPlanet;
     [SyncVar(hook = nameof(SetSpritePlanet))] public int indSpritePlanet;
 
-
     [Header("Resources")] 
     [SyncVar] public int indexCurrentResource;
-    public SyncList<ResourceForPlanet> PlanetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
+    public readonly SyncList<ResourceForPlanet> PlanetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
     public List<GameObject> resourcesIcon;
 
-
     [Header("LogisticRoutes")] 
-    public SyncList<LogisticRoute> LogisticRoutes = new SyncList<LogisticRoute>();
-
+    public readonly SyncList<LogisticRoute> LogisticRoutes = new SyncList<LogisticRoute>();
 
     [Header("Home / Super Planet")] 
     [SyncVar(hook = nameof(HomingPlanetShow))] public bool isHomePlanet = false; //является ли стартовой планетой?
     public GameObject homeIcon;
     
     [SyncVar(hook = nameof(EffectChangeActive))] public bool isSuperPlanet; //является ли супер планетой? (все 5 ресурсов на ней)
-    [SyncVar] public GameObject effectSuperPlanet;
+    public GameObject effectSuperPlanet;
     public SpriteRenderer selectRenderer;
     public GameObject sliderCanvas;
     public Slider slider;
     public float counterToSpawn = 0;
     public float timeToSpawn = 20f;
 
-
     [Header("Colonized")]
     [SyncVar(hook = nameof(ResourceIconShow))] public bool isColonized;
-    public SyncList<SpaceInvaderController> SpaceOrbitInvader = new SyncList<SpaceInvaderController>(); //союзные захватчики на орбите
-    
+    public readonly SyncList<SpaceInvaderController> SpaceOrbitInvader = new SyncList<SpaceInvaderController>(); //союзные захватчики на орбите
 
     private void Start()
     {
@@ -77,7 +72,7 @@ public class PlanetController : NetworkBehaviour
 
             while (isSuperPlanet)
             {
-                if (hasAuthority)
+                if (isOwned)
                 {
                     if (isServer)
                         StartCoroutine(AllSingleton.Instance.player.SpawnInvader(1, gameObject));
@@ -485,11 +480,12 @@ public class PlanetController : NetworkBehaviour
         {
             //инициализация
             var logisticArrowGO = Instantiate(ResourceSingleton.instance.logisticArrowPrefab); //спавн объекта локально
-            NetworkServer.Spawn(logisticArrowGO); //всеобщий спавн (для всех клиентов)
+            NetworkServer.Spawn(logisticArrowGO, connectionToClient); //всеобщий спавн (для всех клиентов)
             var logisticArrow = logisticArrowGO.GetComponent<LogisticArrow>();
-            logisticArrow.SetStartPosition(fromTransform);
+            logisticArrow.TargetStartMove(fromTransform, toTransform);
+            /*logisticArrow.SetStartPosition(fromTransform);
 
-            logisticArrow.RotateTo(toTransform);
+            logisticArrow.RotateTo(toTransform);*/
 
             //задержка
             yield return new WaitForSeconds(2f);
@@ -501,7 +497,6 @@ public class PlanetController : NetworkBehaviour
     {
         StartCoroutine(StartRouteRoutine(fromTransform, toTransform, timeCount));
     }
-
 
     #endregion
 

@@ -30,7 +30,7 @@ namespace Mirror.Discovery
             // so make sure we set it here in Start()  (after awakes)
             // Or just let the user assign it in the inspector
             if (transport == null)
-                transport = Transport.activeTransport;
+                transport = Transport.active;
 
             base.Start();
         }
@@ -60,9 +60,9 @@ namespace Mirror.Discovery
                 {
                     serverId = ServerId,
                     uri = transport.ServerUri(),
-                    CurrentPlayers = GetComponent<NetworkManager>().numPlayers,
-                    TotalPlayers = GetComponent<NetworkManager>().maxConnections,
-                    HostPlayerName = FindObjectOfType<NetworkRoomPlayer>().playerName
+                    CurrentPlayers = NetworkManager.singleton.numPlayers,
+                    TotalPlayers = NetworkManager.singleton.maxConnections,
+                    HostPlayerName = NetworkManager.singleton.hostPlayerName
                 };
             }
             catch (NotImplementedException)
@@ -71,11 +71,9 @@ namespace Mirror.Discovery
                 throw;
             }
         }
-
         #endregion
 
         #region Client
-
         /// <summary>
         /// Create a message that will be broadcasted on the network to discover servers
         /// </summary>
@@ -111,7 +109,6 @@ namespace Mirror.Discovery
 
             OnServerFound.Invoke(response);
         }
-
         #endregion
     }
 }

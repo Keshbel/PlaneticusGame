@@ -46,9 +46,20 @@
             <e p="CurrentPlayer.cs" t="Include" />
             <e p="HostIpAdress.cs" t="Include" />
             <e p="NetMan.cs" t="Include" />
+            <e p="RoomPlayer.cs" t="Include" />
+          </e>
+          <e p="Settings" t="Include">
+            <e p="ColorImage.cs" t="Include" />
+            <e p="ColorOutline.cs" t="Include" />
+            <e p="ColorPicker.cs" t="Include" />
+            <e p="PlayerNameChanger.cs" t="Include" />
+            <e p="SliderArea.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="PanelController.cs" t="Include" />
+          </e>
+          <e p="Utilities" t="Include">
+            <e p="Utilities.cs" t="Include" />
           </e>
           <e p="VisualFeatures" t="Include">
             <e p="Parallax.cs" t="Include" />
@@ -126,10 +137,129 @@
               <e p="NetworkStatistics.cs" t="Include" />
               <e p="NetworkTransform2k" t="Include">
                 <e p="NetworkTransform.cs" t="Include" />
-                <e p="NetworkTransformBase.cs" t="Include" />
                 <e p="NetworkTransformChild.cs" t="Include" />
-                <e p="NetworkTransformSnapshot.cs" t="Include" />
+                <e p="TransformSnapshot.cs" t="Include" />
               </e>
+              <e p="RemoteStatistics.cs" t="Include" />
+            </e>
+            <e p="Core" t="Include">
+              <e p="AssemblyInfo.cs" t="Include" />
+              <e p="Attributes.cs" t="Include" />
+              <e p="Batching" t="Include">
+                <e p="Batcher.cs" t="Include" />
+                <e p="Unbatcher.cs" t="Include" />
+              </e>
+              <e p="Empty" t="Include">
+                <e p="ClientScene.cs" t="Include" />
+                <e p="Cloud" t="Include">
+                  <e p="ApiConnector.cs" t="Include" />
+                  <e p="ApiUpdater.cs" t="Include" />
+                  <e p="Ball.cs" t="Include" />
+                  <e p="BallManager.cs" t="Include" />
+                  <e p="BaseApi.cs" t="Include" />
+                  <e p="Events.cs" t="Include" />
+                  <e p="Extensions.cs" t="Include" />
+                  <e p="ICoroutineRunner.cs" t="Include" />
+                  <e p="InstantiateNetworkManager.cs" t="Include" />
+                  <e p="IRequestCreator.cs" t="Include" />
+                  <e p="IUnityEqualCheck.cs" t="Include" />
+                  <e p="JsonStructs.cs" t="Include" />
+                  <e p="ListServer.cs" t="Include" />
+                  <e p="ListServerBaseApi.cs" t="Include" />
+                  <e p="ListServerClientApi.cs" t="Include" />
+                  <e p="ListServerJson.cs" t="Include" />
+                  <e p="ListServerServerApi.cs" t="Include" />
+                  <e p="Logger.cs" t="Include" />
+                  <e p="NetworkManagerListServer.cs" t="Include" />
+                  <e p="NetworkManagerListServerPong.cs" t="Include" />
+                  <e p="Player.cs" t="Include" />
+                  <e p="QuickListServerDebug.cs" t="Include" />
+                  <e p="QuitButtonHUD.cs" t="Include" />
+                  <e p="RequestCreator.cs" t="Include" />
+                  <e p="ServerListManager.cs" t="Include" />
+                  <e p="ServerListUI.cs" t="Include" />
+                  <e p="ServerListUIItem.cs" t="Include" />
+                </e>
+                <e p="DotNetCompatibility.cs" t="Include" />
+                <e p="FallbackTransport.cs" t="Include" />
+                <e p="LogFactory.cs" t="Include" />
+                <e p="LogFilter.cs" t="Include" />
+                <e p="Logging" t="Include">
+                  <e p="ConsoleColorLogHandler.cs" t="Include" />
+                  <e p="EditorLogSettingsLoader.cs" t="Include" />
+                  <e p="LogFactory.cs" t="Include" />
+                  <e p="LogSettings.cs" t="Include" />
+                  <e p="NetworkHeadlessLogger.cs" t="Include" />
+                  <e p="NetworkLogSettings.cs" t="Include" />
+                </e>
+                <e p="NetworkMatchChecker.cs" t="Include" />
+                <e p="NetworkOwnerChecker.cs" t="Include" />
+                <e p="NetworkProximityChecker.cs" t="Include" />
+                <e p="NetworkSceneChecker.cs" t="Include" />
+                <e p="NetworkTransformBase.cs" t="Include" />
+                <e p="NetworkVisibility.cs" t="Include" />
+                <e p="StringHash.cs" t="Include" />
+                <e p="SyncVar.cs" t="Include" />
+                <e p="SyncVarGameObject.cs" t="Include" />
+                <e p="SyncVarNetworkBehaviour.cs" t="Include" />
+                <e p="SyncVarNetworkIdentity.cs" t="Include" />
+              </e>
+              <e p="InterestManagement.cs" t="Include" />
+              <e p="LocalConnectionToClient.cs" t="Include" />
+              <e p="LocalConnectionToServer.cs" t="Include" />
+              <e p="Messages.cs" t="Include" />
+              <e p="Mirror.asmdef" t="Include" />
+              <e p="NetworkAuthenticator.cs" t="Include" />
+              <e p="NetworkBehaviour.cs" t="Include" />
+              <e p="NetworkBehaviourSyncVar.cs" t="Include" />
+              <e p="NetworkClient.cs" t="Include" />
+              <e p="NetworkClient_TimeInterpolation.cs" t="Include" />
+              <e p="NetworkConnection.cs" t="Include" />
+              <e p="NetworkConnectionToClient.cs" t="Include" />
+              <e p="NetworkConnectionToServer.cs" t="Include" />
+              <e p="NetworkDiagnostics.cs" t="Include" />
+              <e p="NetworkIdentity.cs" t="Include" />
+              <e p="NetworkLoop.cs" t="Include" />
+              <e p="NetworkManager.cs" t="Include" />
+              <e p="NetworkManagerHUD.cs" t="Include" />
+              <e p="NetworkMessage.cs" t="Include" />
+              <e p="NetworkMessages.cs" t="Include" />
+              <e p="NetworkReader.cs" t="Include" />
+              <e p="NetworkReaderExtensions.cs" t="Include" />
+              <e p="NetworkReaderPool.cs" t="Include" />
+              <e p="NetworkReaderPooled.cs" t="Include" />
+              <e p="NetworkServer.cs" t="Include" />
+              <e p="NetworkStartPosition.cs" t="Include" />
+              <e p="NetworkTime.cs" t="Include" />
+              <e p="NetworkWriter.cs" t="Include" />
+              <e p="NetworkWriterExtensions.cs" t="Include" />
+              <e p="NetworkWriterPool.cs" t="Include" />
+              <e p="NetworkWriterPooled.cs" t="Include" />
+              <e p="RemoteCalls.cs" t="Include" />
+              <e p="SnapshotInterpolation" t="Include">
+                <e p="Snapshot.cs" t="Include" />
+                <e p="SnapshotInterpolation.cs" t="Include" />
+                <e p="TimeSnapshot.cs" t="Include" />
+              </e>
+              <e p="SyncDictionary.cs" t="Include" />
+              <e p="SyncList.cs" t="Include" />
+              <e p="SyncObject.cs" t="Include" />
+              <e p="SyncSet.cs" t="Include" />
+              <e p="Tools" t="Include">
+                <e p="AccurateInterval.cs" t="Include" />
+                <e p="Compression.cs" t="Include" />
+                <e p="DeltaCompression.cs" t="Include" />
+                <e p="ExponentialMovingAverage.cs" t="Include" />
+                <e p="Extensions.cs" t="Include" />
+                <e p="Mathd.cs" t="Include" />
+                <e p="Pool.cs" t="Include" />
+                <e p="README.txt" t="Include" />
+                <e p="TimeSample.cs" t="Include" />
+                <e p="Utils.cs" t="Include" />
+                <e p="Vector3Long.cs" t="Include" />
+              </e>
+              <e p="Transport.cs" t="Include" />
+              <e p="TransportError.cs" t="Include" />
             </e>
             <e p="Editor" t="Include">
               <e p="AndroidManifestHelper.cs" t="Include" />
@@ -144,6 +274,7 @@
                 </e>
                 <e p="LogLevelWindow.cs" t="Include" />
                 <e p="ScriptableObjectUtility.cs" t="Include" />
+                <e p="SyncVarDrawer.cs" t="Include" />
               </e>
               <e p="InspectorHelper.cs" t="Include" />
               <e p="Mirror.Editor.asmdef" t="Include" />
@@ -154,7 +285,6 @@
               <e p="SceneDrawer.cs" t="Include" />
               <e p="SyncObjectCollectionsDrawer.cs" t="Include" />
               <e p="SyncVarAttributeDrawer.cs" t="Include" />
-              <e p="SyncVarDrawer.cs" t="Include" />
               <e p="Weaver" t="Include">
                 <e p="AssemblyInfo.cs" t="Include" />
                 <e p="Empty" t="Include">
@@ -242,10 +372,14 @@
               <e p="Benchmark" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="BenchmarkNetworkManager.cs" t="Include" />
-                  <e p="FPS.cs" t="Include" />
                   <e p="MonsterMovement.cs" t="Include" />
                   <e p="PlayerMovement.cs" t="Include" />
                 </e>
+              </e>
+              <e p="CCU" t="Include">
+                <e p="CCUNetworkManager.cs" t="Include" />
+                <e p="Monster.cs" t="Include" />
+                <e p="Player.cs" t="Include" />
               </e>
               <e p="Chat" t="Include">
                 <e p="Scripts" t="Include">
@@ -255,6 +389,9 @@
                   <e p="LoginUI.cs" t="Include" />
                   <e p="Player.cs" t="Include" />
                 </e>
+              </e>
+              <e p="Common" t="Include">
+                <e p="FPS.cs" t="Include" />
               </e>
               <e p="Mirror.Examples.asmdef" t="Include" />
               <e p="MultipleAdditiveScenes" t="Include">
@@ -311,6 +448,9 @@
                 <e p="ServerCube.cs" t="Include" />
                 <e p="Snapshot3D.cs" t="Include" />
               </e>
+              <e p="SyncDirection" t="Include">
+                <e p="Player.cs" t="Include" />
+              </e>
               <e p="Tanks" t="Include">
                 <e p="Models" t="Include">
                   <e p="(Public Domain) Recon_Tank" t="Include">
@@ -336,222 +476,122 @@
               </e>
             </e>
             <e p="README.txt" t="Include" />
-            <e p="Runtime" t="Include">
-              <e p="AssemblyInfo.cs" t="Include" />
-              <e p="Attributes.cs" t="Include" />
-              <e p="Batching" t="Include">
-                <e p="Batcher.cs" t="Include" />
-                <e p="Unbatcher.cs" t="Include" />
-              </e>
-              <e p="Compression.cs" t="Include" />
-              <e p="Empty" t="Include">
-                <e p="ClientScene.cs" t="Include" />
-                <e p="Cloud" t="Include">
-                  <e p="ApiConnector.cs" t="Include" />
-                  <e p="ApiUpdater.cs" t="Include" />
-                  <e p="Ball.cs" t="Include" />
-                  <e p="BallManager.cs" t="Include" />
-                  <e p="BaseApi.cs" t="Include" />
-                  <e p="Events.cs" t="Include" />
-                  <e p="Extensions.cs" t="Include" />
-                  <e p="ICoroutineRunner.cs" t="Include" />
-                  <e p="InstantiateNetworkManager.cs" t="Include" />
-                  <e p="IRequestCreator.cs" t="Include" />
-                  <e p="IUnityEqualCheck.cs" t="Include" />
-                  <e p="JsonStructs.cs" t="Include" />
-                  <e p="ListServer.cs" t="Include" />
-                  <e p="ListServerBaseApi.cs" t="Include" />
-                  <e p="ListServerClientApi.cs" t="Include" />
-                  <e p="ListServerJson.cs" t="Include" />
-                  <e p="ListServerServerApi.cs" t="Include" />
-                  <e p="Logger.cs" t="Include" />
-                  <e p="NetworkManagerListServer.cs" t="Include" />
-                  <e p="NetworkManagerListServerPong.cs" t="Include" />
-                  <e p="Player.cs" t="Include" />
-                  <e p="QuickListServerDebug.cs" t="Include" />
-                  <e p="QuitButtonHUD.cs" t="Include" />
-                  <e p="RequestCreator.cs" t="Include" />
-                  <e p="ServerListManager.cs" t="Include" />
-                  <e p="ServerListUI.cs" t="Include" />
-                  <e p="ServerListUIItem.cs" t="Include" />
-                </e>
-                <e p="DotNetCompatibility.cs" t="Include" />
-                <e p="FallbackTransport.cs" t="Include" />
-                <e p="LogFactory.cs" t="Include" />
-                <e p="LogFilter.cs" t="Include" />
-                <e p="Logging" t="Include">
-                  <e p="ConsoleColorLogHandler.cs" t="Include" />
-                  <e p="EditorLogSettingsLoader.cs" t="Include" />
-                  <e p="LogFactory.cs" t="Include" />
-                  <e p="LogSettings.cs" t="Include" />
-                  <e p="NetworkHeadlessLogger.cs" t="Include" />
-                  <e p="NetworkLogSettings.cs" t="Include" />
-                </e>
-                <e p="NetworkMatchChecker.cs" t="Include" />
-                <e p="NetworkOwnerChecker.cs" t="Include" />
-                <e p="NetworkProximityChecker.cs" t="Include" />
-                <e p="NetworkSceneChecker.cs" t="Include" />
-                <e p="NetworkVisibility.cs" t="Include" />
-                <e p="StringHash.cs" t="Include" />
-              </e>
-              <e p="ExponentialMovingAverage.cs" t="Include" />
-              <e p="Extensions.cs" t="Include" />
-              <e p="InterestManagement.cs" t="Include" />
-              <e p="LocalConnectionToClient.cs" t="Include" />
-              <e p="LocalConnectionToServer.cs" t="Include" />
-              <e p="Mathd.cs" t="Include" />
-              <e p="MessagePacking.cs" t="Include" />
-              <e p="Messages.cs" t="Include" />
-              <e p="Mirror.asmdef" t="Include" />
-              <e p="NetworkAuthenticator.cs" t="Include" />
-              <e p="NetworkBehaviour.cs" t="Include" />
-              <e p="NetworkClient.cs" t="Include" />
-              <e p="NetworkConnection.cs" t="Include" />
-              <e p="NetworkConnectionToClient.cs" t="Include" />
-              <e p="NetworkConnectionToServer.cs" t="Include" />
-              <e p="NetworkDiagnostics.cs" t="Include" />
-              <e p="NetworkIdentity.cs" t="Include" />
-              <e p="NetworkLoop.cs" t="Include" />
-              <e p="NetworkManager.cs" t="Include" />
-              <e p="NetworkManagerHUD.cs" t="Include" />
-              <e p="NetworkMessage.cs" t="Include" />
-              <e p="NetworkReader.cs" t="Include" />
-              <e p="NetworkReaderExtensions.cs" t="Include" />
-              <e p="NetworkReaderPool.cs" t="Include" />
-              <e p="NetworkReaderPooled.cs" t="Include" />
-              <e p="NetworkServer.cs" t="Include" />
-              <e p="NetworkStartPosition.cs" t="Include" />
-              <e p="NetworkTime.cs" t="Include" />
-              <e p="NetworkWriter.cs" t="Include" />
-              <e p="NetworkWriterExtensions.cs" t="Include" />
-              <e p="NetworkWriterPool.cs" t="Include" />
-              <e p="NetworkWriterPooled.cs" t="Include" />
-              <e p="Pool.cs" t="Include" />
-              <e p="RemoteCalls.cs" t="Include" />
-              <e p="SnapshotInterpolation" t="Include">
-                <e p="Snapshot.cs" t="Include" />
-                <e p="SnapshotInterpolation.cs" t="Include" />
-              </e>
-              <e p="SyncDictionary.cs" t="Include" />
-              <e p="SyncList.cs" t="Include" />
-              <e p="SyncObject.cs" t="Include" />
-              <e p="SyncSet.cs" t="Include" />
-              <e p="SyncVar.cs" t="Include" />
-              <e p="SyncVarGameObject.cs" t="Include" />
-              <e p="SyncVarNetworkBehaviour.cs" t="Include" />
-              <e p="SyncVarNetworkIdentity.cs" t="Include" />
-              <e p="Transport.cs" t="Include" />
-              <e p="TransportError.cs" t="Include" />
-              <e p="Transports" t="Include">
-                <e p="KCP" t="Include">
-                  <e p="kcp2k" t="Include">
-                    <e p="highlevel" t="Include">
-                      <e p="ErrorCode.cs" t="Include" />
-                      <e p="Extensions.cs" t="Include" />
-                      <e p="KcpChannel.cs" t="Include" />
-                      <e p="KcpClient.cs" t="Include" />
-                      <e p="KcpClientConnection.cs" t="Include" />
-                      <e p="KcpConnection.cs" t="Include" />
-                      <e p="KcpHeader.cs" t="Include" />
-                      <e p="KcpServer.cs" t="Include" />
-                      <e p="KcpServerConnection.cs" t="Include" />
-                      <e p="Log.cs" t="Include" />
-                      <e p="NonAlloc" t="Include">
-                        <e p="KcpClientConnectionNonAlloc.cs" t="Include" />
-                        <e p="KcpClientNonAlloc.cs" t="Include" />
-                        <e p="KcpServerConnectionNonAlloc.cs" t="Include" />
-                        <e p="KcpServerNonAlloc.cs" t="Include" />
-                      </e>
-                    </e>
-                    <e p="KCP" t="Include">
-                      <e p="AssemblyInfo.cs" t="Include" />
-                      <e p="Kcp.cs" t="Include" />
-                      <e p="Pool.cs" t="Include" />
-                      <e p="Segment.cs" t="Include" />
-                      <e p="Utils.cs" t="Include" />
-                    </e>
-                    <e p="KCP.asmdef" t="Include" />
-                    <e p="where-allocation" t="Include">
-                      <e p="Scripts" t="Include">
-                        <e p="AssemblyInfo.cs" t="Include" />
-                        <e p="Extensions.cs" t="Include" />
-                        <e p="IPEndPointNonAlloc.cs" t="Include" />
-                        <e p="where-allocations.asmdef" t="Include" />
-                      </e>
-                    </e>
-                  </e>
-                  <e p="MirrorTransport" t="Include">
-                    <e p="KcpTransport.cs" t="Include" />
-                  </e>
-                </e>
-                <e p="LatencySimulation.cs" t="Include" />
-                <e p="MiddlewareTransport.cs" t="Include" />
-                <e p="MultiplexTransport.cs" t="Include" />
-                <e p="SimpleWebTransport" t="Include">
-                  <e p="AssemblyInfo.cs" t="Include" />
-                  <e p="Client" t="Include">
-                    <e p="SimpleWebClient.cs" t="Include" />
-                    <e p="StandAlone" t="Include">
-                      <e p="ClientHandshake.cs" t="Include" />
-                      <e p="ClientSslHelper.cs" t="Include" />
-                      <e p="WebSocketClientStandAlone.cs" t="Include" />
-                    </e>
-                    <e p="Webgl" t="Include">
-                      <e p="SimpleWebJSLib.cs" t="Include" />
-                      <e p="WebSocketClientWebGl.cs" t="Include" />
-                    </e>
-                  </e>
-                  <e p="Common" t="Include">
-                    <e p="BufferPool.cs" t="Include" />
-                    <e p="Connection.cs" t="Include" />
-                    <e p="Constants.cs" t="Include" />
-                    <e p="EventType.cs" t="Include" />
+            <e p="Transports" t="Include">
+              <e p="KCP" t="Include">
+                <e p="kcp2k" t="Include">
+                  <e p="highlevel" t="Include">
+                    <e p="ErrorCode.cs" t="Include" />
+                    <e p="Extensions.cs" t="Include" />
+                    <e p="KcpChannel.cs" t="Include" />
+                    <e p="KcpClient.cs" t="Include" />
+                    <e p="KcpClientConnection.cs" t="Include" />
+                    <e p="KcpConnection.cs" t="Include" />
+                    <e p="KcpHeader.cs" t="Include" />
+                    <e p="KcpServer.cs" t="Include" />
+                    <e p="KcpServerConnection.cs" t="Include" />
                     <e p="Log.cs" t="Include" />
-                    <e p="Message.cs" t="Include" />
-                    <e p="MessageProcessor.cs" t="Include" />
-                    <e p="ReadHelper.cs" t="Include" />
-                    <e p="ReceiveLoop.cs" t="Include" />
-                    <e p="SendLoop.cs" t="Include" />
-                    <e p="TcpConfig.cs" t="Include" />
-                    <e p="Utils.cs" t="Include" />
-                  </e>
-                  <e p="README.txt" t="Include" />
-                  <e p="Server" t="Include">
-                    <e p="ServerHandshake.cs" t="Include" />
-                    <e p="ServerSslHelper.cs" t="Include" />
-                    <e p="SimpleWebServer.cs" t="Include" />
-                    <e p="WebSocketServer.cs" t="Include" />
-                  </e>
-                  <e p="SimpleWebTransport.asmdef" t="Include" />
-                  <e p="SimpleWebTransport.cs" t="Include" />
-                  <e p="SslConfigLoader.cs" t="Include" />
-                </e>
-                <e p="Telepathy" t="Include">
-                  <e p="Telepathy" t="Include">
-                    <e p="Client.cs" t="Include" />
-                    <e p="Common.cs" t="Include" />
-                    <e p="ConnectionState.cs" t="Include" />
-                    <e p="Empty" t="Include">
-                      <e p="Logger.cs" t="Include" />
-                      <e p="Message.cs" t="Include" />
-                      <e p="SafeQueue.cs" t="Include" />
-                      <e p="ThreadExtensions.cs" t="Include" />
+                    <e p="NonAlloc" t="Include">
+                      <e p="KcpClientConnectionNonAlloc.cs" t="Include" />
+                      <e p="KcpClientNonAlloc.cs" t="Include" />
+                      <e p="KcpServerConnectionNonAlloc.cs" t="Include" />
+                      <e p="KcpServerNonAlloc.cs" t="Include" />
                     </e>
-                    <e p="EventType.cs" t="Include" />
-                    <e p="Log.cs" t="Include" />
-                    <e p="MagnificentReceivePipe.cs" t="Include" />
-                    <e p="MagnificentSendPipe.cs" t="Include" />
-                    <e p="NetworkStreamExtensions.cs" t="Include" />
+                  </e>
+                  <e p="KCP" t="Include">
+                    <e p="AssemblyInfo.cs" t="Include" />
+                    <e p="Kcp.cs" t="Include" />
                     <e p="Pool.cs" t="Include" />
-                    <e p="Server.cs" t="Include" />
-                    <e p="Telepathy.asmdef" t="Include" />
-                    <e p="ThreadFunctions.cs" t="Include" />
+                    <e p="Segment.cs" t="Include" />
                     <e p="Utils.cs" t="Include" />
                   </e>
-                  <e p="TelepathyTransport.cs" t="Include" />
+                  <e p="KCP.asmdef" t="Include" />
+                  <e p="where-allocation" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="AssemblyInfo.cs" t="Include" />
+                      <e p="Extensions.cs" t="Include" />
+                      <e p="IPEndPointNonAlloc.cs" t="Include" />
+                      <e p="where-allocations.asmdef" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="MirrorTransport" t="Include">
+                  <e p="KcpTransport.cs" t="Include" />
                 </e>
               </e>
-              <e p="Utils.cs" t="Include" />
+              <e p="Latency" t="Include">
+                <e p="LatencySimulation.cs" t="Include" />
+              </e>
+              <e p="Middleware" t="Include">
+                <e p="MiddlewareTransport.asmdef" t="Include" />
+                <e p="MiddlewareTransport.cs" t="Include" />
+              </e>
+              <e p="Multiplex" t="Include">
+                <e p="MultiplexTransport.asmdef" t="Include" />
+                <e p="MultiplexTransport.cs" t="Include" />
+              </e>
+              <e p="SimpleWeb" t="Include">
+                <e p="AssemblyInfo.cs" t="Include" />
+                <e p="Client" t="Include">
+                  <e p="SimpleWebClient.cs" t="Include" />
+                  <e p="StandAlone" t="Include">
+                    <e p="ClientHandshake.cs" t="Include" />
+                    <e p="ClientSslHelper.cs" t="Include" />
+                    <e p="WebSocketClientStandAlone.cs" t="Include" />
+                  </e>
+                  <e p="Webgl" t="Include">
+                    <e p="SimpleWebJSLib.cs" t="Include" />
+                    <e p="WebSocketClientWebGl.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Common" t="Include">
+                  <e p="BufferPool.cs" t="Include" />
+                  <e p="Connection.cs" t="Include" />
+                  <e p="Constants.cs" t="Include" />
+                  <e p="EventType.cs" t="Include" />
+                  <e p="Log.cs" t="Include" />
+                  <e p="Message.cs" t="Include" />
+                  <e p="MessageProcessor.cs" t="Include" />
+                  <e p="ReadHelper.cs" t="Include" />
+                  <e p="ReceiveLoop.cs" t="Include" />
+                  <e p="SendLoop.cs" t="Include" />
+                  <e p="TcpConfig.cs" t="Include" />
+                  <e p="Utils.cs" t="Include" />
+                </e>
+                <e p="README.txt" t="Include" />
+                <e p="Server" t="Include">
+                  <e p="ServerHandshake.cs" t="Include" />
+                  <e p="ServerSslHelper.cs" t="Include" />
+                  <e p="SimpleWebServer.cs" t="Include" />
+                  <e p="WebSocketServer.cs" t="Include" />
+                </e>
+                <e p="SimpleWebTransport.asmdef" t="Include" />
+                <e p="SimpleWebTransport.cs" t="Include" />
+                <e p="SslConfigLoader.cs" t="Include" />
+              </e>
+              <e p="Telepathy" t="Include">
+                <e p="Telepathy" t="Include">
+                  <e p="Client.cs" t="Include" />
+                  <e p="Common.cs" t="Include" />
+                  <e p="ConnectionState.cs" t="Include" />
+                  <e p="Empty" t="Include">
+                    <e p="Logger.cs" t="Include" />
+                    <e p="Message.cs" t="Include" />
+                    <e p="SafeQueue.cs" t="Include" />
+                    <e p="ThreadExtensions.cs" t="Include" />
+                  </e>
+                  <e p="EventType.cs" t="Include" />
+                  <e p="Log.cs" t="Include" />
+                  <e p="MagnificentReceivePipe.cs" t="Include" />
+                  <e p="MagnificentSendPipe.cs" t="Include" />
+                  <e p="NetworkStreamExtensions.cs" t="Include" />
+                  <e p="Pool.cs" t="Include" />
+                  <e p="Server.cs" t="Include" />
+                  <e p="Telepathy.asmdef" t="Include" />
+                  <e p="ThreadFunctions.cs" t="Include" />
+                  <e p="Utils.cs" t="Include" />
+                </e>
+                <e p="TelepathyTransport.cs" t="Include" />
+              </e>
             </e>
             <e p="VERSION.txt" t="Include" />
           </e>
@@ -582,6 +622,9 @@
               <e p="projectCloner.asmdef" t="Include" />
             </e>
             <e p="VERSION.txt" t="Include" />
+          </e>
+          <e p="PlayerPrefsExtra" t="Include">
+            <e p="PlayerPrefsExtra.cs" t="Include" />
           </e>
           <e p="RandomNameGenerator" t="Include">
             <e p="names.json" t="Include" />
@@ -1304,12 +1347,14 @@
       <e p="LeanLocalizationEditor.csproj" t="IncludeRecursive" />
       <e p="LeanTransition.csproj" t="IncludeRecursive" />
       <e p="LeanTransition.Editor.csproj" t="IncludeRecursive" />
+      <e p="MiddlewareTransport.csproj" t="IncludeRecursive" />
       <e p="Mirror.Authenticators.csproj" t="IncludeRecursive" />
       <e p="Mirror.CompilerSymbols.csproj" t="IncludeRecursive" />
       <e p="Mirror.Components.csproj" t="IncludeRecursive" />
       <e p="Mirror.csproj" t="IncludeRecursive" />
       <e p="Mirror.Editor.csproj" t="IncludeRecursive" />
       <e p="Mirror.Examples.csproj" t="IncludeRecursive" />
+      <e p="MultiplexTransport.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="ParrelSync.csproj" t="IncludeRecursive" />

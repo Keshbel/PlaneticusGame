@@ -2,9 +2,8 @@ using System;
 using DG.Tweening;
 using Mirror;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class LogisticArrow : NetworkBehaviour, IPointerDownHandler
+public class LogisticArrow : NetworkBehaviour
 {
     public Collider2D thisCollider;
 
@@ -21,9 +20,9 @@ public class LogisticArrow : NetworkBehaviour, IPointerDownHandler
             }*/
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    /*private void OnCollisionEnter2D(Collision2D other)
     {
-        /*if (other.gameObject.CompareTag("SpaceInvader"))
+        if (other.gameObject.CompareTag("SpaceInvader"))
         {
             var spaceInvaderController = other.gameObject.GetComponent<SpaceInvaderController>();
             
@@ -33,52 +32,52 @@ public class LogisticArrow : NetworkBehaviour, IPointerDownHandler
             {
                 if (isClient) other.gameObject.GetComponent<SpaceInvaderController>().CmdStopMoving();
             }
-        }*/
+        }
         
-    }
+    }*/
 
-    public void OnPointerDown(PointerEventData eventData) //нажатие на планету
+    /*public void OnPointerDown(PointerEventData eventData) //нажатие на стрелочки
     {
-        /*if (AllSingleton.instance.player.playerPlanets.Contains(route.fromTransform.gameObject))
+        if (AllSingleton.instance.player.playerPlanets.Contains(route.fromTransform.gameObject))
         {
             AllSingleton.instance.logisticRouteUI.panel.OpenPanel();
             AllSingleton.instance.logisticRouteController.OpenRoute(route);
-        }*/
-    }
-
-    [Server]
+        }
+    }*/
+    
+    [Client]
     public void SetStartPosition(Transform fromTransform)
     {
         transform.position = fromTransform.position;
     }
-
-    // движение в сторону
-    [Server]
+    
+    [Client] // движение в сторону
     public void MoveTo(Transform toTransform)
     {
         var toPosition = toTransform.position;
         var distance = Vector2.Distance(transform.position, toPosition);
         
-        transform.DOMove(toPosition, distance / AllSingleton.Instance.speed).SetEase(Ease.Linear).OnComplete(()=> Destroy(gameObject));
+        transform.DOMove(toPosition, distance / AllSingleton.Instance.speed).SetEase(Ease.Linear).OnComplete(()=> NetworkServer.Destroy(gameObject));
     }
 
-    //поворот в сторону + движение
-    [Server]
+    [Client] //поворот в сторону + движение
     public void RotateTo(Transform toTransform)
     {
         var fromPosition = transform.position;
         var toPosition = toTransform.position;
+        print("from position = " + fromPosition + ". toPos = " + toPosition);
 
         var an = Math.Atan2(toPosition.y - fromPosition.y, toPosition.x - fromPosition.x);
         var degAn = an * 180 / Math.PI;
 
-        transform.DORotate(new Vector3(0, 0, (float) degAn), 0, RotateMode.LocalAxisAdd).OnComplete(()=>MoveTo(toTransform));
-
+        transform.DORotate(new Vector3(0, 0, (float) degAn), 0.2f, RotateMode.LocalAxisAdd).OnComplete(()=>MoveTo(toTransform));
     }
 
-    /*[Command]
-    public void CmdRotateTo(Transform toTransform)
+    [TargetRpc]
+    public void TargetStartMove(Transform fromTransform, Transform toTransform)
     {
+        SetStartPosition(fromTransform);
+        
         RotateTo(toTransform);
-    }*/
+    }
 }
