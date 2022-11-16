@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Mirror;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -18,91 +19,64 @@ public class SelectUnits : NetworkBehaviour
 	private Vector2 _startPos;
 	private Vector2 _endPos;
 
+	[Client]
 	private void Awake()
 	{
 		if (!skin) skin = AllSingleton.Instance.skin;
 	}
 
+	[Client]
 	private void Update()
-    {
-        if (isOwned && AllSingleton.Instance.cameraMove.isEnable)
-        {
-            if (Input.GetMouseButtonDown(0)) //при клике левой кнопкой
-            {
-                Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-                
-                //при попадании по объекту с колайдером
-                if (hit.collider != null)
-                {
-                    var invader = hit.collider.GetComponent<SpaceInvaderController>();
-                    targetPlanet = hit.collider.GetComponent<PlanetController>();
+	{
+		if (!isOwned || !AllSingleton.Instance.cameraMove.isEnable || !Input.GetMouseButtonDown(0)) return;
 
-                    if (isLogisticMode) //режим передачи ресурсов
-                    {
-                        if (targetPlanet != null && Player.playerPlanets.Contains(targetPlanet.gameObject))
-                        {
-                            var planetParent = AllSingleton.Instance.selectablePlanets[0].GetComponent<PlanetController>();
-                            if (planetParent != targetPlanet && isClient)
-                            {
-                                planetParent.CmdLogisticResource
-                                    (planetParent.PlanetResources[planetParent.indexCurrentResource], targetPlanet);
-                            }
-                        }
-                        ClearDistanceInfo();
-                    }
-                    else
-                    {
-                        if (invader != null && Player.PlayerInvaders.Contains(invader)) //если клик был по захватчику, то выделяем его
-                        {
-                            //снимаем выделение с прошлого захватчика, если был
-                            Deselect();
-                        
-                            //назначаем и выделяем нового захватчика
-                            invaderControllers = new List<SpaceInvaderController> {invader};
-                            if (isClient)
-	                            foreach (var invaderController in invaderControllers)
-	                            {
-		                            invaderController.CmdSelecting(true);
-	                            }
+		Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
-                            foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet)
-                            {
-                                float speed = invader.speed;
+		//при попадании по объекту с колайдером
+		if (hit.collider)
+		{
+			var invader = hit.collider.GetComponent<SpaceInvaderController>();
+			targetPlanet = hit.collider.GetComponent<PlanetController>();
 
-                                planet.CalculateDistance(invaderControllers[Random.Range(0, invaderControllers.Count)].transform.position, speed);
-                            }
+			if (isLogisticMode) //режим передачи ресурсов
+			{
+				if (targetPlanet != null && Player.playerPlanets.Contains(targetPlanet.gameObject))
+				{
+					var donorPlanet = AllSingleton.Instance.selectablePlanets[0].GetComponent<PlanetController>();
+					if (donorPlanet != targetPlanet && isClient) donorPlanet.CmdLogisticResource
+						(donorPlanet.PlanetResources[donorPlanet.indexCurrentResource], targetPlanet);
+				}
 
-                        }
-                    
-                        // если есть цель, выбран захватчик и дистанция не слишком маленькая, то движемся к цели
-                        if (targetPlanet != null && invaderControllers.Count > 0)
-                        {
-                            foreach (var invaderController in invaderControllers)
-                            {
-                                if (Vector2.Distance(invaderController.transform.position, targetPlanet.transform.position) > 1.5)
-                                    invaderController.MoveTowards(targetPlanet.gameObject);
-                            }
-                            ClearDistanceInfo();
-                            Deselect();
-                            invaderControllers.Clear();
-                        }
-                    }
-                }
-                
-                //при попадании по объекту без коллайдера, снимаем выделение
-                else
-                {
-                    ClearDistanceInfo();
-                    Deselect();
-                    invaderControllers.Clear();
-                }
-            }
-        }
-    }
+				ClearDistanceInfo();
+			}
+			else
+			{
+				//если клик был по одному захватчику, то выделяем его
+				if (invader != null && Player.PlayerInvaders.Contains(invader))
+				{
+					Deselect(); //снимаем выделение с прошлого захватчика, если был
+					invaderControllers = new List<SpaceInvaderController>{invader}; //назначаем нового захватчика
+					Select();
+				}
 
-	// проверка, добавлен объект или нет
-	bool CheckUnit (SpaceInvaderController unit) 
+				if (targetPlanet == null || invaderControllers.Count <= 0) return;
+
+				// если есть цель, выбран захватчик и дистанция не слишком маленькая, то движемся к цели
+				foreach (var invaderController in invaderControllers.Where(invaderController =>
+					Vector2.Distance(invaderController.transform.position, targetPlanet.transform.position) > 1.5))
+				{
+					invaderController.MoveTowards(targetPlanet.gameObject);
+				}
+
+				Deselect();
+			}
+		}
+		else Deselect(); //при попадании по объекту без коллайдера, снимаем выделение
+	}
+
+	[Client]
+	bool CheckUnit (SpaceInvaderController unit) // проверка, добавлен объект или нет
 	{
 		bool result = false;
 		foreach(SpaceInvaderController u in invaderControllers)
@@ -112,35 +86,47 @@ public class SelectUnits : NetworkBehaviour
 		return result;
 	}
 
+	[Client]
 	void Select()
 	{
-		if(invaderControllers.Count > 0)
+		if (invaderControllers.Count == 0) return;
+		
+		foreach (var invader in invaderControllers) // делаем что-либо с выделенными объектами
 		{
-			for(int j = 0; j < invaderControllers.Count; j++)
-			{
-				// делаем что-либо с выделенными объектами
-				if (isServer) invaderControllers[j].Selecting(true);
-				else invaderControllers[j].CmdSelecting(true);
-			}
-		}
-	}
-
-	public void Deselect()
-	{
-		if(invaderControllers.Count > 0)
-		{
-			for(int j = 0; j < invaderControllers.Count; j++)
-			{
-				// отменяем то, что делали с объектоми
-				if (isServer) invaderControllers[j].Selecting(false);
-				else invaderControllers[j].CmdSelecting(false);
-			}
+			if (!invader.isSelecting) invader.CmdSelecting(true);
 		}
 		
+		CalculateDistanceInfo(invaderControllers[0]);
+	}
+
+	[Client]
+	private void Deselect()
+	{
+		if (invaderControllers.Count <= 0) return;
+		
+		foreach (var invader in invaderControllers) // отменяем то, что делали с объектоми
+		{
+			invader.CmdSelecting(false);
+		}
+		
+		ClearDistanceInfo();
 		invaderControllers.Clear();
 	}
+
+	[Client]
+	private void CalculateDistanceInfo(SpaceInvaderController invader)
+	{
+		var invaders = invaderControllers;
+		var invaderRandom = invaders[Random.Range(0, invaders.Count)];
+		
+		foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet)
+		{
+			planet.CalculateDistance(invaderRandom.transform.position, invader.speed);
+		}
+	}
 	
-	public void ClearDistanceInfo()
+	[Client]
+	private void ClearDistanceInfo()
 	{
 		foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet)
 		{
@@ -150,6 +136,7 @@ public class SelectUnits : NetworkBehaviour
 		isLogisticMode = false;
 	}
 	
+	[Client]
 	void OnGUI ()
 	{
 		if (isOwned && AllSingleton.Instance.cameraMove.isEnable)
@@ -157,15 +144,10 @@ public class SelectUnits : NetworkBehaviour
 			GUI.skin = skin;
 			GUI.depth = 99;
 
-			if (Input.GetMouseButtonDown(0))
-			{
-				_startPos = Input.mousePosition;
-			}
+			if (Input.GetMouseButtonDown(0)) _startPos = Input.mousePosition;
+			
 
-			if (Input.GetMouseButton(0))
-			{
-				draw = true;
-			}
+			if (Input.GetMouseButton(0)) draw = true;
 
 			if (Input.GetMouseButtonUp(0))
 			{

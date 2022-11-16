@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using DG.Tweening;
 using Mirror;
 using UnityEngine;
@@ -26,21 +25,17 @@ public class SpaceInvaderController : NetworkBehaviour
     [SyncVar] public Transform targetTransform;
     [SyncVar] public float speed = 1f;
 
-    [Server]
-    public override void OnStopServer()
+    private void OnDisable()
     {
-        base.OnStopServer();
+        if (!NetworkClient.active || Player == null) return;
 
-        print("SpaceInvader deleted");
-        Player.ChangeListWithInvaders(this, false);
-        Player.PlayerInvaders?.RemoveAll(invader => invader == null);
-    }
-
-    public override void OnStopClient()
-    {
-        base.OnStopClient();
-        Player.selectUnits.invaderControllers?.Remove(this);
-        Player.CmdChangeListWithInvaders(this, false);
+        if (isClient)
+        {
+            Player.selectUnits.invaderControllers?.Remove(this);
+            Player.CmdChangeListWithInvaders(this, false);
+        }
+        else Player.ChangeListWithInvaders(this, false);
+        
         _moveTween?.Kill();
         StopAllCoroutines();
     }
@@ -60,41 +55,36 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Planet") && isOwned && other.transform == targetTransform)
+        if (!other.CompareTag("Planet") || !isOwned || other.transform != targetTransform) return;
+        
+        if (Player.playerPlanets.Contains(other.gameObject)) // союзная планета 
         {
-            if (Player.playerPlanets.Contains(other.gameObject)) // союзная планета 
+            var planet = other.GetComponent<PlanetController>();
+
+            if (!planet.SpaceOrbitInvader.Contains(this))
             {
-                var planet = other.GetComponent<PlanetController>();
+                isIdle = true;
 
-                if (!planet.SpaceOrbitInvader.Contains(this))
-                {
-                    isIdle = true;
-
-                    planet.CmdChangeOrbitInvaderList(this, true);
-                }
+                planet.CmdChangeOrbitInvaderList(this, true);
             }
-            else Attack(other.gameObject);
         }
+        else Attack(other.gameObject);
     }
     
     [Client]
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Planet") && isOwned && NetworkClient.active)
-        {
-            if (Player.playerPlanets.Contains(other.gameObject))
-            {
-                var planet = other.GetComponent<PlanetController>();
-
-                if (planet.SpaceOrbitInvader.Contains(this)) planet.CmdChangeOrbitInvaderList(this, false);
-            }
-        }
+        if (!other.CompareTag("Planet") || !isOwned || !NetworkClient.active) return;
+        if (!Player.playerPlanets.Contains(other.gameObject)) return;
+        
+        var planet = other.GetComponent<PlanetController>();
+        if (planet.SpaceOrbitInvader.Contains(this)) planet.CmdChangeOrbitInvaderList(this, false);
     }
 
     #region ChangeState
 
     [ClientRpc]
-    public void Selecting(bool isOn)
+    private void Selecting(bool isOn)
     {
         lightShape.gameObject.SetActive(isOn);
         lightLamp.gameObject.SetActive(isOn);
@@ -146,25 +136,24 @@ public class SpaceInvaderController : NetworkBehaviour
     }
     
     [Client]
-    public void RotateOrbit(Transform targetTransform) //поворот в сторону цели
+    private void RotateOrbit(Transform targetTransform) //вращение по орбите с поворотом
     {
         var thisTransform = transform;
         Vector2 targetRotation = targetTransform.position - thisTransform.position;
-        print(targetRotation);
         thisTransform.up = Vector2.MoveTowards(transform.up, Vector2.Perpendicular(-targetRotation), Time.deltaTime * speed * 10);
     }
 
     [Client]
-    public void Move(Vector3 targetPos, float duration) //движение в сторону цели
+    private void Move(Vector3 targetPos, float duration) //движение в сторону цели
     {
         isIdle = false;
         
         _moveTween?.Kill();
-        _moveTween = transform.DOMove(targetPos, duration);
+        _moveTween = transform.DOMove(targetPos, duration).SetEase(Ease.Linear);
     }
     
     [Client]
-    public void IdleRotate(GameObject go) //Вращение по орбите
+    private void IdleRotate(GameObject go) //Вращение по орбите
     {
         if (!isIdle) return;
         _moveTween?.Kill();
@@ -186,8 +175,8 @@ public class SpaceInvaderController : NetworkBehaviour
             var invaderDefender = planet.SpaceOrbitInvader[Random.Range(0, planet.SpaceOrbitInvader.Count)];
             planet.CmdChangeOrbitInvaderList(invaderDefender, false);
             
-            CmdDestroy(invaderDefender.gameObject); //удаляем защитника
-            CmdDestroy(gameObject); //удаляем этого захватчика
+            invaderDefender.UnSpawn(invaderDefender.gameObject); //удаляем защитника
+            UnSpawn(gameObject); //удаляем этого захватчика
             return;
         }
 
@@ -200,35 +189,37 @@ public class SpaceInvaderController : NetworkBehaviour
         {
             //если у кого-то из игроков была планета, то удаляем из списка у него
             var playerWithPlanet = Player.players.Find(player => player.playerPlanets.Contains(target));
-            if (playerWithPlanet != null)
-            {
-                print("Planet deleted from list");
-                playerWithPlanet.CmdChangeListWithPlanets(target,false);
-            }
+            if (playerWithPlanet != null) playerWithPlanet.CmdChangeListWithPlanets(target,false);
 
             //захват планеты
             Player.CmdChangeListWithPlanets(target, true);
         }
 
         //удаление захватчика
-        CmdDestroy(gameObject);
+        UnSpawn(gameObject);
     }
 
     #region Other
 
-    [Command]
-    public void CmdDestroy(GameObject go)
+    [Client]
+    private void UnSpawn(GameObject go)
     {
-        NetworkServer.Destroy(go);
-        AllSingleton.Instance.player.PlayerInvaders.Remove(go.GetComponent<SpaceInvaderController>());
-        Player.PlayerInvaders.RemoveAll(invader => invader == null);
+        Player.CmdChangeListWithInvaders(this, false);
+        CmdUnSpawn(go);
+    }
+
+    [Command (requiresAuthority = false)]
+    private void CmdUnSpawn(GameObject go)
+    {
+        NetworkServer.UnSpawn(go);
+        AllSingleton.Instance.invaderPoolManager.PutBackInPool(go);
     }
     
     [Client]
     private IEnumerator LampOn() //моргание лампы при выделении
     {
         if (isOwned)
-            ResourceSingleton.instance.audioLampOn.Play();
+            ResourceSingleton.Instance.audioLampOn.Play();
         
         lightLamp.color = Color.clear;
         yield return new WaitForSeconds(0.01f);
@@ -258,6 +249,7 @@ public class SpaceInvaderController : NetworkBehaviour
 
     #region Hooks
 
+    [Client]
     public void UpdateColor(Color oldColor, Color newColor)
     {
         spriteRenderer.color = newColor;

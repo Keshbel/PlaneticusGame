@@ -2044,6 +2044,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1083871690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083871691}
+  - component: {fileID: 1083871692}
+  m_Layer: 0
+  m_Name: ArrowPrefabPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1083871691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083871690}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1083871692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083871690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90480aa3f5c7811498f11f187dddf0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSize: 300
+  maxSize: 100000
+  prefab: {fileID: 1731528724999488639, guid: 62dcc6d40c3d1354da3c0e72252472f6, type: 3}
+  currentCount: 0
 --- !u!1 &1101843903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2592,7 +2640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d961b6bcb0ec834ea472b38b07add6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logisticArrowPrefab: {fileID: 1731528724999488639, guid: 62dcc6d40c3d1354da3c0e72252472f6, type: 3}
+  arrowPoolManager: {fileID: 1083871692}
   earthSprite: {fileID: 21300000, guid: aed170df05e6a784f964004a7479e4af, type: 3}
   waterSprite: {fileID: 21300000, guid: 61344d6a141d16343b94428a7f60a61c, type: 3}
   windSprite: {fileID: 21300000, guid: 3d94f560d259a3544b545534ff7cd850, type: 3}
@@ -2757,6 +2805,54 @@ Transform:
   m_Father: {fileID: 1690738937}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1463564236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1463564237}
+  - component: {fileID: 1463564238}
+  m_Layer: 0
+  m_Name: SpaceInvaderPrefabPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1463564237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463564236}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1463564238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463564236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90480aa3f5c7811498f11f187dddf0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSize: 40
+  maxSize: 50000
+  prefab: {fileID: 2860486228469298175, guid: 6a985395fe888814b9fc70cb111007aa, type: 3}
+  currentCount: 0
 --- !u!1 &1465954144
 GameObject:
   m_ObjectHideFlags: 0
@@ -4075,11 +4171,10 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   player: {fileID: 0}
-  currentPlayers: []
   selectablePlanets: []
   speed: 0.3
   planetPrefab: {fileID: 3003615264639470420, guid: 35bf5fe1fc71e2541aeb56ba41f6858e, type: 3}
-  invaderPrefab: {fileID: 2860486228469298175, guid: 6a985395fe888814b9fc70cb111007aa, type: 3}
+  invaderPoolManager: {fileID: 1463564238}
   selectUnitsPrefab: {fileID: 4023480795694932270, guid: b7065aa521fa4204f97c5b1012eb23d1, type: 3}
   cameraMove: {fileID: 198041922}
   mainPlanetController: {fileID: 1389960324}

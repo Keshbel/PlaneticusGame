@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Lean.Localization;
 using Mirror;
@@ -12,15 +13,18 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class PlanetController : NetworkBehaviour
 {
+    private CurrentPlayer Player => AllSingleton.Instance.player;
+    private PlanetPanelUI PlanetPanel => AllSingleton.Instance.planetPanelUI;
+    
     [Header("Main")]
     public TMP_Text textName;
     public TMP_Text textTimeDistance;
     [SyncVar(hook = nameof(UpdateTextName))] public string namePlanet;
     [SyncVar(hook = nameof(UpdateColor))] public Color colorPlanet;
-    [SyncVar(hook = nameof(SetSpritePlanet))] public int indSpritePlanet;
+    [SyncVar(hook = nameof(UpdateSpritePlanet))] public int indSpritePlanet;
 
     [Header("Resources")] 
-    [SyncVar] public int indexCurrentResource;
+    public int indexCurrentResource;
     public readonly SyncList<ResourceForPlanet> PlanetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
     public List<GameObject> resourcesIcon;
 
@@ -31,7 +35,7 @@ public class PlanetController : NetworkBehaviour
     [SyncVar(hook = nameof(HomingPlanetShow))] public bool isHomePlanet = false; //является ли стартовой планетой?
     public GameObject homeIcon;
     
-    [SyncVar(hook = nameof(EffectChangeActive))] public bool isSuperPlanet; //является ли супер планетой? (все 5 ресурсов на ней)
+    [SyncVar(hook = nameof(UpdateSuperEffect))] public bool isSuperPlanet; //является ли супер планетой? (все 5 ресурсов на ней)
     public GameObject effectSuperPlanet;
     public SpriteRenderer selectRenderer;
     public GameObject sliderCanvas;
@@ -40,9 +44,10 @@ public class PlanetController : NetworkBehaviour
     public float timeToSpawn = 20f;
 
     [Header("Colonized")]
-    [SyncVar(hook = nameof(ResourceIconShow))] public bool isColonized;
+    [SyncVar(hook = nameof(UpdateResourceIcon))] public bool isColonized;
     public readonly SyncList<SpaceInvaderController> SpaceOrbitInvader = new SyncList<SpaceInvaderController>(); //союзные захватчики на орбите
 
+    [Client]
     private void Start()
     {
         sliderCanvas.GetComponent<Canvas>().worldCamera = Camera.main;
@@ -55,89 +60,53 @@ public class PlanetController : NetworkBehaviour
         PlanetResources.Callback += SyncResourceForPlanetVars;
     }
 
+    [Client]
     public IEnumerator StartSpawnInvadersRoutine() //спавн захватчиков при статусе супер планеты
     {
-        if (isSuperPlanet)
+        if (!isSuperPlanet) yield break;
+        
+        if (isHomePlanet) //начальная задержка после спавна стартовых захватичков
         {
-            if (isHomePlanet) //начальная задержка после спавна стартовых захватичков
+            for (int i = 0; i < 2; i++)
             {
-                for (int i = 0; i < 2; i++)
-                {
-                    slider.value = 0;
-                    slider.DOValue(1, 2f).SetEase(Ease.Linear);
+                slider.value = 0;
+                slider.DOValue(1, 2f).SetEase(Ease.Linear);
 
-                    yield return new WaitForSeconds(2f);
-                }
-            }
-
-            while (isSuperPlanet)
-            {
-                if (isOwned)
-                {
-                    if (isServer)
-                        StartCoroutine(AllSingleton.Instance.player.SpawnInvader(1, gameObject));
-                    else
-                    {
-                        AllSingleton.Instance.player.CmdSpawnInvader(1, gameObject);
-                    }
-                }
-
-                counterToSpawn = 0;
-                slider.value = counterToSpawn;
-                slider.DOValue(1, timeToSpawn).SetEase(Ease.Linear);
-
-                yield return new WaitForSeconds(timeToSpawn);
+                yield return new WaitForSeconds(2f);
             }
         }
+
+        while (isSuperPlanet)
+        {
+            if (isOwned) AllSingleton.Instance.player.CmdSpawnInvader(1, gameObject);
+
+            counterToSpawn = 0;
+            slider.value = counterToSpawn;
+            slider.DOValue(1, timeToSpawn).SetEase(Ease.Linear);
+
+            yield return new WaitForSeconds(timeToSpawn);
+        }
     }
-
-
 
     #region HomePlanetOptions
 
+    [Server]
     public void SetHomePlanet() // установка домашней планеты
     {
-        if (isServer) //очистка и простановка статуса
-        {
-            ClearPlanetResource();
-            SetHomePlanetBoolTrue();
-        }
-        else
-        {
-            CmdClearPlanetResource();
-            CmdSetHomePlanetBoolTrue();
-        }
+        ClearPlanetResource();
+        SetHomePlanetBoolTrue();
 
-        var res1 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Water, countResource = 1 };
-        var res2 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Earth, countResource = 1 };
-        var res3 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Fire, countResource = 1 };
-        var res4 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Air, countResource = 1 };
-        var res5 = new ResourceForPlanet { resourcePlanet = Enums.ResourcePlanet.Aether, countResource = 1 };
-
-        if (isServer) //добавление ресурсов
+        for (int i = 0; i < 5; i++)
         {
-            ChangeResourceList(res1, true);
-            ChangeResourceList(res2, true);
-            ChangeResourceList(res3, true);
-            ChangeResourceList(res4, true);
-            ChangeResourceList(res5, true);
-        }
-        else
-        {
-            CmdChangeResourceList(res1, true);
-            CmdChangeResourceList(res2, true);
-            CmdChangeResourceList(res3, true);
-            CmdChangeResourceList(res4, true);
-            CmdChangeResourceList(res5, true);
+            var res = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) i, countResource = 1};
+            ChangeResourceList(res, true);
         }
     }
 
+    [Client]
     public void HomingPlanetShow(bool oldBool, bool newBool) //отображение иконки для родной планеты
     {
-        if (homeIcon)
-        {
-            homeIcon.SetActive(newBool);
-        }
+        if (homeIcon) homeIcon.SetActive(newBool);
     }
 
     [Server]
@@ -145,7 +114,6 @@ public class PlanetController : NetworkBehaviour
     {
         isHomePlanet = true;
     }
-
     [Command]
     public void CmdSetHomePlanetBoolTrue()
     {
@@ -170,24 +138,16 @@ public class PlanetController : NetworkBehaviour
     [Server]
     public void ChangeOrbitInvaderList(SpaceInvaderController invader, bool isAdding)
     {
-        if (NetworkServer.active)
-        {
-            if (isAdding)
-            {
-                SpaceOrbitInvader.Add(invader);
-            }
-            else
-            {
-                SpaceOrbitInvader.Remove(invader);
-            }
-        }
+        if (!NetworkServer.active) return;
+        
+        if (isAdding) SpaceOrbitInvader.Add(invader);
+        else SpaceOrbitInvader.Remove(invader);
     }
 
-    [Command]
+    [Command (requiresAuthority = false)]
     public void CmdChangeOrbitInvaderList(SpaceInvaderController invader, bool isAdding)
     {
-        if (NetworkServer.active && NetworkClient.active)
-            ChangeOrbitInvaderList(invader, isAdding);
+        if (NetworkServer.active && NetworkClient.active) ChangeOrbitInvaderList(invader, isAdding);
     }
 
     #endregion
@@ -200,23 +160,12 @@ public class PlanetController : NetworkBehaviour
     {
         if (isAdding) //добавляем ли планету?
         {
-            if (PlanetResources.Count < 5)
-            {
-                PlanetResources.Add(resource);
-            }
-
-            if (PlanetResources.Count == 5)
-            {
-                isSuperPlanet = true;
-                //StartCoroutine(StartSpawnInvadersRoutine());
-            }
+            if (PlanetResources.Count < 5) PlanetResources.Add(resource);
+            if (PlanetResources.Count == 5) isSuperPlanet = true;
         }
         else // отнимаем
         {
-            if (resource.countResource > 1)
-            {
-                resource.countResource--;
-            }
+            if (resource.countResource > 1) resource.countResource--;
             else
             {
                 PlanetResources.Remove(resource);
@@ -226,7 +175,7 @@ public class PlanetController : NetworkBehaviour
         }
     }
 
-    [Command]
+    [Command (requiresAuthority = false)]
     public void CmdChangeResourceList(ResourceForPlanet resource, bool isAdding)
     {
         ChangeResourceList(resource, isAdding);
@@ -259,118 +208,14 @@ public class PlanetController : NetworkBehaviour
         }
         ResourceIconShow();
     }
-
-//добавление ресурсов при создании планет
-    public void AddResourceForPlanetGeneration() 
+    
+    [Server]
+    public void AddResourceForPlanetGeneration() //добавление ресурсов при создании планет
     {
-        var res1 = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 5), countResource = 1};
-        print(res1.resourcePlanet);
-        
-        if (isServer)
-        {
-            ChangeResourceList(res1, true);
-        }
-        else
-        {
-            CmdChangeResourceList(res1, true);
-        }
-    }
-
-    //подписка туглов с ресурсами
-    public void SubscribeResourceToggle() 
-    {
-        var planetPanel = AllSingleton.Instance.planetPanelUI;
-        
-        for (var index = 0; index < 5; index++) //отписка
-        {
-            planetPanel.resToggles[index].onValueChanged.RemoveAllListeners();
-            planetPanel.resToggles[index].interactable = false;
-        }
-        
-        for (var index = 0; index < PlanetResources.Count; index++) //подписка
-        {
-            var index1 = index;
-
-            switch (PlanetResources[index].resourcePlanet)
-            {
-                case Enums.ResourcePlanet.Water:
-                    planetPanel.waterToggle.onValueChanged.AddListener(b => SelectResource(index1));
-                    planetPanel.waterToggle.interactable = true;
-                    break;
-                case Enums.ResourcePlanet.Earth:
-                    planetPanel.earthToggle.onValueChanged.AddListener((b) => SelectResource(index1));
-                    planetPanel.earthToggle.interactable = true;
-                    break;
-                case Enums.ResourcePlanet.Fire:
-                    planetPanel.fireToggle.onValueChanged.AddListener((b) => SelectResource(index1));
-                    planetPanel.fireToggle.interactable = true;
-                    break;
-                case Enums.ResourcePlanet.Air:
-                    planetPanel.airToggle.onValueChanged.AddListener((b) => SelectResource(index1));
-                    planetPanel.airToggle.interactable = true;
-                    break;
-                case Enums.ResourcePlanet.Aether:
-                    planetPanel.aetherToggle.onValueChanged.AddListener((b) => SelectResource(index1));
-                    planetPanel.aetherToggle.interactable = true;
-                    break;
-            }
-        }
+        var resource = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 5), countResource = 1};
+        ChangeResourceList(resource, true);
     }
     
-    // выбор ресурса (прожатый тугл)
-    public void SelectResource(int indexResource) 
-    {
-        indexCurrentResource = indexResource;
-        UpdateInfo(indexResource);
-    }
-    
-    
-    //отображение иконок ресурсов на карте
-    public void ResourceIconShow() 
-    {
-        if (!isColonized) return;
-
-        foreach (var icon in resourcesIcon) //вырубаем все иконки
-        {
-            icon.gameObject.SetActive(false);
-        }
-
-        foreach (var resource in PlanetResources) //включаем нужные
-        {
-            switch (resource.resourcePlanet)
-            {
-                case Enums.ResourcePlanet.Air:
-                    resourcesIcon[0].gameObject.SetActive(true);
-                    break;
-                case Enums.ResourcePlanet.Water:
-                    resourcesIcon[1].gameObject.SetActive(true);
-                    break;
-                case Enums.ResourcePlanet.Earth:
-                    resourcesIcon[2].gameObject.SetActive(true);
-                    break;
-                case Enums.ResourcePlanet.Fire:
-                    resourcesIcon[3].gameObject.SetActive(true);
-                    break;
-                case Enums.ResourcePlanet.Aether:
-                    resourcesIcon[4].gameObject.SetActive(true);
-                    break;
-            }
-        }
-    }
-    public void ResourceIconShow(bool oldBool, bool newBool)
-    {
-        ResourceIconShow();
-    }
-
-    public void EffectChangeActive(bool oldBool, bool newBool)
-    {
-        transform.GetChild(0).gameObject.SetActive(newBool);
-        sliderCanvas.SetActive(newBool);
-        if (newBool)
-        {
-            StartCoroutine(StartSpawnInvadersRoutine());
-        }
-    }
 
     //очистка всех ресурсов планеты
     [Server]
@@ -406,7 +251,7 @@ public class PlanetController : NetworkBehaviour
         var distance = Vector2.Distance(toTransform.position, fromTransform.position);
 
         //запуск стрелочек
-        StartCoroutine(StartRouteRoutine(fromTransform, toTransform, distance/AllSingleton.Instance.speed));
+        StartCoroutine(StartArrowRoutine(fromTransform, toTransform, distance/AllSingleton.Instance.speed));
 
         //избавляемся от ресурса на планете-отдавателе
         var res = PlanetResources.Find(r => r.resourcePlanet == resource.resourcePlanet);
@@ -421,86 +266,139 @@ public class PlanetController : NetworkBehaviour
         {
             toPlanet.ChangeResourceList(finalRes, true);
         }
-        /*else //если есть ресурс этого типа
-        {
-            planetResource.countResource++; //плюсуем ресурс в доставку у планеты-получателя
-        }
-        print("Есть ли ресурс на финальной планете - " + planetResource + ". Количество ресурса - " +
-              planetResource?.countResource);*/
     }
     [Command]
     public void CmdLogisticResource(ResourceForPlanet resource, PlanetController toPlanet)
     {
         StartCoroutine(LogisticResource(resource, toPlanet));
     }
-    
 
-    public void SubscribeLogisticButton()
-    {
-        var planetPanel = AllSingleton.Instance.planetPanelUI;
-        
-        if (PlanetResources[indexCurrentResource].countResource > 0) //если ресурс ещё не учавствует в логистике
-        {
-            //очистка
-            planetPanel.logisticButton.onClick.RemoveAllListeners();
-
-            //включение логистического режима
-            planetPanel.logisticButton.onClick.AddListener(() => AllSingleton.Instance.player.selectUnits.isLogisticMode = true);
-            
-            //просчёт дистанции
-            planetPanel.logisticButton.onClick.AddListener(() =>
-            {
-                foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet)
-                {
-                    if (AllSingleton.Instance.player.playerPlanets.Contains(planet.gameObject) && planet.gameObject != gameObject)
-                    {
-                        float speed = AllSingleton.Instance.speed;;
-
-                        planet.CalculateDistance(transform.position, speed);
-                    }
-                }
-            });
-            
-            //закрытие панели
-            planetPanel.logisticButton.onClick.AddListener(AllSingleton.Instance.planetPanelController.ClosePanel);
-
-            //прожимаемая кнопка
-            planetPanel.logisticButton.interactable = true;
-        }
-        else
-        {
-            planetPanel.logisticButton.interactable = false;
-        }
-    }
-    
     [Server]
-    public IEnumerator StartRouteRoutine(Transform fromTransform, Transform toTransform, float timeCount)
+    public IEnumerator StartArrowRoutine(Transform fromTransform, Transform toTransform, float timeCount)
     {
         while (timeCount > 0)
         {
             //инициализация
-            var logisticArrowGO = Instantiate(ResourceSingleton.instance.logisticArrowPrefab); //спавн объекта локально
-            NetworkServer.Spawn(logisticArrowGO, connectionToClient); //всеобщий спавн (для всех клиентов)
+            var logisticArrowGO = ResourceSingleton.Instance.arrowPoolManager.GetFromPool(fromTransform.position, Quaternion.identity); //достаём объект из пула
+            NetworkServer.Spawn(logisticArrowGO, connectionToClient); //клиентский "спавн"
+            
             var logisticArrow = logisticArrowGO.GetComponent<LogisticArrow>();
             logisticArrow.TargetStartMove(fromTransform, toTransform);
-            /*logisticArrow.SetStartPosition(fromTransform);
-
-            logisticArrow.RotateTo(toTransform);*/
 
             //задержка
             yield return new WaitForSeconds(2f);
             timeCount -= 2;
         }
     }
-    [Command]
-    public void CmdStartRouteRoutine(Transform fromTransform, Transform toTransform, float timeCount)
-    {
-        StartCoroutine(StartRouteRoutine(fromTransform, toTransform, timeCount));
-    }
 
     #endregion
 
+    #region UI
 
+    [Client]
+    public void SubscribeLogisticButton()
+    {
+        if (PlanetResources[indexCurrentResource].countResource > 0) //если ресурс ещё не учавствует в логистике
+        {
+            PlanetPanel.logisticButton.onClick.RemoveAllListeners(); //очистка
+            
+            PlanetPanel.logisticButton.onClick.AddListener(() => Player.selectUnits.isLogisticMode = true);
+
+            PlanetPanel.logisticButton.onClick.AddListener(() => //просчёт дистанции
+            {
+                foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet.Where(planet => AllSingleton.Instance.player.playerPlanets.Contains(planet.gameObject) && planet.gameObject != gameObject))
+                {
+                    planet.CalculateDistance(transform.position, AllSingleton.Instance.speed);
+                }
+            });
+            
+            PlanetPanel.logisticButton.onClick.AddListener(AllSingleton.Instance.planetPanelController.ClosePanel); //закрытие панели
+            
+            PlanetPanel.logisticButton.interactable = true; //прожимаемая кнопка
+        }
+        else PlanetPanel.logisticButton.interactable = false;
+    }
+    
+    [Client]
+    public void SubscribeResourceToggle() //подписка туглов с ресурсами
+    {
+        for (var index = 0; index < 5; index++) //отписка
+        {
+            PlanetPanel.resToggles[index].onValueChanged.RemoveAllListeners();
+            PlanetPanel.resToggles[index].interactable = false;
+        }
+        
+        for (var index = 0; index < PlanetResources.Count; index++) //подписка
+        {
+            var index1 = index;
+
+            switch (PlanetResources[index].resourcePlanet)
+            {
+                case Enums.ResourcePlanet.Water:
+                    PlanetPanel.waterToggle.onValueChanged.AddListener(b => SelectResource(index1));
+                    PlanetPanel.waterToggle.interactable = true;
+                    break;
+                case Enums.ResourcePlanet.Earth:
+                    PlanetPanel.earthToggle.onValueChanged.AddListener((b) => SelectResource(index1));
+                    PlanetPanel.earthToggle.interactable = true;
+                    break;
+                case Enums.ResourcePlanet.Fire:
+                    PlanetPanel.fireToggle.onValueChanged.AddListener((b) => SelectResource(index1));
+                    PlanetPanel.fireToggle.interactable = true;
+                    break;
+                case Enums.ResourcePlanet.Air:
+                    PlanetPanel.airToggle.onValueChanged.AddListener((b) => SelectResource(index1));
+                    PlanetPanel.airToggle.interactable = true;
+                    break;
+                case Enums.ResourcePlanet.Aether:
+                    PlanetPanel.aetherToggle.onValueChanged.AddListener((b) => SelectResource(index1));
+                    PlanetPanel.aetherToggle.interactable = true;
+                    break;
+            }
+        }
+    }
+    
+    [Client]
+    public void SelectResource(int indexResource) // выбор ресурса (прожатый тугл)
+    {
+        indexCurrentResource = indexResource;
+        UpdateInfo(indexResource);
+    }
+
+    [Client]
+    public void ResourceIconShow() //отображение иконок ресурсов на карте
+    {
+        if (!isColonized) return;
+
+        foreach (var icon in resourcesIcon) //вырубаем все иконки
+        {
+            icon.gameObject.SetActive(false);
+        }
+
+        foreach (var resource in PlanetResources) //включаем нужные
+        {
+            switch (resource.resourcePlanet)
+            {
+                case Enums.ResourcePlanet.Air:
+                    resourcesIcon[0].gameObject.SetActive(true);
+                    break;
+                case Enums.ResourcePlanet.Water:
+                    resourcesIcon[1].gameObject.SetActive(true);
+                    break;
+                case Enums.ResourcePlanet.Earth:
+                    resourcesIcon[2].gameObject.SetActive(true);
+                    break;
+                case Enums.ResourcePlanet.Fire:
+                    resourcesIcon[3].gameObject.SetActive(true);
+                    break;
+                case Enums.ResourcePlanet.Aether:
+                    resourcesIcon[4].gameObject.SetActive(true);
+                    break;
+            }
+        }
+    }
+    
+    [Client]
     public void CalculateDistance(Vector2 fromPosition, float speed)
     {
         var secondsLanguage = "";
@@ -512,22 +410,17 @@ public class PlanetController : NetworkBehaviour
         textTimeDistance.text = (Vector2.Distance(fromPosition, transform.position)/speed).ToString("0.0") + secondsLanguage;
     }
     
+    [Client]
     public void ClearDistanceText()
     {
         textTimeDistance.text = "";
     }
-    
-    public void SetSpritePlanet(int oldInt, int newInt) //назначить внешний вид планеты
-    {
-        var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = AllSingleton.Instance.mainPlanetController.listSpritePlanet[newInt];
-    }
 
+    [Client]
     public void OpenPlanet()
     {
         indexCurrentResource = 0;
-
-        for (var index = 0; index < PlanetResources.Count; index++) //прокликиваем всё по разу, чтобы картинка отображалась нормально
+        for (var index = 0; index < PlanetResources.Count; index++) //для нормального отображения картинок
         {
             SelectResource(index);
         }
@@ -537,41 +430,65 @@ public class PlanetController : NetworkBehaviour
         SelectResource(0);
     }
 
-
+    [Client]
     public void UpdateInfo(int index)
     {
         SubscribeResourceToggle();
         SubscribeLogisticButton();
 
-        var planetPanel = AllSingleton.Instance.planetPanelUI;
-
         if (PlanetResources.Count-1 >= index)
         {
             var curRes = PlanetResources[index];
 
-            planetPanel.planetNameText.text = namePlanet;
+            PlanetPanel.planetNameText.text = namePlanet;
 
-            planetPanel.resourceNameText.text = curRes.nameResource;
-            planetPanel.resourceCountText.text = curRes.countResource.ToString();
-            planetPanel.resourceIconImage.sprite = curRes.SpriteIcon;
+            PlanetPanel.resourceNameText.text = curRes.nameResource;
+            PlanetPanel.resourceCountText.text = curRes.countResource.ToString();
+            PlanetPanel.resourceIconImage.sprite = curRes.SpriteIcon;
 
             PlanetResources[index].UpdateInfo();
         }
-        else
-        {
-            AllSingleton.Instance.planetPanelController.ClosePanel();
-        }
+        else AllSingleton.Instance.planetPanelController.ClosePanel();
+    }
+    
+    #endregion
+
+    #region Hooks
+    
+    [Client]
+    public void UpdateResourceIcon(bool oldBool, bool newBool)
+    {
+        ResourceIconShow();
     }
 
+    [Client]
+    public void UpdateSuperEffect(bool oldBool, bool newBool)
+    {
+        transform.GetChild(0).gameObject.SetActive(newBool);
+        sliderCanvas.SetActive(newBool);
+        if (newBool) StartCoroutine(StartSpawnInvadersRoutine());
+    }
+    
+    [Client]
+    public void UpdateSpritePlanet(int oldInt, int newInt) //назначить внешний вид планеты
+    {
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = AllSingleton.Instance.mainPlanetController.listSpritePlanet[newInt];
+    }
+    
+    [Client]
     public void UpdateTextName(string oldS, string newS)
     {
         textName.text = newS;
     }
     
+    [Client]
     public void UpdateColor(Color oldColor, Color newColor)
     {
         textName.color = newColor;
         textTimeDistance.color = newColor;
         selectRenderer.color = newColor;
     }
+    
+    #endregion
 }

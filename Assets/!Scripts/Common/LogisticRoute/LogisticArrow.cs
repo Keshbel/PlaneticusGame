@@ -7,6 +7,7 @@ public class LogisticArrow : NetworkBehaviour
 {
     public Collider2D thisCollider;
 
+    [Client]
     private void Start()
     {
         if (!thisCollider)
@@ -46,27 +47,25 @@ public class LogisticArrow : NetworkBehaviour
     }*/
     
     [Client]
-    public void SetStartPosition(Transform fromTransform)
+    private void SetStartPosition(Transform fromTransform)
     {
         transform.position = fromTransform.position;
     }
     
     [Client] // движение в сторону
-    public void MoveTo(Transform toTransform)
+    private void MoveTo(Transform toTransform)
     {
         var toPosition = toTransform.position;
         var distance = Vector2.Distance(transform.position, toPosition);
         
-        transform.DOMove(toPosition, distance / AllSingleton.Instance.speed).SetEase(Ease.Linear).OnComplete(()=> NetworkServer.Destroy(gameObject));
+        transform.DOMove(toPosition, distance / AllSingleton.Instance.speed).SetEase(Ease.Linear).OnComplete(()=> CmdUnSpawn());
     }
 
     [Client] //поворот в сторону + движение
-    public void RotateTo(Transform toTransform)
+    private void RotateTo(Transform toTransform)
     {
         var fromPosition = transform.position;
         var toPosition = toTransform.position;
-        print("from position = " + fromPosition + ". toPos = " + toPosition);
-
         var an = Math.Atan2(toPosition.y - fromPosition.y, toPosition.x - fromPosition.x);
         var degAn = an * 180 / Math.PI;
 
@@ -77,7 +76,13 @@ public class LogisticArrow : NetworkBehaviour
     public void TargetStartMove(Transform fromTransform, Transform toTransform)
     {
         SetStartPosition(fromTransform);
-        
         RotateTo(toTransform);
+    }
+
+    [Command]
+    private void CmdUnSpawn()
+    {
+        NetworkServer.UnSpawn(gameObject);
+        ResourceSingleton.Instance.arrowPoolManager.PutBackInPool(gameObject);
     }
 }

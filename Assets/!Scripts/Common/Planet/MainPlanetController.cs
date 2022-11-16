@@ -41,7 +41,8 @@ public class MainPlanetController : NetworkBehaviour
         listPlanet.Clear();
     }
 
-    public void Generation() //Генерация планет, если они не были сгенерированы
+    [Server]
+    private void Generation() //Генерация планет, если они не были сгенерированы
     {
         var countPlanet = Random.Range(50, 70);
 

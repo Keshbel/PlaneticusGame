@@ -21,43 +21,38 @@ public class CurrentPlayer : NetworkBehaviour
     
     [SyncVar] public SelectUnits selectUnits;
 
+    [Client]
     private void Start()
     {
-        if (isOwned)
+        if (isOwned && !selectUnits && isClient)
         {
-            if (!selectUnits && isClient)
-            {
-                CmdCreateSelectUnits();
-            }
+            CmdCreateSelectUnits();
         }
-        
-        Invoke(nameof(AddPlayer), 1f);
     }
 
     public override void OnStartClient()
     {
         base.OnStartClient();
 
-        if (isOwned)
-        {
-            AllSingleton.Instance.player = this;
-            
-            var roomPlayers = FindObjectsOfType<RoomPlayer>().ToList();
-            var roomPlayer = roomPlayers.Find(p => p.isOwned);
+        if (!isOwned) return;
 
-            if (isServer)
-            {
-                SetPlayerColor(roomPlayer);
-                Invoke(nameof(HomePlanetAddingToPlayer), 0.5f);
-            }
-            else
-            {
-                CmdSetPlayerColor(roomPlayer);
-                Invoke(nameof(CmdHomePlanetAddingToPlayer), 0.5f);
-                Invoke(nameof(CameraToHome), 1f);
-                
-            }
-        }
+        AllSingleton.Instance.player = this;
+
+        var roomPlayers = FindObjectsOfType<RoomPlayer>().ToList();
+        var roomPlayer = roomPlayers.Find(p => p.isOwned);
+
+        CmdSetPlayerColor(roomPlayer);
+        Invoke(nameof(CmdHomePlanetAddingToPlayer), 0.5f);
+        Invoke(nameof(CameraToHome), 1f);
+        Invoke(nameof(AddPlayer), 1f);
+    }
+
+    public override void OnStopClient()
+    {
+        base.OnStopClient();
+        
+        players.Clear();
+        AddPlayer();
     }
 
     public override void OnStopServer()
@@ -71,11 +66,11 @@ public class CurrentPlayer : NetworkBehaviour
             if (isServer) AllSingleton.Instance.mainPlanetController.RemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
             else AllSingleton.Instance.mainPlanetController.CmdRemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
         }
-
     }
     
     #region User
     
+    [Client]
     public void AddPlayer()
     {
         players = FindObjectsOfType<CurrentPlayer>().ToList();
@@ -142,17 +137,17 @@ public class CurrentPlayer : NetworkBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            var invader = Instantiate(AllSingleton.Instance.invaderPrefab);
-
-            var planetSpawnPosition = goPosition.transform.position; //позиция планеты
+            //var invader = Instantiate(AllSingleton.Instance.invaderPrefab);
             var xBoundCollider = goPosition.GetComponent<CircleCollider2D>().bounds.max.x; //граница коллайдера по х
+            var planetPosition = goPosition.transform.position; //позиция планеты
+            var spawnPosition = new Vector3(xBoundCollider, planetPosition.y, planetPosition.z);
+            
+            var invader = AllSingleton.Instance.invaderPoolManager.GetFromPool(spawnPosition, Quaternion.identity);
 
             var invaderControllerComponent = invader.GetComponent<SpaceInvaderController>();
             invaderControllerComponent.SetColor(playerColor);
             invaderControllerComponent.targetTransform = goPosition.transform;
-            
-            invader.transform.position = new Vector3(xBoundCollider, planetSpawnPosition.y, planetSpawnPosition.z);
-            
+
             ChangeListWithInvaders(invaderControllerComponent, true);
 
             NetworkServer.Spawn(invader, connectionToClient);
@@ -167,30 +162,20 @@ public class CurrentPlayer : NetworkBehaviour
     }
     #endregion
 
+    [Server]
     public void HomePlanetAddingToPlayer()
     {
         var listPlanet = AllSingleton.Instance.mainPlanetController.listPlanet;
+        
         //домашняя планета
-        if (listPlanet.Count > 0)
-        {
-            var homePlanet = listPlanet.Find(planet=>!planet.isHomePlanet);
-            homePlanet.SetHomePlanet();
-
-            if (isServer)
-            {
-                ChangeListWithPlanets(homePlanet.gameObject, true);
-                homePlanet.Colonization();
-                StartCoroutine(SpawnInvader(2, homePlanet.gameObject));
-            }
-            else
-            {
-                CmdChangeListWithPlanets(homePlanet.gameObject, true);
-                homePlanet.CmdColonization();
-                CmdSpawnInvader(2, homePlanet.gameObject);
-            }
+        if (listPlanet.Count <= 0) return;
+        
+        var homePlanet = listPlanet.Find(planet => !planet.isHomePlanet);
+        homePlanet.SetHomePlanet();
             
-            CameraToHome();
-        }
+        ChangeListWithPlanets(homePlanet.gameObject, true);
+        homePlanet.Colonization();
+        StartCoroutine(SpawnInvader(2, homePlanet.gameObject));
     }
     [Command]
     public void CmdHomePlanetAddingToPlayer()

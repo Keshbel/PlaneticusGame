@@ -4529,18 +4529,16 @@ MonoBehaviour:
   maxConnections: 100
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 8948984042186105390, guid: fa8b0997dd42ce14a96a956a0046ad1a, type: 3}
+  players: []
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 3003615264639470420, guid: 35bf5fe1fc71e2541aeb56ba41f6858e, type: 3}
-  - {fileID: 2860486228469298175, guid: 6a985395fe888814b9fc70cb111007aa, type: 3}
-  - {fileID: 1731528724999488639, guid: 62dcc6d40c3d1354da3c0e72252472f6, type: 3}
   - {fileID: 4023480795694932270, guid: b7065aa521fa4204f97c5b1012eb23d1, type: 3}
   timeInterpolationGui: 0
   showRoomGUI: 1
   minPlayers: 1
   roomPlayerPrefab: {fileID: 9221129033377100525, guid: 92c469e45170bc442ab78f8b9279c516, type: 3}
-  roomPlayer: {fileID: 0}
   RoomScene: Assets/Scenes/1_RoomScene.unity
   GameplayScene: Assets/Scenes/2_MainGame.unity
   _allPlayersReady: 0

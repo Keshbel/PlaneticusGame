@@ -4,10 +4,10 @@ public class Enums : MonoBehaviour
 {
     public enum ResourcePlanet
     {
-        Fire,
-        Air,
         Water,
         Earth,
+        Fire,
+        Air,
         Aether
     }
 }

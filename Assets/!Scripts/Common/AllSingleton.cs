@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JamesFrowen.MirrorExamples;
 using Mirror;
 using UnityEngine;
 
@@ -12,10 +13,11 @@ public class AllSingleton : NetworkBehaviour
     [Header("Options")] 
     public float speed = 0.3f;
     
-    [Header("Prefabs")] 
+    [Header("Prefabs/Pool")] 
     public GameObject planetPrefab;
-    public GameObject invaderPrefab;
+    public PrefabPoolManager invaderPoolManager;
     public GameObject selectUnitsPrefab;
+
 
     [Header("Scripts")]
     public CameraMove cameraMove;

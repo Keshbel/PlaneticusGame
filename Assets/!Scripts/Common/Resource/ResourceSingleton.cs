@@ -1,9 +1,10 @@
+using JamesFrowen.MirrorExamples;
 using UnityEngine;
 
 public class ResourceSingleton : MonoBehaviour
 {
     [Header("LogisticElements")] 
-    public GameObject logisticArrowPrefab;
+    public PrefabPoolManager arrowPoolManager;
 
     [Header("FiveElements")]
     public Sprite earthSprite;
@@ -17,17 +18,17 @@ public class ResourceSingleton : MonoBehaviour
     
     #region Singleton
 
-    public static ResourceSingleton instance;
+    public static ResourceSingleton Instance;
 
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
     }
     #endregion
