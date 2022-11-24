@@ -1311,6 +1311,22 @@ namespace Mirror
                     NetworkClient.AddPlayer();
             }
         }
+        
+        public virtual void OnClientConnect(NetworkConnection conn)
+        {
+            // OnClientConnect by default calls AddPlayer but it should not do
+            // that when we have online/offline scenes. so we need the
+            // clientLoadedScene flag to prevent it.
+            if (!clientLoadedScene)
+            {
+                // Ready/AddPlayer is usually triggered by a scene load completing. if no scene was loaded, then Ready/AddPlayer it here instead.
+                if (!NetworkClient.ready) NetworkClient.Ready();
+                if (autoCreatePlayer)
+                {
+                    NetworkClient.AddPlayer();
+                }
+            }
+        }
 
         /// <summary>Called on clients when disconnected from a server.</summary>
         public virtual void OnClientDisconnect()

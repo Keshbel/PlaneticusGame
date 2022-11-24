@@ -20,6 +20,7 @@ public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
         if (isSelecting) AllSingleton.Instance.planetPanelController.ClosePanel();
     }
 
+    [Client]
     private void OnEnable()
     {
         if (!selectingObject)
@@ -29,6 +30,7 @@ public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
             planetController = GetComponent<PlanetController>();
     }
 
+    [Client]
     private void SelectingProcess() //процесс выделяемости/развыделяемости для других планет
     {
         if (SelectablePlanets.Count != 0)
@@ -38,20 +40,21 @@ public class SelectablePlanet : NetworkBehaviour, IPointerDownHandler
         }
 
         SelectingChange();
-        
         SelectablePlanets.Add(this);
     }
     
+    [Client]
     private void SelectingChange() //изменение выделяемости планеты
     {
         selectingObject.SetActive(!selectingObject.activeSelf);
         isSelecting = !isSelecting;
     }
 
+    [Client]
     public void OnPointerDown(PointerEventData eventData) //нажатие на планету
     {
         if (!isOwned || Player.selectUnits.invaderControllers.Count > 0 || Player.selectUnits.isLogisticMode
-                     || planetController.PlanetResources.Count == 0) return;
+                     || planetController.PlanetResources.Count == 0 || planetController.isHomePlanet) return;
 
         SelectingProcess();
         planetController.OpenPlanet();

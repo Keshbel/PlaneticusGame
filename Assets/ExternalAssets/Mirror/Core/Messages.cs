@@ -9,6 +9,23 @@ namespace Mirror
     // and react to it.
     // => we don't want to insert a snapshot on every batch.
     // => do it exactly every sendInterval on every TimeSnapshotMessage.
+    
+    public interface IMessageBase
+    {
+        void Deserialize(NetworkReader reader);
+
+        void Serialize(NetworkWriter writer);
+    }
+
+    public abstract class MessageBase : IMessageBase
+    {
+        // De-serialize the contents of the reader into this message
+        public virtual void Deserialize(NetworkReader reader) { }
+
+        // Serialize the contents of this message into the writer
+        public virtual void Serialize(NetworkWriter writer) { }
+    }
+    
     public struct TimeSnapshotMessage : NetworkMessage {}
 
     public struct ReadyMessage : NetworkMessage {}

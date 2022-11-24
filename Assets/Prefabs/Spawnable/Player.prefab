@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1004064505281610901}
   - component: {fileID: 9028421642871266611}
   - component: {fileID: 4461781612412572344}
+  - component: {fileID: 4873543553853291681}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -46,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 1151858812
   serverOnly: 0
   visible: 0
-  m_AssetId: fa8b0997dd42ce14a96a956a0046ad1a
   hasSpawned: 0
 --- !u!114 &4461781612412572344
 MonoBehaviour:
@@ -62,10 +63,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04aa2ef2cdb67854cb7162390f6ff7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
+  players: []
   playerName: 
   playerColor: {r: 0, g: 0, b: 0, a: 0}
-  invaderController: {fileID: 0}
-  targetPlanet: {fileID: 0}
-  isLogisticMode: 0
+  selectUnits: {fileID: 0}
+--- !u!114 &4873543553853291681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948984042186105390}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9dbe38da3985bc498ed4b4a020f3211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
+  maxMessages: 45
+  showTimestamps: 1
+  chatWindow: {fileID: 0}
+  chatMessagePrefab: {fileID: 6779901644628960540, guid: 0ed6a5c0e039be543a9647948b6ef5df, type: 3}
+  chatInput: {fileID: 0}

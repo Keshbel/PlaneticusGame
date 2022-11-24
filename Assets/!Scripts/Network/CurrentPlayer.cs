@@ -2,21 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Lean.Localization;
 using Mirror;
 using UnityEngine;
 
 [Serializable]
 public class CurrentPlayer : NetworkBehaviour
 {
-    [SyncVar]
-    public string playerName;
-
-    [SyncVar] 
-    public Color playerColor;
-    
-    [Header("SyncLists")]
-    public readonly SyncList<GameObject> playerPlanets = new SyncList<GameObject>();
     public List<CurrentPlayer> players = new List<CurrentPlayer>();
+    
+    [Header("Main")]
+    [SyncVar] public string playerName;
+    [SyncVar] public Color playerColor;
+
+    [Header("SyncLists")]
+    public readonly SyncList<GameObject> PlayerPlanets = new SyncList<GameObject>();
     public readonly SyncList<SpaceInvaderController> PlayerInvaders = new SyncList<SpaceInvaderController>();
     
     [SyncVar] public SelectUnits selectUnits;
@@ -41,7 +41,7 @@ public class CurrentPlayer : NetworkBehaviour
         var roomPlayers = FindObjectsOfType<RoomPlayer>().ToList();
         var roomPlayer = roomPlayers.Find(p => p.isOwned);
 
-        CmdSetPlayerColor(roomPlayer);
+        CmdSetPlayerData(roomPlayer);
         Invoke(nameof(CmdHomePlanetAddingToPlayer), 0.5f);
         Invoke(nameof(CameraToHome), 1f);
         Invoke(nameof(AddPlayer), 1f);
@@ -61,10 +61,10 @@ public class CurrentPlayer : NetworkBehaviour
 
         if (!NetworkServer.active || AllSingleton.Instance == null) return;
         
-        foreach (var planet in playerPlanets)
+        foreach (var planet in PlayerPlanets)
         {
-            if (isServer) AllSingleton.Instance.mainPlanetController.RemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
-            else AllSingleton.Instance.mainPlanetController.CmdRemovePlanetFromListPlanet(planet.GetComponent<PlanetController>());
+            if (isServer) AllSingleton.Instance.mainPlanetController.RemovePlanetFromList(planet.GetComponent<PlanetController>());
+            else AllSingleton.Instance.mainPlanetController.CmdRemovePlanetFromList(planet.GetComponent<PlanetController>());
         }
     }
     
@@ -92,7 +92,7 @@ public class CurrentPlayer : NetworkBehaviour
     {
         if (isAdding)
         {
-            playerPlanets.Add(planet);
+            PlayerPlanets.Add(planet);
             
             var identity = planet.GetComponent<NetworkIdentity>();
             identity.RemoveClientAuthority();
@@ -104,7 +104,7 @@ public class CurrentPlayer : NetworkBehaviour
         }
         else
         {
-            playerPlanets.Remove(planet);
+            PlayerPlanets.Remove(planet);
             
             planet.GetComponent<NetworkIdentity>().RemoveClientAuthority();
             planet.GetComponent<PlanetController>().colorPlanet = Color.white;
@@ -124,9 +124,11 @@ public class CurrentPlayer : NetworkBehaviour
         if (isAdding) PlayerInvaders?.Add(invader);
         else PlayerInvaders?.Remove(invader);
         
-        PlayerInvaders?.RemoveAll(invaderNull => invaderNull == null);
+        //var identity = invader.GetComponent<NetworkIdentity>();
+        /*identity.RemoveClientAuthority();
+        identity.AssignClientAuthority(connectionToClient);*/
     }
-    [Command]
+    [Command (requiresAuthority = false)]
     public void CmdChangeListWithInvaders(SpaceInvaderController invader, bool isAdding)
     {
         ChangeListWithInvaders(invader, isAdding);
@@ -143,6 +145,7 @@ public class CurrentPlayer : NetworkBehaviour
             var spawnPosition = new Vector3(xBoundCollider, planetPosition.y, planetPosition.z);
             
             var invader = AllSingleton.Instance.invaderPoolManager.GetFromPool(spawnPosition, Quaternion.identity);
+            NetworkServer.Spawn(invader, connectionToClient);
 
             var invaderControllerComponent = invader.GetComponent<SpaceInvaderController>();
             invaderControllerComponent.SetColor(playerColor);
@@ -150,8 +153,6 @@ public class CurrentPlayer : NetworkBehaviour
 
             ChangeListWithInvaders(invaderControllerComponent, true);
 
-            NetworkServer.Spawn(invader, connectionToClient);
-            
             yield return new WaitForSeconds(2f); 
         }
     }
@@ -162,6 +163,40 @@ public class CurrentPlayer : NetworkBehaviour
     }
     #endregion
 
+    [Client]
+    public void Lose(CurrentPlayer playerInvader)
+    {
+        PlayerPlanets.ToList().ForEach(planet => //добавляем имущество победителю
+        {
+            CmdChangeListWithPlanets(planet,false);
+            playerInvader.CmdChangeListWithPlanets(planet,true);
+            //playerInvader.
+        });
+        PlayerInvaders.ToList().ForEach(invader => invader.CmdUnSpawn(invader.gameObject));
+
+        //оповощение о поражении
+        CmdSendLoseMessage(playerInvader);
+        //включение UI поражения
+    }
+
+    [Server]
+    public void SendLoseMessage(CurrentPlayer playerInvader)
+    {
+        RpcSendLoseMessage(playerInvader);
+    }
+    [Command (requiresAuthority = false)]
+    public void CmdSendLoseMessage(CurrentPlayer playerInvader)
+    {
+        SendLoseMessage(playerInvader);
+    }
+
+    [ClientRpc (includeOwner = true)]
+    public void RpcSendLoseMessage(CurrentPlayer playerInvader)
+    {
+        if (LeanLocalization.GetFirstCurrentLanguage() == "Russian") AllSingleton.Instance.chatWindow.AddSystemMessage("Игрок " + playerInvader.playerName + " захватил игрока " + playerName + "!", 1);
+        else AllSingleton.Instance.chatWindow.AddSystemMessage("Player " + playerInvader.playerName + " captured the player " + playerName + "!", 1);
+    }
+    
     [Server]
     public void HomePlanetAddingToPlayer()
     {
@@ -183,25 +218,45 @@ public class CurrentPlayer : NetworkBehaviour
         HomePlanetAddingToPlayer();
     }
 
+    #region Chat
+
+    public static event Action<CurrentPlayer, string> OnMessage;
+
+    [Command]
+    public void CmdSend(string message)
+    {
+        if (message.Trim() != "")
+            RpcReceive(message.Trim());
+    }
+
+    [ClientRpc]
+    public void RpcReceive(string message)
+    {
+        OnMessage?.Invoke(this, message);
+    }
+
+    #endregion
+    
     #region Other
 
     [Server]
-    public void SetPlayerColor(RoomPlayer roomPlayer)
+    public void SetPlayerData(RoomPlayer roomPlayer)
     {
         playerColor = roomPlayer.playerColor;
+        playerName = roomPlayer.playerName;
     }
     [Command]
-    public void CmdSetPlayerColor(RoomPlayer roomPlayer)
+    public void CmdSetPlayerData(RoomPlayer roomPlayer)
     {
-        SetPlayerColor(roomPlayer);
+        SetPlayerData(roomPlayer);
     }
 
     [Client]
     public void CameraToHome()
     {
-        var position = playerPlanets[0].transform.position;
+        var position = PlayerPlanets[0].transform.position;
         if (isOwned && NetworkClient.connection.identity.GetComponent<CurrentPlayer>() == this)
-            AllSingleton.Instance.cameraMove.DoMove(position.x, position.y, 1f);
+            AllSingleton.Instance.cameraController.DoMove(position.x, position.y, 1f);
     }
     #endregion
 }

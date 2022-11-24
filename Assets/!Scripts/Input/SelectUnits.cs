@@ -28,7 +28,7 @@ public class SelectUnits : NetworkBehaviour
 	[Client]
 	private void Update()
 	{
-		if (!isOwned || !AllSingleton.Instance.cameraMove.isEnable || !Input.GetMouseButtonDown(0)) return;
+		if (!isOwned || !AllSingleton.Instance.cameraController.isEnable || !Input.GetMouseButtonDown(0)) return;
 
 		Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
@@ -41,7 +41,7 @@ public class SelectUnits : NetworkBehaviour
 
 			if (isLogisticMode) //режим передачи ресурсов
 			{
-				if (targetPlanet != null && Player.playerPlanets.Contains(targetPlanet.gameObject))
+				if (targetPlanet != null && Player.PlayerPlanets.Contains(targetPlanet.gameObject))
 				{
 					var donorPlanet = AllSingleton.Instance.selectablePlanets[0].GetComponent<PlanetController>();
 					if (donorPlanet != targetPlanet && isClient) donorPlanet.CmdLogisticResource
@@ -72,7 +72,12 @@ public class SelectUnits : NetworkBehaviour
 				Deselect();
 			}
 		}
-		else Deselect(); //при попадании по объекту без коллайдера, снимаем выделение
+		else //при попадании по объекту без коллайдера, снимаем выделение
+		{
+			Deselect();
+			isLogisticMode = false;
+			ClearDistanceInfo();
+		}
 	}
 
 	[Client]
@@ -139,7 +144,7 @@ public class SelectUnits : NetworkBehaviour
 	[Client]
 	void OnGUI ()
 	{
-		if (isOwned && AllSingleton.Instance.cameraMove.isEnable)
+		if (isOwned && AllSingleton.Instance.cameraController.isEnable)
 		{
 			GUI.skin = skin;
 			GUI.depth = 99;

@@ -12,44 +12,36 @@
           <e p="Common" t="Include">
             <e p="AllSingleton.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
-            <e p="LogisticRoute" t="Include">
-              <e p="LogisticArrow.cs" t="Include" />
-              <e p="LogisticRoute.cs" t="Include" />
-              <e p="LogisticRouteController.cs" t="Include" />
-              <e p="LogisticRouteUI.cs" t="Include" />
-            </e>
+            <e p="LogisticArrow.cs" t="Include" />
             <e p="Planet" t="Include">
               <e p="MainPlanetController.cs" t="Include" />
               <e p="PlanetController.cs" t="Include" />
               <e p="PlanetPanelUI.cs" t="Include" />
             </e>
-            <e p="PlayerSettings.cs" t="Include" />
             <e p="Resource" t="Include">
-              <e p="Resource.cs" t="Include" />
               <e p="ResourceForPlanet.cs" t="Include" />
               <e p="ResourceSingleton.cs" t="Include" />
             </e>
             <e p="SpaceInvaderController.cs" t="Include" />
           </e>
           <e p="Input" t="Include">
-            <e p="CameraMove.cs" t="Include" />
+            <e p="CameraController.cs" t="Include" />
             <e p="SelectablePlanet.cs" t="Include" />
             <e p="SelectUnits.cs" t="Include" />
-            <e p="UnitInputManager.cs" t="Include" />
           </e>
-          <e p="Interfaces" t="Include">
-            <e p="IMovable.cs" t="Include" />
-            <e p="IRotateable.cs" t="Include" />
+          <e p="Localization" t="Include">
+            <e p="LanguageChanger.cs" t="Include" />
           </e>
           <e p="Network" t="Include">
             <e p="ConnectionHUD.cs" t="Include" />
             <e p="CurrentPlayer.cs" t="Include" />
             <e p="HostIpAdress.cs" t="Include" />
-            <e p="NetMan.cs" t="Include" />
-            <e p="RoomPlayer.cs" t="Include" />
           </e>
           <e p="Pooling" t="Include">
             <e p="PrefabPoolManager.cs" t="Include" />
+          </e>
+          <e p="Room" t="Include">
+            <e p="RoomPlayer.cs" t="Include" />
           </e>
           <e p="Settings" t="Include">
             <e p="ColorImage.cs" t="Include" />
@@ -62,11 +54,31 @@
             <e p="PanelController.cs" t="Include" />
           </e>
           <e p="VisualFeatures" t="Include">
+            <e p="BackgroundChanger.cs" t="Include" />
             <e p="Parallax.cs" t="Include" />
             <e p="UIRotates.cs" t="Include" />
           </e>
         </e>
         <e p="ExternalAssets" t="Include">
+          <e p="Chat-Log-master" t="Include">
+            <e p="Chat-Log-master" t="Include">
+              <e p="Chat" t="Include">
+                <e p="Assets" t="Include">
+                  <e p="Chat" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="ChatNetworkManager.cs" t="Include" />
+                      <e p="ChatWindow.cs" t="Include" />
+                      <e p="Message.cs" t="Include" />
+                      <e p="MessageComponent.cs" t="Include" />
+                      <e p="Player.cs" t="Include" />
+                      <e p="ProcessComponent.cs" t="Include" />
+                      <e p="SystemMessageExample.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="DOTween" t="Include">
             <e p="Modules" t="Include">
               <e p="DOTweenModuleAudio.cs" t="Include" />
@@ -639,6 +651,13 @@
             <e p="55-Mirror__Network Room Player-NewNetworkRoomPlayer.cs.txt" t="Include" />
             <e p="56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt" t="Include" />
             <e p="57-Mirror__Network Transform-NewNetworkTransform.cs.txt" t="Include" />
+          </e>
+          <e p="Simple P2P Chat" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="CameraMove.cs" t="Include" />
+              <e p="ChatManager.cs" t="Include" />
+              <e p="HeadlessStart.cs" t="Include" />
+            </e>
           </e>
           <e p="TextMesh Pro" t="Include">
             <e p="Examples &amp; Extras" t="Include">

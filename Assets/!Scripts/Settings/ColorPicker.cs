@@ -1,5 +1,4 @@
 using System.Collections;
-using Mirror.Examples.SyncDir;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;

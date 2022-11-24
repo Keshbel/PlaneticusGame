@@ -63,4 +63,10 @@ public class ConnectionHUD : MonoBehaviour
 
         _networkHud.networkDiscovery.StartDiscovery();
     }
+
+    public void ExitApplication()
+    {
+        PlayerPrefs.Save();
+        Application.Quit();
+    }
 }

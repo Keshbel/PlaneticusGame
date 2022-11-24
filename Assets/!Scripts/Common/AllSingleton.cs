@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ChatForStrategy;
 using JamesFrowen.MirrorExamples;
 using Mirror;
 using UnityEngine;
@@ -18,10 +19,10 @@ public class AllSingleton : NetworkBehaviour
     public PrefabPoolManager invaderPoolManager;
     public GameObject selectUnitsPrefab;
 
-
     [Header("Scripts")]
-    public CameraMove cameraMove;
+    public CameraController cameraController;
     public MainPlanetController mainPlanetController;
+    public ChatWindow chatWindow;
 
     [Header("Panels")]
     public PanelController planetPanelController;
@@ -35,6 +36,13 @@ public class AllSingleton : NetworkBehaviour
         base.OnStartServer();
         
         selectablePlanets = new List<SelectablePlanet>();
+    }
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+
+        if (!cameraController) cameraController = Camera.main.GetComponent<CameraController>();
     }
 
     #region Singleton

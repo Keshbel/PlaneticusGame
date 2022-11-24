@@ -16,6 +16,7 @@ public class PlanetPanelUI : MonoBehaviour
     public Toggle airToggle;
     public Toggle aetherToggle;
     
+    [Space]
     public Button logisticButton;
 
     [Header("Images and Texts")]

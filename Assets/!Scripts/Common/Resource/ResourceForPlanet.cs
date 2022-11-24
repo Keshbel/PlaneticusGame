@@ -8,11 +8,8 @@ public class ResourceForPlanet
     public string nameResource; //имя
     public Enums.ResourcePlanet resourcePlanet; //тип ресурса
     
-    //данные
-    //resource count
-    public int countResource;
-
-    //ссылки
+    public int countResource; //количество
+    
     [NonSerialized]
     public Sprite SpriteIcon;
 

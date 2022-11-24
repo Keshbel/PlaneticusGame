@@ -30,10 +30,10 @@ public class PanelController : MonoBehaviour
     {
         ScaleFadeOut();
         if (AllSingleton.Instance != null)
-            AllSingleton.Instance.cameraMove.isEnable = false;
+            AllSingleton.Instance.cameraController.isEnable = false;
         else
         {
-            Camera.main.GetComponent<CameraMove>().isEnable = false;
+            Camera.main.GetComponent<CameraController>().isEnable = false;
         }
     }
 
@@ -41,10 +41,10 @@ public class PanelController : MonoBehaviour
     {
         ScaleFadeIn();
         if (AllSingleton.Instance != null)
-            AllSingleton.Instance.cameraMove.isEnable = true;
+            AllSingleton.Instance.cameraController.isEnable = true;
         else
         {
-            Camera.main.GetComponent<CameraMove>().isEnable = true;
+            Camera.main.GetComponent<CameraController>().isEnable = true;
         }
     }
     

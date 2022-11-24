@@ -11,8 +11,7 @@ public class Parallax : MonoBehaviour
 
     private void Start()
     {
-        if (!cam)
-            cam = Camera.main.gameObject;
+        if (cam == null) cam = Camera.main.gameObject;
         
         _startPosX = transform.position.x;
         _startPosY = transform.position.y;
