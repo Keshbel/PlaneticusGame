@@ -63,25 +63,25 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         if (!other.CompareTag("Planet") || !isOwned || other.transform != targetTransform) return;
         
-        if (player.PlayerPlanets.Contains(other.gameObject)) // союзная планета 
+        var planetController = other.GetComponent<PlanetController>();
+        
+        if (player.PlayerPlanets.Contains(planetController)) // союзная планета 
         {
-            var planet = other.GetComponent<PlanetController>();
-
-            if (!planet.SpaceOrbitInvader.Contains(this))
+            if (!planetController.SpaceOrbitInvader.Contains(this))
             {
                 isIdle = true;
 
-                planet.CmdChangeOrbitInvaderList(this, true);
+                planetController.CmdChangeOrbitInvaderList(this, true);
             }
         }
-        else Attack(other.gameObject);
+        else Attack(planetController);
     }
     
     [Client]
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Planet") || !isOwned || !NetworkClient.active) return;
-        if (!player.PlayerPlanets.Contains(other.gameObject)) return;
+        if (!player.PlayerPlanets.Contains(other.GetComponent<PlanetController>())) return;
         
         var planet = other.GetComponent<PlanetController>();
         if (planet.SpaceOrbitInvader.Contains(this) && targetTransform != other.transform) 
@@ -172,7 +172,7 @@ public class SpaceInvaderController : NetworkBehaviour
     #endregion
     
     [Client]
-    private void Attack(GameObject target)
+    private void Attack(PlanetController target)
     {
         var planet = target.GetComponent<PlanetController>();
 

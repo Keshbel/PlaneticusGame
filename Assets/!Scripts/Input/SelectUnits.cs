@@ -41,7 +41,7 @@ public class SelectUnits : NetworkBehaviour
 
 			if (isLogisticMode) //режим передачи ресурсов
 			{
-				if (targetPlanet != null && Player.PlayerPlanets.Contains(targetPlanet.gameObject))
+				if (targetPlanet != null && Player.PlayerPlanets.Contains(targetPlanet))
 				{
 					var donorPlanet = AllSingleton.Instance.selectablePlanets[0].GetComponent<PlanetController>();
 					if (donorPlanet != targetPlanet && isClient) donorPlanet.CmdLogisticResource

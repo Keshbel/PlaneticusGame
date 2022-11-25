@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,21 +11,15 @@ public class SliderArea: MonoBehaviour
     float Height;
  
     public UnityEvent onValueChanged;
- 
- 
-    // Start is called before the first frame update
+
     void Start()
     {
-        if (onValueChanged == null)
-            onValueChanged = new UnityEvent();
+        if (onValueChanged == null) onValueChanged = new UnityEvent();
  
         Width = Area.rect.width;
         Height = Area.rect.height;
-
-        var x = PlayerPrefs.GetFloat("HandleXPosition");
-        var y = PlayerPrefs.GetFloat("HandleYPosition");
         
-        Handle.localPosition = new Vector3(x,y);
+        StartParameters();
     }
 
     public Vector2 Value()
@@ -39,11 +32,10 @@ public class SliderArea: MonoBehaviour
         y = Handle.localPosition.y / Height;
  
         returnValue = new Vector2(x, y);
- 
         return returnValue;
     }
  
-    IEnumerator Drag()
+    public IEnumerator Drag()
     {
         Vector2 currentValue;
         Vector2 prevValue;
@@ -53,8 +45,7 @@ public class SliderArea: MonoBehaviour
             prevValue = Value();
  
             Handle.position = Input.mousePosition;
-             
- 
+
             if (Handle.localPosition.x < 0)
             {
                 Handle.localPosition = new Vector3(0, Handle.localPosition.y, Handle.localPosition.z);
@@ -73,22 +64,28 @@ public class SliderArea: MonoBehaviour
             }
  
             currentValue = Value();
+
             bool valueChange = currentValue.x != prevValue.x || currentValue.y != prevValue.y;
             if (valueChange)
             {
                 onValueChanged.Invoke();
-                PlayerPrefs.SetFloat("HandleXPosition", Handle.localPosition.x);
-                PlayerPrefs.SetFloat("HandleYPosition", Handle.localPosition.y);
+                
+                PlayerPrefsExtra.SetVector3("HandlePosition", Handle.localPosition);
                 PlayerPrefs.Save();
             }
-             
- 
+
             yield return null;
         }
  
         yield return null;
     }
- 
+
+    private void StartParameters()
+    {
+        Handle.localPosition = PlayerPrefsExtra.GetVector3("HandlePosition", Handle.localPosition);
+        onValueChanged.Invoke();
+    }
+
     public void MouseDown()
     {
         StartCoroutine(Drag());

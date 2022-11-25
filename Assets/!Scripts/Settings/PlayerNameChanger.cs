@@ -3,20 +3,29 @@ using UnityEngine;
 
 public class PlayerNameChanger : MonoBehaviour
 {
-    public static string PlayerName = "Player";
+    private RoomManager _roomManager;
+    
+    public string playerName = "Player";
     public TMP_InputField playerNameText;
+
+    private void Awake()
+    {
+        if (!_roomManager) _roomManager = FindObjectOfType<RoomManager>();
+    }
 
     private void Start()
     {
-        PlayerName = PlayerPrefs.GetString("PlayerName", "Player");
-        playerNameText.text = PlayerName;
+        playerName = PlayerPrefs.GetString("PlayerName", "Player");
+        playerNameText.text = playerName;
+        _roomManager.playerName = playerName;
         playerNameText.onEndEdit.AddListener(SetPlayerName);
     }
 
     private void SetPlayerName(string pName)
     {
-        PlayerName = pName;
-        PlayerPrefs.SetString("PlayerName", PlayerName);
+        playerName = pName;
+        _roomManager.playerName = playerName;
+        PlayerPrefs.SetString("PlayerName", playerName);
         PlayerPrefs.Save();
     }
 }

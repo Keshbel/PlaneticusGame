@@ -16,7 +16,7 @@ public class CurrentPlayer : NetworkBehaviour
     [SyncVar] public Color playerColor;
 
     [Header("SyncLists")]
-    public readonly SyncList<GameObject> PlayerPlanets = new SyncList<GameObject>();
+    public readonly SyncList<PlanetController> PlayerPlanets = new SyncList<PlanetController>();
     public readonly SyncList<SpaceInvaderController> PlayerInvaders = new SyncList<SpaceInvaderController>();
     
     [SyncVar] public SelectUnits selectUnits;
@@ -88,7 +88,7 @@ public class CurrentPlayer : NetworkBehaviour
 
     #region Planets
     [Server]
-    public void ChangeListWithPlanets(GameObject planet, bool isAdding)
+    public void ChangeListWithPlanets(PlanetController planet, bool isAdding)
     {
         if (isAdding)
         {
@@ -111,7 +111,7 @@ public class CurrentPlayer : NetworkBehaviour
         }
     }
     [Command (requiresAuthority = false)]
-    public void CmdChangeListWithPlanets(GameObject planet, bool isAdding)
+    public void CmdChangeListWithPlanets(PlanetController planet, bool isAdding)
     {
         ChangeListWithPlanets(planet, isAdding);
     }
@@ -208,7 +208,7 @@ public class CurrentPlayer : NetworkBehaviour
         var homePlanet = listPlanet.Find(planet => !planet.isHomePlanet);
         homePlanet.SetHomePlanet();
             
-        ChangeListWithPlanets(homePlanet.gameObject, true);
+        ChangeListWithPlanets(homePlanet, true);
         homePlanet.Colonization();
         StartCoroutine(SpawnInvader(2, homePlanet.gameObject));
     }

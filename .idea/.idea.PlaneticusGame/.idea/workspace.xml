@@ -21,64 +21,28 @@
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticArrow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticArrow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticRoute.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticRoute.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticRouteController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticRouteController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticRouteUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticRouteUI.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/PlayerSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/PlayerSettings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/Resource.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/Resource.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceForPlanet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceForPlanet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraMove.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/CameraController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectUnits.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectUnits.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/SelectablePlanet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/UnitInputManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/UnitInputManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interfaces.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interfaces/IMovable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interfaces/IMovable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interfaces/IRotateable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interfaces/IRotateable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionHUD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionHUD.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/HostIpAdress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/HostIpAdress.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/NetMan.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/NetMan.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/RoomPlayer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/RoomPlayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Settings/ColorPicker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Settings/ColorPicker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/Parallax.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/Parallax.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/TextMesh Pro/Resources/TMP Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/TextMesh Pro/Resources/TMP Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/Effects/JMO Assets/Cartoon FX Easy Editor/Editor/CFXEasyEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Effects/JMO Assets/Cartoon FX Easy Editor/Editor/CFXEasyEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderWhite.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/SpaceInvaderWhite.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/UI/1. Free Hologram Interface Wenrexa/Button 1/Button Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/UI/1. Free Hologram Interface Wenrexa/Button 1/Button Normal.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Backgrounds.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Backgrounds.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Room/Button_ServerConnection.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Room/Button_ServerConnection.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Planet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Planet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Settings/PlayerNameChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Settings/PlayerNameChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Settings/SliderArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Settings/SliderArea.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/BackgroundChanger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/BackgroundChanger.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1_RoomScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1_RoomScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +55,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Authenticators/BasicAuthenticator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionHUD.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/Simple P2P Chat/Scripts/ChatManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -110,6 +73,7 @@
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/MainPlanetController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Network/CurrentPlayer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/PlanetController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/LayoutLanguageUpdater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Chat-Log-master/Chat-Log-master/Chat/Assets/Mirror/Runtime/NetworkManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Localization/LanguageChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -125,13 +89,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Mirror/Components/NetworkRoomManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Mirror/Components/Discovery/ServerResponse.cs" />
-        <option value="$PROJECT_DIR$/Assets/Mirror/Components/Discovery/NetworkDiscoveryHUD.cs" />
-        <option value="$PROJECT_DIR$/Assets/Mirror/Components/Discovery/NetworkDiscovery.cs" />
         <option value="$PROJECT_DIR$/Assets/Mirror/Core/NetworkManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/SliderArea.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/NetworkServer.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/NetworkRoomManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Utilities/Utilities.cs" />
@@ -142,9 +100,7 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Enums.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/LogisticRoute/LogisticArrow.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetPanelUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceForPlanet.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Network/RoomPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/Background Changer.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/BackgroundChanger.cs" />
@@ -159,22 +115,30 @@
         <option value="$PROJECT_DIR$/Assets/Media/Effects/JMO Assets/Cartoon FX Easy Editor/Editor/CFXEasyEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Runtime/NetworkIdentity.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionHUD.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/ColorPicker.cs" />
         <option value="$USER_HOME$/Desktop/Mirror/Core/Messages.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatNetworkManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/ClientScene.cs" />
-        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/NetworkManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatNetworkManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/SystemMessageExample.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ProcessComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Network/HostIpAdress.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Localization/LanguageChanger.cs" />
+        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/NetworkManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/PlayerNameChanger.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/SliderArea.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/ColorPicker.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/UI/LayoutLanguageUpdater.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectUnits.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/SyncList.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceForPlanet.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" />
       </list>
     </option>
@@ -300,6 +264,8 @@
       <workItem from="1669107409001" duration="1609000" />
       <workItem from="1669120063562" duration="9057000" />
       <workItem from="1669279511183" duration="11120000" />
+      <workItem from="1669312099171" duration="6800000" />
+      <workItem from="1669348922053" duration="5022000" />
     </task>
     <servers />
   </component>
@@ -337,9 +303,9 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="681" y="259" key="run.anything.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1668773838852" />
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1667150360367">
+    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1669351483310">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1667150360367" />
+    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1669351483310" />
   </component>
 </project>

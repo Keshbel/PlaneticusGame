@@ -4,10 +4,17 @@ using Random = UnityEngine.Random;
 
 public class RoomPlayer : NetworkBehaviour
 {
+     private RoomManager _roomManager;
+     
      public NetworkRoomPlayer networkRoomPlayer;
      [SyncVar] public string playerName;
      [SyncVar] public Color playerColor;
-     
+
+     private void Awake()
+     {
+          if (!_roomManager) _roomManager = FindObjectOfType<RoomManager>();
+     }
+
      public override void OnStartClient()
      {
           base.OnStartClient();
@@ -17,11 +24,11 @@ public class RoomPlayer : NetworkBehaviour
           if (!networkRoomPlayer)
                networkRoomPlayer = GetComponent<NetworkRoomPlayer>();
 
-          CmdUpdatePlayerName(PlayerNameChanger.PlayerName);
+          CmdUpdatePlayerName(_roomManager.playerName);
 
           CmdUpdatePlayerColor(ColorPicker.Color == Color.clear
                ? Random.ColorHSV()
-               : ColorPicker.Color);
+               : _roomManager.playerColor);
           
           if (GetComponent<NetworkIdentity>().netId == 1) NetworkManager.singleton.hostPlayerName = playerName;
      }

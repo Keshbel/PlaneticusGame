@@ -45,6 +45,7 @@ public class MainPlanetController : NetworkBehaviour
 
         RandomName nameGen = new RandomName(); // create a new instance of the RandomName class
         List<string> allRandomNames = nameGen.RandomNames(countPlanet, 0); // generate 100 random names with up to two middle names
+        var id = 0;
 
         while (listPlanet.Count < countPlanet)
         {
@@ -56,7 +57,7 @@ public class MainPlanetController : NetworkBehaviour
             //рандомные параметры для неё
             planetController.indSpritePlanet = Random.Range(0, listSpritePlanet.Count); //присвоение номера вида планеты
             planetController.namePlanet = allRandomNames[listPlanet.Count]; //имя
-            planetController.AddResourceForPlanetGeneration(); //ресурсы
+            planetController.AddResourceForPlanetGeneration(id); //ресурсы
             var pos = GetRandomPosition();
             
             while (planet.transform.position == Vector3.zero) 
@@ -72,6 +73,7 @@ public class MainPlanetController : NetworkBehaviour
             planet.transform.localScale = new Vector3(randomScale, randomScale, randomScale); //присвоение размера
             
             listPlanet.Add(planetController);
+            id++;
         }
     }
 

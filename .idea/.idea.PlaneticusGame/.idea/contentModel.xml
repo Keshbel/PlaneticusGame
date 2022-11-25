@@ -16,7 +16,6 @@
             <e p="Planet" t="Include">
               <e p="MainPlanetController.cs" t="Include" />
               <e p="PlanetController.cs" t="Include" />
-              <e p="PlanetPanelUI.cs" t="Include" />
             </e>
             <e p="Resource" t="Include">
               <e p="ResourceForPlanet.cs" t="Include" />
@@ -41,9 +40,11 @@
             <e p="PrefabPoolManager.cs" t="Include" />
           </e>
           <e p="Room" t="Include">
+            <e p="RoomManager.cs" t="Include" />
             <e p="RoomPlayer.cs" t="Include" />
           </e>
           <e p="Settings" t="Include">
+            <e p="BackgroundChanger.cs" t="Include" />
             <e p="ColorImage.cs" t="Include" />
             <e p="ColorOutline.cs" t="Include" />
             <e p="ColorPicker.cs" t="Include" />
@@ -51,10 +52,11 @@
             <e p="SliderArea.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="LayoutLanguageUpdater.cs" t="Include" />
             <e p="PanelController.cs" t="Include" />
+            <e p="PlanetPanelUI.cs" t="Include" />
           </e>
           <e p="VisualFeatures" t="Include">
-            <e p="BackgroundChanger.cs" t="Include" />
             <e p="Parallax.cs" t="Include" />
             <e p="UIRotates.cs" t="Include" />
           </e>

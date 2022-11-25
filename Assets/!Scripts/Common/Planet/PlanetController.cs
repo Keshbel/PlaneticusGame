@@ -71,11 +71,16 @@ public class PlanetController : NetworkBehaviour
     {
         base.OnStopAuthority();
 
-        // удаляем родной ресурс из планеты унаследовавший его и возвращаем на родную планету
-        var planetController = AllSingleton.Instance.mainPlanetController.listPlanet.Find(planet =>
-            planet.PlanetResources.Contains(PlanetSaveResources[0]));
-        if (planetController != null) planetController.CmdChangeResourceList(PlanetSaveResources[0],false);
         if (!PlanetResources.Contains(PlanetSaveResources[0])) CmdChangeResourceList(PlanetSaveResources[0], true);
+        
+        // удаляем родной ресурс из планеты унаследовавший его и возвращаем на родную планету
+        var planetController = AllSingleton.Instance.player.PlayerPlanets.Find(planet =>
+            planet.PlanetResources.Count(res => res.id == PlanetSaveResources[0].id) > 0);
+        if (planetController != null)
+        {
+            var resource = planetController.PlanetResources.Find(res => res.id == PlanetSaveResources[0].id);
+            if (resource != null) planetController.CmdChangeResourceList(resource, false);
+        }
     }
 
     [Client]
@@ -198,13 +203,12 @@ public class PlanetController : NetworkBehaviour
         }
         else // отнимаем
         {
-            if (resource.countResource > 1) resource.countResource--;
+            /*if (resource.countResource > 1) resource.countResource--;
             else
-            {
-                PlanetResources.Remove(resource);
-                sliderCanvas.SetActive(false);
-                isSuperPlanet = false;
-            }
+            {*/
+            PlanetResources.Remove(resource);
+            sliderCanvas.SetActive(false);
+            isSuperPlanet = false;
         }
     }
 
@@ -243,9 +247,9 @@ public class PlanetController : NetworkBehaviour
     }
     
     [Server]
-    public void AddResourceForPlanetGeneration() //добавление ресурсов при создании планет
+    public void AddResourceForPlanetGeneration(int idIndex) //добавление ресурсов при создании планет
     {
-        var resource = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 5), countResource = 1};
+        var resource = new ResourceForPlanet {resourcePlanet = (Enums.ResourcePlanet) Random.Range(0, 5), countResource = 1, id = idIndex};
         PlanetSaveResources.Add(resource);
         ChangeResourceList(resource, true);
     }
@@ -277,7 +281,7 @@ public class PlanetController : NetworkBehaviour
         if (planetResourceInit != null) yield break;
         
         //инициализация
-        var finalRes = new ResourceForPlanet{ resourcePlanet = resource.resourcePlanet, countResource = 1}; //финальный ресурс доставленный на планету
+        //var finalRes = new ResourceForPlanet{ resourcePlanet = resource.resourcePlanet, countResource = 1}; //финальный ресурс доставленный на планету
 
         //transform/distance
         var fromTransform = transform;
@@ -298,12 +302,11 @@ public class PlanetController : NetworkBehaviour
         //добавляем планете-приемнику
         if (planetResource == null) //если на планете-получателе нет ресурса этого типа, то добавляем
         {
-            toPlanet.ChangeResourceList(finalRes, true);
+            toPlanet.ChangeResourceList(resource, true);
         }
-        else
-        {
-            ChangeResourceList(finalRes, true);
-        }
+        else ChangeResourceList(resource, true); //иначе возвращаем на родную планету
+
+        print(resource.id);
     }
     [Command]
     public void CmdLogisticResource(ResourceForPlanet resource, PlanetController toPlanet)
@@ -344,7 +347,7 @@ public class PlanetController : NetworkBehaviour
 
             PlanetPanel.logisticButton.onClick.AddListener(() => //просчёт дистанции
             {
-                foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet.Where(planet => AllSingleton.Instance.player.PlayerPlanets.Contains(planet.gameObject) && planet.gameObject != gameObject))
+                foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet.Where(planet => AllSingleton.Instance.player.PlayerPlanets.Contains(planet) && planet != this))
                 {
                     planet.CalculateDistance(transform.position, AllSingleton.Instance.speed);
                 }

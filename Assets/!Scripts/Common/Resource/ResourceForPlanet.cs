@@ -5,6 +5,7 @@ using UnityEngine;
 [Serializable]
 public class ResourceForPlanet
 {
+    public int id;
     public string nameResource; //имя
     public Enums.ResourcePlanet resourcePlanet; //тип ресурса
     
