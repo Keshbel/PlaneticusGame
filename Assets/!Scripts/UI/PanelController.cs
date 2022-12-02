@@ -1,12 +1,14 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class PanelController : MonoBehaviour
 {
     //components
+    public bool isOpen;
     public GameObject panel;
-    public CanvasGroup canvasGroup;
+    [FormerlySerializedAs("canvasGroup")] public CanvasGroup darknessGroup;
 
     //anim parameters
     public float scaleDefault = 1f;
@@ -18,61 +20,50 @@ public class PanelController : MonoBehaviour
 
     private void Start()
     {
-        /*if (!panel)
-            panel = gameObject;*/
-        if (!canvasGroup)
-            canvasGroup = GetComponent<CanvasGroup>();
+        /*if (!panel) panel = gameObject;*/
+        if (!darknessGroup)
+            darknessGroup = GetComponent<CanvasGroup>();
         
-        if (canvasGroup.alpha > 0.9f) ClosePanel();
+        if (darknessGroup.alpha > 0.9f) ClosePanel();
     }
 
     public void OpenPanel()
     {
         ScaleFadeOut();
-        if (AllSingleton.Instance != null)
-            AllSingleton.Instance.cameraController.isEnable = false;
-        else
-        {
-            Camera.main.GetComponent<CameraController>().isEnable = false;
-        }
+        if (AllSingleton.Instance != null) AllSingleton.Instance.cameraController.isEnable = false;
+        else Camera.main.GetComponent<CameraController>().isEnable = false;
+        isOpen = true;
     }
 
     public void ClosePanel()
     {
         ScaleFadeIn();
-        if (AllSingleton.Instance != null)
-            AllSingleton.Instance.cameraController.isEnable = true;
-        else
-        {
-            Camera.main.GetComponent<CameraController>().isEnable = true;
-        }
+        if (AllSingleton.Instance != null) AllSingleton.Instance.cameraController.isEnable = true;
+        else Camera.main.GetComponent<CameraController>().isEnable = true;
+        isOpen = false;
     }
     
     public void ScaleFadeOut()
     {
-        canvasGroup.interactable = true;
-        canvasGroup.blocksRaycasts = true;
+        darknessGroup.interactable = true;
+        darknessGroup.blocksRaycasts = true;
         
         TweenerFade?.Kill();
-        if (canvasGroup)
-            TweenerFade = canvasGroup.DOFade(1, duration);
+        if (darknessGroup) TweenerFade = darknessGroup.DOFade(1, duration);
         
         _tweenerScale?.Kill();
-        if (panel)
-            _tweenerScale = panel.transform.DOScale(scaleDefault, duration);
+        if (panel) _tweenerScale = panel.transform.DOScale(scaleDefault, duration);
     }
     
     public void ScaleFadeIn()
     {
         TweenerFade?.Kill();
-        if (canvasGroup)
-            TweenerFade = canvasGroup.DOFade(0, duration);
+        if (darknessGroup) TweenerFade = darknessGroup.DOFade(0, duration);
         
         _tweenerScale?.Kill();
-        if (panel)
-            _tweenerScale = panel.transform.DOScale(0f, duration);
+        if (panel) _tweenerScale = panel.transform.DOScale(0f, duration);
         
-        canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
+        darknessGroup.interactable = false;
+        darknessGroup.blocksRaycasts = false;
     }
 }

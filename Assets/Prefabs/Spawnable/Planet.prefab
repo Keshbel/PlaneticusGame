@@ -756,7 +756,7 @@ MonoBehaviour:
   - {fileID: 211096642198243534}
   - {fileID: 4699131357808625563}
   isHomePlanet: 0
-  countToDestroy: 1
+  countToDestroy: 5
   homeIcon: {fileID: 956534669673201865}
   isSuperPlanet: 0
   effectSuperPlanet: {fileID: 5099214522392366683}

@@ -27,6 +27,7 @@ public class AllSingleton : NetworkBehaviour
     [Header("Panels")]
     public PanelController planetPanelController;
     public PlanetPanelUI planetPanelUI;
+    [Space] public EndGame endGame;
 
     [Header("?")] 
     public GUISkin skin;

@@ -23,6 +23,7 @@ public class MainPlanetController : NetworkBehaviour
     public override void OnStartServer()
     {
         base.OnStartServer();
+        BetterStreamingAssets.Initialize();
         Generation();
     }
 
@@ -42,11 +43,11 @@ public class MainPlanetController : NetworkBehaviour
     private void Generation() //Генерация планет, если они не были сгенерированы
     {
         var countPlanet = Random.Range(50, 70);
-
+        
         RandomName nameGen = new RandomName(); // create a new instance of the RandomName class
         List<string> allRandomNames = nameGen.RandomNames(countPlanet, 0); // generate 100 random names with up to two middle names
         var id = 0;
-
+        
         while (listPlanet.Count < countPlanet)
         {
             //создание планеты
@@ -73,7 +74,7 @@ public class MainPlanetController : NetworkBehaviour
             planet.transform.localScale = new Vector3(randomScale, randomScale, randomScale); //присвоение размера
             
             listPlanet.Add(planetController);
-            id++;
+            id++;      
         }
     }
 

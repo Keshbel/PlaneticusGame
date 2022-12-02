@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Linq;
+using System.Threading.Tasks;
 using DG.Tweening;
 using Mirror;
 using UnityEngine;
@@ -7,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class SpaceInvaderController : NetworkBehaviour
 {
-    [SyncVar] public CurrentPlayer player;
+    [SyncVar] public CurrentPlayer playerOwner;
     
     public SpriteRenderer spriteRenderer;
     [SyncVar(hook = nameof(UpdateColor))] public Color playerColor;
@@ -28,19 +30,19 @@ public class SpaceInvaderController : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        if (!player && isOwned) CmdSetPlayer(NetworkClient.connection.identity.GetComponent<CurrentPlayer>());
+        if (!playerOwner && isOwned) CmdSetPlayer(NetworkClient.connection.identity.GetComponent<CurrentPlayer>());
     }
 
     private void OnDisable()
     {
-        if (!NetworkClient.active || player == null) return;
+        if (!NetworkClient.active || playerOwner == null) return;
 
         if (isClient)
         {
-            player.selectUnits.invaderControllers?.Remove(this);
-            player.CmdChangeListWithInvaders(this, false);
+            playerOwner.selectUnits.invaderControllers?.Remove(this);
+            playerOwner.CmdChangeListWithInvaders(this, false);
         }
-        else player.ChangeListWithInvaders(this, false);
+        else playerOwner.ChangeListWithInvaders(this, false);
         
         _moveTween?.Kill();
         StopAllCoroutines();
@@ -65,7 +67,7 @@ public class SpaceInvaderController : NetworkBehaviour
         
         var planetController = other.GetComponent<PlanetController>();
         
-        if (player.PlayerPlanets.Contains(planetController)) // союзная планета 
+        if (playerOwner.PlayerPlanets.Contains(planetController)) // союзная планета 
         {
             if (!planetController.SpaceOrbitInvader.Contains(this))
             {
@@ -81,7 +83,7 @@ public class SpaceInvaderController : NetworkBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Planet") || !isOwned || !NetworkClient.active) return;
-        if (!player.PlayerPlanets.Contains(other.GetComponent<PlanetController>())) return;
+        if (!playerOwner.PlayerPlanets.Contains(other.GetComponent<PlanetController>())) return;
         
         var planet = other.GetComponent<PlanetController>();
         if (planet.SpaceOrbitInvader.Contains(this) && targetTransform != other.transform) 
@@ -172,7 +174,7 @@ public class SpaceInvaderController : NetworkBehaviour
     #endregion
     
     [Client]
-    private void Attack(PlanetController target)
+    private async void Attack(PlanetController target)
     {
         var planet = target.GetComponent<PlanetController>();
 
@@ -196,20 +198,25 @@ public class SpaceInvaderController : NetworkBehaviour
             else //если остался 1 ресурс или меньше 
             {
                 //если у кого-то из игроков была планета, то удаляем из списка у него
-                var playerWithPlanet = player.players.Find(player => player.PlayerPlanets.Contains(target));
+                var playerWithPlanet = playerOwner.players.Find(player => player.PlayerPlanets.Contains(target));
                 if (playerWithPlanet != null) playerWithPlanet.CmdChangeListWithPlanets(target, false);
 
                 //захват планеты
-                player.CmdChangeListWithPlanets(target, true);
+                playerOwner.CmdChangeListWithPlanets(target, true);
             }
         }
         else
         {
-            if (planet.countToDestroy > 1) planet.CmdReduceCountToDestroy();
-            else
+            planet.CmdChangeCountToDestroy(1, false);
+            
+            if (planet.countToDestroy < 1)
             {
-                var playerWithPlanet = player.players.Find(p => p.PlayerPlanets.Contains(target));
-                if (playerWithPlanet != null) playerWithPlanet.Lose(player);
+                var playerWithPlanet = playerOwner.players.Find(p => p.PlayerPlanets.Contains(target));
+                if (playerWithPlanet != null) playerWithPlanet.CmdDefeat(playerOwner); //поражение другого игрока
+
+                await Task.Delay(150);
+                var playersLive = playerOwner.players.Where(player => player.PlayerPlanets.Count > 0);
+                if (playersLive.Count() == 1) AllSingleton.Instance.endGame.VictoryResult(); //победа, если остался один
             }
         }
         
@@ -222,13 +229,13 @@ public class SpaceInvaderController : NetworkBehaviour
     [Command]
     private void CmdSetPlayer(CurrentPlayer newPlayer)
     {
-        player = newPlayer;
+        playerOwner = newPlayer;
     }
 
     [Command (requiresAuthority = false)]
     public void CmdUnSpawn(GameObject go)
     {
-        player.ChangeListWithInvaders(this, false);
+        playerOwner.ChangeListWithInvaders(this, false);
         NetworkServer.UnSpawn(go);
         AllSingleton.Instance.invaderPoolManager.PutBackInPool(go);
     }

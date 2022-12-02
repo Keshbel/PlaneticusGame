@@ -47,6 +47,8 @@ public class CameraController : MonoBehaviour
         if (!isEnable) return;
 
 #if !UNITY_STANDALONE //масштабирование(зум) для мобилок
+        if (Input.touchCount == 1) Move(0);
+        
         if (Input.touchCount == 2)
         {
             _touchA = Input.GetTouch(0);
@@ -62,8 +64,6 @@ public class CameraController : MonoBehaviour
 
             var currentZoom = _mainCam.orthographicSize - _zoom * sensivity/4;
             _mainCam.orthographicSize = Mathf.Clamp(currentZoom, zoomMin, zoomMax);
-            
-            Move(0);
         }
 #else //масштабирование(зум) для пк платформ 
         _zoom = _mainCam.orthographicSize - Input.GetAxis("Mouse ScrollWheel") * sensivity;

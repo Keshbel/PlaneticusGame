@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Mirror;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class SelectUnits : NetworkBehaviour
@@ -150,7 +153,6 @@ public class SelectUnits : NetworkBehaviour
 			GUI.depth = 99;
 
 			if (Input.GetMouseButtonDown(0)) _startPos = Input.mousePosition;
-			
 
 			if (Input.GetMouseButton(0)) draw = true;
 

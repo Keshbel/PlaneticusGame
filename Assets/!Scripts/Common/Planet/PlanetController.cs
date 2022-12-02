@@ -31,7 +31,7 @@ public class PlanetController : NetworkBehaviour
 
     [Header("Home / Super Planet")] 
     [SyncVar(hook = nameof(HomingPlanetShow))] public bool isHomePlanet = false; //является ли стартовой планетой?
-    [SyncVar] public int countToDestroy = 1;
+    [SyncVar(hook = nameof(CheckDefeat))] public int countToDestroy = 5;
     public GameObject homeIcon;
     
     [SyncVar(hook = nameof(UpdateSuperEffect))] public bool isSuperPlanet; //является ли супер планетой? (все 5 ресурсов на ней)
@@ -63,8 +63,12 @@ public class PlanetController : NetworkBehaviour
     public override void OnStartAuthority()
     {
         base.OnStartAuthority();
-        
-        if (isSuperPlanet) CmdRestartSpawnInvader();
+
+        if (isSuperPlanet && isOwned && isClient)
+        {
+            CmdRestartSpawnInvader();
+            if (countToDestroy < 1) CmdChangeCountToDestroy(5,true);
+        }
     }
 
     public override void OnStopAuthority()
@@ -114,9 +118,10 @@ public class PlanetController : NetworkBehaviour
     #region HomePlanetOptions
 
     [Command (requiresAuthority = false)]
-    public void CmdReduceCountToDestroy()
+    public void CmdChangeCountToDestroy(int value, bool isAdding)
     {
-        countToDestroy--;
+        if (isAdding) countToDestroy+= value;
+        else countToDestroy-= value;
     }
 
     [Server]
@@ -542,6 +547,11 @@ public class PlanetController : NetworkBehaviour
         textName.color = newColor;
         textTimeDistance.color = newColor;
         selectRenderer.color = newColor;
+    }
+
+    public void CheckDefeat(int oldInt, int newInt)
+    {
+        //if (newInt == 0 && isOwned) Player.Defeat(Player.enemyPlayerDefeat);
     }
     
     #endregion

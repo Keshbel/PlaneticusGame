@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2468275045268346451}
+  - component: {fileID: 915600126003536296}
   - component: {fileID: 310288775830209929}
   - component: {fileID: 5716716873462747330}
   m_Layer: 0
@@ -18,8 +18,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2468275045268346451
-Transform:
+--- !u!224 &915600126003536296
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -33,6 +33,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &310288775830209929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,9 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 880471220
   serverOnly: 0
   visible: 0
-  m_AssetId: b7065aa521fa4204f97c5b1012eb23d1
   hasSpawned: 0
 --- !u!114 &5716716873462747330
 MonoBehaviour:
@@ -62,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f22291a0a35774192560aeaea78d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
   invaderControllers: []

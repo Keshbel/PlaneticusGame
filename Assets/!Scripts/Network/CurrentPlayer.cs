@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Lean.Localization;
 using Mirror;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class CurrentPlayer : NetworkBehaviour
     [Header("Main")]
     [SyncVar] public string playerName;
     [SyncVar] public Color playerColor;
+
+    [SyncVar] public CurrentPlayer enemyPlayerDefeat;
 
     [Header("SyncLists")]
     public readonly SyncList<PlanetController> PlayerPlanets = new SyncList<PlanetController>();
@@ -163,22 +166,33 @@ public class CurrentPlayer : NetworkBehaviour
     }
     #endregion
 
-    [Client]
-    public void Lose(CurrentPlayer playerInvader)
+    [Command (requiresAuthority = false)]
+    public void CmdDefeat(CurrentPlayer playerInvader)
     {
+        Defeat(playerInvader);
+    }
+    [TargetRpc]
+    public void Defeat(CurrentPlayer playerInvader)
+    {
+        print("Я пытаюсь выполниться (поражение)");
         PlayerPlanets.ToList().ForEach(planet => //добавляем имущество победителю
         {
             CmdChangeListWithPlanets(planet,false);
             playerInvader.CmdChangeListWithPlanets(planet,true);
-            //playerInvader.
         });
         PlayerInvaders.ToList().ForEach(invader => invader.CmdUnSpawn(invader.gameObject));
 
         //оповощение о поражении
         CmdSendLoseMessage(playerInvader);
         //включение UI поражения
+        AllSingleton.Instance.endGame.DefeatResult();
     }
 
+    [Command (requiresAuthority = false)]
+    public void CmdSetPlayerNameInvader(CurrentPlayer playerInvader)
+    {
+        enemyPlayerDefeat = playerInvader;
+    }
     [Server]
     public void SendLoseMessage(CurrentPlayer playerInvader)
     {

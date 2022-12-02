@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Networking;
 using Random = System.Random;
 
 namespace RandomNameGen
@@ -15,6 +18,7 @@ namespace RandomNameGen
         /// <summary>
         /// Class for holding the lists of names from names.json
         /// </summary>
+        [Serializable]
         class NameList
         {
             public string[] boys { get; set; }
@@ -29,6 +33,7 @@ namespace RandomNameGen
             }
         }
 
+        NameList nameList = new NameList();
         Random rand;
         List<string> Male;
         List<string> Female;
@@ -40,21 +45,65 @@ namespace RandomNameGen
         /// <param name="rand">A Random that is used to pick names</param>
         public RandomName()//Random rand)
         {
-            this.rand = new Random();//rand;
-            NameList l = new NameList();
+            rand = new Random();//rand;
+            nameList = new NameList();
 
             JsonSerializer serializer = new JsonSerializer();
+            
+            var jsonFilePath = Path.Combine(Application.streamingAssetsPath, "names.json");
+           // BetterStreamingAssets.Initialize();
+            //var p = BetterStreamingAssets.GetFiles(Application.streamingAssetsPath, "*.json", SearchOption.AllDirectories);
+            using (StreamReader reader = BetterStreamingAssets.OpenText("names.json"))
 
-            using (StreamReader reader = new StreamReader(Path.Combine(Application.streamingAssetsPath, "names.json")))
+            /*if (Application.platform == RuntimePlatform.Android)
+            {
+                var reader = new WWW(jsonFilePath);
+                while (!reader.isDone) { }
+                dataAsJson = reader.text;
+                /*var sJson = www.downloadHandler.text;
+                var jsonFile = JsonUtility.ToJson(sJson);
+                nameList = JsonUtility.FromJson<NameList>(jsonFile);#1#
+            }
+            else dataAsJson = File.ReadAllText(jsonFilePath);//nameList = JsonUtility.FromJson<NameList>(jsonFilePath));
+
+            nameList = JsonUtility.FromJson<NameList>(dataAsJson);*/
+            
+            using (JsonReader jsonReader = new JsonTextReader(reader))
+            {
+                nameList = serializer.Deserialize<NameList>(jsonReader);
+            }
+            
+            /*#if UNITY_STANDALONE
+            string jsonPath = Path.Combine(Application.streamingAssetsPath, "names.json");;
+            using (StreamReader reader = new StreamReader(jsonPath));
+            
+            #elif UNITY_IOS
+            string jsonPath = Path.Combine(Application.streamingAssetsPath + "/Raw", "names.json");
+            using (StreamReader reader = new StreamReader(jsonPath));
+
+            #endif*/
+            
+            /*#if UNITY_ANDROID || UNITY_WEBGL
+            string jsonPath = Path.Combine(Application.streamingAssetsPath, "names.json"); //"jar:file://" + + "!assets/"
+            GetJsonData(jsonPath);
+            #endif
+            */
+            
+            /*#if UNITY_STANDALONE || UNITY_IOS
             using (JsonReader jreader = new JsonTextReader(reader))
             {
                 l = serializer.Deserialize<NameList>(jreader);
             }
+            #endif*/
 
-            Male = new List<string>(l.boys);
-            Female = new List<string>(l.girls);
-            Last = new List<string>(l.last);
+            if (nameList != null && nameList.boys.Length > 0)
+            {
+                Male = new List<string>(nameList.boys);
+                Female = new List<string>(nameList.girls);
+                Last = new List<string>(nameList.last);
+            }
         }
+
 
         /// <summary>
         /// Returns a new random name
