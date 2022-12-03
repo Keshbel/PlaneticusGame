@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Lean.Localization;
 using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EndGame : NetworkBehaviour
+public class EndGame : MonoBehaviour
 {
     public PanelController panelController;
 

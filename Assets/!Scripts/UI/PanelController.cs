@@ -21,14 +21,14 @@ public class PanelController : MonoBehaviour
     private void Start()
     {
         /*if (!panel) panel = gameObject;*/
-        if (!darknessGroup)
-            darknessGroup = GetComponent<CanvasGroup>();
-        
+        if (!darknessGroup) darknessGroup = GetComponent<CanvasGroup>();
         if (darknessGroup.alpha > 0.9f) ClosePanel();
     }
 
     public void OpenPanel()
     {
+        MusicUI.Instance.SoundPanelOpen();
+        
         ScaleFadeOut();
         if (AllSingleton.Instance != null) AllSingleton.Instance.cameraController.isEnable = false;
         else Camera.main.GetComponent<CameraController>().isEnable = false;
@@ -37,6 +37,8 @@ public class PanelController : MonoBehaviour
 
     public void ClosePanel()
     {
+        MusicUI.Instance.SoundPanelClose();
+        
         ScaleFadeIn();
         if (AllSingleton.Instance != null) AllSingleton.Instance.cameraController.isEnable = true;
         else Camera.main.GetComponent<CameraController>().isEnable = true;

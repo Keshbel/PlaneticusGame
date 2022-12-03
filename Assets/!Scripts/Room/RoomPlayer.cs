@@ -1,8 +1,8 @@
 using System;
+using System.Threading.Tasks;
 using JamesFrowen.MirrorExamples;
 using Mirror;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 [Serializable]
@@ -12,7 +12,7 @@ public class RoomPlayer : NetworkRoomPlayer
      private PrefabPoolManager _roomPlayerPool;
      
      [SyncVar] public RoomPlayerUI roomPlayerUI;
-     [SyncVar] public string playerName;
+     [SyncVar (hook = nameof(UpdatePlayerName))] public string playerName;
      [SyncVar] public Color playerColor;
 
      private void Awake()
@@ -26,22 +26,24 @@ public class RoomPlayer : NetworkRoomPlayer
           if (!_roomManager) _roomManager = FindObjectOfType<RoomManager>();
      }
 
-     public override void OnStartClient()
+     public override async void OnStartClient()
      {
           base.OnStartClient();
 
           if (isLocalPlayer)
           {
+               CmdSetUIRoomPlayer();
+               //roomPlayerUI = FindObjectOfType<RoomPlayerUI>();
+               
                CmdUpdatePlayerName(_roomManager.playerName);
                CmdUpdatePlayerColor(ColorPicker.Color == Color.clear ? Random.ColorHSV() : _roomManager.playerColor);
 
-               Invoke(nameof(CmdSetUIRoomPlayer), 0.01f);
-               roomPlayerUI = FindObjectOfType<RoomPlayerUI>();
-               
                if (GetComponent<NetworkIdentity>().netId == 1) NetworkManager.singleton.hostPlayerName = playerName;
           }
+
+          await Task.Delay(150);
           
-          Invoke(nameof(SetDataPlayer), 0.16f);
+          SetDataPlayer();
      }
 
      public override void OnStopServer()
@@ -82,7 +84,7 @@ public class RoomPlayer : NetworkRoomPlayer
 
           if (isLocalPlayer)
           {
-               roomPlayerUI.CmdSetNickname(playerName);
+               //roomPlayerUI.CmdSetNickname(playerName);
                
                roomPlayerUI.readyButton.interactable = true;
                roomPlayerUI.readyButton.onClick.AddListener(() => CmdChangeReadyState(!readyToBegin));
@@ -121,4 +123,12 @@ public class RoomPlayer : NetworkRoomPlayer
           if (index == 0) NetworkManager.singleton.StopHost();
           else GetComponent<NetworkIdentity>().connectionToClient.Disconnect();
      }
+
+     #region Hook
+     
+     private void UpdatePlayerName(string oldS, string newS)
+     {
+          if (isOwned) roomPlayerUI.CmdSetNickname(newS);
+     }
+     #endregion
 }

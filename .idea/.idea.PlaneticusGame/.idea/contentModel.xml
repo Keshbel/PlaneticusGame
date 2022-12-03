@@ -31,6 +31,7 @@
           <e p="Localization" t="Include">
             <e p="LanguageChanger.cs" t="Include" />
           </e>
+          <e p="MusicUI.cs" t="Include" />
           <e p="Network" t="Include">
             <e p="ConnectionHUD.cs" t="Include" />
             <e p="CurrentPlayer.cs" t="Include" />
@@ -52,6 +53,7 @@
             <e p="SliderArea.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="ClickHandler.cs" t="Include" />
             <e p="EndGame.cs" t="Include" />
             <e p="EscapeMenu.cs" t="Include" />
             <e p="LayoutLanguageUpdater.cs" t="Include" />

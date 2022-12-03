@@ -383,8 +383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncDirection: 0
   syncMode: 0
-  syncInterval: 0.1
-  player: {fileID: 0}
+  syncInterval: 0
+  playerOwner: {fileID: 0}
   spriteRenderer: {fileID: 2860486228469298112}
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   isSelecting: 0
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncDirection: 1
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0
   target: {fileID: 2860486228469298116}
   clientAuthority: 1
   syncVelocity: 1

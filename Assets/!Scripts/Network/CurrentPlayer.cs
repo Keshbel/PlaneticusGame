@@ -142,22 +142,23 @@ public class CurrentPlayer : NetworkBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            //var invader = Instantiate(AllSingleton.Instance.invaderPrefab);
             var xBoundCollider = goPosition.GetComponent<CircleCollider2D>().bounds.max.x; //граница коллайдера по х
             var planetPosition = goPosition.transform.position; //позиция планеты
             var spawnPosition = new Vector3(xBoundCollider, planetPosition.y, planetPosition.z);
             
             var invader = AllSingleton.Instance.invaderPoolManager.GetFromPool(spawnPosition, Quaternion.identity);
             NetworkServer.Spawn(invader, connectionToClient);
-
+            
             var invaderControllerComponent = invader.GetComponent<SpaceInvaderController>();
             invaderControllerComponent.SetColor(playerColor);
             invaderControllerComponent.targetTransform = goPosition.transform;
-
+            
             ChangeListWithInvaders(invaderControllerComponent, true);
 
             yield return new WaitForSeconds(2f); 
         }
+
+        yield return null;
     }
     [Command]
     public void CmdSpawnInvader(int count, GameObject goPosition)

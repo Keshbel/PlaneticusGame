@@ -76,6 +76,7 @@ public class PlanetController : NetworkBehaviour
         base.OnStopAuthority();
 
         if (!PlanetResources.Contains(PlanetSaveResources[0])) CmdChangeResourceList(PlanetSaveResources[0], true);
+        if (isHomePlanet) CmdChangeIsHomePlanet(false);
         
         // удаляем родной ресурс из планеты унаследовавший его и возвращаем на родную планету
         var planetController = AllSingleton.Instance.player.PlayerPlanets.Find(planet =>
@@ -113,6 +114,8 @@ public class PlanetController : NetworkBehaviour
 
             yield return new WaitForSeconds(timeToSpawn);
         }
+        
+        //sliderCanvas.SetActive(false);
     }
 
     #region HomePlanetOptions
@@ -158,6 +161,17 @@ public class PlanetController : NetworkBehaviour
 
     #region Colonization
 
+    [Server]
+    private void ChangeIsHomePlanet(bool isTrue)
+    {
+        isHomePlanet = isTrue;
+    }
+
+    private void CmdChangeIsHomePlanet(bool isTrue)
+    {
+        ChangeIsHomePlanet(isTrue);
+    }
+    
     [Command]
     public void CmdRestartSpawnInvader()
     {
@@ -212,15 +226,18 @@ public class PlanetController : NetworkBehaviour
             else
             {*/
             PlanetResources.Remove(resource);
-            sliderCanvas.SetActive(false);
             isSuperPlanet = false;
         }
     }
-
     [Command (requiresAuthority = false)]
     public void CmdChangeResourceList(ResourceForPlanet resource, bool isAdding)
     {
         ChangeResourceList(resource, isAdding);
+    }
+    [TargetRpc]
+    public void RpcChangeResourceList(ResourceForPlanet resource, bool isAdding)
+    {
+        CmdChangeResourceList(resource, isAdding);
     }
     
     void SyncResourceForPlanetVars(SyncList<ResourceForPlanet>.Operation op, int index, ResourceForPlanet oldItem, ResourceForPlanet newItem)
@@ -241,6 +258,7 @@ public class PlanetController : NetworkBehaviour
             }
             case SyncList<ResourceForPlanet>.Operation.OP_REMOVEAT:
             {
+                print("Я пытаюсь удалиться, сцуко!");
                 break;
             }
             case SyncList<ResourceForPlanet>.Operation.OP_SET:
@@ -310,8 +328,6 @@ public class PlanetController : NetworkBehaviour
             toPlanet.ChangeResourceList(resource, true);
         }
         else ChangeResourceList(resource, true); //иначе возвращаем на родную планету
-
-        print(resource.id);
     }
     [Command]
     public void CmdLogisticResource(ResourceForPlanet resource, PlanetController toPlanet)

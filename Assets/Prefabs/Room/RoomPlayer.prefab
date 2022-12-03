@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncDirection: 0
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0
   showRoomGUI: 0
   readyToBegin: 0
   index: 0

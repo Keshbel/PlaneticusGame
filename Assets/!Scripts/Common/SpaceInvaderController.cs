@@ -63,18 +63,15 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Planet") || !isOwned || other.transform != targetTransform) return;
+        if (!other.CompareTag("Planet") || !isOwned || other.transform != targetTransform || playerOwner == null) return;
         
         var planetController = other.GetComponent<PlanetController>();
         
         if (playerOwner.PlayerPlanets.Contains(planetController)) // союзная планета 
         {
-            if (!planetController.SpaceOrbitInvader.Contains(this))
-            {
-                isIdle = true;
-
-                planetController.CmdChangeOrbitInvaderList(this, true);
-            }
+            if (planetController.SpaceOrbitInvader.Contains(this)) return;
+            isIdle = true;
+            planetController.CmdChangeOrbitInvaderList(this, true);
         }
         else Attack(planetController);
     }
@@ -82,7 +79,7 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Planet") || !isOwned || !NetworkClient.active) return;
+        if (!other.CompareTag("Planet") || !isOwned || !NetworkClient.active || playerOwner == null) return;
         if (!playerOwner.PlayerPlanets.Contains(other.GetComponent<PlanetController>())) return;
         
         var planet = other.GetComponent<PlanetController>();
@@ -190,10 +187,12 @@ public class SpaceInvaderController : NetworkBehaviour
 
         if (!planet.isHomePlanet)
         {
-            if (planet.PlanetResources.Count > 1) //если ресурсов больше одного, то пытаемся убрать рандомный ресурс
+            var res = planet.PlanetResources;
+            
+            if (res.Count > 1) //если ресурсов больше одного, то пытаемся убрать рандомный ресурс
             {
-                var res = planet.PlanetResources;
-                planet.CmdChangeResourceList(res[Random.Range(0, res.Count)], false);
+                print("Res Count > 1");
+                planet.RpcChangeResourceList(res[Random.Range(0, res.Count)], false);
             }
             else //если остался 1 ресурс или меньше 
             {

@@ -139,7 +139,7 @@ namespace ChatForStrategy
                 AppendMessage(text, messageTypes.Process, duration);
             }
 
-            StartCoroutine(OpenCloseChatRoutine());
+            //StartCoroutine(OpenCloseChatRoutine());
         }
 
         public void OnSendMessage()
