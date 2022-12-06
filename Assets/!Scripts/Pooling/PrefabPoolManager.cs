@@ -14,8 +14,7 @@ namespace JamesFrowen.MirrorExamples
         [Header("Debug")]
         [SerializeField] Queue<GameObject> pool;
         [SerializeField] int currentCount;
-
-
+        
         void Start()
         {
             InitializePool();
@@ -75,6 +74,15 @@ namespace JamesFrowen.MirrorExamples
                 ? pool.Dequeue() // take from pool
                 : CreateNew(); // create new because pool is empty
 
+            /*if (next.transform.position != Vector3.zero)
+            {
+                print("Позиция не была равна нулю, а была равна = " + next.transform.position);
+                next.transform.position = Vector3.zero;
+                pool.Enqueue(next);
+                next = CreateNew();
+                print("Позиция нового объекта = " + next.transform.position);
+            }*/
+            
             // CreateNew might return null if max size is reached
             if (next == null) { return null; }
 

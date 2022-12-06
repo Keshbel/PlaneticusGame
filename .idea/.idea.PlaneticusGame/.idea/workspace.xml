@@ -21,18 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/MusicUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/MusicUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/MusicUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/MusicUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ClickHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/ClickHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Planet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Planet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Steamworks.NET/SteamManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Steamworks.NET/SteamManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,9 +130,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Steamworks.NET/SteamManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/MusicUI.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
       </list>
     </option>
@@ -277,6 +270,8 @@
       <workItem from="1670146225305" duration="14355000" />
       <workItem from="1670221095634" duration="3367000" />
       <workItem from="1670240554082" duration="4444000" />
+      <workItem from="1670320780548" duration="2582000" />
+      <workItem from="1670348209955" duration="9543000" />
     </task>
     <servers />
   </component>
@@ -314,13 +309,17 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="93" y="93" width="1862" height="926" key="VCS.FileHistoryDialog/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1669909548132" />
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1670354051664">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1670354051664" />
     <state x="681" y="259" key="run.anything.popup" timestamp="1668773838852">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="681" y="259" key="run.anything.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1668773838852" />
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1670173049248">
+    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1670351008078">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1670173049248" />
+    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1670351008078" />
   </component>
 </project>

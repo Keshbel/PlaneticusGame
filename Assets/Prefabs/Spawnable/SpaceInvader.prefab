@@ -307,7 +307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2860486228469298175}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: -0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -391,6 +391,7 @@ MonoBehaviour:
   lightShape: {fileID: 5591132352830115421}
   lightLamp: {fileID: 42826576226311845}
   isIdle: 1
+  trailRenderer: {fileID: 7777136806196703312}
   targetTransform: {fileID: 0}
   speed: 1
 --- !u!114 &2860486228469298113
@@ -429,7 +430,7 @@ MonoBehaviour:
   clientAuthority: 0
   onlySyncOnChange: 1
   bufferResetMultiplier: 5
-  positionSensitivity: 0.0001
+  positionSensitivity: 0.01
   rotationSensitivity: 0.01
   scaleSensitivity: 0.01
   syncPosition: 1
@@ -451,11 +452,11 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
   m_Mass: 0.09610002
-  m_LinearDrag: 0.1
-  m_AngularDrag: 0.1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -502,10 +503,10 @@ MonoBehaviour:
   syncInterval: 0
   target: {fileID: 2860486228469298116}
   clientAuthority: 1
-  syncVelocity: 1
+  syncVelocity: 0
   clearVelocity: 1
   velocitySensitivity: 0.1
-  syncAngularVelocity: 1
+  syncAngularVelocity: 0
   clearAngularVelocity: 1
   angularVelocitySensitivity: 0.1
 --- !u!1 &5548572324523772576

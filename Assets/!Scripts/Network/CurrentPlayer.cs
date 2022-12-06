@@ -151,9 +151,10 @@ public class CurrentPlayer : NetworkBehaviour
             NetworkServer.Spawn(invader, connectionToClient);
 
             var invaderControllerComponent = invader.GetComponent<SpaceInvaderController>();
+            invaderControllerComponent.playerOwner = connectionToClient.identity.GetComponent<CurrentPlayer>();
             invaderControllerComponent.SetColor(playerColor);
             invaderControllerComponent.targetTransform = goPosition.transform;
-
+            
             ChangeListWithInvaders(invaderControllerComponent, true);
         }
     }
