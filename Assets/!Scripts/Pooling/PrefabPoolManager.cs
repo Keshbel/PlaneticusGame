@@ -56,16 +56,10 @@ namespace JamesFrowen.MirrorExamples
         }
 
         // used by ClientScene.RegisterPrefab
-        GameObject SpawnHandler(SpawnMessage msg)
-        {
-            return GetFromPool(msg.position, msg.rotation);
-        }
+        GameObject SpawnHandler(SpawnMessage msg) => GetFromPool(msg.position, msg.rotation);
 
         // used by ClientScene.RegisterPrefab
-        void UnspawnHandler(GameObject spawned)
-        {
-            PutBackInPool(spawned);
-        }
+        void UnspawnHandler(GameObject spawned) => PutBackInPool(spawned);
 
         /// <summary>
         /// Used to take Object from Pool.

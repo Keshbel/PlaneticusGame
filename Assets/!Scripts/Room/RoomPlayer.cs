@@ -41,7 +41,7 @@ public class RoomPlayer : NetworkRoomPlayer
                if (GetComponent<NetworkIdentity>().netId == 1) NetworkManager.singleton.hostPlayerName = playerName;
           }
 
-          await Task.Delay(150);
+          await Task.Delay(250);
           
           SetDataPlayer();
      }
@@ -59,8 +59,10 @@ public class RoomPlayer : NetworkRoomPlayer
 
      public override void ReadyStateChanged(bool oldReadyState, bool newReadyState)
      {
-          base.ReadyStateChanged(oldReadyState, newReadyState);
           roomPlayerUI.ChangeReadyIcon(oldReadyState, newReadyState);
+          
+          base.ReadyStateChanged(oldReadyState, newReadyState);
+          
      }
 
      [Server]

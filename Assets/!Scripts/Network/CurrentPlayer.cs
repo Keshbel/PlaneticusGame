@@ -127,6 +127,7 @@ public class CurrentPlayer : NetworkBehaviour
         if (isAdding) PlayerInvaders?.Add(invader);
         else PlayerInvaders?.Remove(invader);
         
+        
         //var identity = invader.GetComponent<NetworkIdentity>();
         /*identity.RemoveClientAuthority();
         identity.AssignClientAuthority(connectionToClient);*/
@@ -138,32 +139,29 @@ public class CurrentPlayer : NetworkBehaviour
     }
 
     [Server]
-    public IEnumerator SpawnInvader(int count, GameObject goPosition) //спавн захватчиков (может стоит перенести в отдельный скрипт?)
+    public void SpawnInvader(int count, GameObject goPosition) //спавн захватчиков (может стоит перенести в отдельный скрипт?)
     {
         for (int i = 0; i < count; i++)
         {
             var xBoundCollider = goPosition.GetComponent<CircleCollider2D>().bounds.max.x; //граница коллайдера по х
             var planetPosition = goPosition.transform.position; //позиция планеты
             var spawnPosition = new Vector3(xBoundCollider, planetPosition.y, planetPosition.z);
-            
+
             var invader = AllSingleton.Instance.invaderPoolManager.GetFromPool(spawnPosition, Quaternion.identity);
             NetworkServer.Spawn(invader, connectionToClient);
-            
+
             var invaderControllerComponent = invader.GetComponent<SpaceInvaderController>();
             invaderControllerComponent.SetColor(playerColor);
             invaderControllerComponent.targetTransform = goPosition.transform;
-            
+
             ChangeListWithInvaders(invaderControllerComponent, true);
-
-            yield return new WaitForSeconds(2f); 
         }
-
-        yield return null;
     }
+
     [Command]
     public void CmdSpawnInvader(int count, GameObject goPosition)
     {
-        StartCoroutine(SpawnInvader(count, goPosition));
+        SpawnInvader(count, goPosition);
     }
     #endregion
 
@@ -225,7 +223,6 @@ public class CurrentPlayer : NetworkBehaviour
             
         ChangeListWithPlanets(homePlanet, true);
         homePlanet.Colonization();
-        StartCoroutine(SpawnInvader(2, homePlanet.gameObject));
     }
     [Command]
     public void CmdHomePlanetAddingToPlayer()

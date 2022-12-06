@@ -31,7 +31,7 @@ public class PlanetController : NetworkBehaviour
 
     [Header("Home / Super Planet")] 
     [SyncVar(hook = nameof(HomingPlanetShow))] public bool isHomePlanet = false; //является ли стартовой планетой?
-    [SyncVar(hook = nameof(CheckDefeat))] public int countToDestroy = 5;
+    [SyncVar] public int countToDestroy = 5;
     public GameObject homeIcon;
     
     [SyncVar(hook = nameof(UpdateSuperEffect))] public bool isSuperPlanet; //является ли супер планетой? (все 5 ресурсов на ней)
@@ -91,12 +91,14 @@ public class PlanetController : NetworkBehaviour
     [Client]
     public IEnumerator StartSpawnInvadersRoutine() //спавн захватчиков при статусе супер планеты
     {
+        print("Начат спавн захватчиков!");
         if (!isSuperPlanet) yield break;
         
         if (isHomePlanet) //начальная задержка после спавна стартовых захватичков
         {
             for (int i = 0; i < 2; i++)
             {
+                if (isOwned) AllSingleton.Instance.player.CmdSpawnInvader(1, gameObject);
                 slider.value = 0;
                 slider.DOValue(1, 2f).SetEase(Ease.Linear);
 
@@ -114,8 +116,7 @@ public class PlanetController : NetworkBehaviour
 
             yield return new WaitForSeconds(timeToSpawn);
         }
-        
-        //sliderCanvas.SetActive(false);
+        print("Спавн захватчиков прекратился!");
     }
 
     #region HomePlanetOptions
@@ -166,7 +167,7 @@ public class PlanetController : NetworkBehaviour
     {
         isHomePlanet = isTrue;
     }
-
+    [Command]
     private void CmdChangeIsHomePlanet(bool isTrue)
     {
         ChangeIsHomePlanet(isTrue);
@@ -180,7 +181,7 @@ public class PlanetController : NetworkBehaviour
         StopCoroutine(SpawnInvaderCoroutine);
         SpawnInvaderCoroutine = StartCoroutine(StartSpawnInvadersRoutine());
     }
-    
+
     [Server]
     public void Colonization()
     {
@@ -210,9 +211,8 @@ public class PlanetController : NetworkBehaviour
     #endregion
 
     #region PlanetResource
-
-    //добавление ресурса для планеты, с ограничением добавления
-    [Server]
+    
+    [Server] //добавление ресурса для планеты, с ограничением добавления
     public void ChangeResourceList(ResourceForPlanet resource, bool isAdding)
     {
         if (isAdding) //добавляем ли планету?
@@ -225,21 +225,17 @@ public class PlanetController : NetworkBehaviour
             /*if (resource.countResource > 1) resource.countResource--;
             else
             {*/
-            PlanetResources.Remove(resource);
+            var res = PlanetResources.Find(r => r.resourcePlanet == resource.resourcePlanet);
+            PlanetResources.Remove(res ?? resource);
             isSuperPlanet = false;
         }
     }
-    [Command (requiresAuthority = false)]
+    [Command(requiresAuthority = false)]
     public void CmdChangeResourceList(ResourceForPlanet resource, bool isAdding)
     {
         ChangeResourceList(resource, isAdding);
     }
-    [TargetRpc]
-    public void RpcChangeResourceList(ResourceForPlanet resource, bool isAdding)
-    {
-        CmdChangeResourceList(resource, isAdding);
-    }
-    
+
     void SyncResourceForPlanetVars(SyncList<ResourceForPlanet>.Operation op, int index, ResourceForPlanet oldItem, ResourceForPlanet newItem)
     {
         switch (op)
@@ -258,7 +254,6 @@ public class PlanetController : NetworkBehaviour
             }
             case SyncList<ResourceForPlanet>.Operation.OP_REMOVEAT:
             {
-                print("Я пытаюсь удалиться, сцуко!");
                 break;
             }
             case SyncList<ResourceForPlanet>.Operation.OP_SET:
@@ -305,6 +300,7 @@ public class PlanetController : NetworkBehaviour
         
         //инициализация
         //var finalRes = new ResourceForPlanet{ resourcePlanet = resource.resourcePlanet, countResource = 1}; //финальный ресурс доставленный на планету
+        var networkOwner = netIdentity.connectionToClient;
 
         //transform/distance
         var fromTransform = transform;
@@ -320,6 +316,9 @@ public class PlanetController : NetworkBehaviour
 
         //ожидание доставки ресурса (прибытие первой стрелочки)
         yield return new WaitForSeconds(distance/AllSingleton.Instance.speed);
+        
+        //проверка перезахвата другим игроком
+        if (networkOwner != netIdentity.connectionToClient) yield break;
         
         var planetResource = toPlanet.PlanetResources.Find(resForPlanet => resForPlanet.resourcePlanet == resource.resourcePlanet); //если ресурс этого типа на планете уже есть
         //добавляем планете-приемнику
@@ -564,11 +563,5 @@ public class PlanetController : NetworkBehaviour
         textTimeDistance.color = newColor;
         selectRenderer.color = newColor;
     }
-
-    public void CheckDefeat(int oldInt, int newInt)
-    {
-        //if (newInt == 0 && isOwned) Player.Defeat(Player.enemyPlayerDefeat);
-    }
-    
     #endregion
 }

@@ -4949,7 +4949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90480aa3f5c7811498f11f187dddf0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSize: 50
+  startSize: 2
   maxSize: 5000
   prefab: {fileID: 2860486228469298175, guid: 6a985395fe888814b9fc70cb111007aa, type: 3}
   currentCount: 0

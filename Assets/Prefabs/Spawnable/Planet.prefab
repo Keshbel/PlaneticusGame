@@ -764,7 +764,7 @@ MonoBehaviour:
   sliderCanvas: {fileID: 3842119763310360509}
   slider: {fileID: 3150319335486504495}
   counterToSpawn: 0
-  timeToSpawn: 20
+  timeToSpawn: 2
   isColonized: 0
 --- !u!114 &5925937986370657739
 MonoBehaviour:

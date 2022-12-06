@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,15 +18,6 @@ public class MusicUI : MonoBehaviour
     {
         if (Instance != null) Destroy(gameObject);
         else Instance = this;
-    }
-    
-    async void Start()
-    {
-        /*await Task.Delay(500);
-        allButtons = FindObjectsOfType<Button>().ToList();
-
-        await Task.Delay(500);
-        foreach (var button in allButtons) button.onClick.AddListener(SoundClickButton);*/
     }
 
     public void SoundClickButton()
