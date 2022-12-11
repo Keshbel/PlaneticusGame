@@ -20,27 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/RoomPlayerUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/RoomPlayerUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderGreen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderGreen.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderRed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderRed.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderWhite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderWhite.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Mirror/Components/NetworkRoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mirror/Components/NetworkRoomManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LeanLocalization.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LeanLocalization.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Room/UI_RoomPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Room/UI_RoomPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,18 +125,18 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/AdsInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/BannerAds.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/InterstitialAds.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/RewardedAds.cs" />
-        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2D.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Mirror/Components/NetworkRoomManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" />
+        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2D.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" />
       </list>
     </option>
   </component>
@@ -297,7 +278,7 @@
       <workItem from="1670510576206" duration="3745000" />
       <workItem from="1670568115280" duration="76000" />
       <workItem from="1670581286895" duration="6174000" />
-      <workItem from="1670743938449" duration="1253000" />
+      <workItem from="1670743938449" duration="3506000" />
     </task>
     <servers />
   </component>
