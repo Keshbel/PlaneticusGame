@@ -20,8 +20,280 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Ads/AdsInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Ads/AdsInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Ads/BannerAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Ads/BannerAds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Ads/InterstitialAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Ads/InterstitialAds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Ads/RewardedAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Ads/RewardedAds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceSingleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/LayoutLanguageUpdater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/LayoutLanguageUpdater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Invader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Invader/AmongUs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Invader/AmongUs.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Invader/RocketInvader.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Invader/RocketInvader.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Invader/SpaceInvader.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Invader/SpaceInvader.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Invader/UFOInvader.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Invader/UFOInvader.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_0.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_0.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_10.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_100.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_100.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_101.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_101.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_102.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_102.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_103.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_103.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_104.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_104.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_105.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_105.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_106.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_106.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_107.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_107.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_108.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_108.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_109.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_109.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_11.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_110.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_110.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_111.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_111.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_112.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_112.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_113.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_113.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_114.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_114.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_115.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_115.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_116.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_116.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_117.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_117.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_118.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_118.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_119.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_119.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_12.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_120.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_120.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_121.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_121.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_122.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_122.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_123.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_123.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_124.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_124.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_125.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_125.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_126.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_126.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_127.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_127.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_128.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_128.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_129.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_129.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_13.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_130.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_130.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_131.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_131.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_132.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_132.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_133.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_133.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_134.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_134.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_135.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_135.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_136.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_136.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_137.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_137.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_138.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_138.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_139.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_139.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_14.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_14.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_140.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_140.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_141.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_141.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_142.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_142.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_143.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_143.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_144.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_144.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_145.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_145.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_146.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_146.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_147.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_147.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_148.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_148.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_149.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_149.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_15.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_150.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_150.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_151.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_151.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_152.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_152.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_153.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_153.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_154.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_154.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_155.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_155.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_156.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_156.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_157.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_157.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_158.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_158.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_159.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_159.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_16.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_16.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_160.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_160.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_161.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_161.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_162.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_162.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_163.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_163.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_164.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_164.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_165.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_165.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_166.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_166.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_167.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_167.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_168.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_168.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_169.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_169.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_17.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_17.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_170.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_170.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_171.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_171.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_172.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_172.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_173.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_173.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_174.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_174.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_175.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_175.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_176.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_176.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_177.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_177.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_178.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_178.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_179.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_179.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_18.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_18.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_180.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_180.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_181.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_181.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_182.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_182.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_183.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_183.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_184.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_184.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_185.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_185.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_186.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_186.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_187.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_187.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_188.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_188.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_189.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_189.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_19.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_19.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_190.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_190.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_191.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_191.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_192.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_192.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_193.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_193.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_194.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_194.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_195.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_195.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_196.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_196.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_197.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_197.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_198.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_198.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_199.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_199.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_20.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_20.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_200.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_200.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_201.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_201.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_202.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_202.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_203.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_203.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_204.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_204.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_205.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_205.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_206.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_206.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_207.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_207.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_208.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_208.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_209.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_209.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_21.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_21.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_210.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_210.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_211.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_211.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_212.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_212.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_213.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_213.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_214.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_214.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_215.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_215.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_216.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_216.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_217.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_217.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_218.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_218.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_219.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_219.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_22.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_22.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_220.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_220.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_221.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_221.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_222.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_222.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_223.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_223.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_224.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_224.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_225.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_225.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_226.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_226.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_227.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_227.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_228.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_228.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_229.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_229.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_23.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_23.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_230.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_230.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_231.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_231.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_232.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_232.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_233.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_233.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_234.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_234.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_235.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_235.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_236.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_236.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_237.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_237.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_238.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_238.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_239.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_239.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_24.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_24.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_240.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_240.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_241.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_241.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_242.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_242.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_243.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_243.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_244.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_244.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_245.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_245.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_246.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_246.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_247.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_247.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_248.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_248.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_249.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_249.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_25.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_25.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_26.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_26.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_27.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_27.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_28.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_28.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_29.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_29.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_30.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_30.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_31.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_31.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_32.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_32.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_33.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_33.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_34.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_34.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_35.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_35.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_36.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_36.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_37.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_37.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_38.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_38.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_39.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_39.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_40.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_40.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_41.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_41.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_42.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_42.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_43.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_43.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_44.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_44.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_45.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_45.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_46.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_46.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_47.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_47.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_48.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_48.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_49.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_49.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_5.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_50.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_50.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_51.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_51.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_52.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_52.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_53.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_53.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_54.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_54.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_55.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_55.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_56.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_56.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_57.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_57.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_58.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_58.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_59.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_59.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_6.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_60.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_60.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_61.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_61.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_62.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_62.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_63.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_63.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_64.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_64.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_65.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_65.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_66.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_66.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_67.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_67.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_68.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_68.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_69.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_69.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_7.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_70.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_70.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_71.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_71.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_72.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_72.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_73.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_73.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_74.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_74.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_75.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_75.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_76.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_76.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_77.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_77.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_78.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_78.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_79.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_79.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_8.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_80.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_80.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_81.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_81.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_82.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_82.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_83.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_83.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_84.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_84.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_85.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_85.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_86.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_86.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_87.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_87.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_88.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_88.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_89.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_89.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_9.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_90.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_90.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_91.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_91.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_92.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_92.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_93.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_93.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_94.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_94.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_95.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_95.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_96.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_96.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_97.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_97.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_98.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_98.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/Planets/planet_99.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Media/Planets/planet_99.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LeanLocalization.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LeanLocalization.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +314,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/880832F2-C4E2-4580-9040-1BBB74A86B24/64/5295a4a1/JsonSerializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E78722EF-0846-4AB7-9A3A-CEF56EE8F2B2/72/a430fa95/JsonUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/898512DD-B9B7-4303-996C-5D2E8D378F73/aa/e379cce2/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_InputField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/LayoutLanguageUpdater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2D.cs" root0="SKIP_HIGHLIGHTING" />
@@ -61,8 +334,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/ColorPicker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/861E23C6-7270-4A4A-8ECA-9C234AF0CAC5/47/0772add8/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatNetworkManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/InputFieldSelect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/MainPlanetController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/InvaderSkinChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Selectable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/ClickHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Network/CurrentPlayer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/PlanetController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -73,6 +349,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Localization/LanguageChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/Mirror/Core/NetworkClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Ads/InterstitialAds.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/AudioSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Ads/BannerAds.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/880832F2-C4E2-4580-9040-1BBB74A86B24/df/2c5a9be6/JsonTextReader.cs" root0="SKIP_HIGHLIGHTING" />
@@ -86,11 +363,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/NetworkRoomManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionHUD.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectUnits.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Input/CameraController.cs" />
-        <option value="$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/NetworkManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Transports/LRM/Editor/LRMInspector.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Transports/LRM/LRMTransport/LightReflectiveMirrorTransport.cs" />
@@ -122,21 +394,26 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/ClickHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Steamworks.NET/SteamManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/MusicUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/AdsInitializer.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/BannerAds.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/InterstitialAds.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/RewardedAds.cs" />
-        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Mirror/Components/NetworkRoomManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" />
         <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2D.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceSingleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/InvaderSkinChanger.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/UI/LayoutLanguageUpdater.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/AdsInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/BannerAds.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/InterstitialAds.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/RewardedAds.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/UI/InputFieldSelect.cs" />
+        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/AudioSettings.cs" />
       </list>
     </option>
   </component>
@@ -278,7 +555,7 @@
       <workItem from="1670510576206" duration="3745000" />
       <workItem from="1670568115280" duration="76000" />
       <workItem from="1670581286895" duration="6174000" />
-      <workItem from="1670743938449" duration="3506000" />
+      <workItem from="1670743938449" duration="15657000" />
     </task>
     <servers />
   </component>
@@ -304,18 +581,18 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="791" y="280" key="RiderGenerateDialog" timestamp="1670517204373">
+    <state x="791" y="280" key="RiderGenerateDialog" timestamp="1670782968935">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="791" y="280" key="RiderGenerateDialog/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1670517204373" />
+    <state x="791" y="280" key="RiderGenerateDialog/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1670782968935" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1669795608636">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1669795608636" />
-    <state x="93" y="93" width="1862" height="926" key="VCS.FileHistoryDialog" timestamp="1669909548132">
+    <state x="93" y="93" width="1862" height="926" key="VCS.FileHistoryDialog" timestamp="1670785196867">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="93" y="93" width="1862" height="926" key="VCS.FileHistoryDialog/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1669909548132" />
+    <state x="93" y="93" width="1862" height="926" key="VCS.FileHistoryDialog/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1670785196867" />
     <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1670354051664">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

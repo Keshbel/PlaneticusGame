@@ -10,6 +10,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     [SerializeField] private string iOSAdID = "Rewarded_iOS";
     private string _adID;
 
+    #if UNITY_ANDROID || UNITY_IOS
     private void Awake()
     {
         _adID = Application.platform == RuntimePlatform.IPhonePlayer ? iOSAdID : androidAdID;
@@ -26,6 +27,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     {
         if (buttonShowAd) buttonShowAd.onClick.RemoveAllListeners();
     }
+    #endif
 
     public void LoadAd()
     {

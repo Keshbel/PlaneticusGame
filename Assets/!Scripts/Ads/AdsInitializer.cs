@@ -8,10 +8,12 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] private bool testMode = true;
     private string _gameID;
 
+    #if UNITY_ANDROID || UNITY_IOS
     private void Awake()
     {
         InitializeAds();
     }
+    #endif
 
     private void InitializeAds()
     {
@@ -29,3 +31,4 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
         Debug.LogError($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
     }
 }
+

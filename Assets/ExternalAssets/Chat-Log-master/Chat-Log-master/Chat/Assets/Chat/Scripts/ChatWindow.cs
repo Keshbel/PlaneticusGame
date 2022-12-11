@@ -51,12 +51,12 @@ namespace ChatForStrategy
 
         private void Start()
         {
-            /*if (chatIsOpen)
+            if (chatIsOpen)
                 OpenChat();
             else
-                CloseChat();*/
+                CloseChat();
 
-            Invoke(nameof(StartGame), 0.1f);
+            //Invoke(nameof(StartGame), 0.1f);
         }
 
         private void Update()
@@ -82,7 +82,7 @@ namespace ChatForStrategy
         public void OpenChat()
         {
             //_animation.Play("OpenChat");
-            //EnableInputField();
+            EnableInputField();
             
             _movingState?.Kill();
             _movingState = transform.DOMoveX(0, 1f).OnComplete(() => chatIsOpen = true);
@@ -91,12 +91,11 @@ namespace ChatForStrategy
         public void CloseChat()
         {
             //_animation.Play("CloseChat");
-            //DisableInputField();
+            DisableInputField();
             
             _movingState?.Kill();
             var multiplierResolution = Screen.width / 1920f;
-            _movingState = transform.DOMoveX(-posXCloseState * multiplierResolution, 1f).OnComplete(() => chatIsOpen = false);  
-            //Move(new Vector3(-posXCloseState, position.y,position.z), 1f).OnComplete(() => chatIsOpen = false);
+            _movingState = transform.DOMoveX(-posXCloseState * multiplierResolution, 1f).OnComplete(() => chatIsOpen = false);
         }
 
         public void OpenCloseChat() //ui event trigger
@@ -116,7 +115,10 @@ namespace ChatForStrategy
         }
         public void ChatDraggable()
         {
-            chatIsOpen = !(transform.position.x < -300);
+            if (transform.position.x < -300) CloseChat();
+            else OpenChat();
+
+                //chatIsOpen = !(transform.position.x < -300);
         }
 
         private void StartGame()

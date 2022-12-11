@@ -9,7 +9,8 @@ public class BannerAds : MonoBehaviour
     [SerializeField] private string androidAdID = "Banner_Android";
     [SerializeField] private string iOSAdID = "Banner_iOS";
     private string _adID;
-    
+  
+    #if UNITY_ANDROID || UNITY_IOS
     private void Awake()
     {
         _adID = Application.platform == RuntimePlatform.IPhonePlayer ? iOSAdID : androidAdID;
@@ -20,14 +21,15 @@ public class BannerAds : MonoBehaviour
         Advertisement.Banner.SetPosition(bannerPosition);
         StartCoroutine(LoadAdBanner());
     }
+    #endif
 
     private IEnumerator LoadAdBanner()
     {
         yield return new WaitForSeconds(1f);
         LoadBanner();
     }
-    
-    public void LoadBanner()
+
+    private void LoadBanner()
     {
         BannerLoadOptions options = new BannerLoadOptions()
         {
@@ -66,5 +68,4 @@ public class BannerAds : MonoBehaviour
     private void OnBannerHidden() { }
     
     private void OnBannerShown() { }
-    
 }

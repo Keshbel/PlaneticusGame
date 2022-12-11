@@ -14,6 +14,7 @@ public class RoomPlayer : NetworkRoomPlayer
      [SyncVar] public RoomPlayerUI roomPlayerUI;
      [SyncVar (hook = nameof(UpdatePlayerName))] public string playerName;
      [SyncVar] public Color playerColor;
+     [SyncVar] public int indexInvaderSprite;
 
      private void Awake()
      {
@@ -37,10 +38,13 @@ public class RoomPlayer : NetworkRoomPlayer
                
                CmdUpdatePlayerName(_roomManager.playerName);
                CmdUpdatePlayerColor(ColorPicker.Color == Color.clear ? Random.ColorHSV() : _roomManager.playerColor);
+               CmdUpdateIndexInvaderSprite(PlayerPrefs.GetInt("indexInvaderSprite", 0));
 
                if (GetComponent<NetworkIdentity>().netId == 1) NetworkManager.singleton.hostPlayerName = playerName;
           }
 
+          SetDataPlayer();
+          
           await Task.Delay(250);
           
           SetDataPlayer();
@@ -59,10 +63,8 @@ public class RoomPlayer : NetworkRoomPlayer
 
      public override void ReadyStateChanged(bool oldReadyState, bool newReadyState)
      {
-          roomPlayerUI.ChangeReadyIcon(oldReadyState, newReadyState);
-          
           base.ReadyStateChanged(oldReadyState, newReadyState);
-          
+          roomPlayerUI.ChangeReadyIcon(oldReadyState, newReadyState);
      }
 
      [Server]
@@ -81,13 +83,16 @@ public class RoomPlayer : NetworkRoomPlayer
      [Client]
      public void SetDataPlayer()
      {
+          if (roomPlayerUI == null || roomPlayerUI.readyButton.onClick.GetPersistentEventCount() > 0) return;
+          
+          roomPlayerUI.leaveButton.onClick.RemoveAllListeners();
+          roomPlayerUI.readyButton.onClick.RemoveAllListeners();
+          
           roomPlayerUI.leaveButton.gameObject.SetActive(false);
           roomPlayerUI.readyButton.interactable = false;
 
           if (isLocalPlayer)
           {
-               //roomPlayerUI.CmdSetNickname(playerName);
-               
                roomPlayerUI.readyButton.interactable = true;
                roomPlayerUI.readyButton.onClick.AddListener(() => CmdChangeReadyState(!readyToBegin));
                
@@ -113,6 +118,12 @@ public class RoomPlayer : NetworkRoomPlayer
      private void CmdUpdatePlayerName(string pName)
      {
           playerName = pName;
+     }
+     
+     [Command]
+     private void CmdUpdateIndexInvaderSprite(int indexSprite)
+     {
+          indexInvaderSprite = indexSprite;
      }
 
      private void ClientDisconnect()

@@ -21,7 +21,10 @@ public class LayoutLanguageUpdater : MonoBehaviour
 
     private void UpdateLanguage()
     {
+        UpdateLanguageFunction();
         Invoke(nameof(UpdateLanguageFunction), 0.03f);
+        Invoke(nameof(UpdateLanguageFunction), 0.1f);
+        Invoke(nameof(UpdateLanguageFunction), 0.5f);
     }
     
     private void UpdateLanguageFunction()

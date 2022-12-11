@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Lean.Localization;
 using Mirror;
 using UnityEngine;
@@ -15,6 +13,7 @@ public class CurrentPlayer : NetworkBehaviour
     [Header("Main")]
     [SyncVar] public string playerName;
     [SyncVar] public Color playerColor;
+    [SyncVar] public int indexInvaderSprite;
 
     [SyncVar] public CurrentPlayer enemyPlayerDefeat;
 
@@ -152,6 +151,7 @@ public class CurrentPlayer : NetworkBehaviour
 
             var invaderControllerComponent = invader.GetComponent<SpaceInvaderController>();
             invaderControllerComponent.playerOwner = connectionToClient.identity.GetComponent<CurrentPlayer>();
+            invaderControllerComponent.indexInvaderSprite = indexInvaderSprite;
             invaderControllerComponent.SetColor(playerColor);
             invaderControllerComponent.targetTransform = goPosition.transform;
             
@@ -257,6 +257,7 @@ public class CurrentPlayer : NetworkBehaviour
     {
         playerColor = roomPlayer.playerColor;
         playerName = roomPlayer.playerName;
+        indexInvaderSprite = roomPlayer.indexInvaderSprite;
     }
     [Command]
     public void CmdSetPlayerData(RoomPlayer roomPlayer)

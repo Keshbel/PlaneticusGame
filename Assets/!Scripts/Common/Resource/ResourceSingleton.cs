@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using JamesFrowen.MirrorExamples;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class ResourceSingleton : MonoBehaviour
     public Sprite fireSprite;
     public Sprite aetherSprite;
 
+    [Header("SpaceInvader")] 
+    public List<Sprite> invaderSprites;
+    
     [Header("Audio")] 
     public AudioSource audioLampOn;
     

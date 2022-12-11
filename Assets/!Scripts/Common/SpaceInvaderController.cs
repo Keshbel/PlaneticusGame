@@ -13,6 +13,7 @@ public class SpaceInvaderController : NetworkBehaviour
     
     public SpriteRenderer spriteRenderer;
     [SyncVar(hook = nameof(UpdateColor))] public Color playerColor;
+    [SyncVar(hook = nameof(UpdateSprite))] public int indexInvaderSprite;
 
     [Header("Selecting")]
     public bool isSelecting;
@@ -224,11 +225,11 @@ public class SpaceInvaderController : NetworkBehaviour
     }
     #region Other
 
-    [Command]
+    /*[Command]
     private void CmdSetPlayer(CurrentPlayer newPlayer)
     {
         playerOwner = newPlayer;
-    }
+    }*/
 
     [Command (requiresAuthority = false)]
     public void CmdUnSpawn(GameObject go)
@@ -280,6 +281,12 @@ public class SpaceInvaderController : NetworkBehaviour
     public void UpdateColor(Color oldColor, Color newColor)
     {
         spriteRenderer.color = newColor;
+    }
+    
+    [Client]
+    public void UpdateSprite(int oldInt, int newInt)
+    {
+        spriteRenderer.sprite = ResourceSingleton.Instance.invaderSprites[newInt];
     }
     
     #endregion

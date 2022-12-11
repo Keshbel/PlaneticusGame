@@ -52,10 +52,12 @@
             <e p="RoomPlayerUI.cs" t="Include" />
           </e>
           <e p="Settings" t="Include">
+            <e p="AudioSettings.cs" t="Include" />
             <e p="BackgroundChanger.cs" t="Include" />
             <e p="ColorImage.cs" t="Include" />
             <e p="ColorOutline.cs" t="Include" />
             <e p="ColorPicker.cs" t="Include" />
+            <e p="InvaderSkinChanger.cs" t="Include" />
             <e p="PlayerNameChanger.cs" t="Include" />
             <e p="SliderArea.cs" t="Include" />
           </e>
@@ -63,6 +65,7 @@
             <e p="ClickHandler.cs" t="Include" />
             <e p="EndGame.cs" t="Include" />
             <e p="EscapeMenu.cs" t="Include" />
+            <e p="InputFieldSelect.cs" t="Include" />
             <e p="LayoutLanguageUpdater.cs" t="Include" />
             <e p="PanelController.cs" t="Include" />
             <e p="PlanetPanelUI.cs" t="Include" />

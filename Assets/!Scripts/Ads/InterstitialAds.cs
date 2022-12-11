@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -8,19 +7,15 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     [SerializeField] private string iOSAdID = "Interstitial_iOS";
     private string _adID;
 
+    #if UNITY_ANDROID || UNITY_IOS
     private void Awake()
     {
         _adID = Application.platform == RuntimePlatform.IPhonePlayer ? iOSAdID : androidAdID;
         LoadAd();
     }
+    #endif
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            ShowAd();
-    }
-
-    public void LoadAd()
+    private void LoadAd()
     {
         Debug.Log("Loading Ad: " + _adID);
         Advertisement.Load(_adID, this);
