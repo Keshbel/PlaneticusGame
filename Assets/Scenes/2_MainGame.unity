@@ -4949,7 +4949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90480aa3f5c7811498f11f187dddf0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSize: 2
+  startSize: 20
   maxSize: 5000
   prefab: {fileID: 2860486228469298175, guid: 6a985395fe888814b9fc70cb111007aa, type: 3}
   currentCount: 0
@@ -8125,7 +8125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0afd0adddc01c489f8c59f6e8b6d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chatIsOpen: 1
+  chatIsOpen: 0
   logging: 0
   inputFieldComp: {fileID: 8484588336741400213}
   content: {fileID: 8484588338324084994}

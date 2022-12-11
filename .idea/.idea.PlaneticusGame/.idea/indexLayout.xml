@@ -12,7 +12,7 @@
       <Path>Library/PackageCache/com.unity.2d.spriteshape@7.0.5</Path>
       <Path>Library/PackageCache/com.unity.adaptiveperformance.samsung.android@4.0.1</Path>
       <Path>Library/PackageCache/com.unity.adaptiveperformance@4.0.1</Path>
-      <Path>Library/PackageCache/com.unity.ads@3.7.5</Path>
+      <Path>Library/PackageCache/com.unity.ads@4.4.1</Path>
       <Path>Library/PackageCache/com.unity.analytics@3.6.12</Path>
       <Path>Library/PackageCache/com.unity.burst@1.7.3</Path>
       <Path>Library/PackageCache/com.unity.cinemachine@2.8.6</Path>
@@ -33,8 +33,10 @@
       <Path>Library/PackageCache/com.unity.services.authentication@2.1.1</Path>
       <Path>Library/PackageCache/com.unity.services.core@1.4.2</Path>
       <Path>Library/PackageCache/com.unity.services.lobby@1.0.3</Path>
+      <Path>Library/PackageCache/com.unity.services.mediation@1.0.5</Path>
       <Path>Library/PackageCache/com.unity.services.qos@1.0.2</Path>
       <Path>Library/PackageCache/com.unity.services.relay@1.0.4</Path>
+      <Path>Library/PackageCache/com.unity.settings-manager@1.0.3</Path>
       <Path>Library/PackageCache/com.unity.subsystemregistration@1.1.0</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.31</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@3.0.6</Path>

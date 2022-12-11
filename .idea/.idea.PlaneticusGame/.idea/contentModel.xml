@@ -9,6 +9,12 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="!Scripts" t="Include">
+          <e p="Ads" t="Include">
+            <e p="AdsInitializer.cs" t="Include" />
+            <e p="BannerAds.cs" t="Include" />
+            <e p="InterstitialAds.cs" t="Include" />
+            <e p="RewardedAds.cs" t="Include" />
+          </e>
           <e p="Common" t="Include">
             <e p="AllSingleton.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
@@ -43,6 +49,7 @@
           <e p="Room" t="Include">
             <e p="RoomManager.cs" t="Include" />
             <e p="RoomPlayer.cs" t="Include" />
+            <e p="RoomPlayerUI.cs" t="Include" />
           </e>
           <e p="Settings" t="Include">
             <e p="BackgroundChanger.cs" t="Include" />
@@ -59,10 +66,10 @@
             <e p="LayoutLanguageUpdater.cs" t="Include" />
             <e p="PanelController.cs" t="Include" />
             <e p="PlanetPanelUI.cs" t="Include" />
-            <e p="RoomPlayerUI.cs" t="Include" />
           </e>
           <e p="Utils.cs" t="Include" />
           <e p="VisualFeatures" t="Include">
+            <e p="LightSprite.cs" t="Include" />
             <e p="Parallax.cs" t="Include" />
             <e p="UIRotates.cs" t="Include" />
           </e>
@@ -226,6 +233,9 @@
             </e>
             <e p="Version.cs" t="Include" />
           </e>
+        </e>
+        <e p="Editor" t="Include">
+          <e p="MediationAdapterDependencies.xml" t="Include" />
         </e>
         <e p="ExternalAssets" t="Include">
           <e p="Chat-Log-master" t="Include">
@@ -935,6 +945,11 @@
             </e>
           </e>
           <e p="VERSION.txt" t="Include" />
+        </e>
+        <e p="MobileDependencyResolver" t="Include">
+          <e p="Editor" t="Include">
+            <e p="mobile-dependency-resolver.txt" t="Include" />
+          </e>
         </e>
         <e p="Plugins" t="Include">
           <e p="BetterStreamingAssets" t="Include">

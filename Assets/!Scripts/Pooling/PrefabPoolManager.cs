@@ -17,6 +17,7 @@ namespace JamesFrowen.MirrorExamples
         
         void Start()
         {
+            startSize = 20 * NetworkServer.connections.Count;
             InitializePool();
 
             NetworkClient.RegisterPrefab(prefab, SpawnHandler, UnspawnHandler);

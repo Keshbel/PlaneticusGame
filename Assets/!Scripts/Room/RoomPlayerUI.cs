@@ -11,12 +11,10 @@ public class RoomPlayerUI : NetworkBehaviour
     public Button leaveButton;
 
     [SerializeField] private Image readyImage;
-    [SerializeField] private Sprite readySprite;
-    [SerializeField] private Sprite notReadySprite;
 
     public void ChangeReadyIcon(bool oldReadyState, bool newReadyState)
     {
-        if (readyImage) readyImage.sprite = newReadyState ? readySprite : notReadySprite;
+        if (readyImage) readyImage.color = newReadyState ? Color.green : Color.white;
     }
     
     [Server]

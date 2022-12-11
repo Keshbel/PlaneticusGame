@@ -20,12 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Planet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/Planet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/RoomPlayerUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/RoomPlayerUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderGreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderGreen.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderRed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderRed.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderWhite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Media/SpaceInvaderWhite.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mirror/Components/NetworkRoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mirror/Components/NetworkRoomManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LeanLocalization.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LeanLocalization.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Room/UI_RoomPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Room/UI_RoomPlayer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,57 +55,56 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FCB9DAC8-AE3A-4886-93B0-F4CD5B0DB0BE/2e/8237ae02/Action`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Utils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionHUD.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mirror.steamworks.net@f586cc3303/FizzySteamworks.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/EscapeMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/HostIpAdress.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/880832F2-C4E2-4580-9040-1BBB74A86B24/64/5295a4a1/JsonSerializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E78722EF-0846-4AB7-9A3A-CEF56EE8F2B2/72/a430fa95/JsonUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/898512DD-B9B7-4303-996C-5D2E8D378F73/aa/e379cce2/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/LayoutLanguageUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Editor/2D/Light2DEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Room/RoomPlayer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2DShape.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/PlayerNameChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Input/SelectablePlanet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/Message.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/Enums.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/RoomPlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/EscapeMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/HostIpAdress.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/880832F2-C4E2-4580-9040-1BBB74A86B24/64/5295a4a1/JsonSerializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/SliderArea.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E78722EF-0846-4AB7-9A3A-CEF56EE8F2B2/72/a430fa95/JsonUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FCB9DAC8-AE3A-4886-93B0-F4CD5B0DB0BE/7e/e8333358/Action`3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/ColorOutline.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/898512DD-B9B7-4303-996C-5D2E8D378F73/aa/e379cce2/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/ColorPicker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/861E23C6-7270-4A4A-8ECA-9C234AF0CAC5/47/0772add8/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatNetworkManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/MainPlanetController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/ClickHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Network/CurrentPlayer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/LayoutLanguageUpdater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/PlanetController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Ads/RewardedAds.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Chat-Log-master/Chat-Log-master/Chat/Assets/Mirror/Runtime/NetworkManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FCB9DAC8-AE3A-4886-93B0-F4CD5B0DB0BE/ee/913db00b/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/EndGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Localization/LanguageChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/Mirror/Core/NetworkClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Ads/InterstitialAds.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Ads/BannerAds.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/880832F2-C4E2-4580-9040-1BBB74A86B24/df/2c5a9be6/JsonTextReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Network/ConnectionHUD.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Jerk Game 3D/Assets/Scripts/Common/PlayerNameChanger.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Room/RoomPlayer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C6B52566-F59B-49FC-861A-7812A1EA2F6B/87/cbbc5c83/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/PlayerNameChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/UIRotates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/SpaceInvaderController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/PlayerNameChanger.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/SliderArea.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Settings/ColorPicker.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/UI/LayoutLanguageUpdater.cs" />
-        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Core/SyncList.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Resource/ResourceForPlanet.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/UI/RoomPanelUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/UI/RoomPlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/ExternalAssets/Mirror/Components/NetworkRoomManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Network/ConnectionHUD.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectUnits.cs" />
@@ -122,9 +136,7 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/Utils.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/AllSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/EscapeMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" />
-        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/EndGame.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/ClickHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Steamworks.NET/SteamManager.cs" />
@@ -134,6 +146,16 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Pooling/PrefabPoolManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/AdsInitializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/BannerAds.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/InterstitialAds.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Ads/RewardedAds.cs" />
+        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2D.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" />
+        <option value="$PROJECT_DIR$/Assets/ExternalAssets/Chat-Log-master/Chat-Log-master/Chat/Assets/Chat/Scripts/ChatWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Room/RoomPlayerUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Mirror/Components/NetworkRoomManager.cs" />
       </list>
     </option>
   </component>
@@ -272,6 +294,10 @@
       <workItem from="1670240554082" duration="4444000" />
       <workItem from="1670320780548" duration="2582000" />
       <workItem from="1670348209955" duration="9543000" />
+      <workItem from="1670510576206" duration="3745000" />
+      <workItem from="1670568115280" duration="76000" />
+      <workItem from="1670581286895" duration="6174000" />
+      <workItem from="1670743938449" duration="1253000" />
     </task>
     <servers />
   </component>
@@ -297,10 +323,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="791" y="280" key="RiderGenerateDialog" timestamp="1667149687580">
+    <state x="791" y="280" key="RiderGenerateDialog" timestamp="1670517204373">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="791" y="280" key="RiderGenerateDialog/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1667149687580" />
+    <state x="791" y="280" key="RiderGenerateDialog/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1670517204373" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1669795608636">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -317,9 +343,9 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="681" y="259" key="run.anything.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1668773838852" />
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1670351008078">
+    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1670511457628">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1670351008078" />
+    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/2560.0.1920.1040@0.0.2048.1112" timestamp="1670511457628" />
   </component>
 </project>

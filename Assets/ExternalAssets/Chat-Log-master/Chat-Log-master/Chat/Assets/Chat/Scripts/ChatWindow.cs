@@ -85,7 +85,7 @@ namespace ChatForStrategy
             //EnableInputField();
             
             _movingState?.Kill();
-            _movingState = transform.DOMove(Vector3.zero, 1f).OnComplete(() => chatIsOpen = true);
+            _movingState = transform.DOMoveX(0, 1f).OnComplete(() => chatIsOpen = true);
         }
 
         public void CloseChat()
@@ -94,8 +94,9 @@ namespace ChatForStrategy
             //DisableInputField();
             
             _movingState?.Kill();
-            var position = transform.position;
-            _movingState = transform.DOMove(new Vector3(-posXCloseState, position.y,position.z), 1f).OnComplete(() => chatIsOpen = false);
+            var multiplierResolution = Screen.width / 1920f;
+            _movingState = transform.DOMoveX(-posXCloseState * multiplierResolution, 1f).OnComplete(() => chatIsOpen = false);  
+            //Move(new Vector3(-posXCloseState, position.y,position.z), 1f).OnComplete(() => chatIsOpen = false);
         }
 
         public void OpenCloseChat() //ui event trigger
