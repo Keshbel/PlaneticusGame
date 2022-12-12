@@ -127,7 +127,7 @@ public class SelectUnits : NetworkBehaviour
 		var invaders = invaderControllers;
 		var invaderRandom = invaders[Random.Range(0, invaders.Count)];
 		
-		foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet)
+		foreach (var planet in MainPlanetController.Instance.listPlanet)
 		{
 			planet.CalculateDistance(invaderRandom.transform.position, invader.speed);
 		}
@@ -136,7 +136,7 @@ public class SelectUnits : NetworkBehaviour
 	[Client]
 	private void ClearDistanceInfo()
 	{
-		foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet)
+		foreach (var planet in MainPlanetController.Instance.listPlanet)
 		{
 			planet.ClearDistanceText();
 		}

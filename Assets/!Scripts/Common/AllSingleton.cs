@@ -8,7 +8,7 @@ public class AllSingleton : NetworkBehaviour
 {
     [Header("Players")]
     public CurrentPlayer player;
-    public readonly SyncList<CurrentPlayer> Players = new SyncList<CurrentPlayer>();
+    //public readonly SyncList<CurrentPlayer> Players = new SyncList<CurrentPlayer>();
     public List<SelectablePlanet> selectablePlanets;
 
     [Header("Options")] 
@@ -21,7 +21,6 @@ public class AllSingleton : NetworkBehaviour
 
     [Header("Scripts")]
     public CameraController cameraController;
-    public MainPlanetController mainPlanetController;
     public ChatWindow chatWindow;
 
     [Header("Panels")]
@@ -52,9 +51,6 @@ public class AllSingleton : NetworkBehaviour
     
     private void Awake()
     {
-        if (!mainPlanetController)
-            mainPlanetController = FindObjectOfType<MainPlanetController>();
-        
         if (Instance != null) NetworkServer.Destroy(gameObject);
         else Instance = this;
     }

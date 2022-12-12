@@ -9,8 +9,9 @@ using UnityEngine;
 public class CurrentPlayer : NetworkBehaviour
 {
     public List<CurrentPlayer> players = new List<CurrentPlayer>();
-    
-    [Header("Main")]
+
+    [Header("Main")] 
+    public RoomPlayer roomPlayer;
     [SyncVar] public string playerName;
     [SyncVar] public Color playerColor;
     [SyncVar] public int indexInvaderSprite;
@@ -41,12 +42,12 @@ public class CurrentPlayer : NetworkBehaviour
         AllSingleton.Instance.player = this;
 
         var roomPlayers = FindObjectsOfType<RoomPlayer>().ToList();
-        var roomPlayer = roomPlayers.Find(p => p.isOwned);
+        roomPlayer = roomPlayers.Find(p => p.isOwned);
 
         CmdSetPlayerData(roomPlayer);
         Invoke(nameof(CmdHomePlanetAddingToPlayer), 0.5f);
         Invoke(nameof(CameraToHome), 1f);
-        Invoke(nameof(AddPlayer), 1f);
+        Invoke(nameof(AddPlayer), 0.05f);
     }
 
     public override void OnStopClient()
@@ -65,8 +66,8 @@ public class CurrentPlayer : NetworkBehaviour
         
         foreach (var planet in PlayerPlanets)
         {
-            if (isServer) AllSingleton.Instance.mainPlanetController.RemovePlanetFromList(planet.GetComponent<PlanetController>());
-            else AllSingleton.Instance.mainPlanetController.CmdRemovePlanetFromList(planet.GetComponent<PlanetController>());
+            if (isServer) MainPlanetController.Instance.RemovePlanetFromList(planet.GetComponent<PlanetController>());
+            else MainPlanetController.Instance.CmdRemovePlanetFromList(planet.GetComponent<PlanetController>());
         }
     }
     
@@ -125,11 +126,6 @@ public class CurrentPlayer : NetworkBehaviour
     {
         if (isAdding) PlayerInvaders?.Add(invader);
         else PlayerInvaders?.Remove(invader);
-        
-        
-        //var identity = invader.GetComponent<NetworkIdentity>();
-        /*identity.RemoveClientAuthority();
-        identity.AssignClientAuthority(connectionToClient);*/
     }
     [Command (requiresAuthority = false)]
     public void CmdChangeListWithInvaders(SpaceInvaderController invader, bool isAdding)
@@ -210,21 +206,38 @@ public class CurrentPlayer : NetworkBehaviour
         if (LeanLocalization.GetFirstCurrentLanguage() == "Russian") AllSingleton.Instance.chatWindow.AddSystemMessage("Игрок " + playerInvader.playerName + " захватил игрока " + playerName + "!", 1);
         else AllSingleton.Instance.chatWindow.AddSystemMessage("Player " + playerInvader.playerName + " captured the player " + playerName + "!", 1);
     }
-    
+
     [Server]
     public void HomePlanetAddingToPlayer()
     {
-        var listPlanet = AllSingleton.Instance.mainPlanetController.listPlanet;
-        
+        var listPlanet = MainPlanetController.Instance.listPlanet;
+
         //домашняя планета
         if (listPlanet.Count <= 0) return;
-        
+
         var homePlanet = listPlanet.Find(planet => !planet.isHomePlanet);
+        var homePlanetPosition = homePlanet.transform.position;
+        var listPlayersPlanets = listPlanet.FindAll(planet => planet.isHomePlanet);
+        var distance = MainPlanetController.Instance.xBounds.y / (NetworkServer.connections.Count * 2);
+        if (listPlayersPlanets.Count > 0)
+            while (true)
+            {
+                //есть ли планета другого игрока в пределах дистанции
+                var isAnotherPlanetInDistance = listPlayersPlanets.Find(planController =>
+                    Vector2.Distance(homePlanetPosition, planController.gameObject.transform.position) < distance
+                        ? planController
+                        : false);
+                
+                if (isAnotherPlanetInDistance) homePlanet = listPlanet.Find(planet => !planet.isHomePlanet);
+                else break;
+            }
+
         homePlanet.SetHomePlanet();
-            
+
         ChangeListWithPlanets(homePlanet, true);
         homePlanet.Colonization();
     }
+
     [Command]
     public void CmdHomePlanetAddingToPlayer()
     {

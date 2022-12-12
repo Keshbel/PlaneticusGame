@@ -17,7 +17,7 @@ namespace JamesFrowen.MirrorExamples
         
         void Start()
         {
-            startSize = 20 * NetworkServer.connections.Count;
+            startSize = 20 * NetworkManager.singleton.numPlayers;
             InitializePool();
 
             NetworkClient.RegisterPrefab(prefab, SpawnHandler, UnspawnHandler);

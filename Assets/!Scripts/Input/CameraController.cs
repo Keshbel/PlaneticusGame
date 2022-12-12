@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Mirror;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -17,10 +18,10 @@ public class CameraController : MonoBehaviour
     private Vector3 _newPos;
     
     //ограничение границ камеры
-    private const float XMinBorder = -11.5f;
-    private const float XMaxBorder = 11.5f;
-    private const float YMinBorder = -15.4f;
-    private const float YMaxBorder = 15.4f;
+    public float xMinBorder;
+    public float xMaxBorder;
+    public float yMinBorder;
+    public float yMaxBorder;
 
     [Header("Zoom")]
     public float zoomMax;
@@ -76,19 +77,19 @@ public class CameraController : MonoBehaviour
             sensivity = 12f;
             if (Input.GetAxis("Horizontal") > 0) 
             {
-                _targetPosX = Mathf.Clamp(transform.position.x + 1f, XMinBorder, XMaxBorder);
+                _targetPosX = Mathf.Clamp(transform.position.x + 1f, xMinBorder, xMaxBorder);
             }
             else if (Input.GetAxis("Horizontal") < 0)
             {
-                _targetPosX = Mathf.Clamp(transform.position.x - 1f, XMinBorder, XMaxBorder);
+                _targetPosX = Mathf.Clamp(transform.position.x - 1f, xMinBorder, xMaxBorder);
             }
             if (Input.GetAxis("Vertical") > 0)
             {
-                _targetPosY = Mathf.Clamp(transform.position.y + 1f, YMinBorder, YMaxBorder);
+                _targetPosY = Mathf.Clamp(transform.position.y + 1f, yMinBorder, yMaxBorder);
             }
             else if (Input.GetAxis("Vertical") < 0)
             {
-                _targetPosY = Mathf.Clamp(transform.position.y - 1f, YMinBorder, YMaxBorder);
+                _targetPosY = Mathf.Clamp(transform.position.y - 1f, yMinBorder, yMaxBorder);
             }
         }
 #endif
@@ -108,8 +109,8 @@ public class CameraController : MonoBehaviour
             float posX = _mainCam.ScreenToWorldPoint(Input.mousePosition).x - _startPos.x;
             float posY = _mainCam.ScreenToWorldPoint(Input.mousePosition).y - _startPos.y;
 
-            _targetPosX = Mathf.Clamp(transform.position.x - posX, XMinBorder, XMaxBorder);
-            _targetPosY = Mathf.Clamp(transform.position.y - posY, YMinBorder, YMaxBorder);
+            _targetPosX = Mathf.Clamp(transform.position.x - posX, xMinBorder, xMaxBorder);
+            _targetPosY = Mathf.Clamp(transform.position.y - posY, yMinBorder, yMaxBorder);
         }
     }
     

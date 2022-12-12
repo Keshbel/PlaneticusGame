@@ -367,7 +367,7 @@ public class PlanetController : NetworkBehaviour
 
             PlanetPanel.logisticButton.onClick.AddListener(() => //просчёт дистанции
             {
-                foreach (var planet in AllSingleton.Instance.mainPlanetController.listPlanet.Where(planet => AllSingleton.Instance.player.PlayerPlanets.Contains(planet) && planet != this))
+                foreach (var planet in MainPlanetController.Instance.listPlanet.Where(planet => AllSingleton.Instance.player.PlayerPlanets.Contains(planet) && planet != this))
                 {
                     planet.CalculateDistance(transform.position, AllSingleton.Instance.speed);
                 }
@@ -547,7 +547,7 @@ public class PlanetController : NetworkBehaviour
     public void UpdateSpritePlanet(int oldInt, int newInt) //назначить внешний вид планеты
     {
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = AllSingleton.Instance.mainPlanetController.listSpritePlanet[newInt];
+        spriteRenderer.sprite = MainPlanetController.Instance.listSpritePlanet[newInt];
     }
     
     [Client]

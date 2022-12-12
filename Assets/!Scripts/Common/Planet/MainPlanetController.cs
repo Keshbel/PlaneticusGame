@@ -17,8 +17,8 @@ public class MainPlanetController : NetworkBehaviour
     public List<PlanetController> listPlanet;
     
     //Границы видимости камеры
-    public Vector2 xBounds;
-    public Vector2 yBounds;
+    [SyncVar] public Vector2 xBounds;
+    [SyncVar] public Vector2 yBounds;
 
     public override void OnStartServer()
     {
@@ -42,7 +42,7 @@ public class MainPlanetController : NetworkBehaviour
     [Server]
     private void Generation() //Генерация планет, если они не были сгенерированы
     {
-        var countPlanet = Random.Range(50, 70);
+        var countPlanet = Random.Range(40, 50) * NetworkServer.connections.Count;
         
         RandomName nameGen = new RandomName(); // create a new instance of the RandomName class
         List<string> allRandomNames = nameGen.RandomNames(countPlanet, 0); // generate 100 random names with up to two middle names
@@ -113,4 +113,15 @@ public class MainPlanetController : NetworkBehaviour
         x = Random.Range(xBounds.x, xBounds.y);
         y = Random.Range(yBounds.x, yBounds.y);
     }
+    
+    #region Singleton
+    
+    public static MainPlanetController Instance;
+    
+    private void Awake()
+    {
+        if (Instance != null) NetworkServer.Destroy(gameObject);
+        else Instance = this;
+    }
+    #endregion
 }

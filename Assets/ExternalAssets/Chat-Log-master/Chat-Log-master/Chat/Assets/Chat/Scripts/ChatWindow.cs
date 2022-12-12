@@ -44,6 +44,8 @@ namespace ChatForStrategy
         public float posXCloseState;
         private Tweener _movingState;
 
+        public CanvasGroup pulseNotification;
+
         public void Awake()
         {
             CurrentPlayer.OnMessage += OnPlayerMessage;
@@ -86,6 +88,7 @@ namespace ChatForStrategy
             
             _movingState?.Kill();
             _movingState = transform.DOMoveX(0, 1f).OnComplete(() => chatIsOpen = true);
+            ChangePulseNotification(false);
         }
 
         public void CloseChat()
@@ -98,6 +101,14 @@ namespace ChatForStrategy
             _movingState = transform.DOMoveX(-posXCloseState * multiplierResolution, 1f).OnComplete(() => chatIsOpen = false);
         }
 
+        public void ChangePulseNotification(bool isOn)
+        {
+            if (chatIsOpen) return;
+            
+            pulseNotification.DOFade(Convert.ToSingle(isOn), 1f);
+            pulseNotification.interactable = isOn;
+            pulseNotification.blocksRaycasts = isOn;
+        }
         public void OpenCloseChat() //ui event trigger
         {
             if (leanDrag.Dragging) return;
@@ -142,6 +153,7 @@ namespace ChatForStrategy
                 AppendMessage(text, messageTypes.Process, duration);
             }
 
+            ChangePulseNotification(true);
             //StartCoroutine(OpenCloseChatRoutine());
         }
 
@@ -176,7 +188,8 @@ namespace ChatForStrategy
                 AppendMessage(prettyMessage, messageTypes.OpponentMessage);
 
             Debug.Log(message);
-            StartCoroutine(OpenCloseChatRoutine());
+            ChangePulseNotification(true);
+            //StartCoroutine(OpenCloseChatRoutine());
         }
 
         private void EnableInputField()

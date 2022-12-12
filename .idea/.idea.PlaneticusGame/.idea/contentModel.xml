@@ -18,14 +18,15 @@
           <e p="Common" t="Include">
             <e p="AllSingleton.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
-            <e p="LogisticArrow.cs" t="Include" />
+            <e p="MapController.cs" t="Include" />
             <e p="Planet" t="Include">
               <e p="MainPlanetController.cs" t="Include" />
               <e p="PlanetController.cs" t="Include" />
-            </e>
-            <e p="Resource" t="Include">
-              <e p="ResourceForPlanet.cs" t="Include" />
-              <e p="ResourceSingleton.cs" t="Include" />
+              <e p="Resource" t="Include">
+                <e p="LogisticArrow.cs" t="Include" />
+                <e p="ResourceForPlanet.cs" t="Include" />
+                <e p="ResourceSingleton.cs" t="Include" />
+              </e>
             </e>
             <e p="SpaceInvaderController.cs" t="Include" />
           </e>
@@ -52,11 +53,11 @@
             <e p="RoomPlayerUI.cs" t="Include" />
           </e>
           <e p="Settings" t="Include">
-            <e p="AudioSettings.cs" t="Include" />
             <e p="BackgroundChanger.cs" t="Include" />
             <e p="ColorImage.cs" t="Include" />
             <e p="ColorOutline.cs" t="Include" />
             <e p="ColorPicker.cs" t="Include" />
+            <e p="GameSettings.cs" t="Include" />
             <e p="InvaderSkinChanger.cs" t="Include" />
             <e p="PlayerNameChanger.cs" t="Include" />
             <e p="SliderArea.cs" t="Include" />

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5059683152510991250}
   - component: {fileID: 5059683152510991251}
   - component: {fileID: 6323691113103473250}
+  - component: {fileID: 1389960325}
   m_Layer: 0
   m_Name: PlanetGeneration
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c49db2c9827efc41a7f75686fc72f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
   parentTransform: {fileID: 0}
@@ -315,7 +317,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
+  _assetId: 3599635731
   serverOnly: 0
   visible: 0
-  m_AssetId: 7265b944d65e1da45ae79dd5539dd26c
   hasSpawned: 0
+--- !u!114 &1389960325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059683152510991249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ec9e2a045192f4fa9db7db890d48c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
