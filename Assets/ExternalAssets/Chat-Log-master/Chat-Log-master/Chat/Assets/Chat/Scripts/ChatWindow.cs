@@ -28,8 +28,8 @@ namespace ChatForStrategy
         private Transform content = null;
         [SerializeField]
         private Scrollbar scrollbar = null;
-        [SerializeField]
-        private Animation _animation = null;
+        //[SerializeField]
+        //private Animation _animation = null;
 
         [SerializeField, Tooltip("Button to send a message")]
         private KeyCode chatSendKey = KeyCode.Return;

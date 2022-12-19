@@ -25,7 +25,7 @@ public class SpaceInvaderController : NetworkBehaviour
 
     [Header("Move/Rotate")] 
     public TrailRenderer trailRenderer;
-    private Tweener _moveTween;
+    public Tweener MoveTween;
     [SyncVar] public Transform targetTransform;
     [SyncVar] public float speed = 1f;
     
@@ -36,7 +36,7 @@ public class SpaceInvaderController : NetworkBehaviour
         isIdle = false;
         isSelecting = false;
 
-        _moveTween?.Kill();
+        MoveTween?.Kill();
         StopAllCoroutines();
     }
 
@@ -52,7 +52,7 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private void Update()
     {
-        if (!isOwned) return;
+        if (!isOwned && !playerOwner.isBot) return;
         
         if (targetTransform != null) 
         {
@@ -64,7 +64,8 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.gameObject.CompareTag("Planet") || !isOwned || other.transform != targetTransform || playerOwner == null) return;
+        if (!other.gameObject.CompareTag("Planet") || other.transform != targetTransform || playerOwner == null) return;
+        if (!isOwned && !playerOwner.isBot) return;
         
         var planetController = other.gameObject.GetComponent<PlanetController>();
         
@@ -80,7 +81,7 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (!other.collider.CompareTag("Planet") || !isOwned || !NetworkClient.active || playerOwner == null) return;
+        if (!other.collider.CompareTag("Planet") || playerOwner == null) return;
         if (!playerOwner.PlayerPlanets.Contains(other.gameObject.GetComponent<PlanetController>())) return;
         
         var planet = other.gameObject.GetComponent<PlanetController>();
@@ -109,7 +110,7 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         targetTransform = target.transform;
     }
-    [Command]
+    [Command (requiresAuthority = false)]
     private void CmdSetTargetTransform(GameObject target)
     {
         SetTargetTransform(target);
@@ -151,19 +152,21 @@ public class SpaceInvaderController : NetworkBehaviour
     }
 
     [Client]
-    private void Move(Vector3 targetPos, float duration) //движение в сторону цели
+    private async void Move(Vector3 targetPos, float duration) //движение в сторону цели
     {
         isIdle = false;
         
-        _moveTween?.Kill();
-        _moveTween = transform.DOMove(targetPos, duration).SetEase(Ease.Linear);
+        MoveTween?.Kill();
+        MoveTween = transform.DOMove(targetPos, duration).SetEase(Ease.Linear);
+        await MoveTween.AsyncWaitForKill();
+        MoveTween = null;
     }
     
     [Client]
     private void IdleRotate(GameObject go) //Вращение по орбите
     {
         if (!isIdle) return;
-        _moveTween?.Kill();
+        MoveTween?.Kill();
 
         transform.RotateAround(go.transform.position, Vector3.forward, 20 * speed * Time.deltaTime);
         RotateOrbit(targetTransform);
@@ -174,7 +177,7 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private async void Attack(PlanetController targetPlanet)
     {
-        if (!isOwned) return;
+        if (!isOwned && !playerOwner.isBot) return;
         
         if (targetPlanet.SpaceOrbitInvader.Count > 0) //если есть защитники
         {
@@ -211,9 +214,13 @@ public class SpaceInvaderController : NetworkBehaviour
             if (targetPlanet.countToDestroy < 1)
             {
                 var playerWithPlanet = playerOwner.players.Find(p => p.PlayerPlanets.Contains(targetPlanet));
-                if (playerWithPlanet != null) playerWithPlanet.CmdDefeat(playerOwner); //поражение другого игрока
+                if (playerWithPlanet != null)
+                {
+                    if (playerWithPlanet.isBot) playerWithPlanet.Defeat(playerOwner);
+                    else playerWithPlanet.CmdDefeat(playerOwner); //поражение другого игрока/бота
+                }
 
-                await Task.Delay(150);
+                await Task.Delay(350);
                 var playersLive = playerOwner.players.Where(player => player.PlayerPlanets.Count > 0);
                 if (playersLive.Count() == 1) AllSingleton.Instance.endGame.VictoryResult(); //победа, если остался один
             }
@@ -224,12 +231,6 @@ public class SpaceInvaderController : NetworkBehaviour
         CmdUnSpawn(gameObject);
     }
     #region Other
-
-    /*[Command]
-    private void CmdSetPlayer(CurrentPlayer newPlayer)
-    {
-        playerOwner = newPlayer;
-    }*/
 
     [Command (requiresAuthority = false)]
     public void CmdUnSpawn(GameObject go)
@@ -246,8 +247,7 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private IEnumerator LampOn() //моргание лампы при выделении
     {
-        if (isOwned)
-            ResourceSingleton.Instance.audioLampOn.Play();
+        if (isOwned || playerOwner.isBot) ResourceSingleton.Instance.audioLampOn.Play();
         
         lightLamp.color = Color.clear;
         yield return new WaitForSeconds(0.01f);

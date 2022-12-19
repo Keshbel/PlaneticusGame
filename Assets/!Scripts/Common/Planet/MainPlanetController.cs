@@ -15,6 +15,7 @@ public class MainPlanetController : NetworkBehaviour
     [SyncVar]
     [SerializeField]
     public List<PlanetController> listPlanet;
+    [SyncVar] public int idResource;
     
     //Границы видимости камеры
     [SyncVar] public Vector2 xBounds;
@@ -42,14 +43,15 @@ public class MainPlanetController : NetworkBehaviour
     [Server]
     private void Generation() //Генерация планет, если они не были сгенерированы
     {
-        var countPlanet = Random.Range(40, 50) * NetworkServer.connections.Count;
+        var countPlanet = Random.Range(40, 50) * (NetworkServer.connections.Count + RoomManager.Instance.botCount);
         
         RandomName nameGen = new RandomName(); // create a new instance of the RandomName class
         List<string> allRandomNames = nameGen.RandomNames(countPlanet, 0); // generate 100 random names with up to two middle names
-        var id = 0;
+        idResource = 0;
         
         while (listPlanet.Count < countPlanet)
         {
+            print("Id res " + idResource);
             //создание планеты
             var planet = Instantiate(AllSingleton.Instance.planetPrefab, parentTransform);
             NetworkServer.Spawn(planet);
@@ -58,7 +60,7 @@ public class MainPlanetController : NetworkBehaviour
             //рандомные параметры для неё
             planetController.indSpritePlanet = Random.Range(0, listSpritePlanet.Count); //присвоение номера вида планеты
             planetController.namePlanet = allRandomNames[listPlanet.Count]; //имя
-            planetController.AddResourceForPlanetGeneration(id); //ресурсы
+            planetController.AddResourceForPlanetGeneration(idResource); //ресурсы
             var pos = GetRandomPosition();
             
             while (planet.transform.position == Vector3.zero) 
@@ -74,7 +76,7 @@ public class MainPlanetController : NetworkBehaviour
             planet.transform.localScale = new Vector3(randomScale, randomScale, randomScale); //присвоение размера
             
             listPlanet.Add(planetController);
-            id++;      
+            idResource++;      
         }
     }
 

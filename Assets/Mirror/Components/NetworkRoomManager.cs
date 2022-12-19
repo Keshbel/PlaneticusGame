@@ -41,6 +41,9 @@ namespace Mirror
         [Tooltip("Prefab to use for the Room Player")]
         public NetworkRoomPlayer roomPlayerPrefab;
 
+        [SerializeField] 
+        public List<NetworkRoomPlayer> roomPlayers;
+        
         /// <summary>
         /// The scene to use for the room. This is similar to the offlineScene of the NetworkManager.
         /// </summary>
@@ -329,6 +332,7 @@ namespace Mirror
                 if (newRoomGameObject == null)
                 {
                     newRoomGameObject = Instantiate(roomPlayerPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                    roomPlayers.Add(newRoomGameObject.GetComponent<NetworkRoomPlayer>());
                 }
 
                 NetworkServer.AddPlayerForConnection(conn, newRoomGameObject);

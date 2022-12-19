@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using DG.Tweening;
 using Mirror;
 using UnityEngine;
@@ -6,66 +7,46 @@ using UnityEngine;
 public class LogisticArrow : NetworkBehaviour
 {
     public Collider2D thisCollider;
+    [SyncVar] public CurrentPlayer playerOwner;
+    [SyncVar] public Transform fromTransform;
+    [SyncVar] public Transform toTransform;
 
     [Client]
     private void Start()
     {
         if (!thisCollider)
             thisCollider = GetComponent<Collider2D>();
-
-        /*if (isClient)
-            if (transform.rotation.z == 0)
-            {
-                Invoke(nameof(CmdRotateTo), 0.5f);
-                Invoke(nameof(CmdRotateTo), 2.5f);
-            }*/
     }
 
-    /*private void OnCollisionEnter2D(Collision2D other)
+    private async void OnEnable()
     {
-        if (other.gameObject.CompareTag("SpaceInvader"))
+        if (playerOwner != null && playerOwner.isBot)
         {
-            var spaceInvaderController = other.gameObject.GetComponent<SpaceInvaderController>();
-            
-            if (spaceInvaderController.hasAuthority)
-                Physics2D.IgnoreCollision(other.collider, thisCollider);
-            else
-            {
-                if (isClient) other.gameObject.GetComponent<SpaceInvaderController>().CmdStopMoving();
-            }
+            await Task.Delay(200);
+            TargetStartMove(fromTransform, toTransform);
         }
-        
-    }*/
+    }
 
-    /*public void OnPointerDown(PointerEventData eventData) //нажатие на стрелочки
-    {
-        if (AllSingleton.instance.player.playerPlanets.Contains(route.fromTransform.gameObject))
-        {
-            AllSingleton.instance.logisticRouteUI.panel.OpenPanel();
-            AllSingleton.instance.logisticRouteController.OpenRoute(route);
-        }
-    }*/
-    
     [Client]
-    private void SetStartPosition(Transform fromTransform)
+    public void SetStartPosition(Transform from)
     {
-        transform.position = fromTransform.position;
+        transform.position = from.position;
     }
     
     [Client] // движение в сторону
-    private void MoveTo(Transform toTransform)
+    private void MoveTo(Transform to)
     {
-        var toPosition = toTransform.position;
+        var toPosition = to.position;
         var distance = Vector2.Distance(transform.position, toPosition);
         
-        transform.DOMove(toPosition, distance / AllSingleton.Instance.speed).SetEase(Ease.Linear).OnComplete(()=> CmdUnSpawn());
+        transform.DOMove(toPosition, distance / AllSingleton.Instance.speed).SetEase(Ease.Linear).OnComplete(CmdUnSpawn);
     }
 
     [Client] //поворот в сторону + движение
-    private void RotateTo(Transform toTransform)
+    private void RotateTo(Transform to)
     {
         var fromPosition = transform.position;
-        var toPosition = toTransform.position;
+        var toPosition = to.position;
         var an = Math.Atan2(toPosition.y - fromPosition.y, toPosition.x - fromPosition.x);
         var degAn = an * 180 / Math.PI;
 
@@ -73,13 +54,17 @@ public class LogisticArrow : NetworkBehaviour
     }
 
     [TargetRpc]
-    public void TargetStartMove(Transform fromTransform, Transform toTransform)
+    public void RpcTargetStartMove(Transform from, Transform to)
     {
-        SetStartPosition(fromTransform);
-        RotateTo(toTransform);
+        TargetStartMove(from, to);
+    }
+    public void TargetStartMove(Transform from, Transform to)
+    {
+        SetStartPosition(from);
+        RotateTo(to);
     }
 
-    [Command]
+    [Command (requiresAuthority = false)]
     private void CmdUnSpawn()
     {
         NetworkServer.UnSpawn(gameObject);

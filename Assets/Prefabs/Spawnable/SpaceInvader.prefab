@@ -228,13 +228,14 @@ MonoBehaviour:
   playerOwner: {fileID: 0}
   spriteRenderer: {fileID: 2860486228469298112}
   playerColor: {r: 0, g: 0, b: 0, a: 0}
+  indexInvaderSprite: 0
   isSelecting: 0
   lightShape: {fileID: 5591132352830115421}
   lightLamp: {fileID: 42826576226311845}
   isIdle: 1
   trailRenderer: {fileID: 7777136806196703312}
   targetTransform: {fileID: 0}
-  speed: 1
+  speed: 50
 --- !u!114 &2860486228469298113
 MonoBehaviour:
   m_ObjectHideFlags: 0
