@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 9028421642871266611}
   - component: {fileID: 4461781612412572344}
   - component: {fileID: -5847831570404075088}
+  - component: {fileID: 236857510175805140}
+  - component: {fileID: 371892602267002631}
+  - component: {fileID: 3379242423543934600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -76,9 +79,9 @@ MonoBehaviour:
   isBot: 0
   targetSuperPlanets: []
   currentState: {fileID: 0}
-  neutralInvaderState: {fileID: 11400000, guid: 3d2b17fd85c74a84ca6291f09c922080, type: 2}
-  nonInvadersState: {fileID: 11400000, guid: 4938faa1e35765b44aea91f5ede77b85, type: 2}
-  aggressiveState: {fileID: 11400000, guid: c1179f8cd9ff3854dab728af98029986, type: 2}
+  neutralInvaderState: {fileID: 236857510175805140}
+  nonInvadersState: {fileID: 371892602267002631}
+  aggressiveState: {fileID: 3379242423543934600}
 --- !u!114 &-5847831570404075088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,3 +102,73 @@ MonoBehaviour:
   isLogisticMode: 0
   skin: {fileID: 11400000, guid: 7ff5a79269a3120499605a3d0e57d204, type: 2}
   draw: 0
+--- !u!114 &236857510175805140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948984042186105390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d91b3fe08d4a9242a548cfb0bec0651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
+  currentPlayer: {fileID: 4461781612412572344}
+  botInvaders: []
+--- !u!114 &371892602267002631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948984042186105390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c082606c9bda64b9aef96a9e8efa9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
+  currentPlayer: {fileID: 4461781612412572344}
+  listMissingResources:
+  - id: 0
+    nameResource: 
+    resourcePlanet: 4
+    countResource: 1
+  - id: 0
+    nameResource: 
+    resourcePlanet: 3
+    countResource: 1
+  - id: 0
+    nameResource: 
+    resourcePlanet: 1
+    countResource: 1
+  - id: 0
+    nameResource: 
+    resourcePlanet: 2
+    countResource: 1
+  - id: 0
+    nameResource: 
+    resourcePlanet: 0
+    countResource: 1
+--- !u!114 &3379242423543934600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948984042186105390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b048bfef5b529c747b9ca535a8045fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
+  currentPlayer: {fileID: 4461781612412572344}

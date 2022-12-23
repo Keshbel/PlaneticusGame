@@ -3314,7 +3314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90480aa3f5c7811498f11f187dddf0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSize: 300
+  startSize: 1500
   maxSize: 100000
   prefab: {fileID: 1731528724999488639, guid: 62dcc6d40c3d1354da3c0e72252472f6, type: 3}
   currentCount: 0
@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90480aa3f5c7811498f11f187dddf0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSize: 20
+  startSize: 40
   maxSize: 5000
   prefab: {fileID: 2860486228469298175, guid: 6a985395fe888814b9fc70cb111007aa, type: 3}
   currentCount: 0

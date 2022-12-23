@@ -1,10 +1,10 @@
-#if UNITY_ANDROID || UNITY_IOS
 using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
 public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
+#if UNITY_ANDROID || UNITY_IOS
     [SerializeField] private Button buttonShowAd;
     
     [SerializeField] private string androidAdID = "Rewarded_Android";
@@ -41,15 +41,19 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         Advertisement.Show(_adID, this);
     }
 
+#endif
+
     public void OnUnityAdsAdLoaded(string placementId)
     {
         Debug.Log("Ad Loaded: " + placementId);
 
+#if UNITY_ANDROID || UNITY_IOS
         if (placementId.Equals(_adID) && buttonShowAd)
         {
             buttonShowAd.onClick.AddListener(ShowAd);
             buttonShowAd.interactable = true;
         }
+#endif
     }
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message) { }
@@ -62,10 +66,11 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
+#if UNITY_ANDROID || UNITY_IOS
         if (placementId.Equals(_adID) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
         }
+#endif
     }
 }
-#endif

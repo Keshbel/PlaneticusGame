@@ -1,31 +1,19 @@
 using System;
-using System.Threading.Tasks;
 using DG.Tweening;
 using Mirror;
 using UnityEngine;
 
 public class LogisticArrow : NetworkBehaviour
 {
-    public Collider2D thisCollider;
-    [SyncVar] public CurrentPlayer playerOwner;
-    [SyncVar] public Transform fromTransform;
-    [SyncVar] public Transform toTransform;
+    //public Collider2D thisCollider;
+    [SyncVar (hook = nameof(UpdateOwner))] public CurrentPlayer playerOwner;
+    public NetworkTransform networkTransform;
 
-    [Client]
+    /*[Client]
     private void Start()
     {
-        if (!thisCollider)
-            thisCollider = GetComponent<Collider2D>();
-    }
-
-    private async void OnEnable()
-    {
-        if (playerOwner != null && playerOwner.isBot)
-        {
-            await Task.Delay(200);
-            TargetStartMove(fromTransform, toTransform);
-        }
-    }
+        if (!thisCollider) thisCollider = GetComponent<Collider2D>();
+    }*/
 
     [Client]
     public void SetStartPosition(Transform from)
@@ -50,7 +38,7 @@ public class LogisticArrow : NetworkBehaviour
         var an = Math.Atan2(toPosition.y - fromPosition.y, toPosition.x - fromPosition.x);
         var degAn = an * 180 / Math.PI;
 
-        transform.DORotate(new Vector3(0, 0, (float) degAn), 0.2f, RotateMode.LocalAxisAdd).OnComplete(()=>MoveTo(toTransform));
+        transform.DORotate(new Vector3(0, 0, (float) degAn), 0.2f, RotateMode.LocalAxisAdd).OnComplete(()=>MoveTo(to));
     }
 
     [TargetRpc]
@@ -58,6 +46,7 @@ public class LogisticArrow : NetworkBehaviour
     {
         TargetStartMove(from, to);
     }
+    [Client]
     public void TargetStartMove(Transform from, Transform to)
     {
         SetStartPosition(from);
@@ -69,5 +58,12 @@ public class LogisticArrow : NetworkBehaviour
     {
         NetworkServer.UnSpawn(gameObject);
         ResourceSingleton.Instance.arrowPoolManager.PutBackInPool(gameObject);
+    }
+    
+    [Client]
+    public void UpdateOwner(CurrentPlayer oldPlayer, CurrentPlayer newPlayer)
+    {
+        if (newPlayer != null) networkTransform.syncDirection = newPlayer.isBot ? SyncDirection.ServerToClient : SyncDirection.ClientToServer;
+        else if (oldPlayer != null) networkTransform.syncDirection = oldPlayer.isBot ? SyncDirection.ServerToClient : SyncDirection.ClientToServer;
     }
 }

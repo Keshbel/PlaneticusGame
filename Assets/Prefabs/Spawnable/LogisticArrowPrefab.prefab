@@ -147,4 +147,5 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
-  thisCollider: {fileID: 0}
+  playerOwner: {fileID: 0}
+  networkTransform: {fileID: 8780733078523850666}

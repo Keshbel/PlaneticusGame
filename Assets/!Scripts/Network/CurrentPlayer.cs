@@ -22,13 +22,14 @@ public class CurrentPlayer : NetworkBehaviour
 
     [Header("SyncLists")]
     public readonly SyncList<PlanetController> PlayerPlanets = new SyncList<PlanetController>();
+    
     public readonly SyncList<SpaceInvaderController> PlayerInvaders = new SyncList<SpaceInvaderController>();
 
     [Header("Bot parameters")]
     [SyncVar] public bool isBot;
     public int SuperPlanetCount => PlayerPlanets.FindAll(planet => planet.isSuperPlanet).Count;
     public List<PlanetController> targetSuperPlanets = new List<PlanetController>();
-    public State currentState;
+    [SyncVar] public State currentState;
     public State neutralInvaderState;
     public State nonInvadersState;
     public State aggressiveState;
@@ -41,12 +42,9 @@ public class CurrentPlayer : NetworkBehaviour
         if (!currentState.IsFinished) currentState.Run();
         else
         {
-            if (SuperPlanetCount >= 3) SetState(aggressiveState);
-            else
-            {
-                var unusedInvaders = PlayerInvaders.Find(invader => invader.MoveTween == null);
-                SetState(unusedInvaders != null ? neutralInvaderState : nonInvadersState);
-            }
+            var unusedInvaders = PlayerInvaders.Find(invader => invader.MoveTween == null);
+            if (SuperPlanetCount >= 3) CmdSetState(unusedInvaders != null ? aggressiveState : nonInvadersState);
+            else CmdSetState(unusedInvaders != null ? neutralInvaderState : nonInvadersState);
         }
     }
 
@@ -64,7 +62,11 @@ public class CurrentPlayer : NetworkBehaviour
             roomPlayer = roomPlayers.Find(p => p.isOwned);
             CmdSetPlayerData(roomPlayer);
         }
-        else SetState(neutralInvaderState);
+        else
+        {
+            Destroy(selectUnits);
+            CmdSetState(neutralInvaderState);
+        }
 
         if (PlayerPlanets.Count == 0) Invoke(nameof(CmdHomePlanetAddingToPlayer), 0.5f);
         Invoke(nameof(AddPlayer), 0.05f);
@@ -94,12 +96,17 @@ public class CurrentPlayer : NetworkBehaviour
 
     #region Bot
 
-    [Client]
+    [Server]
     public void SetState(State state)
     {
-        currentState = Instantiate(state);
-        currentState.currentPlayer = this;
+        currentState = state;//Instantiate(state);
+        //currentState.currentPlayer = this;
         currentState.Init();
+    }
+    [Command (requiresAuthority = false)]
+    public void CmdSetState(State state)
+    {
+        SetState(state);
     }
 
     #endregion
@@ -180,7 +187,8 @@ public class CurrentPlayer : NetworkBehaviour
             var spawnPosition = new Vector3(xBoundCollider, planetPosition.y, planetPosition.z);
 
             var invader = AllSingleton.Instance.invaderPoolManager.GetFromPool(spawnPosition, Quaternion.identity);
-            NetworkServer.Spawn(invader, connectionToClient);
+            if (!isBot) NetworkServer.Spawn(invader, connectionToClient);
+            else NetworkServer.Spawn(invader);
 
             var invaderControllerComponent = invader.GetComponent<SpaceInvaderController>();
             invaderControllerComponent.playerOwner = this;

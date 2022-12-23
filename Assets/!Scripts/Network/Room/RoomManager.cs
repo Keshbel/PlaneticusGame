@@ -22,8 +22,7 @@ public class RoomManager : NetworkRoomManager
 
     [Header("Bots")] 
     public int botCount;
-    //public readonly SyncList<CurrentPlayer> Bots = new SyncList<CurrentPlayer>();
-    
+
     [Header("PlayerPrefers")]
     public string playerName;
     public Color playerColor;
@@ -79,11 +78,10 @@ public class RoomManager : NetworkRoomManager
                 botPlayer.playerName = "Bot " + indexBot;
 
                 var botPlayerColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-                /*while (colorList.Contains(botPlayerColor)) //исключаем взятие одинакового цвета игроков или ботов
+                while (colorList.Contains(botPlayerColor)) //исключаем взятие одинакового цвета игроков или ботов
                 {
-                    print("Катча! Попался одинаковый цвет!");
                     botPlayerColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-                }*/
+                }
 
                 colorList.Add(botPlayerColor);
                 botPlayer.playerColor = botPlayerColor;
@@ -91,8 +89,6 @@ public class RoomManager : NetworkRoomManager
                 var player = new NetworkConnectionToClient(100 + indexBot);
                 NetworkServer.AddPlayerForConnection(player, botGO);
             }
-
-            //Bots.Add(botPlayer.GetComponent<CurrentPlayer>());
         }
     }
 

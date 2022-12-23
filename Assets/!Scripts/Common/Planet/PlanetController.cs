@@ -82,8 +82,8 @@ public class PlanetController : NetworkBehaviour
         {
             for (int i = 0; i < 2; i++)
             {
-                if (isServer && playerOwner.isBot) playerOwner.SpawnInvader(1, gameObject);
-                else if (isOwned) playerOwner.CmdSpawnInvader(1, gameObject);
+                if (isServer && playerOwner.isBot || isOwned) playerOwner.SpawnInvader(1, gameObject);
+                //else if (isOwned) playerOwner.CmdSpawnInvader(1, gameObject);
                 slider.value = 0;
                 slider.DOValue(1, 2f).SetEase(Ease.Linear);
 
@@ -93,8 +93,8 @@ public class PlanetController : NetworkBehaviour
 
         while (isSuperPlanet)
         {
-            if (isServer && playerOwner.isBot) playerOwner.SpawnInvader(1, gameObject);
-            else if (isOwned) playerOwner.CmdSpawnInvader(1, gameObject);
+            if (isServer && playerOwner.isBot || isOwned) playerOwner.SpawnInvader(1, gameObject);
+            //else if (isOwned) playerOwner.CmdSpawnInvader(1, gameObject);
 
             counterToSpawn = 0;
             slider.value = counterToSpawn;
@@ -315,12 +315,13 @@ public class PlanetController : NetworkBehaviour
         {
             //инициализация
             var logisticArrowGO = ResourceSingleton.Instance.arrowPoolManager.GetFromPool(fromTransform.position, Quaternion.identity); //достаём объект из пула
-            NetworkServer.Spawn(logisticArrowGO, connectionToClient); //клиентский "спавн"
+            if (!playerOwner.isBot) NetworkServer.Spawn(logisticArrowGO, connectionToClient); //клиентский "спавн"
+            else NetworkServer.Spawn(logisticArrowGO);
             
             var logisticArrow = logisticArrowGO.GetComponent<LogisticArrow>();
             logisticArrow.playerOwner = playerOwner;
-            logisticArrow.fromTransform = fromTransform;
-            logisticArrow.toTransform = fromTransform;
+            /*logisticArrow.fromTransform = fromTransform;
+            logisticArrow.toTransform = toTransform;*/
             if (!playerOwner.isBot) logisticArrow.RpcTargetStartMove(fromTransform, toTransform);
             else logisticArrow.TargetStartMove(fromTransform, toTransform);
             

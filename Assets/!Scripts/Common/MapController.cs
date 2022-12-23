@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Mirror;
 using UnityEngine;
 
@@ -7,6 +6,11 @@ public class MapController : NetworkBehaviour
 {
     private CameraController CameraController => AllSingleton.Instance.cameraController;
     public List<SpriteRenderer> mapObjects;
+
+    [SyncVar] public float xSize;
+    [SyncVar] public float ySize;
+    [SyncVar] public float mapObjectSize;
+    [SyncVar] public int zoomMax;
 
     [ServerCallback]
     private void Awake()
@@ -16,22 +20,26 @@ public class MapController : NetworkBehaviour
         MainPlanetController.Instance.yBounds.Set(-sizeBounds, sizeBounds);
     }
 
-    [ServerCallback]
-    private async void Start()
+    public override void OnStartServer()
     {
-        await Task.Delay(250);
-        var xSize = 5.75f + (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount) * 5.75f;
-        var ySize = 7.7f + (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount) * 7.7f;
-        var zoomMax = 10 + (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount) * 2;
-        RpcSetBorderAndZoom(xSize, ySize, zoomMax);
-        
-        var sizeMapObject = 9.5f + (NetworkServer.connections.Count + RoomManager.Instance.botCount) * 9.5f;
-        
-        RpcSetMapObject(sizeMapObject);
+        base.OnStartServer();
+
+        xSize = 5.75f + (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount) * 5.75f;
+        ySize = 7.7f + (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount) * 7.7f;
+        mapObjectSize = 9.5f + (NetworkServer.connections.Count + RoomManager.Instance.botCount) * 9.5f;
+        zoomMax = 10 + (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount) * 2;
     }
-    
-    [ClientRpc]
-    private void RpcSetMapObject(float size)
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        
+        SetBorderAndZoom(xSize, ySize, zoomMax);
+        SetMapObject(mapObjectSize);
+    }
+
+    [Client]
+    private void SetMapObject(float size)
     {
         foreach (var mapObject in mapObjects)
         {
@@ -39,8 +47,8 @@ public class MapController : NetworkBehaviour
         }
     }
     
-    [ClientRpc]
-    private void RpcSetBorderAndZoom(float xSize, float ySize, int zoomMax)
+    [Client]
+    private void SetBorderAndZoom(float xSize, float ySize, int zoomMax)
     {
         CameraController.xMinBorder = -xSize;
         CameraController.xMaxBorder = xSize;

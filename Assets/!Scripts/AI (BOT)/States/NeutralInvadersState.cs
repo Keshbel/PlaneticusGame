@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu]
+//[CreateAssetMenu]
 public class NeutralInvadersState : State
 {
     private List<PlanetController> Planets => MainPlanetController.Instance.listPlanet;
@@ -17,9 +17,12 @@ public class NeutralInvadersState : State
 
         foreach (var invader in botInvaders)
         {
-            invader.MoveTowards(Utils.FindClosestNonPlayerPlanet(invader.transform, Planets).gameObject);
+            var target = Utils.FindClosestNonPlayerPlanet(invader.transform, Planets);
+            if (target != null) invader.MoveTowards(target);
         }
 
+        botInvaders.Clear();
+        
         await Task.Delay(2000);
         IsFinished = true;
     }

@@ -66,7 +66,7 @@ public class SelectUnits : NetworkBehaviour
 				foreach (var invaderController in invaderControllers.Where(invaderController =>
 					Vector2.Distance(invaderController.transform.position, targetPlanet.transform.position) > 1.5))
 				{
-					invaderController.MoveTowards(targetPlanet.gameObject);
+					invaderController.MoveTowards(targetPlanet);
 				}
 
 				Deselect();

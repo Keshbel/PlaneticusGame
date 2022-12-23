@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class SpaceInvaderController : NetworkBehaviour
 {
-    [SyncVar] public CurrentPlayer playerOwner;
+    [SyncVar (hook = nameof(UpdateOwner))] public CurrentPlayer playerOwner;
     
     public SpriteRenderer spriteRenderer;
     [SyncVar(hook = nameof(UpdateColor))] public Color playerColor;
@@ -21,9 +21,10 @@ public class SpaceInvaderController : NetworkBehaviour
     public Light2D lightLamp;
     
     [Header("Idle")]
-    public bool isIdle;
+    [SyncVar] public bool isIdle;
 
     [Header("Move/Rotate")] 
+    public NetworkTransform networkTransform;
     public TrailRenderer trailRenderer;
     public Tweener MoveTween;
     [SyncVar] public Transform targetTransform;
@@ -33,18 +34,18 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         //if (!NetworkClient.active || playerOwner == null) return;
         targetTransform = null;
-        isIdle = false;
+        if (isClient) CmdIsIdle(false);
         isSelecting = false;
 
         MoveTween?.Kill();
         StopAllCoroutines();
     }
-
+    
     private void OnEnable()
     {
-        isIdle = true;
+        if (isClient) CmdIsIdle(true);
         isSelecting = false;
-        
+
         trailRenderer.Clear();
         //trailRenderer.time = 1.5f;
     }
@@ -56,7 +57,11 @@ public class SpaceInvaderController : NetworkBehaviour
         
         if (targetTransform != null) 
         {
-            if (!isIdle) RotateTowards(targetTransform); //поворот к цели
+            if (!isIdle) 
+            {
+                //if (playerOwner.isBot) MoveTowards(targetTransform.GetComponent<PlanetController>());
+                RotateTowards(targetTransform); //поворот к цели
+            }
             else IdleRotate(targetTransform.gameObject); //вращение вокруг планеты
         }
     }
@@ -72,7 +77,7 @@ public class SpaceInvaderController : NetworkBehaviour
         if (playerOwner.PlayerPlanets.Contains(planetController)) // союзная планета 
         {
             if (planetController.SpaceOrbitInvader.Contains(this)) return;
-            isIdle = true;
+            CmdIsIdle(true);
             planetController.CmdChangeOrbitInvaderList(this, true);
         }
         else Attack(planetController);
@@ -115,23 +120,30 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         SetTargetTransform(target);
     }
+
+    [Command (requiresAuthority = false)]
+    private void CmdIsIdle(bool isOn)
+    {
+        isIdle = isOn;
+    }
     
     #endregion
 
 
     #region Moving & Rotation
-    
+
     [Client]
-    public void MoveTowards(GameObject target) //двигаться к (комбинация)
+    public void MoveTowards(PlanetController target) //двигаться к (комбинация)
     {
         //если вдруг захватчика столкнули с коллайдера планеты, то убираем его из-за захватчиков перед новой целью.
-        targetTransform.GetComponent<PlanetController>().CmdChangeOrbitInvaderList(this,  false); 
-        
+        if (targetTransform != null)
+            targetTransform.GetComponent<PlanetController>().CmdChangeOrbitInvaderList(this, false);
+
         targetTransform = target.transform;
-        var targetPos = target.transform.position;
+        var targetPos = targetTransform.position;
         var distance = Vector2.Distance(targetPos, transform.position);
-        
-        CmdSetTargetTransform(target);
+
+        CmdSetTargetTransform(target.gameObject);
         Move(targetPos, distance / speed);
     }
 
@@ -154,7 +166,7 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private async void Move(Vector3 targetPos, float duration) //движение в сторону цели
     {
-        isIdle = false;
+        CmdIsIdle(false);
         
         MoveTween?.Kill();
         MoveTween = transform.DOMove(targetPos, duration).SetEase(Ease.Linear);
@@ -287,6 +299,13 @@ public class SpaceInvaderController : NetworkBehaviour
     public void UpdateSprite(int oldInt, int newInt)
     {
         spriteRenderer.sprite = ResourceSingleton.Instance.invaderSprites[newInt];
+    }
+
+    [Client]
+    public void UpdateOwner(CurrentPlayer oldPlayer, CurrentPlayer newPlayer)
+    {
+        if (newPlayer != null) networkTransform.syncDirection = newPlayer.isBot ? SyncDirection.ServerToClient : SyncDirection.ClientToServer;
+        else if (oldPlayer != null) networkTransform.syncDirection = oldPlayer.isBot ? SyncDirection.ServerToClient : SyncDirection.ClientToServer;
     }
     
     #endregion

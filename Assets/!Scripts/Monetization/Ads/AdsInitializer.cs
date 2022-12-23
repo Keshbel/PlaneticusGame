@@ -1,9 +1,10 @@
-#if UNITY_ANDROID || UNITY_IOS
+
 using UnityEngine;
 using UnityEngine.Advertisements;
 
 public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 {
+#if UNITY_ANDROID || UNITY_IOS
     [SerializeField] private string androidGameID = "5055735";
     [SerializeField] private string iOSGameID = "5055734";
     [SerializeField] private bool testMode = true;
@@ -22,6 +23,8 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
         Advertisement.Initialize(_gameID, testMode, this);
     }
 
+#endif
+
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete");
@@ -32,4 +35,4 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
         Debug.LogError($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
     }
 }
-#endif
+

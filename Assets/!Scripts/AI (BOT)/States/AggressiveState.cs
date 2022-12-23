@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu]
+//[CreateAssetMenu]
 public class AggressiveState : State
 {
     private List<SpaceInvaderController> _botInvaders = new List<SpaceInvaderController>();
@@ -15,9 +15,13 @@ public class AggressiveState : State
         foreach (var invader in _botInvaders)
         {
             var planets = MainPlanetController.Instance.listPlanet;
-            invader.MoveTowards(Utils.FindClosestEnemyPlayerPlanet(invader.transform, planets, currentPlayer).gameObject);
+            var target = Utils.FindClosestEnemyPlayerPlanet(invader.transform, planets, currentPlayer);
+            if (target != null) invader.MoveTowards(target);
         }
 
+        _botInvaders.Clear();
+        
+        await Task.Delay(2000);
         IsFinished = true;
     }
 

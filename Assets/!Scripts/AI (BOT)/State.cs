@@ -1,14 +1,14 @@
-using System;
+using Mirror;
 using UnityEngine;
 
-public abstract class State : ScriptableObject
+public class State : NetworkBehaviour
 {
     //gameplay parameters
     public bool IsFinished { get; protected set; }
 
-    [HideInInspector] public CurrentPlayer currentPlayer;
+    public CurrentPlayer currentPlayer;
     
     public virtual void Init() {}
 
-    public abstract void Run();
+    public virtual void Run() {}
 }

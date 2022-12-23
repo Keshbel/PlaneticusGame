@@ -1,10 +1,10 @@
-#if UNITY_ANDROID || UNITY_IOS
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
 public class BannerAds : MonoBehaviour
 {
+#if UNITY_ANDROID || UNITY_IOS
     [SerializeField] private BannerPosition bannerPosition;
     
     [SerializeField] private string androidAdID = "Banner_Android";
@@ -50,11 +50,15 @@ public class BannerAds : MonoBehaviour
         
         Advertisement.Banner.Show(_adID, options);
     }
+
+#endif
     
     private void OnBannerLoaded()
     {
         Debug.Log("Banner loaded");
+        #if UNITY_ANDROID || UNITY_IOS
         ShowBannerAd();
+        #endif
     }
 
     private void OnBannerError(string message)
@@ -68,4 +72,3 @@ public class BannerAds : MonoBehaviour
     
     private void OnBannerShown() { }
 }
-#endif

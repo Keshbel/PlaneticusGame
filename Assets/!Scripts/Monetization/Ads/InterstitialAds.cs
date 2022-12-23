@@ -1,9 +1,9 @@
-#if UNITY_ANDROID || UNITY_IOS
 using UnityEngine;
 using UnityEngine.Advertisements;
 
 public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
+#if UNITY_ANDROID || UNITY_IOS
     [SerializeField] private string androidAdID = "Interstitial_Android";
     [SerializeField] private string iOSAdID = "Interstitial_iOS";
     private string _adID;
@@ -26,6 +26,7 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         Debug.Log("Showing Ad: " + _adID);
         Advertisement.Show(_adID, this);
     }
+#endif
 
     public void OnUnityAdsAdLoaded(string placementId) { }
 
@@ -39,7 +40,8 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
+#if UNITY_ANDROID || UNITY_IOS
         LoadAd();
+#endif
     }
 }
-#endif

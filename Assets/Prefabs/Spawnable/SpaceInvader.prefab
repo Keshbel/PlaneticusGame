@@ -199,7 +199,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 21300000, guid: 08d73fd4b863cbe42ad82c10bc762fc9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 095bd01d1a5a12c40a7186de3c779b64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -233,9 +233,10 @@ MonoBehaviour:
   lightShape: {fileID: 5591132352830115421}
   lightLamp: {fileID: 42826576226311845}
   isIdle: 1
+  networkTransform: {fileID: 2860486228469298174}
   trailRenderer: {fileID: 7777136806196703312}
   targetTransform: {fileID: 0}
-  speed: 50
+  speed: 1
 --- !u!114 &2860486228469298113
 MonoBehaviour:
   m_ObjectHideFlags: 0

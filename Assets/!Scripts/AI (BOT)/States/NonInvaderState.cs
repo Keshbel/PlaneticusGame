@@ -4,23 +4,25 @@ using System.Threading.Tasks;
 using Mirror;
 using UnityEngine;
 
-[CreateAssetMenu]
+//[CreateAssetMenu]
 public class NonInvaderState : State
 {
     private List<PlanetController> TargetPlanets => currentPlayer.targetSuperPlanets;
     private SyncList<PlanetController> PlayerPlanets => currentPlayer.PlayerPlanets;
-    
-    public List<ResourceForPlanet> listMissingResources = new List<ResourceForPlanet> { 
-        new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Aether},
-        new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Air},
-        new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Earth},
-        new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Fire},
-        new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Water}};
+
+    public List<ResourceForPlanet> listMissingResources;
 
     public override async void Init()
     {
         await Task.Delay(2000);
 
+        if (listMissingResources.Count == 0) listMissingResources = new List<ResourceForPlanet> { 
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Aether},
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Air},
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Earth},
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Fire},
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Water}};
+        
         if (TargetPlanets.Count == 0)
         {
             var newPlanet = PlayerPlanets.Find(planet => !planet.isSuperPlanet);
