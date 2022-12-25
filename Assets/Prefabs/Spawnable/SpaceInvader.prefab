@@ -236,7 +236,7 @@ MonoBehaviour:
   networkTransform: {fileID: 2860486228469298174}
   trailRenderer: {fileID: 7777136806196703312}
   targetTransform: {fileID: 0}
-  speed: 1
+  speed: 20
 --- !u!114 &2860486228469298113
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Mirror;
-using UnityEngine;
 
 //[CreateAssetMenu]
 public class NonInvaderState : State
@@ -16,13 +14,6 @@ public class NonInvaderState : State
     {
         await Task.Delay(2000);
 
-        if (listMissingResources.Count == 0) listMissingResources = new List<ResourceForPlanet> { 
-            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Aether},
-            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Air},
-            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Earth},
-            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Fire},
-            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Water}};
-        
         if (TargetPlanets.Count == 0)
         {
             var newPlanet = PlayerPlanets.Find(planet => !planet.isSuperPlanet);
@@ -34,6 +25,13 @@ public class NonInvaderState : State
             IsFinished = true;
             return;
         }
+        
+        if (listMissingResources.Count == 0) listMissingResources = new List<ResourceForPlanet> { 
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Aether},
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Air},
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Earth},
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Fire},
+            new ResourceForPlanet {resourcePlanet = Enums.ResourcePlanet.Water}};
 
         foreach (var planetResource in TargetPlanets[0].PlanetResources) //преобразуем в список нехватающих ресурсов
         {

@@ -51,7 +51,6 @@ public class MainPlanetController : NetworkBehaviour
         
         while (listPlanet.Count < countPlanet)
         {
-            print("Id res " + idResource);
             //создание планеты
             var planet = Instantiate(AllSingleton.Instance.planetPrefab, parentTransform);
             NetworkServer.Spawn(planet);

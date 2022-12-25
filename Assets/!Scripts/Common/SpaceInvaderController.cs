@@ -34,7 +34,7 @@ public class SpaceInvaderController : NetworkBehaviour
     {
         //if (!NetworkClient.active || playerOwner == null) return;
         targetTransform = null;
-        if (isClient) CmdIsIdle(false);
+        if (isClient && NetworkClient.active) IsIdle(false);
         isSelecting = false;
 
         MoveTween?.Kill();
@@ -43,7 +43,8 @@ public class SpaceInvaderController : NetworkBehaviour
     
     private void OnEnable()
     {
-        if (isClient) CmdIsIdle(true);
+        if (isClient && NetworkClient.active) IsIdle(true);
+        
         isSelecting = false;
 
         trailRenderer.Clear();
@@ -57,11 +58,7 @@ public class SpaceInvaderController : NetworkBehaviour
         
         if (targetTransform != null) 
         {
-            if (!isIdle) 
-            {
-                //if (playerOwner.isBot) MoveTowards(targetTransform.GetComponent<PlanetController>());
-                RotateTowards(targetTransform); //поворот к цели
-            }
+            if (!isIdle) RotateTowards(targetTransform); //поворот к цели
             else IdleRotate(targetTransform.gameObject); //вращение вокруг планеты
         }
     }
@@ -77,7 +74,7 @@ public class SpaceInvaderController : NetworkBehaviour
         if (playerOwner.PlayerPlanets.Contains(planetController)) // союзная планета 
         {
             if (planetController.SpaceOrbitInvader.Contains(this)) return;
-            CmdIsIdle(true);
+            IsIdle(true);
             planetController.CmdChangeOrbitInvaderList(this, true);
         }
         else Attack(planetController);
@@ -121,6 +118,11 @@ public class SpaceInvaderController : NetworkBehaviour
         SetTargetTransform(target);
     }
 
+    private void IsIdle(bool isOn)
+    {
+        isIdle = isOn;
+        CmdIsIdle(isOn);
+    }
     [Command (requiresAuthority = false)]
     private void CmdIsIdle(bool isOn)
     {
@@ -140,10 +142,11 @@ public class SpaceInvaderController : NetworkBehaviour
             targetTransform.GetComponent<PlanetController>().CmdChangeOrbitInvaderList(this, false);
 
         targetTransform = target.transform;
+        CmdSetTargetTransform(target.gameObject);
+        
         var targetPos = targetTransform.position;
         var distance = Vector2.Distance(targetPos, transform.position);
-
-        CmdSetTargetTransform(target.gameObject);
+        
         Move(targetPos, distance / speed);
     }
 
@@ -166,7 +169,7 @@ public class SpaceInvaderController : NetworkBehaviour
     [Client]
     private async void Move(Vector3 targetPos, float duration) //движение в сторону цели
     {
-        CmdIsIdle(false);
+        IsIdle(false);
         
         MoveTween?.Kill();
         MoveTween = transform.DOMove(targetPos, duration).SetEase(Ease.Linear);
