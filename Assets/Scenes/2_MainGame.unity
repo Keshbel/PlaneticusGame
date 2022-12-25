@@ -7252,7 +7252,7 @@ MonoBehaviour:
   syncInterval: 0.1
   player: {fileID: 0}
   selectablePlanets: []
-  speed: 3
+  speed: 0.3
   planetPrefab: {fileID: 3003615264639470420, guid: 35bf5fe1fc71e2541aeb56ba41f6858e, type: 3}
   invaderPoolManager: {fileID: 1463564238}
   selectUnitsPrefab: {fileID: 4023480795694932270, guid: b7065aa521fa4204f97c5b1012eb23d1, type: 3}

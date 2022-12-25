@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "166765098027",
+    "project_id": "planeticusgame",
+    "storage_bucket": "planeticusgame.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166765098027:android:426dfdde8e437b60aea66e",
+        "android_client_info": {
+          "package_name": "com.Keshbel.PlaneticusGame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166765098027-1i0ukfv85n2kg6vq4sul6t3jt202mshe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL8tcfqD_xkSdY8hB0ZkiaqCevh5m4xyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166765098027-1i0ukfv85n2kg6vq4sul6t3jt202mshe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "166765098027-uqe1p0arnnudmadtf4v1t4d4m6g84dkv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Keshbel.PlaneticusGame"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

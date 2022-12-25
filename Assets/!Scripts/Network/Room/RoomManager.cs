@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using kcp2k;
 using Mirror;
 using Mirror.Discovery;
@@ -21,7 +20,7 @@ public class RoomManager : NetworkRoomManager
     [Space] public KcpTransport kcpTransport;
 
     [Header("Bots")] 
-    public int botCount;
+    //public int botCount;
 
     [Header("PlayerPrefers")]
     public string playerName;
@@ -63,11 +62,10 @@ public class RoomManager : NetworkRoomManager
     public override void OnRoomServerSceneChanged(string sceneName)
     {
         base.OnRoomServerSceneChanged(sceneName);
-
-        botCount = 2;
+        
         if (sceneName == GameplayScene)
         {
-            for (int i = 0; i < botCount; i++)
+            for (int i = 0; i < RoomSettings.Instance.botCount; i++)
             {
                 var indexBot = i + 1;
 

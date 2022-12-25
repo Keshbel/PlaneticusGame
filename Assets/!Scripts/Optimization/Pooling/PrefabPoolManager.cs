@@ -17,8 +17,8 @@ namespace JamesFrowen.MirrorExamples
         
         void Start()
         {
-            if (prefab.name == "SpaceInvader") startSize = 20 * (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount);
-            if (prefab.name == "LogisticArrowPrefab") startSize = 500 * (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount);
+            if (prefab.name == "SpaceInvader") startSize = 10 * (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount);
+            if (prefab.name == "LogisticArrowPrefab") startSize = 200 * (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount);
             
             InitializePool();
 

@@ -15,7 +15,7 @@ public class MapController : NetworkBehaviour
     [ServerCallback]
     private void Awake()
     {
-        var sizeBounds = 9.5f + (NetworkServer.connections.Count + RoomManager.Instance.botCount) * 9.5f;
+        var sizeBounds = 9.5f + (NetworkServer.connections.Count + RoomSettings.Instance.botCount) * 9.5f;
         MainPlanetController.Instance.xBounds.Set(-sizeBounds, sizeBounds);
         MainPlanetController.Instance.yBounds.Set(-sizeBounds, sizeBounds);
     }
@@ -24,10 +24,10 @@ public class MapController : NetworkBehaviour
     {
         base.OnStartServer();
 
-        xSize = 5.75f + (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount) * 5.75f;
-        ySize = 7.7f + (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount) * 7.7f;
-        mapObjectSize = 9.5f + (NetworkServer.connections.Count + RoomManager.Instance.botCount) * 9.5f;
-        zoomMax = 10 + (NetworkManager.singleton.numPlayers + RoomManager.Instance.botCount) * 2;
+        xSize = 5.75f + (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount) * 5.75f;
+        ySize = 7.7f + (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount) * 7.7f;
+        mapObjectSize = 9.5f + (NetworkServer.connections.Count + RoomSettings.Instance.botCount) * 9.5f;
+        zoomMax = 10 + (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount) * 2;
     }
 
     public override void OnStartClient()

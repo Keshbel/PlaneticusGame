@@ -43,7 +43,7 @@ public class MainPlanetController : NetworkBehaviour
     [Server]
     private void Generation() //Генерация планет, если они не были сгенерированы
     {
-        var countPlanet = Random.Range(40, 50) * (NetworkServer.connections.Count + RoomManager.Instance.botCount);
+        var countPlanet = Random.Range(40, 50) * (NetworkServer.connections.Count + RoomSettings.Instance.botCount);
         
         RandomName nameGen = new RandomName(); // create a new instance of the RandomName class
         List<string> allRandomNames = nameGen.RandomNames(countPlanet, 0); // generate 100 random names with up to two middle names

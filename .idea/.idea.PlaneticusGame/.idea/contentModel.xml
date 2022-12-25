@@ -52,11 +52,16 @@
           <e p="Network" t="Include">
             <e p="ConnectionHUD.cs" t="Include" />
             <e p="CurrentPlayer.cs" t="Include" />
+            <e p="Firebase" t="Include">
+              <e p="FirebaseController.cs" t="Include" />
+            </e>
             <e p="HostIpAdress.cs" t="Include" />
             <e p="Room" t="Include">
               <e p="RoomManager.cs" t="Include" />
               <e p="RoomPlayer.cs" t="Include" />
               <e p="RoomPlayerUI.cs" t="Include" />
+              <e p="RoomSettings.cs" t="Include" />
+              <e p="RoomSettingsUI.cs" t="Include" />
             </e>
           </e>
           <e p="Optimization" t="Include">
@@ -961,11 +966,6 @@
           </e>
           <e p="VERSION.txt" t="Include" />
         </e>
-        <e p="MobileDependencyResolver" t="Include">
-          <e p="Editor" t="Include">
-            <e p="mobile-dependency-resolver.txt" t="Include" />
-          </e>
-        </e>
         <e p="Plugins" t="Include">
           <e p="BetterStreamingAssets" t="Include">
             <e p="BSA_BetterStreamingAssets.cs" t="Include" />
@@ -1559,6 +1559,8 @@
           </e>
         </e>
         <e p="StreamingAssets" t="Include">
+          <e p="google-services-desktop.json" t="Include" />
+          <e p="google-services.json" t="Include" />
           <e p="names.json" t="Include" />
         </e>
       </e>

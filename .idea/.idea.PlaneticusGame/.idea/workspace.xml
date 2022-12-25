@@ -20,14 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d860532e-61b6-4012-8012-62d1c1b65d02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlaneticusGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/AI (BOT)/States/NonInvaderState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/AI (BOT)/States/NonInvaderState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/MapController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Network/Room/RoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Network/Room/RoomManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Optimization/Pooling/PrefabPoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Optimization/Pooling/PrefabPoolManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.IOSResolver.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.IOSResolver.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.JarResolver.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.JarResolver.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.VersionHandler.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.VersionHandler.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.VersionHandlerImpl.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.VersionHandlerImpl.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/mobile-dependency-resolver.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/mobile-dependency-resolver.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LeanLocalization.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LeanLocalization.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spawnable/SpaceInvader.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1_RoomScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1_RoomScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +76,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/Room/RoomManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2DShape.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/PlayerNameChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/Firebase/FirebaseController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/MapController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/RandomNameGenerator/RandomName.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Input/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -74,6 +92,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/AI (BOT)/States/NeutralInvadersState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/!Scripts/Common/Planet/MainPlanetController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/InvaderSkinChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/Room/RoomSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/VisualFeatures/LightSprite.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Selectable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/ClickHandler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -84,6 +103,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FCB9DAC8-AE3A-4886-93B0-F4CD5B0DB0BE/ee/913db00b/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/EndGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Localization/LanguageChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Network/Room/RoomSettingsUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PlaneticusGame_clone_0/Assets/Mirror/Core/NetworkClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Settings/GameSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -98,9 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Mirror/Transports/FizzySteamworks/NextCommon.cs" />
-        <option value="$PROJECT_DIR$/Assets/com.rlabrecque.steamworks.net/Runtime/Steam.cs" />
-        <option value="$PROJECT_DIR$/Assets/Mirror/Transports/Multiplex/MultiplexTransport.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/EscapeMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/PanelController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/UI/EndGame.cs" />
@@ -139,16 +156,19 @@
         <option value="$PROJECT_DIR$/Assets/!Scripts/AI (BOT)/State.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Input/SelectUnits.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/AI (BOT)/States/NeutralInvadersState.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/MapController.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/Room/RoomManager.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/Resource/LogisticArrow.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/AI (BOT)/States/AggressiveState.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Network/CurrentPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Optimization/Pooling/PrefabPoolManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/AI (BOT)/States/NonInvaderState.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/SpaceInvaderController.cs" />
         <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/PlanetController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/Firebase/FirebaseController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/Room/RoomSettingsUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/Room/RoomManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/MapController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Common/Planet/MainPlanetController.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Network/Room/RoomSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/!Scripts/Optimization/Pooling/PrefabPoolManager.cs" />
       </list>
     </option>
   </component>
@@ -301,7 +321,8 @@
       <workItem from="1671624164139" duration="12369000" />
       <workItem from="1671689846441" duration="903000" />
       <workItem from="1671691191634" duration="1212000" />
-      <workItem from="1671953060757" duration="6496000" />
+      <workItem from="1671953060757" duration="10184000" />
+      <workItem from="1671973412056" duration="6216000" />
     </task>
     <servers />
   </component>
