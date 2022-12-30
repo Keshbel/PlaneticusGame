@@ -179,6 +179,7 @@ MonoBehaviour:
   allButtons: []
   buttonClick: {fileID: 8300000, guid: 6a664d0d31282fe41b8f65620f6c406f, type: 3}
   panelOpen: {fileID: 8300000, guid: f085cbd5a8078b349b2afd81b2a57cd7, type: 3}
+  dropdown: {fileID: 8300000, guid: 622df6012652bdb498c7ec99b1b8a532, type: 3}
 --- !u!82 &760923631204310684
 AudioSource:
   m_ObjectHideFlags: 0

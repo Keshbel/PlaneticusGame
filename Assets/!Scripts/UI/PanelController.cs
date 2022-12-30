@@ -37,7 +37,7 @@ public class PanelController : MonoBehaviour
 
     public void ClosePanel()
     {
-        MusicUI.Instance.SoundPanelClose();
+        MusicUI.Instance.SoundPanelOpen();
         
         ScaleFadeIn();
         if (AllSingleton.Instance != null) AllSingleton.Instance.cameraController.isEnable = true;

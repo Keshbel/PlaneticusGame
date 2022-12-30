@@ -24,10 +24,12 @@ public class MapController : NetworkBehaviour
     {
         base.OnStartServer();
 
-        xSize = 5.75f + (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount) * 5.75f;
-        ySize = 7.7f + (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount) * 7.7f;
-        mapObjectSize = 9.5f + (NetworkServer.connections.Count + RoomSettings.Instance.botCount) * 9.5f;
-        zoomMax = 10 + (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount) * 2;
+        var playerCount = (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount);
+        
+        xSize = 5.75f + playerCount * 5.75f;
+        ySize = 7.7f + playerCount * 7.7f;
+        mapObjectSize = 9.5f + playerCount * 9.5f;
+        zoomMax = 10 + playerCount * 2;
     }
 
     public override void OnStartClient()

@@ -13,6 +13,7 @@ public class MusicUI : MonoBehaviour
     [Header("Sounds")]
     public AudioClip buttonClick;
     public AudioClip panelOpen;
+    public AudioClip dropdown;
 
     private void Awake()
     {
@@ -30,9 +31,9 @@ public class MusicUI : MonoBehaviour
         PlayAudio(panelOpen);
     }
     
-    public void SoundPanelClose()
+    public void SoundDropdown()
     {
-        PlayAudio(panelOpen);
+        PlayAudio(dropdown);
     }
 
     private void PlayAudio(AudioClip audioClip)

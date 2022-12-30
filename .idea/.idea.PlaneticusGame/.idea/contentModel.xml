@@ -92,6 +92,11 @@
           <e p="VisualFeatures" t="Include">
             <e p="LightSprite.cs" t="Include" />
             <e p="Parallax.cs" t="Include" />
+            <e p="Pointers" t="Include">
+              <e p="HomePlanetPointer.cs" t="Include" />
+              <e p="PointerIcon.cs" t="Include" />
+              <e p="PointerManager.cs" t="Include" />
+            </e>
             <e p="UIRotates.cs" t="Include" />
           </e>
         </e>
@@ -965,6 +970,11 @@
             </e>
           </e>
           <e p="VERSION.txt" t="Include" />
+        </e>
+        <e p="MobileDependencyResolver" t="Include">
+          <e p="Editor" t="Include">
+            <e p="mobile-dependency-resolver.txt" t="Include" />
+          </e>
         </e>
         <e p="Plugins" t="Include">
           <e p="BetterStreamingAssets" t="Include">

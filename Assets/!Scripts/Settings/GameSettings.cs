@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Lean.Gui;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -6,23 +7,25 @@ using UnityEngine.UI;
 
 public class GameSettings : MonoBehaviour
 {
-    [Header("Screen")] 
-    public TMP_Dropdown resolutionDropdown;
+    [Header("Screen")]
+    [SerializeField] private TMP_Dropdown resolutionDropdown;
+    [SerializeField] private Toggle fullscreenToggle;
     private Resolution[] _resolutions;
-    public Toggle fullscreenToggle;
 
     [Header("Quality")]
-    public TMP_Dropdown qualityDropdown;
+    [SerializeField] private TMP_Dropdown qualityDropdown;
     
     [Header("Music")]
-    public AudioMixer musicMixer;
-    public Slider musicSlider; 
+    [SerializeField] private AudioMixer musicMixer;
+    [SerializeField] private Slider musicSlider; 
     
     [Header("Sound")]
-    public AudioMixer soundMixer;
-    public Slider soundSlider; 
+    [SerializeField] private AudioMixer soundMixer;
+    [SerializeField] private Slider soundSlider;
+
+    [Header("Game")] 
+    [SerializeField] private LeanToggle pointersToggle;
     
-    // Start is called before the first frame update
     void Start()
     {
         //screen resolutions
@@ -46,6 +49,7 @@ public class GameSettings : MonoBehaviour
         var resolutionValue = PlayerPrefs.GetInt("Resolution", 0);
         resolutionDropdown.value = resolutionValue == 0 ? currentResolutionIndex : resolutionValue;
         resolutionDropdown.RefreshShownValue();
+        resolutionDropdown.onValueChanged.AddListener(value => MusicUI.Instance.SoundDropdown());
         
         //fullscreen
         fullscreenToggle.onValueChanged.AddListener(UpdateFullscreen);
@@ -55,12 +59,18 @@ public class GameSettings : MonoBehaviour
         qualityDropdown.onValueChanged.AddListener(UpdateQuality);
         qualityDropdown.value = PlayerPrefs.GetInt("QualityIndex", 1);
         qualityDropdown.RefreshShownValue();
+        qualityDropdown.onValueChanged.AddListener(value => MusicUI.Instance.SoundDropdown());
         
         //audio
         musicSlider.onValueChanged.AddListener(UpdateMusicVolume);
         soundSlider.onValueChanged.AddListener(UpdateSoundVolume);
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0);
         soundSlider.value = PlayerPrefs.GetFloat("SoundVolume", 0);
+        
+        //toggle
+        pointersToggle.OnOn.AddListener(UpdatePointers);
+        pointersToggle.OnOff.AddListener(UpdatePointers);
+        pointersToggle.On = PlayerPrefsExtra.GetBool("IsPointers", true);
     }
 
     private void UpdateResolution(int resolutionIndex)
@@ -92,5 +102,12 @@ public class GameSettings : MonoBehaviour
     {
         soundMixer.SetFloat("VolumeValue", volume);
         PlayerPrefs.SetFloat("SoundVolume", volume);
+    }
+
+    private void UpdatePointers()
+    {
+        var isPointers = pointersToggle.On;
+        PlayerPrefsExtra.SetBool("IsPointers", isPointers);
+        if (PointerManager.Instance != null) PointerManager.Instance.IsOn = isPointers;
     }
 }

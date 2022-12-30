@@ -16,76 +16,52 @@ public class PlanetController : NetworkBehaviour
 {
     private PlanetPanelUI PlanetPanel => AllSingleton.Instance.planetPanelUI;
 
+    [Header("Owner")] 
     [SyncVar(hook = nameof(UpdateOwner))] public CurrentPlayer playerOwner;
 
-    [Header("Main")] public TMP_Text textName;
-    public TMP_Text textTimeDistance;
+    [Header("TMP_Text")] 
+    [SerializeField] private TMP_Text textName;
+    [SerializeField] private TMP_Text textTimeDistance;
 
-    [SyncVar(hook = nameof(UpdateTextName))]
-    public string namePlanet;
-
+    [Header("Parameters")] 
+    [SyncVar(hook = nameof(UpdateTextName))] public string namePlanet;
     [SyncVar(hook = nameof(UpdateColor))] public Color colorPlanet;
+    [SyncVar(hook = nameof(UpdateSpritePlanet))] public int indSpritePlanet;
 
-    [SyncVar(hook = nameof(UpdateSpritePlanet))]
-    public int indSpritePlanet;
+    [Header("Resources")] 
+    public int indexCurrentResource;
+    public readonly SyncList<ResourceForPlanet> PlanetResources = new SyncList<ResourceForPlanet>(); //ресурсы планеты
+    public readonly SyncList<ResourceForPlanet> PlanetSaveResources = new SyncList<ResourceForPlanet>(); //родные ресы
+    [SerializeField] private List<GameObject> resourcesIcon;
 
-    [Header("Resources")] public int indexCurrentResource;
-
-    public readonly SyncList<ResourceForPlanet>
-        PlanetResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
-
-    public readonly SyncList<ResourceForPlanet>
-        PlanetSaveResources = new SyncList<ResourceForPlanet>(); //ресурсы на планете
-
-    public List<GameObject> resourcesIcon;
-
-    [Header("Home / Super Planet")] [SyncVar(hook = nameof(HomingPlanetShow))]
-    public bool isHomePlanet = false; //является ли стартовой планетой?
-
+    [Header("Home planet")] 
+    [SyncVar(hook = nameof(HomingPlanetShow))] public bool isHomePlanet; //является ли стартовой планетой?
     [SyncVar] public int countToDestroy = 5;
-    public GameObject homeIcon;
+    [SerializeField] private GameObject homeIcon;
+    public HomePlanetPointer homePlanetPointer;
+    
+    [Header("Super planet")] 
+    [SyncVar(hook = nameof(UpdateSuperEffect))] public bool isSuperPlanet; //все ресурсы на ней
+    [SerializeField] private GameObject effectSuperPlanet;
+    [SerializeField] private GameObject sliderCanvas;
+    [SerializeField] private Slider slider;
+    [SerializeField] private float counterToSpawn;
+    [SerializeField] private float timeToSpawn = 20f;
+    private Coroutine _spawnInvaderCoroutine;
 
-    [SyncVar(hook = nameof(UpdateSuperEffect))]
-    public bool isSuperPlanet; //является ли супер планетой? (все 5 ресурсов на ней)
+    [Header("Colonized")] 
+    [SyncVar(hook = nameof(UpdateResourceIcon))] public bool isColonized;
+    [SerializeField] private SpriteRenderer selectRenderer;
 
-    public Coroutine SpawnInvaderCoroutine;
-    public GameObject effectSuperPlanet;
-    public SpriteRenderer selectRenderer;
-    public GameObject sliderCanvas;
-    public Slider slider;
-    public float counterToSpawn = 0;
-    public float timeToSpawn = 20f;
-
-    [Header("Colonized")] [SyncVar(hook = nameof(UpdateResourceIcon))]
-    public bool isColonized;
-
-    public readonly SyncList<SpaceInvaderController>
-        SpaceOrbitInvader = new SyncList<SpaceInvaderController>(); //союзные захватчики на орбите
-
-    [Client]
-    private void Start()
-    {
-        sliderCanvas.GetComponent<Canvas>().worldCamera = Camera.main;
-    }
+    //союзные захватчики на орбите
+    public readonly SyncList<SpaceInvaderController> SpaceOrbitInvader = new SyncList<SpaceInvaderController>();
 
     public override void OnStartClient()
     {
         base.OnStartClient();
 
         PlanetResources.Callback += SyncResourceForPlanetVars;
-    }
-
-    public override void OnStartAuthority()
-    {
-        base.OnStartAuthority();
-
-
-    }
-
-    public override void OnStopAuthority()
-    {
-        base.OnStopAuthority();
-
+        sliderCanvas.GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
     [Client]
@@ -146,9 +122,18 @@ public class PlanetController : NetworkBehaviour
     }
 
     [Client]
-    public void HomingPlanetShow(bool oldBool, bool newBool) //отображение иконки для родной планеты
+    public async void HomingPlanetShow(bool oldBool, bool newBool) //отображение иконки для родной планеты
     {
         if (homeIcon) homeIcon.SetActive(newBool);
+
+        if (newBool)
+        {
+            homePlanetPointer = gameObject.AddComponent<HomePlanetPointer>();
+            await Task.Delay(100);
+            PointerManager.Instance.Dictionary[homePlanetPointer].arrowImage.color = colorPlanet;
+            PointerManager.Instance.Dictionary[homePlanetPointer].isHomeIcon = isOwned;
+        }
+        else if (homePlanetPointer) homePlanetPointer.Destroy();
     }
 
     #endregion
@@ -170,10 +155,10 @@ public class PlanetController : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdRestartSpawnInvader()
     {
-        if (SpawnInvaderCoroutine == null) return;
+        if (_spawnInvaderCoroutine == null) return;
 
-        StopCoroutine(SpawnInvaderCoroutine);
-        SpawnInvaderCoroutine = StartCoroutine(StartSpawnInvadersRoutine());
+        StopCoroutine(_spawnInvaderCoroutine);
+        _spawnInvaderCoroutine = StartCoroutine(StartSpawnInvadersRoutine());
     }
 
     [Server]
@@ -553,7 +538,7 @@ public class PlanetController : NetworkBehaviour
     {
         transform.GetChild(0).gameObject.SetActive(newBool);
         sliderCanvas.SetActive(newBool);
-        if (newBool) SpawnInvaderCoroutine = StartCoroutine(StartSpawnInvadersRoutine());
+        if (newBool) _spawnInvaderCoroutine = StartCoroutine(StartSpawnInvadersRoutine());
     }
 
     [Client]
@@ -580,9 +565,9 @@ public class PlanetController : NetworkBehaviour
     [Client]
     public void UpdateOwner(CurrentPlayer oldPlayer, CurrentPlayer newPlayer)
     {
-        var saveRes = PlanetSaveResources[0]; 
+        var saveRes = PlanetSaveResources[0];
         PlanetController planetController = null;
-        
+
         if (newPlayer != null)
         {
             //восстанавливаем изначальный ресурс и убираем статус домашней планеты
@@ -591,18 +576,6 @@ public class PlanetController : NetworkBehaviour
 
             /*Debug.Log("Id сохраненного ресурса " + PlanetSaveResources[0].id);
             oldPlayer.PlayerPlanets.ToList().ForEach(planet => planet.PlanetResources.ToList().ForEach(res => Debug.Log("Id = " + res.id)));*/
-
-            /*// удаляем родной ресурс из планеты унаследовавший его и возвращаем на родную планету
-            var playerWithPlanet = AllSingleton.Instance.player.players.Find(player =>
-                player.PlayerPlanets.Find(planet =>
-                    planet.PlanetResources.Count(res => res.id == PlanetSaveResources[0].id) > 0));
-            
-            if (playerWithPlanet != null)
-            {
-                Debug.Log("Found player = " + playerWithPlanet.playerName);
-                planetController = playerWithPlanet.PlayerPlanets.Find(planet =>
-                    planet.PlanetResources.Count(res => res.id == PlanetSaveResources[0].id) > 0);
-            }*/
         }
 
         if (oldPlayer != null)
@@ -617,27 +590,6 @@ public class PlanetController : NetworkBehaviour
                 if (resource != null) planetController.CmdChangeResourceList(resource, false);
             }
         }
-
-
-
-
-        /*else if (newPlayer != null)
-        {
-            Debug.Log($"NewPlayer name = {newPlayer.playerName}");
-    
-            if (isSuperPlanet && (isOwned || newPlayer.isBot) && isClient)
-            {
-                CmdRestartSpawnInvader();
-                if (countToDestroy < 1) CmdChangeCountToDestroy(5, true);
-            }
-        }*/
-
-        /*if (planetController != null)
-        {
-            print("Пытаемся отжать ресурс обратно!");
-            var resource = planetController.PlanetResources.Find(res => res.id == PlanetSaveResources[0].id);
-            if (resource != null) planetController.CmdChangeResourceList(resource, false);
-        }*/
     }
 
     #endregion

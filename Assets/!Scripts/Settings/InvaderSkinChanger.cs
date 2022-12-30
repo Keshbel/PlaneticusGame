@@ -11,6 +11,7 @@ public class InvaderSkinChanger : MonoBehaviour
         indexSprite = PlayerPrefs.GetInt("indexInvaderSprite", 0);
         dropdown.onValueChanged.AddListener(ChangeSkin);
         dropdown.value = indexSprite;
+        dropdown.onValueChanged.AddListener(value => MusicUI.Instance.SoundDropdown());
         
         //dropdown.options[0].
     }
