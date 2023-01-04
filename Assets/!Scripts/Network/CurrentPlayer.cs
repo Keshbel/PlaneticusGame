@@ -339,7 +339,7 @@ public class CurrentPlayer : NetworkBehaviour
     {
         if (isBot || !isOwned || PlayerPlanets.Count == 0 /*&& NetworkClient.connection.identity.GetComponent<CurrentPlayer>() != this*/) return;
         var position = PlayerPlanets[0].transform.position;
-        AllSingleton.Instance.cameraController.DoMove(position.x, position.y, 1f);
+        AllSingleton.Instance.cameraController.DoCustomMove(position.x, position.y, 1f);
     }
     #endregion
 }

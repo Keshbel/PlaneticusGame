@@ -6,18 +6,16 @@ public class MapController : NetworkBehaviour
 {
     private CameraController CameraController => AllSingleton.Instance.cameraController;
     public List<SpriteRenderer> mapObjects;
-
-    [SyncVar] public float xSize;
-    [SyncVar] public float ySize;
+    
     [SyncVar] public float mapObjectSize;
     [SyncVar] public int zoomMax;
 
     [ServerCallback]
     private void Awake()
     {
-        var sizeBounds = 9.5f + (NetworkServer.connections.Count + RoomSettings.Instance.botCount) * 9.5f;
-        MainPlanetController.Instance.xBounds.Set(-sizeBounds, sizeBounds);
-        MainPlanetController.Instance.yBounds.Set(-sizeBounds, sizeBounds);
+        mapObjectSize = 9.5f + (NetworkServer.connections.Count + RoomSettings.Instance.botCount) * 9.5f;
+        MainPlanetController.Instance.xBounds.Set(-mapObjectSize, mapObjectSize);
+        MainPlanetController.Instance.yBounds.Set(-mapObjectSize, mapObjectSize);
     }
 
     public override void OnStartServer()
@@ -25,18 +23,15 @@ public class MapController : NetworkBehaviour
         base.OnStartServer();
 
         var playerCount = (NetworkManager.singleton.numPlayers + RoomSettings.Instance.botCount);
-        
-        xSize = 5.75f + playerCount * 5.75f;
-        ySize = 7.7f + playerCount * 7.7f;
-        mapObjectSize = 9.5f + playerCount * 9.5f;
-        zoomMax = 10 + playerCount * 2;
+
+        zoomMax = 10 + playerCount * 1;
     }
 
     public override void OnStartClient()
     {
         base.OnStartClient();
         
-        SetBorderAndZoom(xSize, ySize, zoomMax);
+        SetZoom(zoomMax);
         SetMapObject(mapObjectSize);
     }
 
@@ -45,19 +40,15 @@ public class MapController : NetworkBehaviour
     {
         foreach (var mapObject in mapObjects)
         {
-            mapObject.size = new Vector2(size,size) * 4;
+            mapObject.size = new Vector2(size,size) * 5;
         }
+        
+        mapObjects[0].size = new Vector2(size, size) * 2.01f;
     }
     
     [Client]
-    private void SetBorderAndZoom(float xSize, float ySize, int zoomMax)
+    private void SetZoom(int zoomValue)
     {
-        CameraController.xMinBorder = -xSize;
-        CameraController.xMaxBorder = xSize;
-        
-        CameraController.yMinBorder = -ySize;
-        CameraController.yMaxBorder = ySize;
-
-        CameraController.zoomMax = zoomMax;
+        CameraController.zoomOutMax = zoomValue;
     }
 }

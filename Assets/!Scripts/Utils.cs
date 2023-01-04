@@ -32,7 +32,7 @@ public static class Utils
         Vector3 position = nativeTransform.position;
         foreach (PlanetController planet in listPlanets)
         {
-            if (!planet.isColonized || currentPlayer.PlayerPlanets.Contains(planet)) continue;
+            if (!planet.isColonized || currentPlayer.PlayerPlanets.Contains(planet) || planet == null) continue;
             Vector3 diff = planet.transform.position - position;
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
